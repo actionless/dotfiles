@@ -1,0 +1,35 @@
+#!/bin/bash
+
+. /usr/lib/pm-utils/functions
+
+resume_maudio() {
+    sudo killall pulseaudio
+    sudo fuser -s -k /dev/snd/*
+    sudo rmmod snd_ice1712
+    sudo modprobe snd_ice1712
+    sudo rmmod snd_usb_audio
+    sudo modprobe snd_usb_audio
+    sudo killall pulseaudio
+    #sudo pulseaudio --system -D
+    sudo su lie -c "pulseaudio -D"
+    #amixer -q -c 0 set 'DAC',0 50%
+    #amixer -q -c 0 set 'DAC',1 50%
+    (sleep 1s & sudo su lie -c "env DISPLAY=:0 volti") &
+}
+
+case "${1}" in
+        hibernate)
+		#su lie -c "pulseaudio -k"
+		#modprobe -r snd_ice1712
+		#echo 'Hibernated:' >> /home/lie/hibernate.log
+		#date >> /home/lie/hibernate.log
+		#echo '----------------' >> /home/lie/hibernate.log
+                ;;
+        resume|thaw)
+		#echo 'Waked:' >> /home/lie/hibernate.log
+		#date >> /home/lie/hibernate.log
+		#echo '----------------' >> /home/lie/hibernate.log
+		resume_maudio
+                ;;
+esac
+

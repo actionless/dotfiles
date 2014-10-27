@@ -1,0 +1,9 @@
+Description='A wired connection with failover to wireless'
+Interface='bond0'
+Connection=bond
+BindsToInterfaces=('enp0s25' 'wlp4s0')
+
+IP='dhcp'
+#DHCPClient='dhclient'
+
+SkipNoCarrier='no'

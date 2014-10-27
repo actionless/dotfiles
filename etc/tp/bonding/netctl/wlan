@@ -1,0 +1,12 @@
+Description='A simple WPA encrypted wireless connection'
+Interface=wlp4s0
+Connection=wireless
+Security=wpa
+
+IP='no'
+ESSID='NET_name'
+
+Key='password'
+#Hidden=yes
+
+ExcludeAuto=no

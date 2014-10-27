@@ -1,0 +1,14 @@
+[Unit]
+Description=WPA supplicant daemon (interface-specific version)
+Requires=sys-subsystem-net-devices-%i.device netctl@bonded.service netctl.service
+After=sys-subsystem-net-devices-%i.device
+
+# NetworkManager users will probably want the dbus version instead.
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/sleep 3 ; /usr/bin/wpa_supplicant -Dnl80211 -c/etc/wpa_supplicant/wpa_supplicant-%I.conf -i%I -bbond0
+#ExecStart=/usr/bin/wpa_supplicant -Dnl80211 -c/etc/wpa_supplicant/wpa_supplicant-%I.conf -i%I
+
+[Install]
+Alias=multi-user.target.wants/wpa_supplicant@%i.service

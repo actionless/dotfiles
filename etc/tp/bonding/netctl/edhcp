@@ -1,0 +1,5 @@
+Description='A basic dhcp ethernet connection'
+Interface=enp0s25
+Connection=ethernet
+IP='no'
+Prioriry=1
