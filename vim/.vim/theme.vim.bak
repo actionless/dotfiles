@@ -1,0 +1,48 @@
+
+" |||| THEME ||||
+set cursorline
+"colorscheme actionless_monokai
+"colorscheme zellner
+set bg=light
+
+hi SpellBad ctermbg=11
+
+highlight ExtraWhitespace					ctermbg=3
+highlight Conceal			ctermfg=237		ctermbg=NONE
+highlight SpecialKey			ctermfg=black		ctermbg=234
+
+highlight LineNr	cterm=NONE	ctermfg=DarkGrey	ctermbg=NONE
+highlight CursorLineNr	cterm=bold	ctermfg=red
+highlight clear CursorLine
+highlight CursorLine	cterm=NONE	ctermbg=255		ctermfg=NONE
+highlight ColorColumn			ctermbg=black
+
+highlight Pmenu ctermbg=LightCyan gui=bold
+"hi PmenuSel				ctermfg=0 ctermbg=DarkBlue
+
+hi TabLineFill    ctermbg=NONE cterm=NONE
+"hi TabLine        cterm=NONE ctermfg=fg ctermbg=NONE
+hi TabLine        cterm=NONE ctermfg=White ctermbg=Black
+
+hi JediFunction        ctermbg=3
+hi TabLineSel     cterm=bold ctermfg=15 ctermbg=DarkGreen
+
+""""""""""""""""""""""""""
+colorscheme summerfruitmod256
+""""""""""""""""""""""""""
+hi level1c        ctermfg=130
+hi level2c        ctermfg=4
+hi level3c        ctermfg=242
+hi level4c        ctermfg=2
+hi level5c        ctermfg=1
+hi level6c        ctermfg=6
+hi level7c        ctermfg=5
+hi level8c        ctermfg=130
+hi level9c        ctermfg=248
+hi level10c       ctermfg=11
+hi level11c       ctermfg=13
+hi level12c       ctermfg=3
+hi level13c       ctermfg=12
+hi level14c       ctermfg=10
+hi level15c       ctermfg=9
+hi level16c       ctermfg=14
