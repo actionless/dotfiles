@@ -1,0 +1,5 @@
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt append_history no_inc_append_history no_share_history
+
