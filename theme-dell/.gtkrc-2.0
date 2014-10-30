@@ -4,7 +4,8 @@
 include "/home/lie/.gtkrc-2.0.mine"
 gtk-theme-name="oomox_current"
 gtk-icon-theme-name="gnome-noble"
-gtk-font-name="Sans 7.900390625"
+#gtk-font-name="Sans 7.900390625"
+gtk-font-name="Sans 8"
 gtk-cursor-theme-name="Oxygen_Zion"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
