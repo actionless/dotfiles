@@ -1,0 +1,73 @@
+
+URxvt*background: [95]#ffffff
+xterm*background: #ffffff
+
+! --- ~/.Xresources ------------------------------------------------------------
+! ------------------------------------------------------------------------------
+! --- generated with 4bit Terminal Color Scheme Designer -----------------------
+! ------------------------------------------------------------------------------
+! --- http://ciembor.github.com/4bit -------------------------------------------
+! ------------------------------------------------------------------------------
+
+! --- special colors ---
+
+*background: #ffffff
+*foreground: #1a1a1a
+
+! --- standard colors ---
+
+! black
+*color0: #3c3c3c
+
+! bright_black
+*color8: #606060
+
+! red
+*color1: #a99888
+
+! bright_red
+*color9: #c0bdbb
+
+! green
+*color2: #6eb5a5
+
+! bright_green
+*color10: #a2cdca
+
+! yellow
+*color3: #8bb588
+
+! bright_yellow
+*color11: #b1cdbb
+
+! blue
+*color4: #8b7bc2
+
+! bright_blue
+*color12: #b1aed9
+
+! magenta
+*color5: #ad7fa8
+
+! bright_magenta
+*color13: #c0aeca
+
+! cyan
+*color6: #6e98c2
+
+! bright_cyan
+*color14: #a2bdd9
+
+! white
+*color7: #d9d9d9
+
+! bright_white
+*color15: #ffffff
+
+
+! ------------------------------------------------------------------------------
+! --- end of terminal colors section -------------------------------------------
+! ------------------------------------------------------------------------------
+
+
+! vim:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:

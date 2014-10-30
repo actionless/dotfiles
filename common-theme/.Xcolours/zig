@@ -1,0 +1,37 @@
+!
+URxvt*background: [95]#101010
+xterm*background: #101010
+
+*foreground: 	 #a6a6a6
+
+!Black
+*color0:               #333333
+*color8:               #3d3d3d
+
+!Red
+*color1:               #55122a
+*color9:               #651532
+
+!Green
+*color2:               #12553d
+*color10:              #156549
+
+!Yellow
+*color3:               #604c2c
+*color11:              #6d5732
+
+!Blue
+*color4:               #2c5a60
+*color12:              #32676d
+
+!Magenta
+*color5:               #3d1255
+*color13:              #491565
+
+!Cyan
+*color6:               #425246
+*color14:              #4b5d4f
+
+!White
+*color7:               #9c9c9c
+*color15:              #a6a6a6
