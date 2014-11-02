@@ -28,23 +28,23 @@ Plugin 'majutsushi/tagbar'
 
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
-
+if has('python') && !has('nvim')
+	Plugin 'Valloric/YouCompleteMe'
+endif
 "Plugin 'Shougo/neocomplete.vim'
 "source ~/.vim/neocomplete.vim 
 
 
-
 " Python
-if has('python') || has('python3')
-	Plugin 'davidhalter/jedi-vim'
-	let g:jedi#popup_select_first = 0
-	let g:jedi#popup_on_dot = 0
-endif
-if has('python3')
-	let g:jedi#force_pycmd = 'python3'
-endif
-if has('python') && !has('nvim')
-	Plugin 'Valloric/YouCompleteMe'
+if has('nvim')
+	if has('python3')
+		let g:jedi#force_pycmd = 'python3'
+	endif
+	if has('python') || has('python3')
+		Plugin 'davidhalter/jedi-vim'
+		let g:jedi#popup_select_first = 0
+		let g:jedi#popup_on_dot = 0
+	endif
 endif
 
 
