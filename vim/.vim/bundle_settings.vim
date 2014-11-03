@@ -5,7 +5,7 @@ let g:airline_theme='kolor'
 let g:airline_powerline_fonts = 1
 let g:airline_right_sep = ''
 let g:airline_left_sep = ''
-"let g:bufferline_echo = 0
+let g:bufferline_echo = 0
 " Enable the list of buffers
 "let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#fnamemod = ':t'
