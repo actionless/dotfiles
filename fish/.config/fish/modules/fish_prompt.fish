@@ -1,0 +1,67 @@
+function _get_git_branch_name
+	echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
+end
+
+function _is_git_dirty
+	echo (command git status -s --ignore-submodules=dirty ^/dev/null)
+end
+
+function _get_git_ahead_count -a branch_name
+	echo (command git log origin/$branch_name..HEAD ^/dev/null | \
+	grep '^commit' | wc -l | tr -d ' ')
+end
+
+function git_prompt
+	#if not set -q -g __fish_classic_git_functions_defined
+		#set -g __fish_classic_git_functions_defined
+	#end
+	#__fish_git_prompt
+	set git_branch_name (_get_git_branch_name)
+	if [ $git_branch_name ]
+		if [ (_is_git_dirty) ]
+			set_color red -o
+		else
+			if [ (_get_git_ahead_count $git_branch_name) -gt 0 ]
+				set_color green -o
+			end
+		end
+end
+	echo "$git_branch_name"
+end
+
+function fish_prompt --description 'Write out the prompt'
+	set -l last_status $status
+
+	switch $USER
+	case root
+		set user_color red
+		set user_prompt '#'
+	case '*'
+		set user_color blue
+		set user_prompt '$'
+	end
+
+	if not set -q __fish_prompt_hostname
+		set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
+	end
+	if not set -q __fish_git_color
+		set -g __fish_git_color (set_color purple)
+	end
+
+	if [ $last_status -ne 0 ]
+		if not set -q __fish_prompt_status
+			set -g __fish_prompt_status (set_color yellow)
+		end
+		set prompt_status "$__fish_prompt_status [$last_status]"
+	end
+
+	echo -e -n -s \
+(set_color -b $user_color black) $USER "@" $__fish_prompt_hostname \
+(set_color -b normal) " " \
+(set_color -b $fish_color_cwd) (pwd) (set_color -b normal $fish_color_cwd) " " \
+$__fish_git_color (git_prompt) \
+(set_color -b normal) $prompt_status \
+$__fish_prompt_normal "\n" \
+$user_prompt " "
+
+end
