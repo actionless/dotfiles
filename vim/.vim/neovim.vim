@@ -1,2 +1,2 @@
-runtime! plugin/python_setup.vim
+runtime! python_setup.vim
 set unnamedclip

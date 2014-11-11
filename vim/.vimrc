@@ -68,7 +68,6 @@ endif
 
 
 source ~/.vim/bundle.vim
-source ~/.vim/bundle_settings.vim
 set laststatus=2
 source ~/.vim/default_config.vim
 source ~/.vim/bindings.vim
