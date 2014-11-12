@@ -62,7 +62,9 @@ Bundle 'dag/vim-fish'
 
 " JS
 Bundle 'maksimr/vim-jsbeautify'
-Bundle 'marijnh/tern_for_vim'
+if !has('nvim')
+	Bundle 'marijnh/tern_for_vim'
+endif
 
 "CSS
 Bundle 'groenewege/vim-less'
