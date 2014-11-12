@@ -9,33 +9,51 @@ Plugin 'gmarik/Vundle.vim'
 
 " Style
 Plugin 'kien/rainbow_parentheses.vim'
+	au VimEnter * RainbowParenthesesToggle
+	au Syntax * RainbowParenthesesLoadRound
+	au Syntax * RainbowParenthesesLoadSquare
+	au Syntax * RainbowParenthesesLoadBraces
 Plugin 'bling/vim-airline'
+	"let g:airline_theme='wombat'
+	let g:airline_theme='kolor'
+	let g:airline_powerline_fonts = 1
+	let g:airline_right_sep = ''
+	let g:airline_left_sep = ''
+	" Enable the list of buffers:
+	"let g:airline#extensions#tabline#enabled = 1
+	"let g:airline#extensions#tabline#fnamemod = ':t'
 Plugin 'bling/vim-bufferline'
+	let g:bufferline_echo = 0
 
-" Tools
-Plugin 'tpope/vim-fugitive.git'
-
-" Navigation
+" Navigation:
+"
 Plugin 'kien/ctrlp.vim'
+	let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\v[\/](\.git|env|node_modules|bower_components)$',
+	\ 'file': '\v(\.pyc|\~)$',
+	\ }
 Plugin 'scrooloose/nerdtree.git'
+	let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc', '^__pycache__$']
 "Plugin 'taglist-plus'
 Plugin 'taglist.vim'
 Plugin 'majutsushi/tagbar'
 "Plugin 'kien/tabman.vim'
-"Plugin 'altercation/vim-colors-solarized'
+
 
 " CODING:
-
+"
+Plugin 'tpope/vim-fugitive.git'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 if has('python') && !has('nvim')
 	Plugin 'Valloric/YouCompleteMe'
 endif
 "Plugin 'Shougo/neocomplete.vim'
-"source ~/.vim/neocomplete.vim 
+	"source ~/.vim/neocomplete.vim
 
 
-" Python
+" Python:
+"
 if has('nvim')
 	if has('python3')
 		let g:jedi#force_pycmd = 'python3'
@@ -48,31 +66,35 @@ if has('nvim')
 endif
 
 
-" Lua
-let g:lua_interpreter_path = '/usr/sbin/lua5.1'
-let g:lua_compiler_name = '/usr/sbin/luac5.1'
-"let g:lua_complete_omni = 1
-"let g:lua_complete_dynamic = 0
+" Lua:
+"
+	let g:lua_interpreter_path = '/usr/sbin/lua5.1'
+	let g:lua_compiler_name = '/usr/sbin/luac5.1'
+	"let g:lua_complete_omni = 1
+	"let g:lua_complete_dynamic = 0
+Plugin 'xolox/vim-lua-ftplugin'
+	let g:lua_internal = 0
 Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-lua-inspect'
-Plugin 'xolox/vim-lua-ftplugin'
 
-" Fish
+" Fish:
+"
 Bundle 'dag/vim-fish'
 
-" JS
+" JS:
+"
 Bundle 'maksimr/vim-jsbeautify'
 if !has('nvim')
 	Bundle 'marijnh/tern_for_vim'
 endif
 
-"CSS
+" CSS:
+"
 Bundle 'groenewege/vim-less'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
 filetype plugin indent on " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-
-
