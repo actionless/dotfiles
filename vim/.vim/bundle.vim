@@ -87,6 +87,7 @@ Bundle 'maksimr/vim-jsbeautify'
 if !has('nvim')
 	Bundle 'marijnh/tern_for_vim'
 endif
+Bundle 'othree/html5.vim'
 
 " CSS:
 "
