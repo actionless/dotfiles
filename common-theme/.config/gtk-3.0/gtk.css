@@ -4,7 +4,8 @@ GtkWindow {
 
 /*disable borders:*/
 
-.window-frame, .window-frame:backdrop {
+/*.window-frame, .window-frame:backdrop {*/
+.window-frame:backdrop {
   box-shadow: 0 0 0 black;
   border-style: none;
   margin: 0;

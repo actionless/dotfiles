@@ -32,6 +32,7 @@ fi
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
 #export XDG_CURRENT_DESKTOP=gnome
 export XDG_CURRENT_DESKTOP=xfce
+export QT_STYLE_OVERRIDE=gtk
 
 export LANGUAGE="en_US.utf8"
 export LC_ALL="en_US.utf8"
