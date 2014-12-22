@@ -9,3 +9,5 @@ setlocal shiftwidth=2
 setlocal colorcolumn=80
 setlocal smarttab
 setlocal expandtab
+
+let b:did_indent = 1

@@ -21,6 +21,10 @@ endif
 let b:did_ftplugin = 1
 
 
+if has('nvim')
+	finish
+endif
+
 if has('python3')
 py3 << EOF
 

@@ -21,7 +21,7 @@ set hlsearch
 set ignorecase
 set smartcase
 
-set clipboard=unnamed	" use system clipboard
+set clipboard=unnamedplus	" use system clipboard
 
 filetype off                   " required!
 filetype plugin indent on     " required!

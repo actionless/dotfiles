@@ -1,5 +1,3 @@
-
-" |||| Lua stuff
 set nofoldenable
 setlocal linebreak
 setlocal wrap
@@ -9,3 +7,5 @@ setlocal shiftwidth=2
 setlocal colorcolumn=80
 setlocal smarttab
 setlocal expandtab
+
+let g:syntastic_lua_checkers=['luacheck']
