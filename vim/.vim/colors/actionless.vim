@@ -24,6 +24,7 @@ let colors_name = "default"
 hi Conditional ctermfg=cyan
 hi Repeat ctermfg=cyan
 hi Operator ctermfg=cyan
+hi Comment ctermfg=8
 
 
 highlight ExtraWhitespace					ctermbg=3
@@ -33,31 +34,15 @@ highlight SpecialKey			ctermfg=black		ctermbg=234
 hi Statement      term=bold ctermfg=3
 
 highlight LineNr	cterm=NONE	ctermfg=DarkGrey	ctermbg=NONE
-highlight CursorLineNr	cterm=bold	ctermfg=red
+highlight CursorLineNr	cterm=bold	ctermfg=1
 "highlight CursorLine	cterm=underline	ctermbg=black		ctermfg=NONE
-highlight CursorLine	ctermbg=246	ctermfg=NONE cterm=none
+"highlight CursorLine	ctermbg=232	ctermfg=NONE cterm=none
+highlight CursorLine	ctermbg=0	ctermfg=NONE cterm=none
 highlight ColorColumn			ctermbg=black
 highlight Pmenu ctermbg=237 gui=bold
 hi PmenuSel				ctermfg=0 ctermbg=DarkBlue
 hi TabLineFill    ctermbg=NONE cterm=NONE
 "hi TabLine        cterm=NONE ctermfg=fg ctermbg=NONE
 hi TabLineSel     cterm=bold ctermfg=15 ctermbg=DarkBlue
-
-hi level1c        ctermfg=130
-hi level2c        ctermfg=4
-hi level3c        ctermfg=242
-hi level4c        ctermfg=2
-hi level5c        ctermfg=1
-hi level6c        ctermfg=6
-hi level7c        ctermfg=5
-hi level8c        ctermfg=130
-hi level9c        ctermfg=248
-hi level10c       ctermfg=11
-hi level11c       ctermfg=13
-hi level12c       ctermfg=3
-hi level13c       ctermfg=12
-hi level14c       ctermfg=10
-hi level15c       ctermfg=9
-hi level16c       ctermfg=14
 
 " vim: sw=2
