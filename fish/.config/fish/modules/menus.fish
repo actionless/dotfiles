@@ -1,1 +1,13 @@
-alias "tmux-menu" "tmux list-sessions |  tmenu -l 10l | sed -r 's/^([0-9]+):.*/\1/g' | xargs -n 1 tmux switch -t"
+function tmux-menu -d "menu: tmux: switch to session"
+	tmux list-sessions \
+	| tmenu -l 20 \
+	| sed -r 's/^([0-9]+):.*/\1/g' \
+	| xargs -n 1 -I \{\} tmux switch -t \{\}
+end
+
+function tmux-menu-switch -d "menu: tmux: switch to session (and close current)"
+	tmux list-sessions \
+	| tmenu -l 20 \
+	| sed -r 's/^([0-9]+):.*/\1/g' \
+	| xargs -n 1 -I \{\} tmux switch -t \{\} \; kill-session -t (tmux display-message -p "#S")
+end
