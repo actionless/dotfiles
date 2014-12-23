@@ -1,6 +1,6 @@
 
-URxvt*background: [95]#ffffff
-xterm*background: #ffffff
+URxvt*background: [95]#1b1a1a
+xterm*background: #1b1a1a
 
 ! --- ~/.Xresources ------------------------------------------------------------
 ! ------------------------------------------------------------------------------
@@ -11,8 +11,10 @@ xterm*background: #ffffff
 
 ! --- special colors ---
 
-*background: #ffffff
-*foreground: #1a1a1a
+!*background: #ffffff
+!*foreground: #1a1a1a
+*background: #1b1a1a
+*foreground: #eeeeef
 
 ! --- standard colors ---
 
