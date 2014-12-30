@@ -34,7 +34,7 @@ Plugin 'kien/ctrlp.vim'
 	\ 'file': '\v(\.pyc|\~)$',
 	\ }
 Plugin 'scrooloose/nerdtree.git'
-	let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc', '^__pycache__$']
+	let NERDTreeIgnore=['\~$', '\.pyc', '^__pycache__$']
 "Plugin 'taglist-plus'
 Plugin 'taglist.vim'
 Plugin 'majutsushi/tagbar'
@@ -45,6 +45,7 @@ Plugin 'majutsushi/tagbar'
 "
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'scrooloose/syntastic'
+	let g:syntastic_html_tidy_exec = '/usr/sbin/tidy'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
 

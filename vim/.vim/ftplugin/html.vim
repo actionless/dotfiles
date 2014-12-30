@@ -1,5 +1,8 @@
+"let g:syntastic_html_checkers=['tidy', 'jshint']
+"let g:syntastic_html_tidy_blocklevel_tags = ['template', 'polymer-element', 'whirlipede-\*']
 
-" |||| html stuff
+let g:syntastic_html_checkers=['jshint']
+
 set nofoldenable
 setlocal linebreak
 setlocal wrap
