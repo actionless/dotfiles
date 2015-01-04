@@ -45,4 +45,8 @@ hi TabLineFill    ctermbg=NONE cterm=NONE
 "hi TabLine        cterm=NONE ctermfg=fg ctermbg=NONE
 hi TabLineSel     cterm=bold ctermfg=15 ctermbg=DarkBlue
 
+hi Search         term=reverse ctermbg=11 ctermfg=0 guibg=Yellow
+hi SpellBad         term=reverse ctermbg=10 ctermfg=0 guibg=Red
+hi Visual         term=reverse ctermbg=5 guibg=Yellow
+
 " vim: sw=2
