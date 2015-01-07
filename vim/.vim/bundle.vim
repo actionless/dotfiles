@@ -7,7 +7,9 @@ call vundle#begin()
 " required!
 Plugin 'gmarik/Vundle.vim'
 
-" Style
+
+" Style:
+"
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'kien/rainbow_parentheses.vim'
 	au VimEnter * RainbowParenthesesToggle
@@ -25,6 +27,8 @@ Plugin 'bling/vim-airline'
 	"let g:airline#extensions#tabline#fnamemod = ':t'
 Plugin 'bling/vim-bufferline'
 	let g:bufferline_echo = 0
+Plugin 'nathanaelkane/vim-indent-guides'
+
 
 " Navigation:
 "
@@ -48,13 +52,11 @@ Plugin 'scrooloose/syntastic'
 	let g:syntastic_html_tidy_exec = '/usr/sbin/tidy'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
-
 "Plugin 'Shougo/neocomplete.vim'
 "source ~/.vim/neocomplete.vim
 
 
 " Python:
-"
 "if has('python3')
 	"let g:jedi#force_pycmd = 'python3'
 "endif
@@ -64,9 +66,7 @@ Plugin 'Valloric/YouCompleteMe'
 	"let g:jedi#popup_on_dot = 0
 "endif
 
-
 " Lua:
-"
 	let g:lua_interpreter_path = '/usr/sbin/lua5.1'
 	let g:lua_compiler_name = '/usr/sbin/luac5.1'
 	"let g:lua_complete_omni = 1
@@ -77,11 +77,9 @@ Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-lua-inspect'
 
 " Fish:
-"
 Bundle 'dag/vim-fish'
 
 " JS:
-"
 Bundle 'maksimr/vim-jsbeautify'
 if !has('nvim')
 	Bundle 'marijnh/tern_for_vim'
@@ -89,7 +87,6 @@ endif
 Bundle 'othree/html5.vim'
 
 " CSS:
-"
 Bundle 'groenewege/vim-less'
 
 

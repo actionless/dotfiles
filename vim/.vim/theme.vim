@@ -25,3 +25,7 @@ hi level13c       ctermfg=11
 hi level14c       ctermfg=3
 hi level15c       ctermfg=9
 hi level16c       ctermfg=1
+
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=232
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=233
