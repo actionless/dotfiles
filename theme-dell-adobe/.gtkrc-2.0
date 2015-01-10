@@ -2,8 +2,8 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/lie/.gtkrc-2.0.mine"
-gtk-theme-name="Flattastic-LCARS"
-gtk-icon-theme-name="LCARS"
+gtk-theme-name="oomox-monovedek"
+gtk-icon-theme-name="gnome-noble"
 gtk-font-name="Sans 8.2998046875"
 gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=0
