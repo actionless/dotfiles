@@ -1,6 +1,8 @@
-if [ ! -e /tmp/fish_config ]
-	echo "Writing config to tmpfs"
-	cat ~/.config/fish/modules/*.fish > /tmp/fish_config
+#!/usr/sbin/fish
+
+if [ ! -e /tmp/config.fish ]
+	echo "Writing config to tmpfs..."
+	cat ~/.config/fish/modules/*.fish > /tmp/config.fish
 end
 
-. /tmp/fish_config
+source /tmp/config.fish

@@ -24,8 +24,8 @@ function fish_user_key_bindings
 end
 
 function reload_fish
-	rm /tmp/fish_config
-	. ~/.config/fish/config.fish
+	rm /tmp/config.fish
+	source ~/.config/fish/config.fish
 end
 
 set fish_color_autosuggestion 444\x1eyellow
