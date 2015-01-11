@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SCRIPT_DIR=$(dirname $(readlink -e "$0"))
-THEME_NAME=$($SCRIPT_DIR/current_theme.sh)
+THEME_NAME=$($SCRIPT_DIR/current-theme.sh)
 THEME_DIR=$SCRIPT_DIR/$THEME_NAME
 
 mv ~/.gtkrc-2.0 $THEME_DIR/.gtkrc-2.0 ;
