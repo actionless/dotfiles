@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for i in $(ls | grep -v -e tp -e theme -e "\.");
+for i in $(ls | grep -v -e "-tp" -e "theme-" -e "\.");
 do
 	echo -n "$i: " ;
 	if stow $i; then
