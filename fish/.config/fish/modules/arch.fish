@@ -4,7 +4,6 @@
 
 alias_w sc 'sudo systemctl'
 alias_w y 'yaourt'
-alias_w sp 'sudo pacman'
 
 function crnt_net --description 'shows current network connection name'
 	set IF_ETHER "enp0s25"

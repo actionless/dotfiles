@@ -4,8 +4,8 @@ set -x PAGER "less"
 #set -x XDG_CURRENT_DESKTOP "gnome"
 set -x XDG_CURRENT_DESKTOP "xfce"
 # set -x fish_user_paths $fish_user_paths "~/.gem/ruby/2.1.0/bin/";
-set --universal fish_user_paths $fish_user_paths $HOME/.gem/ruby/2.1.0/bin/;
-set --universal fish_user_paths $fish_user_paths $HOME/scripts/;
+#set --universal fish_user_paths $fish_user_paths $HOME/.gem/ruby/2.1.0/bin/;
+#set --universal fish_user_paths $fish_user_paths $HOME/scripts/;
 eval (dircolors -c ~/.dir_colors | sed 's/>&\/dev\/null$//')
 
 function fish_user_key_bindings

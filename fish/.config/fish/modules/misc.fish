@@ -1,12 +1,11 @@
 
-alias_w mplayer_deint 'mplayer -vf yadif=1'
 alias_w mpv_deint 'mpv --vf=yadif'
 #alias_w mpv_deint 'mpv --vf=vavpp=deint=bob'
-alias_w tiv "tiv -jb  -c -r 0.5"
+#alias_w tiv "tiv -jb  -c -r 0.5"
 
 alias rm_temp='rm -v *~ ; rm -v *.swp ; rm -v .*~ ; rm -v .*.swp ; rm -v \#*\#'
 alias ll='ls -lah --color=auto'
-alias_w l 'ls -lh --color=auto'
+alias l 'ls -lh --color=auto'
 
 function colorize -d "colorize with pygments"
     if [ (echo $argv | wc -w) -eq 0 ]

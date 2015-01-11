@@ -21,7 +21,9 @@ function alias_w
 	set -lx alias_name $argv[1]
 	set -lx command_name $argv[2..-1]
 	echo "alias $alias_name \"$command_name\"" | .
-	make_completion $alias_name (echo $command_name | sed 's/sudo //g')
+	if true then
+		make_completion $alias_name (echo $command_name | sed 's/sudo //g')
+	end
 end
 #}}}
 
