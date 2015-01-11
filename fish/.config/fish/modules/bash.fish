@@ -12,7 +12,7 @@ function sudo --description 'Wrapper for sudo'
 end
 
 function time --description 'Wrapper for time'
-	command time -p "$FISH -c '$argv'"
+	command time -p $FISH -c "$argv"
 end
 
 function watch --description 'Wrapper for watch'
