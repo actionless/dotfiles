@@ -5,7 +5,7 @@ include "/home/lie/.gtkrc-2.0.mine"
 gtk-theme-name="Vertex-Dark"
 gtk-icon-theme-name="gnome-noble"
 gtk-font-name="Sans 7.5"
-gtk-cursor-theme-name="Oxygen_Zion"
+gtk-cursor-theme-name="lliurex"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR
