@@ -2,6 +2,9 @@ set nocompatible               " be iMproved
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+set shiftwidth=4
+set tabstop=4
+
 set wildmenu
 set wildmode=list:longest
 
