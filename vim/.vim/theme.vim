@@ -3,9 +3,9 @@
 set cursorline
 """"""""""""""""""""""""""
 "colorscheme default
-set bg=dark
-colorscheme actionless
-"colorscheme actionless_monokai
+"set bg=dark
+"colorscheme actionless
+colorscheme actionless_monokai
 """"""""""""""""""""""""""
 
 "rainbow parenthesis:
