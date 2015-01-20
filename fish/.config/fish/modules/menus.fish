@@ -1,3 +1,5 @@
+set -x BEMENU_BACKEND curses
+
 function tmux-menu -d "menu: tmux: switch to session"
 	tmux list-sessions \
 	| bemenu \
