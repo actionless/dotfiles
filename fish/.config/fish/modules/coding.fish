@@ -45,3 +45,9 @@ end
 function git_fancy_log
 	command  git log --tags --oneline --decorate --graph --branches
 end
+
+function git_checkout_i
+	command git ls-files -m \
+	| bemenu \
+	| xargs git checkout --
+end
