@@ -5,14 +5,14 @@ Gtk/CursorThemeName ""
 Gtk/CursorThemeSize 0
 #Gtk/DecorationLayout "close,menu:maximize"
 Gtk/DecorationLayout "menu:"
-#Gtk/FontName "PT Sans 7.5"
-Gtk/FontName "Fira Sans Medium 7.5"
+Gtk/FontName "Sans 8"
 Gtk/IconSizes ""
 Gtk/KeyThemeName ""
 Gtk/MenuBarAccel "F10"
 Gtk/MenuImages 1
 Gtk/ToolbarIconSize 3
 Gtk/ToolbarStyle "both"
+
 Net/CursorBlink 1
 Net/CursorBlinkTime 1200
 Net/DndDragThreshold 8
@@ -22,10 +22,14 @@ Net/EnableEventSounds 1
 Net/EnableInputFeedbackSounds 1
 Net/IconThemeName "gnome-noble"
 Net/SoundThemeName "default"
-Net/ThemeName "oomox_current"
+Net/ThemeName "oomox-monovedek"
+
+Xft/Hinting 1
 Xft/Antialias 1
-Xft/DPI 134144
+#Xft/DPI 134144
+Xft/DPI 122880
 Xft/HintStyle "hintslight"
-!Xft/HintStyle "hintfull"
+#Xft/HintStyle "hintfull"
 Xft/RGBA "rgb"
 
+# vim: ft=conf
