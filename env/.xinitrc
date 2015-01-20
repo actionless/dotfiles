@@ -33,7 +33,8 @@ xrdb -merge ~/.Xresources ;
 
 export LC_ALL=en_US.UTF-8
 
-session="$1"
+
+session="$2"
 if [ -z "$session" ]
 then
 	#session='openbox'
