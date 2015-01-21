@@ -1,3 +1,4 @@
+alias sprunge "curl -F 'sprunge=<-' http://sprunge.us"
 
 #alias a_grep "ack --python --ignore-dir=env "
 alias a_grep "ag --ignore-dir=env "
