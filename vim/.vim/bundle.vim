@@ -47,6 +47,11 @@ Plugin 'majutsushi/tagbar'
 
 " CODING:
 "
+
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmtlib'
+Plugin 'google/vim-codefmt'
+
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'scrooloose/syntastic'
 	let g:syntastic_html_tidy_exec = '/usr/sbin/tidy'
