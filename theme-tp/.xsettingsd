@@ -26,6 +26,6 @@ Net/ThemeName "oomox_current"
 Xft/Antialias 1
 Xft/DPI 134144
 Xft/HintStyle "hintslight"
-!Xft/HintStyle "hintfull"
+#Xft/HintStyle "hintfull"
 Xft/RGBA "rgb"
 
