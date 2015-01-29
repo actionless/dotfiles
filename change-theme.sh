@@ -5,3 +5,5 @@ if test -z "$1"; then
 else
 	stow "$1"
 fi
+xrdb -merge ~/.Xresources
+echo "awesome.restart()" | awesome-client
