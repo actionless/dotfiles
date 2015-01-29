@@ -10,17 +10,22 @@ Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
 ! terminal colorscheme -------------------------------------------------------
+!
+#include "/home/lie/.Xcolours/monovedek"
+!#include "/home/lie/.Xcolours/gnome_noble_alt"
+!#include "/home/lie/.Xcolours/gnome_noble_light"
+!#include "/home/lie/.Xcolours/waltz"
+!
 !#include "/home/lie/.Xcolours/lcars"
 !#include "/home/lie/.Xcolours/lcars2"
 !#include "/home/lie/.Xcolours/lcars3"
+!
 !#include "/home/lie/.Xcolours/zig"
-#include "/home/lie/.Xcolours/monovedek"
-!#include "/home/lie/.Xcolours/gnome_noble_light"
 !#include "/home/lie/.Xcolours/pinknoise"
 !#include "/home/lie/.Xcolours/light"
 !#include "/home/lie/.Xcolours/ltns"
+!
 !#include "/home/lie/.Xcolours/jwr_dark"
-!#include "/home/lie/.Xcolours/waltz"
 
 ! urxvt ----------------------------------------------------------------------
 
