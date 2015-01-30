@@ -55,31 +55,21 @@ Plugin 'google/vim-codefmt'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'scrooloose/syntastic'
 	let g:syntastic_html_tidy_exec = '/usr/sbin/tidy'
+	let g:syntastic_lua_checkers = ['luac', 'luacheck']
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Valloric/YouCompleteMe'
 "Plugin 'Shougo/neocomplete.vim'
 "source ~/.vim/neocomplete.vim
 
 
-" Python:
-"if has('python3')
-	"let g:jedi#force_pycmd = 'python3'
-"endif
-"if has('python') || has('python3')
-	"Plugin 'davidhalter/jedi-vim'
-	"let g:jedi#popup_select_first = 0
-	"let g:jedi#popup_on_dot = 0
-"endif
-
 " Lua:
-	let g:lua_interpreter_path = '/usr/sbin/lua5.1'
-	let g:lua_compiler_name = '/usr/sbin/luac5.1'
-	"let g:lua_complete_omni = 1
-	"let g:lua_complete_dynamic = 0
-Plugin 'xolox/vim-lua-ftplugin'
-	let g:lua_internal = 0
+       let g:lua_interpreter_path = '/usr/sbin/lua5.1'
+       let g:lua_compiler_name = '/usr/sbin/luac5.1'
+       "let g:lua_complete_omni = 1
+       "let g:lua_complete_dynamic = 0
 Plugin 'xolox/vim-misc'
-"Plugin 'xolox/vim-lua-inspect'
+Plugin 'xolox/vim-lua-ftplugin'
+       let g:lua_internal = 0
 
 " Fish:
 Bundle 'dag/vim-fish'
