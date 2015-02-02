@@ -17,6 +17,7 @@ function local_config.init(awesome_context)
     cpu_cores_num =2,
     music_players = { 'spotify', 'clementine' },
   }
+  awesome_context.volume_widget = "noapw"
   --set_colorscheme("lcars")
   --set_colorscheme("lcars_modern")
   --set_colorscheme("pokemon_dark")
