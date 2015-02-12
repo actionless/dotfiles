@@ -35,12 +35,12 @@ export LC_ALL=en_US.UTF-8
 
 
 session="$2"
-if [ -z "$session" ]
-then
-	#session='openbox'
-	session='awesome'
-	session='awesome_no_argb'
-fi
+#if [ -z "$session" ]
+#then
+	##session='openbox'
+	#session='awesome'
+	#session='awesome_no_argb'
+#fi
 
 case "$session" in
 openbox)
