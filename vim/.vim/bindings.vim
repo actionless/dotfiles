@@ -11,6 +11,9 @@ map <leader>bb :CtrlPBuffer<CR>
 "map <C-M><C-P> :bprevious!<CR>
 "map <C-M><C-C> :Bclose<CR>
 
+noremap <leader>fl :FormatLines<CR>
+noremap <leader>fc :FormatCode<CR>
+
 noremap <leader>] :tabnext<CR>
 noremap <leader>[ :tabprevious<CR>
 noremap <leader>tn :tabnew<CR>
