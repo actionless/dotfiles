@@ -1,22 +1,14 @@
-filetype off " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle
-" required!
-Plugin 'gmarik/Vundle.vim'
-
+call plug#begin('~/.vim/plugged')
 
 " Style:
 "
-Plugin 'gorodinskiy/vim-coloresque'
-Plugin 'kien/rainbow_parentheses.vim'
+Plug 'gorodinskiy/vim-coloresque'
+Plug 'kien/rainbow_parentheses.vim'
 	au VimEnter * RainbowParenthesesToggle
 	au Syntax * RainbowParenthesesLoadRound
 	au Syntax * RainbowParenthesesLoadSquare
 	au Syntax * RainbowParenthesesLoadBraces
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 	let g:airline_theme='wombat'
 	"let g:airline_theme='kolor'
 	let g:airline_powerline_fonts = 1
@@ -25,44 +17,44 @@ Plugin 'bling/vim-airline'
 	" Enable the list of buffers:
 	"let g:airline#extensions#tabline#enabled = 1
 	"let g:airline#extensions#tabline#fnamemod = ':t'
-Plugin 'bling/vim-bufferline'
+Plug 'bling/vim-bufferline'
 	let g:bufferline_echo = 0
-Plugin 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 
 
 " Navigation:
 "
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 	let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\v[\/](\.git|env|node_modules|bower_components)$',
 	\ 'file': '\v(\.pyc|\~)$',
 	\ }
-Plugin 'scrooloose/nerdtree.git'
+Plug 'scrooloose/nerdtree'
 	let NERDTreeIgnore=['\~$', '\.pyc', '^__pycache__$']
-"Plugin 'taglist-plus'
-Plugin 'taglist.vim'
-Plugin 'majutsushi/tagbar'
-"Plugin 'kien/tabman.vim'
+"Plug 'taglist-plus'
+Plug 'taglist.vim'
+Plug 'majutsushi/tagbar'
+"Plug 'kien/tabman.vim'
 
 
 " CODING:
 "
 
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmtlib'
-Plugin 'google/vim-codefmt'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmtlib'
+Plug 'google/vim-codefmt'
 
-Plugin 'tpope/vim-fugitive.git'
-Plugin 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
 	"let g:syntastic_python_checkers=['flake8', 'python', 'pylint']
 	let g:syntastic_python_checkers=['flake8', 'pylint']
 	"let g:syntastic_python_checkers=['pylint']
 	"let g:syntastic_python_checkers=['flake8']
 	let g:syntastic_html_tidy_exec = '/usr/sbin/tidy'
 	let g:syntastic_lua_checkers = ['luac', 'luacheck']
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Valloric/YouCompleteMe'
-"Plugin 'Shougo/neocomplete.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Valloric/YouCompleteMe'
+"Plug 'Shougo/neocomplete.vim'
 "source ~/.vim/neocomplete.vim
 
 
@@ -71,26 +63,21 @@ Plugin 'Valloric/YouCompleteMe'
        let g:lua_compiler_name = '/usr/sbin/luac5.1'
        "let g:lua_complete_omni = 1
        "let g:lua_complete_dynamic = 0
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-lua-ftplugin'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-lua-ftplugin'
        let g:lua_internal = 0
 
 " Fish:
-Bundle 'dag/vim-fish'
+Plug 'dag/vim-fish'
 
 " JS:
-Bundle 'maksimr/vim-jsbeautify'
+Plug 'maksimr/vim-jsbeautify'
 if !has('nvim')
-	Bundle 'marijnh/tern_for_vim'
+	Plug 'marijnh/tern_for_vim'
 endif
-Bundle 'othree/html5.vim'
+Plug 'othree/html5.vim'
 
 " CSS:
-Bundle 'groenewege/vim-less'
+Plug 'groenewege/vim-less'
 
-
-" All of your Plugins must be added before the following line
-call vundle#end() " required
-filetype plugin indent on " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
+call plug#end()
