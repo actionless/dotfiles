@@ -61,7 +61,7 @@ awesome_kde_no_argb)
 	export KDEWM="awesome"
 	exec startkde	;;
 *)
-	exec "$session"
+	exec "$session" >> ~/.cache/sessout 2>> ~/.cache/sesserr
 	;;
 esac
 
