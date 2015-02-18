@@ -5,7 +5,7 @@ Gtk/CursorThemeName ""
 Gtk/CursorThemeSize 0
 #Gtk/DecorationLayout "close,menu:maximize"
 Gtk/DecorationLayout "menu:"
-#Gtk/FontName "PT Sans 7.5"
+#Gtk/FontName "Sans 8"
 Gtk/FontName "Fira Sans Medium 7.5"
 Gtk/IconSizes ""
 Gtk/KeyThemeName ""
@@ -22,10 +22,10 @@ Net/EnableEventSounds 1
 Net/EnableInputFeedbackSounds 1
 Net/IconThemeName "gnome-noble"
 Net/SoundThemeName "default"
-Net/ThemeName "oomox_current"
+Net/ThemeName "Flattastic-LCARS"
 Xft/Antialias 1
 Xft/DPI 134144
 Xft/HintStyle "hintslight"
-!Xft/HintStyle "hintfull"
+#Xft/HintStyle "hintfull"
 Xft/RGBA "rgb"
 

@@ -18,12 +18,12 @@ if version > 580
         syntax reset
     endif
 endif
-let g:colors_name="molokai"
+let g:colors_name="actionless_monokai"
 
-if exists("g:molokai_original")
-    let s:molokai_original = g:molokai_original
+if exists("g:actionless_monokai_original")
+    let s:actionless_monokai_original = g:actionless_monokai_original
 else
-    let s:molokai_original = 0
+    let s:actionless_monokai_original = 0
 endif
 
 
@@ -106,7 +106,7 @@ hi Visual                        guibg=#403D3D
 hi WarningMsg      guifg=#FFFFFF guibg=#333333 gui=bold
 hi WildMenu        guifg=#66D9EF guibg=#000000
 
-if s:molokai_original == 1
+if s:actionless_monokai_original == 1
    hi Normal          guifg=#F8F8F2 guibg=#272822
    hi Comment         guifg=#75715E
    hi CursorLine                    guibg=#3E3D32

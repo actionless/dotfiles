@@ -28,8 +28,8 @@ function local_config.init(awesome_context)
   --set_colorscheme("transparent-xresources")
   --set_colorscheme("lcars-xresources")
   --set_colorscheme("noble_dark")
-  set_colorscheme("lcars-xresources-overridden")
   --set_colorscheme("pokemon-xresources")
+  set_colorscheme("lcars-xresources-overridden")
 end
 
 return local_config
