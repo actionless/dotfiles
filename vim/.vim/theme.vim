@@ -5,7 +5,7 @@ set cursorline
 "colorscheme default
 "set bg=dark
 "colorscheme actionless
-colorscheme actionless_monokai
+colorscheme fixed-dark-monokai
 """"""""""""""""""""""""""
 
 "rainbow parenthesis:
