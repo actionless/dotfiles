@@ -30,6 +30,7 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
+# uncomment one when not in GNOME:
 #export XDG_CURRENT_DESKTOP=gnome
 export XDG_CURRENT_DESKTOP=xfce
 export QT_STYLE_OVERRIDE=gtk
