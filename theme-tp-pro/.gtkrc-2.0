@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/lie/.gtkrc-2.0.mine"
-gtk-theme-name="Vertex-Dark"
+gtk-theme-name="oomox-pro-medium-light"
 gtk-icon-theme-name="gnome-noble"
 gtk-font-name="Sans 7.5"
 gtk-cursor-theme-name="lliurex"
