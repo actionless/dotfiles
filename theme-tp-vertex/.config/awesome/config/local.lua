@@ -11,7 +11,7 @@ function local_config.init(awesome_context)
     cpu_cores_num = 8,
     music_players = { 'spotify', 'clementine', },
   }
-  --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/vertex/theme.lua"
+  awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/vertex/theme.lua"
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars_xresources/theme.lua"
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/pokemon_dark/theme.lua"
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/monovedek/theme.lua"
@@ -19,7 +19,7 @@ function local_config.init(awesome_context)
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars_modern/theme.lua"
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/noble_dark/theme.lua"
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/pokemon-xresources/theme.lua"
-  awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/pro-medium-light/theme.lua"
+  --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/pro-medium-light/theme.lua"
   awesome_context.autorun = {
     --"~/.scripts/tp_unmute",
     "killall compton ; compton",

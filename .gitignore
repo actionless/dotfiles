@@ -1,3 +1,4 @@
 *.pyc
-vim/.vim/bundle/
 tmux/.tmux/plugins/
+nitrogen.cfg
+.netrwhist

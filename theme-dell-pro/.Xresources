@@ -39,14 +39,16 @@ Xft.lcdfilter: lcddefault
 !URxvt*font:		 xft:DejaVu Sans Mono for Powerline:pixelsize=11
 !URxvt*font:		 xft:DejaVu Sans Mono:pixelsize=13
 !URxvt*font:		 xft:Dina:pixelsize=16
-URxvt*font:		 xft:monospace:pixelsize=14
+!URxvt*font:		 xft:monospace:pixelsize=14
+URxvt*font:		 	-*-terminus-*-*-*-*-17-120-*-*-*-*-*-*
 
 !URxvt*boldFont:		 8x16bold
 !URxvt*boldFont:		 xft:tamsyn bold:pixelsize=13
 !URxvt*boldFont:		 xft:DejaVu Sans Mono:pixelsize=13
 !URxvt*boldFont: 	-*-tamsyn-bold-*-*-*-14-*-*-*-*-*-*-*
 
-URxvt*letterSpace:	 -2
+!URxvt*letterSpace:	 -2
+URxvt*letterSpace:	 0
 
 URxvt*saveLines:		 0
 URxvt*loginShell:        true

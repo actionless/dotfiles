@@ -4,7 +4,7 @@ function tmux-switch -d "menu: tmux: switch to session"
 	tmux list-sessions \
 	| bemenu \
 	| sed -r 's/^([0-9]+):.*/\1/g' \
-	| xargs -n 1 -I \{\} tmux switch -t \{\}
+	| xargs -n 1 tmux switch -t
 end
 
 function tmux-replace -d "menu: tmux: switch to session (and close current)"

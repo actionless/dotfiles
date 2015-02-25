@@ -4,7 +4,6 @@
 "let g:pymode_run_key = 'R'
 "let g:pymode_folding = 0
 set nofoldenable
-let g:syntastic_python_checkers=['flake8']
 setlocal linebreak
 setlocal wrap
 setlocal tabstop=4
