@@ -46,10 +46,11 @@ set fish_color_search_match green\x1e--background=333333
 set fish_color_valid_path green\x1e--underline
 set fish_greeting LCARS initialized
 #set fish_key_bindings fish_default_key_bindings
-set fish_pager_color_completion normal
-set fish_pager_color_description 888\x1eyellow
-set fish_pager_color_prefix cyan
-set fish_pager_color_progress cyan
+
+set -U fish_pager_color_completion normal
+set -U fish_pager_color_description 888\x1eyellow
+set -U fish_pager_color_prefix cyan
+set -U fish_pager_color_progress cyan
 
 #for file in ~/.config/fish/modules/*.fish
 	#echo $file
