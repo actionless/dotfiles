@@ -4,6 +4,8 @@ TERMI="st -e fish -c"
 CACHE="$HOME/.pcache/dmenu_recent"
 DMENU_CMD="$HOME/.config/dmenu/dmenu.sh"
 
+test -f $CACHE || touch $CACHE
+
 # respect atime:
 #DMENU_PATH_CMD="$HOME/.config/dmenu/dmenu-path.sh"
 
