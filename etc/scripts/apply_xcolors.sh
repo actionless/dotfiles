@@ -7,7 +7,7 @@ change_color () {
   foreground)
     send_osc 10 "$2" ;;
   background)
-	send_osc 11 "$2" ;;
+    send_osc 11 "$2" ;;
   cursor)
     send_osc 12 "$2" ;;
   mouse_foreground)
@@ -48,12 +48,9 @@ color_names=( black red green yellow blue magenta cyan white brblack brred brgre
 
 set_colors () {
   for color in ${colors[@]}; do
-	  value=$(xrdb -query | grep ^*$color\: | cut -f2)
-	  echo $color;
-	  echo $value;
+    value=$(xrdb -query | grep ^*$color\: | cut -f2)
     [[ $value ]] && change_color "$color" "$value"
   done
-  echo done
 }
 
 set_colors
