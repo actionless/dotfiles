@@ -6,8 +6,8 @@ change_color () {
     send_osc 4 "${1#color};$2" ;;
   foreground)
     send_osc 10 "$2" ;;
-#  background)
-#    send_osc 11 "$2" ;;
+  background)
+	send_osc 11 "$2" ;;
   cursor)
     send_osc 12 "$2" ;;
   mouse_foreground)
