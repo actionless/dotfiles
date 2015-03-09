@@ -55,10 +55,12 @@ function fish_prompt --description 'Write out the prompt'
 		set prompt_status "$__fish_prompt_status [$last_status]"
 	end
 
+	set -l inverse "\e[7m"
+
 	echo -e -n -s \
-(set_color -b $user_color black) $USER "@" $__fish_prompt_hostname \
+(set_color $user_color) $inverse $USER "@" $__fish_prompt_hostname \
 (set_color -b normal) " " \
-(set_color -b $fish_color_cwd black) (pwd) (set_color -b normal $fish_color_cwd) " " \
+(set_color $fish_color_cwd) $inverse (pwd) (set_color -b normal $fish_color_cwd) " " \
 $__fish_git_color (git_prompt) \
 (set_color -b normal) $prompt_status \
 $__fish_prompt_normal "\n" \
