@@ -1,0 +1,5 @@
+Section "Device"
+    Identifier "nvidia card"
+    Driver "nouveau"
+    Option "GLXVBlank" "true"
+EndSection
