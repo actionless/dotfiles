@@ -9,7 +9,7 @@ ln -s nouveau.option video.conf
 
 cd /etc/X11/xorg.conf.d/
 rm 20-video.conf
-cp -r $SCRIPT_DIR/nouveau.modules nouveau.option &&
+cp -r $SCRIPT_DIR/nouveau.xorg nouveau.option &&
 ln -s nouveau.option 20-video.conf
 
 pacman -R nvidia-340xx-ck-core2
