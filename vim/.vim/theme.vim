@@ -5,7 +5,15 @@ set cursorline
 "colorscheme default
 "set bg=dark
 "colorscheme actionless
-colorscheme actionless_monokai
+""colorscheme actionless_monokai
+"colorscheme actionless3
+"colorscheme miromiro
+colorscheme delek
+"colorscheme noctu
+""colorscheme desert
+""colorscheme peachpuff
+"colorscheme zellner
+
 """"""""""""""""""""""""""
 
 "rainbow parenthesis:
@@ -29,3 +37,5 @@ hi level16c       ctermfg=1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=232
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=233
+
+autocmd VimEnter,Colorscheme * :hi Normal ctermfg=none
