@@ -20,6 +20,8 @@ Plug 'bling/vim-airline'
 Plug 'bling/vim-bufferline'
 	let g:bufferline_echo = 0
 Plug 'nathanaelkane/vim-indent-guides', {'on': 'IndentGuidesToggle'}
+" Show marks:
+Plug 'kshenoy/vim-signature'
 
 
 " Navigation:
