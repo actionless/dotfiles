@@ -18,7 +18,7 @@ if version > 580
 	endif
 endif
 let g:colors_name="wargrey"
-let g:colors_name="term/wargrey"
+let g:colors_name="term-wargrey"
 
 " Boolean constant: true FALSE ...
 hi Boolean ctermfg=red guifg=red
