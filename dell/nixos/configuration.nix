@@ -67,9 +67,11 @@
 		git
 		fish
 		which
+		file
 		tmux
 		tree
 		ncdu
+		irssi
 
 		# theming stuff
 		gtk_engines
@@ -84,20 +86,25 @@
 		# GUI apps
 		pavucontrol
 		firefox
-		pcmanfm
 		xarchiver
 		nitrogen
 		dmenu2
+		(callPackage ./pkgs/bemenu.nix {})
 		mpv
 		spotify
 		transmission_gtk
-
 		clementine
+
+		pcmanfm
+		menu-cache
+		(callPackage ./pkgs/lxmenu_data.nix {})
+
 
 		# deps for my scripts
 		lm_sensors
 		procps
 		stow
+
 	];
 
 	fonts = {
@@ -165,12 +172,15 @@
 			windowManager.session = lib.singleton {
 				name = "awesomenoargb";
 				start = ''
-					${lib.concatMapStrings (pkg: ''
-						export LUA_CPATH=$LUA_CPATH''${LUA_CPATH:+;}${pkg}/lib/lua/${pkgs.awesome.lua.luaversion}/?.so
-						export LUA_PATH=$LUA_PATH''${LUA_PATH:+;}${pkg}/lib/lua/${pkgs.awesome.lua.luaversion}/?.lua
-					'') config.services.xserver.windowManager.awesome.luaModules}
-${pkgs.awesome}/bin/awesome --no-argb &
-waitPID=$!
+					${lib.concatMapStrings
+						(pkg: ''
+							export LUA_CPATH=$LUA_CPATH''${LUA_CPATH:+;}${pkg}/lib/lua/${pkgs.awesome.lua.luaversion}/?.so
+							export LUA_PATH=$LUA_PATH''${LUA_PATH:+;}${pkg}/lib/lua/${pkgs.awesome.lua.luaversion}/?.lua
+						'')
+						config.services.xserver.windowManager.awesome.luaModules
+					}
+					${pkgs.awesome}/bin/awesome --no-argb &
+					waitPID=$!
 				'';
 			};
 		};
