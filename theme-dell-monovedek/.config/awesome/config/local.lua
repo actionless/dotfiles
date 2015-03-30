@@ -17,7 +17,7 @@ function local_config.init(awesome_context)
     cpu_cores_num =2,
     music_players = { 'spotify', 'clementine' },
   }
-  awesome_context.volume_widget = "noapw"
+  awesome_context.volume_widget = "apw"
   --set_colorscheme("lcars")
   --set_colorscheme("lcars_modern")
   --set_colorscheme("pokemon_dark")
@@ -30,6 +30,7 @@ function local_config.init(awesome_context)
   --set_colorscheme("noble_dark")
   --set_colorscheme("pokemon-xresources")
   set_colorscheme("lcars-xresources-overridden")
+  --set_colorscheme("pro-medium-light")
 end
 
 return local_config
