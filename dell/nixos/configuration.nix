@@ -44,6 +44,8 @@
 			};
 		}));
 
+		st = (pkgs.st.override { conf = (builtins.readFile "/etc/nixos/pkgs/st/config.h"); });
+
 		qt48 = (pkgs.qt48.override { gtkStyle = true; });
 		gst_plugins_bad = ( pkgs.lib.overrideDerivation pkgs.gst_plugins_bad (attrs: {
 			buildInputs = pkgs.gst_plugins_bad.buildInputs ++ [ pkgs.faac pkgs.faad2 ];
@@ -67,11 +69,13 @@
 		git
 		fish
 		which
+		psmisc # killall
 		file
 		tmux
 		tree
 		ncdu
 		irssi
+		scrot
 
 		# theming stuff
 		gtk_engines
@@ -84,6 +88,7 @@
 		lxappearance
 
 		# GUI apps
+		st
 		pavucontrol
 		firefox
 		xarchiver
@@ -94,15 +99,16 @@
 		spotify
 		transmission_gtk
 		clementine
+		gnome3.eog
 
-		pcmanfm
+		#pcmanfm
 		menu-cache
 		(callPackage ./pkgs/lxmenu_data.nix {})
 
 
 		# deps for my scripts
 		lm_sensors
-		procps
+		procps # top
 		stow
 
 	];
