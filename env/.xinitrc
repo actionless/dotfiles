@@ -54,7 +54,8 @@ awesome)
 	;;
 awesome_no_argb)
 	#exec awesome --no-argb >> ~/.cache/awesome_stdout 2>> ~/.cache/awesome_stderr
-	exec awesome --no-argb >> ~/.cache/awesome_stdout 2>> ~/.cache/awesome_stderr
+	#exec awesome --no-argb >> ~/.cache/awesome_stdout 2>> ~/.cache/awesome_stderr
+	awesome --no-argb >> ~/.cache/awesome_stdout 2>> ~/.cache/awesome_stderr
 	;;
 awesome_kde_no_argb)
 	#export KDEWM="/usr/sbin/awesome --no-argb >> ~/.cache/awesome_stdout 2>> ~/.cache/awesome_stderr"
