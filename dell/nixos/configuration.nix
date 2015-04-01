@@ -10,6 +10,8 @@
 		# Include the results of the hardware scan.
 		./hardware-configuration.nix
 		./pkgs/spotify/default.nix
+		./fonts.nix
+		./xserver.nix
 	];
 
 	# Use the GRUB 2 boot loader.
@@ -44,16 +46,33 @@
 			};
 		}));
 
-		st = (pkgs.st.override { conf = (builtins.readFile "/etc/nixos/pkgs/st/config.h"); });
+		st = (pkgs.st.override {
+			conf = (builtins.readFile "/etc/nixos/pkgs/st/config.h");
+		});
 
-		qt48 = (pkgs.qt48.override { gtkStyle = true; });
+		qt48 = (pkgs.qt48.override {
+			gtkStyle = true;
+		});
 		gst_plugins_bad = ( pkgs.lib.overrideDerivation pkgs.gst_plugins_bad (attrs: {
-			buildInputs = pkgs.gst_plugins_bad.buildInputs ++ [ pkgs.faac pkgs.faad2 ];
+			buildInputs = pkgs.gst_plugins_bad.buildInputs ++ [
+				pkgs.faac
+				pkgs.faad2
+			];
 		}));
 		clementine = ( pkgs.lib.overrideDerivation pkgs.clementine (attrs: {
 			buildInputs = pkgs.clementine.buildInputs ++ [
 				pkgs.gst_plugins_bad
 				pkgs.gst_ffmpeg
+			];
+		}));
+
+		pcmanfm = ( pkgs.lib.overrideDerivation pkgs.pcmanfm (attrs: {
+			buildInputs = pkgs.pcmanfm.buildInputs ++ [
+				#pkgs.gvfs
+				pkgs.gnome3.gvfs
+				#pkgs.gnome.gnome_menus
+				pkgs.shared_mime_info
+				(pkgs.callPackage ./pkgs/lxmenu_data.nix {})
 			];
 		}));
 	};
@@ -100,100 +119,32 @@
 		transmission_gtk
 		clementine
 		gnome3.eog
+		evince
 
-		#pcmanfm
-		#menu-cache
-		#(callPackage ./pkgs/lxmenu_data.nix {})
+		pcmanfm
+		(callPackage ./pkgs/lxmenu_data.nix {})
+		#
+		shared_mime_info
+		#
+		menu-cache
+		gnome.gnome_menus
 
 		# deps for my scripts
 		lm_sensors
 		procps # top
 		stow
 		xsel
+
 	];
 
-	fonts = {
-		enableCoreFonts = true;
-		enableFontDir = true;
-		enableGhostscriptFonts = true;
-		fontconfig = {
-			antialias = true;
-			defaultFonts = {
-				monospace = [
-					"Source Code Pro"
-					"Meslo LG S for Lcarsline"
-					"DejaVu Sans Mono"
-				];
-				sansSerif = [
-					"Ubuntu"
-					"DejaVu Sans"
-				];
-				serif = [
-					"PT Serif"
-					"Liberation Serif"
-				];
-			};
-			dpi = 120;
-			hinting = {
-				autohint = false;
-				enable = true;
-				style = "slight";
-			};
-			includeUserConf = true;
-			#includeUserConf = false;
-			subpixel = {
-				lcdfilter = "default";
-				rgba = "rgb";
-			};
-			ultimate.enable = false;
-		};
-		fonts = [
-			pkgs.ubuntu_font_family
-		];
-	};
-
-	# List services that you want to enable:
 	services = {
-		# Enable CUPS to print documents.
 		# printing.enable = true;
-		# Enable the OpenSSH daemon.
 		openssh.enable = true;
 		nixosManual.enable = true;
 		upower.enable = true;
-		# Enable the X11 windowing system.
-		xserver = {
-			enable = true;
-			layout = "us";
-			xkbOptions = "eurosign:e";
-			#videoDrivers = [ "nvidia" ];
-			#deviceSection = ''
-				#Option "metamodes" "nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
-			#'';
-			videoDrivers = [ "nouveau" ];
-			deviceSection = ''
-				Option "GLXVBlank" "true"
-			'';
-			vaapiDrivers = [ pkgs.vaapiVdpau ];
-			desktopManager.xterm.enable = false;
-			windowManager.awesome.enable = true;
-			windowManager.session = lib.singleton {
-				name = "awesomenoargb";
-				start = ''
-					${lib.concatMapStrings
-						(pkg: ''
-							export LUA_CPATH=$LUA_CPATH''${LUA_CPATH:+;}${pkg}/lib/lua/${pkgs.awesome.lua.luaversion}/?.so
-							export LUA_PATH=$LUA_PATH''${LUA_PATH:+;}${pkg}/lib/lua/${pkgs.awesome.lua.luaversion}/?.lua
-						'')
-						config.services.xserver.windowManager.awesome.luaModules
-					}
-					${pkgs.awesome}/bin/awesome --no-argb >> ~/.cache/awesome_stdout 2>> ~/.cache/awesome_stderr &
-					waitPID=$!
-				'';
-			};
-		};
+		gnome3.gvfs.enable = true;
 	};
 
-	#Define a user account. Don't forget to set a password with ‘passwd’.
 	users.extraUsers.lie = {
 		isNormalUser = true;
 		uid = 1000;
@@ -201,6 +152,7 @@
 	security.sudo.extraConfig = ''
       lie     ALL=(ALL) SETENV: ALL
 	'';
+
 }
 
 # vim: ft=conf:
