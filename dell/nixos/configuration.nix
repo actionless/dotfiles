@@ -102,15 +102,14 @@
 		gnome3.eog
 
 		#pcmanfm
-		menu-cache
-		(callPackage ./pkgs/lxmenu_data.nix {})
-
+		#menu-cache
+		#(callPackage ./pkgs/lxmenu_data.nix {})
 
 		# deps for my scripts
 		lm_sensors
 		procps # top
 		stow
-
+		xsel
 	];
 
 	fonts = {
@@ -159,6 +158,8 @@
 		# printing.enable = true;
 		# Enable the OpenSSH daemon.
 		openssh.enable = true;
+		nixosManual.enable = true;
+		upower.enable = true;
 		# Enable the X11 windowing system.
 		xserver = {
 			enable = true;
@@ -185,12 +186,11 @@
 						'')
 						config.services.xserver.windowManager.awesome.luaModules
 					}
-					${pkgs.awesome}/bin/awesome --no-argb &
+					${pkgs.awesome}/bin/awesome --no-argb >> ~/.cache/awesome_stdout 2>> ~/.cache/awesome_stderr &
 					waitPID=$!
 				'';
 			};
 		};
-		nixosManual.enable = true;
 	};
 
 	#Define a user account. Don't forget to set a password with ‘passwd’.
