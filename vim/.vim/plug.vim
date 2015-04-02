@@ -5,9 +5,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'gorodinskiy/vim-coloresque', {'for': 'css'}
 Plug 'kien/rainbow_parentheses.vim'
 	au VimEnter * RainbowParenthesesToggle
-	au Syntax * RainbowParenthesesLoadRound
-	au Syntax * RainbowParenthesesLoadSquare
-	au Syntax * RainbowParenthesesLoadBraces
+	au VimEnter * RainbowParenthesesLoadRound
+	au VimEnter * RainbowParenthesesLoadSquare
+	au VimEnter * RainbowParenthesesLoadBraces
 Plug 'bling/vim-airline'
 	let g:airline_theme='wombat'
 	"let g:airline_theme='kolor'
@@ -56,7 +56,7 @@ Plug 'scrooloose/syntastic'
 	let g:syntastic_c_checkers = ['gcc', 'make']
 	let g:ycm_show_diagnostics_ui = 0
 Plug 'scrooloose/nerdcommenter'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 "Plug 'Shougo/neocomplete.vim'
 "source ~/.vim/neocomplete.vim
 
@@ -79,5 +79,14 @@ Plug 'othree/html5.vim', {'for': 'html'}
 
 " CSS:
 Plug 'groenewege/vim-less', {'for': 'less'}
+
+" Nix:
+Plug 'tlib', {'for': 'nix'}
+Plug 'MarcWeber/vim-addon-actions', {'for': 'nix'}
+Plug 'MarcWeber/vim-addon-completion', {'for': 'nix'}
+Plug 'MarcWeber/vim-addon-goto-thing-at-cursor', {'for': 'nix'}
+Plug 'MarcWeber/vim-addon-errorformats', {'for': 'nix'}
+Plug 'MarcWeber/vim-addon-mw-utils', {'for': 'nix'}
+Plug 'MarcWeber/vim-addon-nix', {'for': 'nix'}
 
 call plug#end()
