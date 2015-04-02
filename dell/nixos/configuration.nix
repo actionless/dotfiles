@@ -142,6 +142,7 @@
     gnome.gnome_menus
 
     # deps for my scripts
+    awesome # awesome-client
     lm_sensors
     procps # top
     stow
