@@ -18,9 +18,7 @@ with import <nixpkgs> {}; {
       dbus
       dbus_tools
 		];
-    shellHook = "fish";
+    /*shellHook = "fish";*/
 		LD_LIBRARY_PATH="${libffi}/lib";
 	};
 }
-
-# vim: ft=conf:
