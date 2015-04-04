@@ -24,6 +24,8 @@
   networking.hostId = "199a2f00";
   networking.wireless.enable = true; # Enables wireless.
 
+  networking.firewall.enable = false;
+
   # Select internationalisation properties.
   time.timeZone = "Europe/Prague";
   i18n = {
@@ -51,10 +53,9 @@
         url = "git://git.suckless.org/st";
         sha256 = "0d2wzxwb4wfw3wrdanacmjkm7hd3phbfj3kvhxiyvsv623mmq29a";
       };
-      preBuild = ''
-        cp /etc/nixos/pkgs/st/config.h config.def.h &&
-        patch -i /etc/nixos/pkgs/st/enable_transparency_options.diff
-      '';
+      patches = "/etc/nixos/pkgs/st/enable_transparency_options.diff";
+      preBuild = "cp /etc/nixos/pkgs/st/config.h config.def.h";
+      /*configFile = "/etc/nixos/pkgs/st/config.h";*/
     }));
 
     qt48 = (pkgs.qt48.override {
@@ -105,6 +106,7 @@
     irssi
     scrot
     htop
+    arandr
 
     # theming stuff
     gtk_engines
@@ -132,6 +134,8 @@
     evince
     hexchat
     audacious
+    meld
+    pinta
 
     pcmanfm
     (callPackage ./pkgs/lxmenu_data.nix {})
