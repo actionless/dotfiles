@@ -29,3 +29,7 @@ end
 function no_comments --description 'cat and cut comments'
 	command cat $argv | grep -v -e "^;" -e "^#" -e "^\$" -e "^[ \t]\+#"
 end
+
+function awesome-exec --description 'execute in awesome-client'
+	echo "$argv" | awesome-client
+end
