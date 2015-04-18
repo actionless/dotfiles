@@ -5,9 +5,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'gorodinskiy/vim-coloresque', {'for': 'css'}
 Plug 'kien/rainbow_parentheses.vim'
 	au VimEnter * RainbowParenthesesToggle
-	au VimEnter * RainbowParenthesesLoadRound
-	au VimEnter * RainbowParenthesesLoadSquare
-	au VimEnter * RainbowParenthesesLoadBraces
+	au BufReadPost * RainbowParenthesesLoadRound
+	au BufReadPost * RainbowParenthesesLoadSquare
+	au BufReadPost * RainbowParenthesesLoadBraces
 Plug 'bling/vim-airline'
 	let g:airline_theme='wombat'
 	"let g:airline_theme='kolor'
@@ -62,11 +62,11 @@ Plug 'scrooloose/nerdcommenter'
 
 
 " Lua:
-Plug 'xolox/vim-misc', {'for': 'lua'}
-       "let g:lua_complete_omni = 1
-       "let g:lua_complete_dynamic = 0
-Plug 'xolox/vim-lua-ftplugin', {'for': 'lua'}
-       let g:lua_internal = 0
+"Plug 'xolox/vim-misc', {'for': 'lua'}
+       ""let g:lua_complete_omni = 1
+       ""let g:lua_complete_dynamic = 0
+"Plug 'xolox/vim-lua-ftplugin', {'for': 'lua'}
+       "let g:lua_internal = 0
 
 " Fish:
 Plug 'dag/vim-fish', {'for': 'fish'}
