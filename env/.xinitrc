@@ -49,11 +49,12 @@ openbox)
 	bash ~/.config/openbox/autostart
 	;;
 awesome)
-	#exec awesome --no-argb >> ~/.cache/awesome_stdout 2>> ~/.cache/awesome_stderr
+	./.screenlayout/bigdell.sh ;
+	(sleep 3 && compton) &
 	exec awesome >> ~/.cache/awesome_stdout 2>> ~/.cache/awesome_stderr
 	;;
 awesome_no_argb)
-	#exec awesome --no-argb >> ~/.cache/awesome_stdout 2>> ~/.cache/awesome_stderr
+	./.screenlayout/bigdell.sh ;
 	#exec awesome --no-argb >> ~/.cache/awesome_stdout 2>> ~/.cache/awesome_stderr
 	awesome --no-argb >> ~/.cache/awesome_stdout 2>> ~/.cache/awesome_stderr
 	;;
