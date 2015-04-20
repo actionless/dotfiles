@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FN='Monospace-8:Bold'
+FN='Monospace-10:Bold'
 
 # light:
 #NB='#d8d8d8'
