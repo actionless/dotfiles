@@ -18,7 +18,7 @@ if version > 580
         syntax reset
     endif
 endif
-let g:colors_name="actionless_monokai"
+let g:colors_name="fixed-dark-actionless_monokai"
 
 if exists("g:actionless_monokai_original")
     let s:actionless_monokai_original = g:actionless_monokai_original
