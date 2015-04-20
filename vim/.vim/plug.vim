@@ -3,9 +3,10 @@ call plug#begin('~/.vim/plugged')
 " Style:
 "
 Plug 'gorodinskiy/vim-coloresque', {'for': 'css'}
-Plug 'oblitum/rainbow'
-	let g:rainbow_active = 1
-	let g:rainbow_ctermfgs = [ 1, 9, 3, 11, 10, 2, 6, 14, 12, 4, 13, 5, 8, 7, 15, 130 ]
+Plug 'junegunn/rainbow_parentheses.vim'
+	au VimEnter * RainbowParentheses
+	let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+	"[ 1, 9, 3, 11, 10, 2, 6, 14, 12, 4, 13, 5, 8, 7, 15, 130 ]
 
 Plug 'bling/vim-airline'
 	let g:airline_theme='wombat'
