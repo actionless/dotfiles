@@ -25,8 +25,10 @@ function git_prompt
 				set_color green -o
 			end
 		end
-end
-	echo "$git_branch_name"
+	else
+		return 1
+	end
+	echo " ""$git_branch_name"" "
 end
 
 function fish_prompt --description 'Write out the prompt'
@@ -48,22 +50,22 @@ function fish_prompt --description 'Write out the prompt'
 		set -g __fish_git_color (set_color purple)
 	end
 
-	if [ $last_status -ne 0 ]
-		if not set -q __fish_prompt_status
-			set -g __fish_prompt_status (set_color yellow)
-		end
-		set prompt_status "$__fish_prompt_status [$last_status]"
-	end
-
 	set -l inverse "\e[7m"
 
+	if [ $last_status -ne 0 ]
+		set prompt_status (set_color yellow -o) $inverse " ""$last_status"" " (set_color -b normal) " "
+	end
+
 	echo -e -n -s \
-(set_color $fish_color_cwd) "\n  " \
-(set_color $user_color) $inverse $USER "@" $__fish_prompt_hostname \
+(set_color $fish_color_cwd) "\n " (set_color -b normal) " " \
+(set_color $user_color) $inverse " "$USER "@" $__fish_prompt_hostname" " \
 (set_color -b normal) " " \
-(set_color $fish_color_cwd) $inverse (pwd) (set_color -b normal $fish_color_cwd) " " \
-$__fish_git_color (git_prompt) \
-(set_color -b normal) $prompt_status \
+(set_color $fish_color_cwd) $inverse " "(pwd)" " \
+(set_color -b normal) " " \
+$inverse $__fish_git_color (git_prompt ; and echo (set_color -b normal)" ") \
+$prompt_status \
+(set_color -b normal $fish_color_cwd) " " \
+(set_color -b normal) \
 $__fish_prompt_normal "\n" \
 $user_prompt " "
 
