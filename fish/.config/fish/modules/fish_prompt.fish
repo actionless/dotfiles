@@ -46,9 +46,6 @@ function fish_prompt --description 'Write out the prompt'
 	if not set -q __fish_prompt_hostname
 		set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
 	end
-	if not set -q __fish_git_color
-		set -g __fish_git_color (set_color purple)
-	end
 
 	set -l inverse "\e[7m"
 
