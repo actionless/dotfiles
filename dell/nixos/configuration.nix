@@ -51,16 +51,16 @@
     st = ( pkgs.lib.overrideDerivation pkgs.st (attrs: {
       src = pkgs.fetchgit {
         url = "git://git.suckless.org/st";
-        sha256 = "0d2wzxwb4wfw3wrdanacmjkm7hd3phbfj3kvhxiyvsv623mmq29a";
+        rev = "190b94c7a2a7bb2f5d55cbb6eb1779fd042c6467";
+        sha256 = "0q34scqxv1jr3y95wr4wnb2ccy9c3wrr17qyqlx2rb0kbds3y2mk";
       };
       patches = "/etc/nixos/pkgs/st/enable_transparency_options.diff";
       preBuild = "cp /etc/nixos/pkgs/st/config.h config.def.h";
-      /*configFile = "/etc/nixos/pkgs/st/config.h";*/
     }));
 
-    qt48 = (pkgs.qt48.override {
+    /*qt48 = (pkgs.qt48.override {
       gtkStyle = true;
-    });
+    });*/
     gst_plugins_bad = ( pkgs.lib.overrideDerivation pkgs.gst_plugins_bad (attrs: {
       buildInputs = pkgs.gst_plugins_bad.buildInputs ++ [
         pkgs.faac
@@ -120,6 +120,8 @@
 
     # GUI apps
     st
+    xterm
+    rxvt_unicode
     pavucontrol
     firefox
     xarchiver
@@ -130,12 +132,12 @@
     spotify
     transmission_gtk
     clementine
-    gnome3.eog
     evince
     hexchat
     audacious
     meld
     pinta
+    gpicview
 
     pcmanfm
     (callPackage ./pkgs/lxmenu_data.nix {})
@@ -160,6 +162,10 @@
     nixosManual.enable = true;
     upower.enable = true;
     gnome3.gvfs.enable = true;
+    nfs.server.enable = true;
+    nfs.server.exports = ''
+      /home/lie/share    *(ro,nohide)
+    '';
   };
 
   users.extraUsers.lie = {
