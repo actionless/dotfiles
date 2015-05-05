@@ -1,5 +1,8 @@
 #!/bin/sh
 
+SCRIPT_DIR=$(readlink -e $(dirname "$0"))
+
+
 PC_NAME="$1"
 THEME_NAME="$2"
 
@@ -21,4 +24,4 @@ do
 	fi
 done
 
-./change-theme.sh "$THEME_NAME"
+$SCRIPT_DIR/change-theme.sh "$THEME_NAME"
