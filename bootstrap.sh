@@ -11,8 +11,9 @@ echo "Usage: $0 PC_NAME" THEME_NAME&&
 echo "Usage: $0 (dell|thinkpad) (theme-dell-lcars|...)" &&
 exit 1
 
-test "$PC_NAME" = "dell" && EXCLUDE_CONFIG="thinkpad"
-test "$PC_NAME" = "thinkpad" && EXCLUDE_CONFIG="dell"
+test "$PC_NAME" = "dell" && EXCLUDE_CONFIG="(thinkpad|h50)"
+test "$PC_NAME" = "thinkpad" && EXCLUDE_CONFIG="(dell|h50)"
+test "$PC_NAME" = "h50" && EXCLUDE_CONFIG="(dell|thinkpad)"
 
 for CONFIG in $(ls | grep -E -v -e "$EXCLUDE_CONFIG" -e "theme-" -e "\.");
 do

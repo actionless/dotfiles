@@ -6,4 +6,4 @@ else
 	stow "$1"
 fi
 xrdb -merge ~/.Xresources
-echo "awesome.restart()" | awesome-client
+echo "awesome.restart()" | awesome-client || true
