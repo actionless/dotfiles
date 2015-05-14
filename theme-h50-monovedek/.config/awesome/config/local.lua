@@ -25,7 +25,8 @@ function local_config.init(awesome_context)
     --"killall compton ; compton",
   }
   awesome_context.volume_widget='apw'
-  have_battery = false
+  awesome_context.have_battery = false
+  awesome_context.new_top = true
 
   return awesome_context
 end
