@@ -89,7 +89,14 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+
+bindsym $mod+$alt+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
+
 # switch to workspace
+bindsym $mod+Escape workspace back_and_forth
+bindsym $mod+period workspace next
+bindsym $mod+comma workspace prev
+
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -164,7 +171,7 @@ exec nitrogen --restore
 exec xset r rate 250 25
 exec xset b off
 exec pulseaudio
-exec unclutter --root
+#exec unclutter -root
 exec xsettingsd
 exec dropbox
 exec setxkbmap -layout us,ru -variant ,winkeys -option grp:caps_toggle,grp_led:scroll,terminate:ctrl_alt_bksp,compose:ralt
