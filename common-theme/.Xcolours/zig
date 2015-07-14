@@ -1,6 +1,6 @@
 !
 URxvt*background: [95]#101010
-xterm*background: #101010
+*background: #101010
 
 *foreground: 	 #a6a6a6
 
