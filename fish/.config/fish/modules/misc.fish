@@ -1,6 +1,4 @@
 
-alias_w mpv_deint 'mpv --vf=yadif'
-#alias_w mpv_deint 'mpv --vf=vavpp=deint=bob'
 #alias_w tiv "tiv -jb  -c -r 0.5"
 
 alias rm_temp='rm -v *~ ; rm -v *.swp ; rm -v .*~ ; rm -v .*.swp ; rm -v \#*\#'
