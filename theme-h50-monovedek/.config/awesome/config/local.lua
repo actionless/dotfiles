@@ -7,7 +7,7 @@ function local_config.init(awesome_context)
   awesome_context.config = {
     wlan_if = 'wlp4s0',
     eth_if = 'enp0s25',
-    net_preset = 'bond',
+    net_preset = 'systemd',
     music_players = { 'spotify', 'clementine', },
   }
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/vertex/theme.lua"
