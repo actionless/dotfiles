@@ -11,11 +11,8 @@ echo "Usage: $0 PC_NAME" THEME_NAME&&
 echo "Usage: $0 (dell|thinkpad) (theme-dell-lcars|...)" &&
 exit 1
 
-test "$PC_NAME" = "dell" && EXCLUDE_CONFIG="(thinkpad|h50)"
-test "$PC_NAME" = "thinkpad" && EXCLUDE_CONFIG="(dell|h50)"
-test "$PC_NAME" = "h50" && EXCLUDE_CONFIG="(dell|thinkpad)"
-
-for CONFIG in $(ls | grep -E -v -e "$EXCLUDE_CONFIG" -e "theme-" -e "\.");
+stow -D $(./current-workstation.sh) ;
+for CONFIG in $(ls | grep -E -v -e "theme-" -e "workstation-" -e "\."; echo $PC_NAME);
 do
 	echo -n "$CONFIG: " ;
 	if stow $CONFIG; then
@@ -25,4 +22,4 @@ do
 	fi
 done
 
-$SCRIPT_DIR/change-theme.sh "$THEME_NAME"
+test ! -z $THEME_NAME && $SCRIPT_DIR/change-theme.sh "$THEME_NAME"
