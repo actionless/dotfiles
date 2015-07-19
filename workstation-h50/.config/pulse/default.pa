@@ -161,6 +161,6 @@ load-module module-filter-apply
 #.endif
 
 ### Make some devices default
-set-card-profile 3 output:analog-stereo
-set-default-sink 3
+set-card-profile 2 output:analog-stereo
+set-default-sink 2
 #set-default-source input
