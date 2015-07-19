@@ -4,8 +4,8 @@
 
 alias sprunge "curl -F 'sprunge=<-' http://sprunge.us"
 
-#alias a_grep "ack --python --ignore-dir=env "
-alias a_grep "ag --ignore-dir=env "
+#abbr a_grep "ack --python --ignore-dir=env "
+abbr a_grep "ag --ignore-dir=env "
 
 function a_replace -a grep_line original_value replace_value -d "replace stuff using ag and sed"
 	a_grep -l --print0 "$grep_line" \
@@ -16,9 +16,9 @@ end
 # Python
 ###
 
-alias activate "source env/bin/activate.fish"
+abbr activate "source env/bin/activate.fish"
 
-alias prospector "prospector -s veryhigh -w frosted -w pyroma -W vulture -W pep257 --no-autodetect -D ./"
+abbr prospector "prospector -s veryhigh -w frosted -w pyroma -W vulture -W pep257 --no-autodetect -D ./"
 
 ###
 # Docker
@@ -32,9 +32,9 @@ function docker_rmi
 	)
 end
 
-alias docker_rm "docker rm -v (docker ps -a -q)"
+abbr docker_rm "docker rm -v (docker ps -a -q)"
 
-alias docker_rm_all "docker_rmi; docker_rm; docker_rmi"
+abbr docker_rm_all "docker_rmi; docker_rm; docker_rmi"
 
 function docker_size
 	command echo (
@@ -50,7 +50,7 @@ end
 # GIT
 ###
 
-alias 'gcm' 'git commit -m'
+abbr 'gcm' 'git commit -m'
 
 function git_status_pwd
 	command git status $argv | grep -v "\.\."

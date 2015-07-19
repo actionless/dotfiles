@@ -29,7 +29,7 @@ function wine64 -d "x64 wine workspace"
 		man $argv
 end
 
-alias_w wine "env PULSE_LATENCY_MSEC=60 wine"
+abbr wine "env PULSE_LATENCY_MSEC=60 wine"
 
 #alias tv "DISPLAY=:0.1 GTK2_RC_FILES=~/.gtkrc-2.0.tv"
 #alias openbox_tv "tv openbox --config-file ~/.config/openbox/rc.xml.tv"

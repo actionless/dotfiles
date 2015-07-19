@@ -1,9 +1,9 @@
 
-#alias_w tiv "tiv -jb  -c -r 0.5"
+#abbr_w tiv "tiv -jb  -c -r 0.5"
 
-alias rm_temp='rm -v *~ ; rm -v *.swp ; rm -v .*~ ; rm -v .*.swp ; rm -v \#*\#'
-alias ll='ls -lah --color=auto'
-alias l 'ls -lh --color=auto'
+abbr rm_temp='rm -v *~ ; rm -v *.swp ; rm -v .*~ ; rm -v .*.swp ; rm -v \#*\#'
+abbr ll='ls --color=auto -lah'
+abbr l 'ls --color=auto -lh'
 
 function colorize -d "colorize with pygments"
     if [ (echo $argv | wc -w) -eq 0 ]
