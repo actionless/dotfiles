@@ -2,8 +2,8 @@
 #abbr_w tiv "tiv -jb  -c -r 0.5"
 
 abbr rm_temp='rm -v *~ ; rm -v *.swp ; rm -v .*~ ; rm -v .*.swp ; rm -v \#*\#'
-abbr ll='ls --color=auto -lah'
-abbr l 'ls --color=auto -lh'
+alias ll='ls --color=auto -lah'
+alias l 'ls --color=auto -lh'
 
 function colorize -d "colorize with pygments"
     if [ (echo $argv | wc -w) -eq 0 ]
