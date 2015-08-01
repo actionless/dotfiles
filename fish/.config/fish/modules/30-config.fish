@@ -24,6 +24,7 @@ function fish_user_key_bindings
 end
 
 function reload_fish
+	for a in (abbr -l); abbr -e $a; end
 	rm /tmp/config.fish
 	source ~/.config/fish/config.fish
 end
