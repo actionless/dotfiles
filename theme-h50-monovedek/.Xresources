@@ -20,6 +20,7 @@ Xft.lcdfilter: lcddefault
 !#include "/home/lie/.Xcolours/ltns"
 !#include "/home/lie/.Xcolours/jwr_dark"
 !#include "/home/lie/.Xcolours/waltz"
+!#include "/home/lie/.Xcolours/monokazu"
 
 ! urxvt ----------------------------------------------------------------------
 
