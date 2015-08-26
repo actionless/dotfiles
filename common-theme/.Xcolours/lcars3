@@ -3,7 +3,11 @@
 *background: #0d0309
 URxvt*background: [85]#0d0309
 
-*foreground:        #ffffc6
+! warm:
+!*foreground:        #ffffc6
+! cold:
+*foreground:        #ccccff
+
 *cursorColor:       #cc6699
 *colorUL:           #ffffff
 *underlineColor:    #ffffff
