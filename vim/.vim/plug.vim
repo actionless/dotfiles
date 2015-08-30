@@ -9,7 +9,8 @@ Plug 'junegunn/rainbow_parentheses.vim'
 	"[ 1, 9, 3, 11, 10, 2, 6, 14, 12, 4, 13, 5, 8, 7, 15, 130 ]
 
 Plug 'bling/vim-airline'
-	let g:airline_theme='wombat'
+	"let g:airline_theme='wombat'
+	let g:airline_theme='term'
 	"let g:airline_theme='kolor'
 	let g:airline_powerline_fonts = 1
 	let g:airline_right_sep = ''
@@ -33,10 +34,8 @@ Plug 'kien/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer'] }
 	\ }
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 	let NERDTreeIgnore=['\~$', '\.pyc', '^__pycache__$']
-""Plug 'taglist-plus'
-""Plug 'kien/tabman.vim'
-"Plug 'taglist.vim'
-"Plug 'majutsushi/tagbar'
+"Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
+Plug 'majutsushi/tagbar'
 
 
 " CODING:
@@ -56,7 +55,9 @@ Plug 'scrooloose/syntastic'
 	let g:syntastic_c_checkers = ['gcc', 'make']
 	let g:ycm_show_diagnostics_ui = 0
 Plug 'scrooloose/nerdcommenter'
-"Plug 'Valloric/YouCompleteMe'
+" installed system-wide:
+"Plug 'Valloric/YouCompleteMe' 
+" remove? :
 "Plug 'Shougo/neocomplete.vim'
 "source ~/.vim/neocomplete.vim
 

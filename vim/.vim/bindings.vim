@@ -3,8 +3,8 @@ let mapleader = ","
 " sudo write
 noremap <leader>W :w !sudo tee %<CR>
 
-map <C-N><C-T> :NERDTreeToggle<CR>
-map <C-N><C-N> :set invnumber<CR>
+"map <C-N><C-T> :NERDTreeToggle<CR>
+"map <C-N><C-N> :set invnumber<CR>
 
 map <C-P> :CtrlP<CR>
 map <leader>bb :CtrlPBuffer<CR>
@@ -21,6 +21,10 @@ noremap <leader>] :tabnext<CR>
 noremap <leader>[ :tabprevious<CR>
 noremap <leader>tn :tabnew<CR>
 noremap <leader>td :tabclose<CR>
+
+noremap <leader>tt :TagbarToggle<CR>
+noremap <leader>nt :NERDTreeToggle<CR>
+noremap <leader>nn :set invnumber<CR>
 
 vnoremap < <gv
 vnoremap > >gv
