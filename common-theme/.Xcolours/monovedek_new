@@ -28,8 +28,8 @@ xterm*background: #0e0021
 *color5:	#963696
 *color13:	#ad75ad
 !cyan
-*color6:	#369696
-*color14:	#75adad
+*color6:	#46a696
+*color14:	#65bdad
 !white
 *color7:	#888a85
 *color15:	#bbbcb7
