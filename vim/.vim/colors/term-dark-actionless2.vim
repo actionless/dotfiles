@@ -1,12 +1,4 @@
-" Vim color file
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last Change:	2001 Jul 23
-
-" This is the default color scheme.  It doesn't define the Normal
-" highlighting, it uses whatever the colors used to be.
-
-" Set 'background' back to the default.  The value can't always be estimated
-" and is then guessed.
+" Vim color file based on the default colorscheme
 hi clear Normal
 set bg&
 
@@ -18,7 +10,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "default"
+let colors_name = "term-dark-actionless2"
 
 highlight ExtraWhitespace					ctermbg=red
 highlight Conceal			ctermfg=237		ctermbg=NONE
@@ -32,7 +24,11 @@ highlight CursorLine	cterm=NONE	ctermbg=black		ctermfg=NONE
 highlight ColorColumn			ctermbg=black
 highlight Pmenu ctermbg=237 gui=bold
 hi PmenuSel				ctermfg=0 ctermbg=DarkBlue
-hi Comment        term=bold		ctermfg=cyan
+hi TabLineFill    ctermbg=NONE cterm=NONE
+"hi TabLine        cterm=NONE ctermfg=fg ctermbg=NONE
+hi TabLineSel     cterm=bold ctermfg=15 ctermbg=DarkBlue
+
+hi Comment        term=bold		ctermfg=8
 hi Constant       term=underline	ctermfg=blue
 hi Special        term=bold		ctermfg=3
 hi Identifier     cterm=bold ctermfg=green
@@ -40,5 +36,8 @@ hi Statement      term=bold		ctermfg=yellow
 hi PreProc        term=underline	ctermfg=DarkCyan
 hi Type           term=underline	ctermfg=DarkGreen
 
+hi Search         term=reverse ctermbg=11 ctermfg=0
+hi SpellBad         term=reverse ctermbg=10 ctermfg=0
+hi Visual         term=reverse ctermbg=4
 
 " vim: sw=2

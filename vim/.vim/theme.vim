@@ -5,10 +5,11 @@ set cursorline
 "colorscheme default
 "set bg=dark
 "colorscheme actionless
-colorscheme fixed-dark-actionless_monokai
+"colorscheme fixed-dark-actionless_monokai
 "colorscheme term-wargrey
 "colorscheme term-dark-noctu
-"colorscheme actionless3
+"colorscheme term-actionless3
+colorscheme term-dark-actionless2
 "colorscheme miromiro
 "colorscheme delek
 "colorscheme noctu

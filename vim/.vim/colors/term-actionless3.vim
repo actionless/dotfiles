@@ -1,7 +1,7 @@
 " Vim color file
 
 set background=light
-let g:colors_name="actionless3"
+let g:colors_name="term-actionless3"
 
 " Code
 hi Folded       ctermfg=8    ctermbg=none
