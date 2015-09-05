@@ -26,6 +26,7 @@ function local_config.init(awesome_context)
   }
   awesome_context.volume_widget='apw'
   awesome_context.have_battery = false
+  awesome_context.sensor = "temp1"
   awesome_context.new_top = true
 
   return awesome_context
