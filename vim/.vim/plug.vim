@@ -18,8 +18,8 @@ Plug 'bling/vim-airline'
 	" Enable the list of buffers:
 	"let g:airline#extensions#tabline#enabled = 1
 	"let g:airline#extensions#tabline#fnamemod = ':t'
-Plug 'bling/vim-bufferline'
-	let g:bufferline_echo = 0
+"Plug 'bling/vim-bufferline'
+	"let g:bufferline_echo = 0
 Plug 'nathanaelkane/vim-indent-guides', {'on': 'IndentGuidesToggle'}
 " Show marks:
 Plug 'kshenoy/vim-signature'
