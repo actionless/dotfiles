@@ -22,8 +22,8 @@ highlight CursorLineNr	cterm=bold	ctermfg=red
 "highlight CursorLine	cterm=underline	ctermbg=black		ctermfg=NONE
 highlight CursorLine	cterm=NONE	ctermbg=black		ctermfg=NONE
 highlight ColorColumn			ctermbg=black
-highlight Pmenu ctermbg=237 gui=bold
-hi PmenuSel				ctermfg=0 ctermbg=DarkBlue
+highlight Pmenu term=reverse gui=bold
+hi PmenuSel				ctermfg=0 ctermbg=Magenta
 hi TabLineFill    ctermbg=NONE cterm=NONE
 "hi TabLine        cterm=NONE ctermfg=fg ctermbg=NONE
 hi TabLineSel     cterm=bold ctermfg=15 ctermbg=DarkBlue
