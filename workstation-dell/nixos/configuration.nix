@@ -145,6 +145,8 @@
     meld
     pinta
     gpicview
+    python3
+    python34Packages.ipython
 
     pcmanfm
     #(callPackage ./pkgs/lxmenu_data.nix {})
