@@ -42,10 +42,6 @@
 
   nixpkgs.config.packageOverrides = pkgs: rec {
     awesome = ( pkgs.lib.overrideDerivation pkgs.awesome (attrs: {
-      /*src = pkgs.fetchurl {*/
-        /*url = "https://github.com/awesomeWM/awesome/archive/07486f7ead25cae4ba1a301ce2af809fab070dbf.tar.gz";*/
-        /*sha256 = "17wxirhb7nyr7aqfligw6cj1i3lm6fc08760pgdsv1k4yl0s48rh";*/
-      /*};*/
       src = pkgs.fetchgit {
         url = "git://github.com/actionless/awesome.git";
         rev = "d51009c8447a89137b6127a31bcb4215b17769b0";
@@ -82,15 +78,6 @@
       ];
     }));
 
-    pcmanfm = ( pkgs.lib.overrideDerivation pkgs.pcmanfm (attrs: {
-      buildInputs = pkgs.pcmanfm.buildInputs ++ [
-        #pkgs.gvfs
-        pkgs.gnome3.gvfs
-        #pkgs.gnome.gnome_menus
-        pkgs.shared_mime_info
-        #(pkgs.callPackage ./pkgs/lxmenu_data.nix {})
-      ];
-    }));
   };
 
   # List packages installed in system profile. To search by name, run:
@@ -114,7 +101,6 @@
     irssi
     scrot
     htop
-    arandr
 
     # theming stuff
     gtk_engines
@@ -145,8 +131,7 @@
     meld
     pinta
     gpicview
-    python3
-    python34Packages.ipython
+    arandr
 
     pcmanfm
     #(callPackage ./pkgs/lxmenu_data.nix {})
