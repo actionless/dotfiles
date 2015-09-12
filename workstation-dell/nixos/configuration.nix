@@ -42,19 +42,23 @@
 
   nixpkgs.config.packageOverrides = pkgs: rec {
     awesome = ( pkgs.lib.overrideDerivation pkgs.awesome (attrs: {
-      src = pkgs.fetchurl {
-        url = "https://github.com/awesomeWM/awesome/archive/07486f7ead25cae4ba1a301ce2af809fab070dbf.tar.gz";
-        sha256 = "17wxirhb7nyr7aqfligw6cj1i3lm6fc08760pgdsv1k4yl0s48rh";
+      src = pkgs.fetchgit {
+        url = "git://github.com/actionless/awesome.git";
+        rev = "d51009c8447a89137b6127a31bcb4215b17769b0";
+        sha256 = "1nhizqs1infgir23jqlwvrk1wr1d9wd0bl32k64vdv8l7c3w1mdp";
       };
+      nativeBuildInputs = attrs.nativeBuildInputs ++ [
+        pkgs.libxkbcommon
+      ];
     }));
 
     st = ( pkgs.lib.overrideDerivation pkgs.st (attrs: {
       src = pkgs.fetchgit {
-        url = "git://git.suckless.org/st";
-        rev = "190b94c7a2a7bb2f5d55cbb6eb1779fd042c6467";
-        sha256 = "0q34scqxv1jr3y95wr4wnb2ccy9c3wrr17qyqlx2rb0kbds3y2mk";
+        url = "git://github.com/actionless/st.git";
+        rev = "f0a54af21658ae3e26e14fa52587b1825ddd8100";
+        sha256 = "10lmls30acrx6q5ixw7isxicfmjah66ycsa5mcpxdgrbjwvb6pi7";
       };
-      patches = "/etc/nixos/pkgs/st/enable_transparency_options.diff";
+      /*patches = "/etc/nixos/pkgs/st/enable_transparency_options.diff";*/
       preBuild = "cp /etc/nixos/pkgs/st/config.h config.def.h";
     }));
 
@@ -74,15 +78,6 @@
       ];
     }));
 
-    pcmanfm = ( pkgs.lib.overrideDerivation pkgs.pcmanfm (attrs: {
-      buildInputs = pkgs.pcmanfm.buildInputs ++ [
-        #pkgs.gvfs
-        pkgs.gnome3.gvfs
-        #pkgs.gnome.gnome_menus
-        pkgs.shared_mime_info
-        (pkgs.callPackage ./pkgs/lxmenu_data.nix {})
-      ];
-    }));
   };
 
   # List packages installed in system profile. To search by name, run:
@@ -106,15 +101,13 @@
     irssi
     scrot
     htop
-    arandr
 
     # theming stuff
     gtk_engines
     gtk-engine-murrine
     hicolor_icon_theme
     gnome3.gnome_themes_standard
-    gnome3.gnome_icon_theme
-    gnome3.gnome_icon_theme_symbolic
+    gnome3.adwaita-icon-theme
     qt48
     lxappearance
 
@@ -138,9 +131,10 @@
     meld
     pinta
     gpicview
+    arandr
 
     pcmanfm
-    (callPackage ./pkgs/lxmenu_data.nix {})
+    #(callPackage ./pkgs/lxmenu_data.nix {})
     #
     shared_mime_info
     #
@@ -153,6 +147,7 @@
     procps # top
     stow
     xsel
+    xsettingsd
 
   ];
 
@@ -164,7 +159,7 @@
     gnome3.gvfs.enable = true;
     nfs.server.enable = true;
     nfs.server.exports = ''
-      /home/lie/share    *(ro,nohide)
+      /home/lie/    *(ro,nohide)
     '';
   };
 

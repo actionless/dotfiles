@@ -25,10 +25,14 @@
       /*'';*/
 
       vaapiDrivers = [ pkgs.vaapiVdpau ];
-      desktopManager.xterm.enable = false;
+
+      /*desktopManager.xfce.enable = true;*/
+      desktopManager.xterm.enable = true;
+
+      /*desktopManager.xterm.enable = false;*/
       windowManager.awesome.enable = false;
       displayManager.session = [ {
-        name = "awesome_no_ARGB";
+        name = "awesome";
         manage = "window";
         start = ''
           ${lib.concatMapStrings
@@ -43,7 +47,7 @@
           waitPID=$!
         '';
       } {
-        name = "awesome";
+        name = "awesome_trans";
         manage = "window";
         start = ''
           ${lib.concatMapStrings

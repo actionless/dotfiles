@@ -5,7 +5,7 @@ Gtk/CursorThemeName ""
 Gtk/CursorThemeSize 0
 #Gtk/DecorationLayout "close,menu:maximize"
 Gtk/DecorationLayout "menu:"
-Gtk/FontName "Sans 8"
+Gtk/FontName "Sans 9"
 Gtk/IconSizes ""
 Gtk/KeyThemeName ""
 Gtk/MenuBarAccel "F10"
