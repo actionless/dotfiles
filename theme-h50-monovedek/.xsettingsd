@@ -6,9 +6,10 @@ Gtk/CursorThemeSize 0
 #Gtk/DecorationLayout "close,menu:maximize"
 Gtk/DecorationLayout "menu:"
 #Gtk/FontName "PT Sans 7.5"
-#Gtk/FontName "Sans 10"
-Gtk/FontName "Roboto Medium 10"
-#Gtk/IconSizes "panel-menu=16,16:panel=16,16:gtk-menu=16,16:gtk-large-toolbar=16,16:gtk-small-toolbar=16,16:gtk-button=16,16"
+Gtk/FontName "Sans 10"
+#Gtk/FontName "Sans Medium 10"
+#Gtk/FontName "Roboto Medium 10"
+Gtk/IconSizes "panel-menu=16,16:panel=16,16:gtk-menu=16,16:gtk-large-toolbar=16,16:gtk-small-toolbar=16,16:gtk-button=16,16"
 Gtk/KeyThemeName ""
 Gtk/MenuBarAccel "F10"
 Gtk/MenuImages 1
@@ -21,17 +22,20 @@ Net/DoubleClickDistance 5
 Net/DoubleClickTime 250
 Net/EnableEventSounds 1
 Net/EnableInputFeedbackSounds 1
-#Net/IconThemeName "gnome-noble"
+Net/SoundThemeName "default"
+
+Net/IconThemeName "gnome-noble"
 #Net/IconThemeName "gnome"
 #Net/IconThemeName "Archdroid-Pink"
 #Net/IconThemeName "Archdroid-Teal"
-Net/IconThemeName "Archdroid-DeepPurple"
-Net/SoundThemeName "default"
-#Net/ThemeName "oomox-pro-medium-light"
-#Net/ThemeName "oomox-monovedek"
-Net/ThemeName "Flattastic-Recolor"
+#Net/IconThemeName "Archdroid-DeepPurple"
 
-Xft/Antialias 1
+#Net/ThemeName "oomox-monovedek"
+#Net/ThemeName "Arc-Recolored"
+Net/ThemeName "Arc-Monovedek"
+#Net/ThemeName "Flattastic-Monovedek-Dark"
+#Net/ThemeName "Flattastic-LCARS"
+
 
 # thinkpad:
 #Xft/DPI 134144
@@ -40,6 +44,7 @@ Xft/Antialias 1
 # just x2:
 Xft/DPI 196608
 
+Xft/Antialias 1
 Xft/HintStyle "hintslight"
 #Xft/HintStyle "hintfull"
 Xft/RGBA "rgb"
