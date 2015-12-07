@@ -13,9 +13,9 @@ function local_config.init(awesome_context)
     --"killall compton ; compton",
     "xscreensaver -no-splash",
   }
-  awesome_context.volume_widget='apw'
   awesome_context.have_battery = false
   awesome_context.new_top = true
+  awesome_context.sensor = "Core 0"
   awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars-xresources-hidpi/theme.lua"
 end
 
