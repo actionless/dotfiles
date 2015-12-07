@@ -50,6 +50,7 @@ fi
 #xfsettingsd &
 
 export LC_ALL=en_US.UTF-8
+. ~/.profile
 
 
 session="$2"
