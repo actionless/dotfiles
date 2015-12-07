@@ -28,6 +28,7 @@ function local_config.init(awesome_context)
   awesome_context.have_battery = false
   awesome_context.sensor = "temp1"
   awesome_context.new_top = true
+  awesome_context.lcarslist_enabled = false
 
   return awesome_context
 end
