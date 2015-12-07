@@ -5,3 +5,8 @@ end
 function awesome_music_toggle
 	awesome-exec "context.widgets.music.toggle()" 
 end
+
+function awesome-restart
+	xrdb -merge ~/.Xresources ;
+	and awesome-exec "awesome.restart()"
+end
