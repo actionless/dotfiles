@@ -11,7 +11,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'bling/vim-airline'
 	"let g:airline_theme='wombat'
 	let g:airline_theme='term'
-	"let g:airline_theme='kolor'
+	let g:airline_theme='kolor'
 	let g:airline_powerline_fonts = 1
 	let g:airline_right_sep = ''
 	let g:airline_left_sep = ''

@@ -66,6 +66,7 @@
 					ln -s ${nspr}/lib/libnspr4.so $libdir/libnspr4.so.0d
 					ln -s ${nspr}/lib/libplc4.so $libdir/libplc4.so.0d
 					''}
+					ln -s ${libgcrypt}/lib/libgcrypt.so $libdir/libgcript.so.11
 					# Work around Spotify trying to open libudev.so.1 (which we don't have)
 					ln -s ${udev}/lib/libudev.so.1 $libdir/libudev.so.1
 					echo ${udev}
