@@ -9,9 +9,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 	"[ 1, 9, 3, 11, 10, 2, 6, 14, 12, 4, 13, 5, 8, 7, 15, 130 ]
 
 Plug 'bling/vim-airline'
-	"let g:airline_theme='wombat'
 	let g:airline_theme='term'
-	"let g:airline_theme='kolor'
 	let g:airline_powerline_fonts = 1
 	let g:airline_right_sep = ''
 	let g:airline_left_sep = ''
@@ -46,6 +44,9 @@ Plug 'google/vim-codefmtlib', { 'on': ['FormatCode', 'FormatLines'] }
 Plug 'google/vim-codefmt', { 'on': ['FormatCode', 'FormatLines'] }
 
 Plug 'tpope/vim-fugitive'
+
+Plug 'scrooloose/nerdcommenter'
+
 Plug 'scrooloose/syntastic'
 	"let g:syntastic_python_checkers=['flake8', 'python', 'pylint']
 	"let g:syntastic_python_checkers=['flake8', 'pylint']
@@ -54,9 +55,15 @@ Plug 'scrooloose/syntastic'
 	let g:syntastic_lua_checkers = ['luac', 'luacheck']
 	let g:syntastic_c_checkers = ['gcc', 'make']
 	let g:ycm_show_diagnostics_ui = 0
-Plug 'scrooloose/nerdcommenter'
-" installed system-wide:
-"Plug 'Valloric/YouCompleteMe' 
+	let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck', 'go']
+	"let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+	"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+" installed system-wide for normal vim:
+if has('nvim')
+	Plug 'Valloric/YouCompleteMe' 
+endif
+
 " remove? :
 "Plug 'Shougo/neocomplete.vim'
 "source ~/.vim/neocomplete.vim
@@ -81,6 +88,15 @@ Plug 'othree/html5.vim', {'for': 'html'}
 " CSS:
 Plug 'groenewege/vim-less', {'for': 'less'}
 
+" Go:
+Plug 'fatih/vim-go', {'for': 'go'}
+	let g:go_highlight_functions = 1
+	let g:go_highlight_methods = 1
+	let g:go_highlight_structs = 1
+	highlight link goStruct Type
+	let g:go_highlight_operators = 1
+	let g:go_highlight_build_constraints = 1
+
 " Nix:
 Plug 'tlib', {'for': 'nix'}
 Plug 'MarcWeber/vim-addon-actions', {'for': 'nix'}
@@ -89,5 +105,6 @@ Plug 'MarcWeber/vim-addon-goto-thing-at-cursor', {'for': 'nix'}
 Plug 'MarcWeber/vim-addon-errorformats', {'for': 'nix'}
 Plug 'MarcWeber/vim-addon-mw-utils', {'for': 'nix'}
 Plug 'MarcWeber/vim-addon-nix', {'for': 'nix'}
+
 
 call plug#end()

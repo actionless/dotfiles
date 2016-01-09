@@ -32,6 +32,9 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
+export GOPATH=$HOME/.go
+export GOPATH=/media/ext/.go
+
 # uncomment one when not in GNOME:
 export XDG_CURRENT_DESKTOP=gnome
 #export XDG_CURRENT_DESKTOP=xfce

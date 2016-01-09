@@ -31,8 +31,8 @@ end
 
 abbr wine "env PULSE_LATENCY_MSEC=60 wine"
 
-alias vi nvim
-alias vim nvim
+#alias vi nvim
+#alias vim nvim
 
 #alias tv "DISPLAY=:0.1 GTK2_RC_FILES=~/.gtkrc-2.0.tv"
 #alias openbox_tv "tv openbox --config-file ~/.config/openbox/rc.xml.tv"

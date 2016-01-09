@@ -7,6 +7,7 @@ set tabstop=4
 
 set wildmenu
 set wildmode=list:longest
+"set wildmode=full
 
 set ttyfast
 

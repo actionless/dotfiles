@@ -1,1 +1,1 @@
-/home/lie/.vimrc
+../.vimrc
