@@ -44,8 +44,8 @@
     awesome = ( pkgs.lib.overrideDerivation pkgs.awesome (attrs: {
       src = pkgs.fetchgit {
         url = "git://github.com/actionless/awesome.git";
-        rev = "d51009c8447a89137b6127a31bcb4215b17769b0";
-        sha256 = "1nhizqs1infgir23jqlwvrk1wr1d9wd0bl32k64vdv8l7c3w1mdp";
+        rev = "3bcb6a2a89dfbaa19c9c55fc82632e8439fbc5d2";
+        sha256 = "1f26zc0fzqdwfwjmgqxhp225ijw64qvla07v0ws9wrgi7mvg8g0s";
       };
       nativeBuildInputs = attrs.nativeBuildInputs ++ [
         pkgs.libxkbcommon

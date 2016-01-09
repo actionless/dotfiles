@@ -6,15 +6,16 @@ Xft.hinting: 1
 !Xft.hintstyle: hintmedium
 Xft.hintstyle: hintslight
 !Xft.dpi: 120
-Xft.dpi: 96
+Xft.dpi: 110
+!Xft.dpi: 96
 Xft.rgba: rgb
 !Xft.rgba: none
 Xft.lcdfilter: lcddefault
 
 ! terminal colorscheme -------------------------------------------------------
 !
-!#include "/home/lie/.Xcolours/monovedek"
-#include "/home/lie/.Xcolours/monovedek_new"
+#include "/home/lie/.Xcolours/monovedek"
+!#include "/home/lie/.Xcolours/monovedek_new"
 !#include "/home/lie/.Xcolours/gnome_noble_alt"
 !#include "/home/lie/.Xcolours/gnome_noble_light"
 !#include "/home/lie/.Xcolours/waltz"

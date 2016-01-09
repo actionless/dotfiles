@@ -3,6 +3,7 @@ set -x EDITOR "vim"
 set -x PAGER "less"
 #set -x XDG_CURRENT_DESKTOP "gnome"
 set -x XDG_CURRENT_DESKTOP "xfce"
+set -x LC_ALL "en_US.UTF-8"
 # set -x fish_user_paths $fish_user_paths "~/.gem/ruby/2.1.0/bin/";
 #set --universal fish_user_paths $fish_user_paths $HOME/.gem/ruby/2.1.0/bin/;
 #set --universal fish_user_paths $fish_user_paths $HOME/scripts/;
