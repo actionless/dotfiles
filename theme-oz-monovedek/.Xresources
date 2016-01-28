@@ -11,8 +11,7 @@ Xft.lcdfilter: lcddefault
 
 ! terminal colorscheme -------------------------------------------------------
 !
-!#include "/home/lie/.Xcolours/monovedek"
-#include "/home/lie/.Xcolours/monovedek_new"
+#include "/home/lie/.Xcolours/monovedek"
 !#include "/home/lie/.Xcolours/gnome_noble_alt"
 !#include "/home/lie/.Xcolours/gnome_noble_light"
 !#include "/home/lie/.Xcolours/waltz"

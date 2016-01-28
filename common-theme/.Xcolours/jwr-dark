@@ -4,6 +4,12 @@
 !## ff6ffa 5F8BFF 490a47 1f0042    ###
 !#####################################
 
+!! jwr dark
+*background: #080808
+URxvt.background: [95]#080808
+*foreground: #999999
+
+
 ! Black
 *color0:   #333333
 *color8:   #3D3D3D

@@ -1,34 +1,30 @@
 ! xdefaults ------------------------------------------------------------------
-Xft.autohint: 0
+!Xft.autohint: 0
 Xft.antialias: 1
 Xft.hinting: 1
-!Xft.hintstyle: hintfull
+Xft.hintstyle: hintfull
 !Xft.hintstyle: hintmedium
-Xft.hintstyle: hintslight
-!Xft.dpi: 120
-Xft.dpi: 110
-!Xft.dpi: 96
+!Xft.hintstyle: hintslight
+!Xft.dpi: 131
+!Xft.dpi: 185
+Xft.dpi: 192
 Xft.rgba: rgb
-!Xft.rgba: none
 Xft.lcdfilter: lcddefault
 
 ! terminal colorscheme -------------------------------------------------------
-!
-#include "/home/lie/.Xcolours/monovedek_old"
-!#include "/home/lie/.Xcolours/monovedek"
-!#include "/home/lie/.Xcolours/gnome_noble_alt"
-!#include "/home/lie/.Xcolours/gnome_noble_light"
-!#include "/home/lie/.Xcolours/waltz"
-!
-!#include "/home/lie/.Xcolours/lcars"
-!#include "/home/lie/.Xcolours/lcars2"
 !#include "/home/lie/.Xcolours/lcars3"
-!
-!#include "/home/lie/.Xcolours/zig"
-!#include "/home/lie/.Xcolours/pinknoise"
+#include "/home/lie/.Xcolours/monovedek"
+!#include "/home/lie/.Xcolours/waltz"
+!#include "/home/lie/.Xcolours/gnome_noble_light"
 !#include "/home/lie/.Xcolours/light"
 !#include "/home/lie/.Xcolours/ltns"
-!
+!#include "/home/lie/.Xcolours/jwr-dark"
+!#include "/home/lie/.Xcolours/monokazu"
+!#include "/home/lie/.Xcolours/astromouse"
+! ?? 
+!#include "/home/lie/.Xcolours/zig"
+!#include "/home/lie/.Xcolours/ivorylight"
+!#include "/home/lie/.Xcolours/farside"
 !#include "/home/lie/.Xcolours/jwr_dark"
 
 ! urxvt ----------------------------------------------------------------------
@@ -43,14 +39,14 @@ Xft.lcdfilter: lcddefault
 !URxvt*font:		 xft:DejaVu Sans Mono for Powerline:pixelsize=11
 !URxvt*font:		 xft:DejaVu Sans Mono:pixelsize=13
 !URxvt*font:		 xft:Dina:pixelsize=16
-URxvt*font:		 xft:monospace:pixelsize=14
+URxvt*font:		 xft:monospace:pixelsize=24
 
 !URxvt*boldFont:		 8x16bold
 !URxvt*boldFont:		 xft:tamsyn bold:pixelsize=13
 !URxvt*boldFont:		 xft:DejaVu Sans Mono:pixelsize=13
 !URxvt*boldFont: 	-*-tamsyn-bold-*-*-*-14-*-*-*-*-*-*-*
 
-URxvt*letterSpace:	 -2
+!URxvt*letterSpace:	 -1
 
 URxvt*saveLines:		 0
 URxvt*loginShell:        true
@@ -92,10 +88,10 @@ URxvt.perl-ext-common:
 xterm*iconName:Terminal
 xterm*eightBitInput:    false
 xterm*cursorBlink:      true
-xterm*faceName: Dina
+xterm*faceName: Monospace
 xterm*cursorOffTime:    300
 xterm*metaSendsEscape:  true
-xterm*faceSize: 8
+xterm*faceSize: 10
 xterm*title:    Terminal
 xterm*cursorOnTime:     300
 xterm*utf8:     1
