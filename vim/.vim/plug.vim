@@ -2,17 +2,43 @@ call plug#begin('~/.vim/plugged')
 
 " Style:
 "
-Plug 'gorodinskiy/vim-coloresque', {'for': 'css'}
-Plug 'junegunn/rainbow_parentheses.vim'
-	au VimEnter * RainbowParentheses
-	let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+Plug 'gorodinskiy/vim-coloresque', {'for': ['css', 'less', 'sass', 'scss', 'vim', 'stylus']}
+"Plug 'junegunn/rainbow_parentheses.vim'
+	"au VimEnter * RainbowParentheses
+	"let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 	"[ 1, 9, 3, 11, 10, 2, 6, 14, 12, 4, 13, 5, 8, 7, 15, 130 ]
+Plug 'kien/rainbow_parentheses.vim'
+	au VimEnter * RainbowParenthesesToggleAll
+	let g:rbpt_colorpairs = [
+		\ [8,   'RoyalBlue3'],
+		\ [7,    'SeaGreen3'],
+		\ [15,     'DarkOrchid3'],
+		\ [130,       'RoyalBlue3'],
+		\ [1,       'RoyalBlue3'],
+		\ [9,    'SeaGreen3'],
+		\ [3,    'DarkOrchid3'],
+		\ [11,   'firebrick3'],
+		\ [10,    'RoyalBlue3'],
+		\ [2,     'SeaGreen3'],
+		\ [6, 'DarkOrchid3'],
+		\ [14,       'firebrick3'],
+		\ [12,        'RoyalBlue3'],
+		\ [4,       'SeaGreen3'],
+		\ [13, 'DarkOrchid3'],
+		\ [5,    'firebrick3'],
+		\ ]
+		"\ [8,   'RoyalBlue3'],
+		"\ [7,    'SeaGreen3'],
+		"\ [15,     'DarkOrchid3'],
 
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 	let g:airline_theme='term'
 	let g:airline_powerline_fonts = 1
-	let g:airline_right_sep = ''
-	let g:airline_left_sep = ''
+	"let g:airline_right_sep = ''
+	"let g:airline_left_sep = ''
+	let g:airline_left_sep = '퟽'
+	let g:airline_right_sep = '퟼'
 	" Enable the list of buffers:
 	"let g:airline#extensions#tabline#enabled = 1
 	"let g:airline#extensions#tabline#fnamemod = ':t'
@@ -21,6 +47,11 @@ Plug 'bling/vim-airline'
 Plug 'nathanaelkane/vim-indent-guides', {'on': 'IndentGuidesToggle'}
 " Show marks:
 Plug 'kshenoy/vim-signature'
+
+
+Plug 'wimstefan/Lightning'
+Plug 'romainl/Apprentice'
+
 
 
 " Navigation:
@@ -61,21 +92,13 @@ Plug 'scrooloose/syntastic'
 
 " installed system-wide for normal vim:
 if has('nvim')
-	Plug 'Valloric/YouCompleteMe' 
+	Plug 'Valloric/YouCompleteMe'
 endif
-
 " remove? :
 "Plug 'Shougo/neocomplete.vim'
 "source ~/.vim/neocomplete.vim
 
-
-" Lua:
-"Plug 'xolox/vim-misc', {'for': 'lua'}
-       ""let g:lua_complete_omni = 1
-       ""let g:lua_complete_dynamic = 0
-"Plug 'xolox/vim-lua-ftplugin', {'for': 'lua'}
-       "let g:lua_internal = 0
-
+"
 " Fish:
 Plug 'dag/vim-fish', {'for': 'fish'}
 
@@ -98,13 +121,21 @@ Plug 'fatih/vim-go', {'for': 'go'}
 	let g:go_highlight_build_constraints = 1
 
 " Nix:
-Plug 'tlib', {'for': 'nix'}
-Plug 'MarcWeber/vim-addon-actions', {'for': 'nix'}
-Plug 'MarcWeber/vim-addon-completion', {'for': 'nix'}
-Plug 'MarcWeber/vim-addon-goto-thing-at-cursor', {'for': 'nix'}
-Plug 'MarcWeber/vim-addon-errorformats', {'for': 'nix'}
-Plug 'MarcWeber/vim-addon-mw-utils', {'for': 'nix'}
-Plug 'MarcWeber/vim-addon-nix', {'for': 'nix'}
+"Plug 'tlib', {'for': 'nix'}
+"Plug 'MarcWeber/vim-addon-actions', {'for': 'nix'}
+"Plug 'MarcWeber/vim-addon-completion', {'for': 'nix'}
+"Plug 'MarcWeber/vim-addon-goto-thing-at-cursor', {'for': 'nix'}
+"Plug 'MarcWeber/vim-addon-errorformats', {'for': 'nix'}
+"Plug 'MarcWeber/vim-addon-mw-utils', {'for': 'nix'}
+"Plug 'MarcWeber/vim-addon-nix', {'for': 'nix'}
 
+
+" themes:
+" term:
+Plug 'ajgrf/sprinkles'
+" fixed light:
+Plug 'acarapetis/vim-colors-github'
+Plug 'adampasz/stonewashed-themes'
+Plug 'jlesquembre/peaksea'
 
 call plug#end()

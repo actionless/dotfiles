@@ -1,3 +1,13 @@
+"" Free:
+" Ctrl+K
+" Ctrl+S
+" Ctrl+L (redraw)
+" Ctrl+N (emacs)
+" Ctrl+Q (Ctrl+V dup)
+" Ctrl+J (return)
+"
+
+
 let mapleader = ","
 
 " sudo write
