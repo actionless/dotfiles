@@ -14,3 +14,7 @@ GtkWindow {
 /*.titlebar {*/
   /*border-radius: 0;*/
 /*}*/
+
+* {
+  text-shadow: none;
+}
