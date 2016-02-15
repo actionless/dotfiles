@@ -3,7 +3,9 @@
 URxvt*background: [95]#0e0021
 xterm*background: #0e0021
 
-*foreground:        #bcbcbc
+!*foreground:        #bcbcbc
+*foreground:        #d0d2cd
+
 *cursorColor:       #AE81FF
 *colorUL:           #ffffff
 *underlineColor:    #ffffff
