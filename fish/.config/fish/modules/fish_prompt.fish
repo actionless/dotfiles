@@ -21,7 +21,7 @@ function git_prompt
 		if [ (_is_git_dirty) ]
 			set_color red -o
 			set git_branch_name_uncommited (git status --porcelain 2>/dev/null| grep "^ [MD]" | wc -l)
-			set git_branch_name_unstaged (git status --porcelain 2>/dev/null| grep "^ \\\?\\\?" | wc -l)
+			set git_branch_name_unstaged (git status --porcelain 2>/dev/null| grep "^??" | wc -l)
 			set git_branch_addition " ($git_branch_name_uncommited/$git_branch_name_unstaged)"
 		else
 			if [ (_get_git_ahead_count $git_branch_name) -gt 0 ]
