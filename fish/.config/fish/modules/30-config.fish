@@ -27,7 +27,7 @@ end
 function reload_fish
 	for a in (abbr -l); abbr -e $a; end
 	rm /tmp/config-"$USER".fish
-	source ~/.config/fish/config-"$USER".fish
+	source ~/.config/fish/config.fish
 end
 
 set fish_color_autosuggestion 444\x1eyellow
