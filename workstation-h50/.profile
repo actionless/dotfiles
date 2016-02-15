@@ -31,21 +31,33 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+export LANGUAGE="en_US.utf8"
+export LC_ALL="en_US.utf8"
+export LANG="en_US.utf8"
+export GDM_LANG="en_US.utf8"
+
+export VDPAU_DRIVER=radeonsi
+
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
-export GOPATH=$HOME/.go
+#export GOPATH=$HOME/.go
 export GOPATH=/media/ext/.go
 
 # uncomment one when not in GNOME:
 export XDG_CURRENT_DESKTOP=gnome
 #export XDG_CURRENT_DESKTOP=xfce
 export QT_STYLE_OVERRIDE=gtk
+
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
 export QT_DEVICE_PIXEL_RATIO=2
-
-export LANGUAGE="en_US.utf8"
-export LC_ALL="en_US.utf8"
-export LANG="en_US.utf8"
-
-export VDPAU_DRIVER=radeonsi
 export CHROMIUM_USER_FLAGS=" --force-device-scale-factor=2 "
+
+# turn off touch screen support to workaround some mouse input bugs:
+export GDK_CORE_DEVICE_EVENTS=1
+export QT_XCB_NO_XI2_MOUSE=1
+
+export VST_PATH=/usr/lib/vst:/usr/local/lib/vst:~/.vst:/someother/custom/dir
+export LXVST_PATH=/usr/lib/lxvst:/usr/local/lib/lxvst:~/.lxvst:/someother/custom/dir
+export LADSPA_PATH=/usr/lib/ladspa:/usr/local/lib/ladspa:~/.ladspa:/someother/custom/dir
+export LV2_PATH=/usr/lib/lv2:/usr/local/lib/lv2:~/.lv2:/someother/custom/dir
+export DSSI_PATH=/usr/lib/dssi:/usr/local/lib/dssi:~/.dssi:/someother/custom/dir
