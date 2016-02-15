@@ -1,9 +1,7 @@
-
-#abbr_w tiv "tiv -jb  -c -r 0.5"
-
 abbr rm_temp='rm -v *~ ; rm -v *.swp ; rm -v .*~ ; rm -v .*.swp ; rm -v \#*\#'
 alias ll='ls --color=auto -lah'
 alias l 'ls --color=auto -lh'
+#abbr_w tiv "tiv -jb  -c -r 0.5"
 
 function colorize -d "colorize with pygments"
     if [ (echo $argv | wc -w) -eq 0 ]
@@ -25,5 +23,5 @@ function cless
 end
 
 function no_comments --description 'cat and cut comments'
-	command cat $argv | grep -v -e "^;" -e "^#" -e "^\$" -e "^[ \t]\+#"
+	command cat $argv | grep -E -v -e "^;" -e "^#" -e "^\$" -e "^\s+#"
 end
