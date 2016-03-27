@@ -9,6 +9,12 @@ if [[ $- != *i* ]]; then
   return
 fi
 
+shopt -s histappend
+PROMPT_COMMAND='history -a'
+HISTCONTROL=ignoredups:ignorespace
+
+shopt -s checkwinsize
+
 function parse_git_branch_and_add_brackets {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ \[\1\]/'
 }
@@ -48,10 +54,7 @@ root)
 	;;
 esac
 
-#eval `dircolors -b ${HOME}/.dir_colors`
-
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-
+# colored man pages:
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -60,10 +63,6 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-#export LC_ALL="ru_RU.utf8"
-
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
 elif [ -f /etc/bash_completion ]; then
@@ -71,3 +70,10 @@ elif [ -f /etc/bash_completion ]; then
 fi
 
 export TERM="xterm-256color"
+
+# to clean-up:
+
+#eval `dircolors -b ${HOME}/.dir_colors`
+#export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+#export LC_ALL="ru_RU.utf8"
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
