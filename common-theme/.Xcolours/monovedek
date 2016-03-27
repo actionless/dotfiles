@@ -1,5 +1,13 @@
-*background: #0e0021
+! subtle medium bg:
+!*background: #232028
+! neutral dark gray:
+!*background: #181818
+! darker than usual:
+!*background: #070010
+! sorta solarized-ish but darker:
 !*background: #090f18
+! classic:
+*background: #0e0021
 URxvt*background: [95]#0e0021
 xterm*background: #0e0021
 
