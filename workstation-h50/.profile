@@ -47,10 +47,16 @@ export XDG_CURRENT_DESKTOP=gnome
 #export XDG_CURRENT_DESKTOP=xfce
 export QT_STYLE_OVERRIDE=gtk
 
+## HiDPI
+# GTK3
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
+# Qt5.6+
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_SCALE_FACTOR=0
+# Qt5 legacy
+export QT_DEVICE_PIXEL_RATIO=2
+# other
 export CHROMIUM_USER_FLAGS=" --force-device-scale-factor=2 "
 
 # turn off touch screen support to workaround some mouse input bugs:
