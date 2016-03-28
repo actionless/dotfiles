@@ -3,10 +3,6 @@ call plug#begin('~/.vim/plugged')
 " Style:
 "
 Plug 'gorodinskiy/vim-coloresque', {'for': ['css', 'less', 'sass', 'scss', 'vim', 'stylus']}
-"Plug 'junegunn/rainbow_parentheses.vim'
-	"au VimEnter * RainbowParentheses
-	"let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-	"[ 1, 9, 3, 11, 10, 2, 6, 14, 12, 4, 13, 5, 8, 7, 15, 130 ]
 Plug 'kien/rainbow_parentheses.vim'
 	au VimEnter * RainbowParenthesesToggleAll
 	let g:rbpt_colorpairs = [
@@ -42,15 +38,9 @@ Plug 'vim-airline/vim-airline-themes'
 	" Enable the list of buffers:
 	"let g:airline#extensions#tabline#enabled = 1
 	"let g:airline#extensions#tabline#fnamemod = ':t'
-"Plug 'bling/vim-bufferline'
-	"let g:bufferline_echo = 0
 Plug 'nathanaelkane/vim-indent-guides', {'on': 'IndentGuidesToggle'}
 " Show marks:
 Plug 'kshenoy/vim-signature'
-
-
-Plug 'wimstefan/Lightning'
-Plug 'romainl/Apprentice'
 
 
 
@@ -72,9 +62,10 @@ Plug 'majutsushi/tagbar'
 
 Plug 'google/vim-maktaba', { 'on': ['FormatCode', 'FormatLines'] }
 Plug 'google/vim-codefmtlib', { 'on': ['FormatCode', 'FormatLines'] }
-Plug 'google/vim-codefmt', { 'on': ['FormatCode', 'FormatLines'] }
+"Plug 'google/vim-codefmt', { 'on': ['FormatCode', 'FormatLines'] }
+Plug 'actionless/vim-codefmt', { 'branch': 'add-lua', 'on': ['FormatCode', 'FormatLines'] }
 
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 
 Plug 'scrooloose/nerdcommenter'
 
@@ -129,13 +120,16 @@ Plug 'fatih/vim-go', {'for': 'go'}
 "Plug 'MarcWeber/vim-addon-mw-utils', {'for': 'nix'}
 "Plug 'MarcWeber/vim-addon-nix', {'for': 'nix'}
 
-
-" themes:
+" Themes:
+"
 " term:
-Plug 'ajgrf/sprinkles'
+"Plug 'ajgrf/sprinkles'
 " fixed light:
-Plug 'acarapetis/vim-colors-github'
-Plug 'adampasz/stonewashed-themes'
-Plug 'jlesquembre/peaksea'
+"Plug 'wimstefan/Lightning'
+"Plug 'acarapetis/vim-colors-github'
+"Plug 'adampasz/stonewashed-themes'
+"Plug 'jlesquembre/peaksea'
+" fixed dark:
+"Plug 'romainl/Apprentice'
 
 call plug#end()
