@@ -15,6 +15,7 @@ Xft.lcdfilter: lcddefault
 !#include "/home/lie/.Xcolours/lcars3"
 !#include "/home/lie/.Xcolours/monovedek_old"
 #include "/home/lie/.Xcolours/monovedek"
+!#include "/home/lie/.Xcolours/spacemacs-dark"
 !#include "/home/lie/.Xcolours/mikado"
 !#include "/home/lie/.Xcolours/kazu"
 !#include "/home/lie/.Xcolours/monokazu"
@@ -49,14 +50,14 @@ Xft.lcdfilter: lcddefault
 !URxvt*font:		 xft:DejaVu Sans Mono for Powerline:pixelsize=11
 !URxvt*font:		 xft:DejaVu Sans Mono:pixelsize=13
 !URxvt*font:		 xft:Dina:pixelsize=16
-URxvt*font:		 xft:monospace:pixelsize=24
+URxvt*font:		 xft:monospace:pixelsize=26,xft:Emoji One Color:pixelsize=26,xft:Meslo LG S for Lcarsline:pixelsize=26,xft:DejaVu Sans Mono:pixelsize=26
 
 !URxvt*boldFont:		 8x16bold
 !URxvt*boldFont:		 xft:tamsyn bold:pixelsize=13
 !URxvt*boldFont:		 xft:DejaVu Sans Mono:pixelsize=13
 !URxvt*boldFont: 	-*-tamsyn-bold-*-*-*-14-*-*-*-*-*-*-*
 
-!URxvt*letterSpace:	 -1
+URxvt*letterSpace:	 -1
 
 URxvt*saveLines:		 0
 URxvt*loginShell:        true
@@ -67,12 +68,17 @@ URxvt*buffered:			 false
 URxvt.urlLauncher:       /usr/bin/firefox
 URxvt.matcher.button:    1
 
+urxvt*depth: 32
+!urxvt*depth: 24
 ! Transparency
 ! fake:
-!URxvt*.transparent: true
-!URxvt*.shading: 7
+URxvt*transparent: true
+!URxvt*shading: 7
+URxvt*shading: 14
+!URxvt*blurRadius: 9x9
 ! true:
-urxvt*depth: 32
+!URxvt*transparent: false
+!URxvt*background:       rgba:0000/0000/0000/6666
 
 !URxvt*scrollTtyOutput:      false
 !URxvt*scrollWithBuffer:     true
