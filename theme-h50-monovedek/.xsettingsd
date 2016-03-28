@@ -30,9 +30,9 @@ Net/IconThemeName "gnome-noble"
 #Net/IconThemeName "Archdroid-Teal"
 #Net/IconThemeName "Archdroid-DeepPurple"
 
-#Net/ThemeName "oomox-monovedek"
+Net/ThemeName "oomox-monovedek"
 #Net/ThemeName "Arc-Recolored"
-Net/ThemeName "Arc-Monovedek"
+#Net/ThemeName "Arc-Monovedek"
 #Net/ThemeName "Flattastic-Monovedek-Dark"
 #Net/ThemeName "Flattastic-LCARS"
 
