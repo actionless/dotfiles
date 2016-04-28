@@ -36,7 +36,6 @@ hi WildMenu     ctermfg=14   ctermbg=0
 " Tabs
 hi TabLine      ctermfg=none ctermbg=none cterm=none
 hi TabLineFill  ctermfg=none ctermbg=none cterm=none
-hi TabLineFill  ctermfg=none ctermbg=none cterm=none
 hi TabLineSel   ctermfg=15   ctermbg=0    cterm=none
 
 " Vimdiff

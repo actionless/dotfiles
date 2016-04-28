@@ -114,7 +114,7 @@ if s:actionless_monokai_original == 1
    hi LineNr          guifg=#BCBCBC guibg=#3B3A32
    hi NonText         guifg=#BCBCBC guibg=#3B3A32
 else
-   hi Normal          guifg=#F8F8F2 guibg=#1B1D1E
+   hi Normal          guifg=#F8F8F2 guibg=#0e0021
    hi Comment         guifg=#465457
    hi CursorLine                    guibg=#293739
    hi CursorColumn                  guibg=#293739
@@ -229,7 +229,7 @@ highlight ColorColumn			ctermbg=black
 highlight Pmenu ctermbg=237 gui=bold
 hi PmenuSel				ctermfg=0 ctermbg=DarkBlue
 hi TabLineFill    ctermbg=NONE cterm=NONE
-hi TabLine        cterm=NONE ctermfg=fg ctermbg=NONE
+hi TabLine        cterm=NONE ctermfg=fg ctermbg=NONE guifg=black gui=NONE
 hi TabLineSel     cterm=bold ctermfg=15 ctermbg=DarkGreen
 
 hi level1c        ctermfg=130

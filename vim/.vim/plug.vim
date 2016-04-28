@@ -31,10 +31,10 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 	let g:airline_theme='term'
 	let g:airline_powerline_fonts = 1
-	"let g:airline_right_sep = ''
-	"let g:airline_left_sep = ''
-	let g:airline_left_sep = '퟽'
-	let g:airline_right_sep = '퟼'
+	let g:airline_right_sep = ''
+	let g:airline_left_sep = ''
+	"let g:airline_left_sep = '퟽'
+	"let g:airline_right_sep = '퟼'
 	" Enable the list of buffers:
 	"let g:airline#extensions#tabline#enabled = 1
 	"let g:airline#extensions#tabline#fnamemod = ':t'
@@ -82,9 +82,9 @@ Plug 'scrooloose/syntastic'
 	"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " installed system-wide for normal vim:
-if has('nvim')
+"if has('nvim')
 	Plug 'Valloric/YouCompleteMe'
-endif
+"endif
 " remove? :
 "Plug 'Shougo/neocomplete.vim'
 "source ~/.vim/neocomplete.vim
@@ -126,7 +126,7 @@ Plug 'fatih/vim-go', {'for': 'go'}
 "Plug 'ajgrf/sprinkles'
 " fixed light:
 "Plug 'wimstefan/Lightning'
-"Plug 'acarapetis/vim-colors-github'
+Plug 'acarapetis/vim-colors-github'
 "Plug 'adampasz/stonewashed-themes'
 "Plug 'jlesquembre/peaksea'
 " fixed dark:

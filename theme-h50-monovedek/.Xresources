@@ -11,6 +11,7 @@ Xft.dpi: 192
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
+st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
 ! terminal colorscheme -------------------------------------------------------
 !#include "/home/lie/.Xcolours/lcars3"
 !#include "/home/lie/.Xcolours/monovedek_old"
