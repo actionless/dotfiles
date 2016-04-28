@@ -1,2 +1,5 @@
 abbr sc 'sudo systemctl'
 abbr y 'yaourt'
+abbr p 'pacaur'
+abbr syu  'yaourt -Syu ; pacaur -Sua'
+abbr syua 'yaourt -Syu ; pacaur -Sua'
