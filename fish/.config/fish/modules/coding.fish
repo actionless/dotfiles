@@ -57,7 +57,8 @@ function git_status_pwd
 end
 
 function git_fancy_log
-	command  git log --tags --oneline --decorate --graph --branches
+	#command git log --tags --decorate --graph --branches --abbrev-commit --pretty=short $argv
+	command git log --graph --pretty=tformat:"%Cred%D %Cgreen%h %Cblue%an %Creset%s" $argv
 end
 
 function git_checkout_i

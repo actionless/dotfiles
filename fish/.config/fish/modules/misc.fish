@@ -19,18 +19,7 @@ function lrt --wraps='exa'
 end
 
 function colorize -d "colorize with pygments"
-	if [ (echo $argv | wc -w) -eq 0 ]
-		pygmentize -g $argv
-	end
-	for FNAME in $argv
-		set -lx filename (basename $FNAME)
-		set -lx lexer (pygmentize -N $filename)
-		if [ "Z$lexer" != "Ztext" ]
-			pygmentize -l $lexer "$FNAME"
-		else
-			pygmentize -g "$FNAME"
-		end
-	end
+	command highlight -O ansi $argv
 end
 
 function less
