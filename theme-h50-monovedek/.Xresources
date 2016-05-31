@@ -15,7 +15,8 @@ st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
 ! terminal colorscheme -------------------------------------------------------
 !#include "/home/lie/.Xcolours/lcars3"
 !#include "/home/lie/.Xcolours/monovedek_old"
-#include "/home/lie/.Xcolours/monovedek"
+!#include "/home/lie/.Xcolours/monovedek"
+#include "/home/lie/.Xcolours/gray"
 !#include "/home/lie/.Xcolours/spacemacs-dark"
 !#include "/home/lie/.Xcolours/mikado"
 !#include "/home/lie/.Xcolours/kazu"
