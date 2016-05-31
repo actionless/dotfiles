@@ -45,7 +45,9 @@ export GOPATH=/media/ext/.go
 # uncomment one when not in GNOME:
 export XDG_CURRENT_DESKTOP=gnome
 #export XDG_CURRENT_DESKTOP=xfce
-export QT_STYLE_OVERRIDE=gtk
+
+#export QT_STYLE_OVERRIDE=gtk
+export QT_QPA_PLATFORMTHEME='qgnomeplatform'
 
 ## HiDPI
 # GTK3
@@ -63,7 +65,7 @@ export CHROMIUM_USER_FLAGS=" --force-device-scale-factor=2 "
 export GDK_CORE_DEVICE_EVENTS=1
 export QT_XCB_NO_XI2_MOUSE=1
 
-export VST_PATH=/usr/lib/vst:/usr/local/lib/vst:~/.vst:/someother/custom/dir
+export VST_PATH=/usr/lib/vst:/usr/local/lib/vst:$HOME/.vst:$HOME/.vst-bridges/
 export LXVST_PATH=/usr/lib/lxvst:/usr/local/lib/lxvst:~/.lxvst:/someother/custom/dir
 export LADSPA_PATH=/usr/lib/ladspa:/usr/local/lib/ladspa:~/.ladspa:/someother/custom/dir
 export LV2_PATH=/usr/lib/lv2:/usr/local/lib/lv2:~/.lv2:/someother/custom/dir
