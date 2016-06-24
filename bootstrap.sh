@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -ue
+
 SCRIPT_DIR=$(readlink -e $(dirname "$0"))
 
 
@@ -12,7 +14,7 @@ echo "Usage: $0 (dell|thinkpad) (theme-dell-lcars|...)" &&
 exit 1
 
 stow -D $(./current-workstation.sh) ;
-for CONFIG in $(ls | grep -E -v -e "theme-" -e "workstation-" -e "\."; echo $PC_NAME);
+for CONFIG in $(ls | grep -E -v -e "theme-" -e "workstation-" -e "\." ; echo $PC_NAME);
 do
 	echo -n "$CONFIG: " ;
 	if stow $CONFIG; then
