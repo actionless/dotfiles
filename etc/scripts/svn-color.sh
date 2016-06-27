@@ -25,7 +25,7 @@
 	if [ "$SVN_COLOR" != "always" ] && ( [ $NOCOL = 1 ] || [ "$SVN_COLOR" = "never" ] || [ ! -t 1 ] )
 	then
 		eval $(which svn) $CMD
-		return
+		exit
 	fi
 
 	# supported svn actions for "status-like" output
