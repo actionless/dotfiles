@@ -33,3 +33,14 @@ end
 function no_comments --description 'cat and cut comments'
 	command cat $argv | grep -E -v -e "^;" -e "^#" -e "^\$" -e "^\s+#"
 end
+
+function hibernate -d 'put machine into hibernation state'
+	pgrep xscreensaver ;
+		or echo "xscreensaver is not running" ;
+			and return 1
+
+	command sudo echo ;
+		and xscreensaver-command -lock ;
+		and command sleep 2 ;
+		and command sudo pm-hibernate
+end
