@@ -18,17 +18,19 @@ st.bold_font: 1
 !#include "/home/lie/.Xcolours/monovedek_old"
 !#include "/home/lie/.Xcolours/monovedek"
 #include "/home/lie/.Xcolours/monovedek-gray"
-!#include "/home/lie/.Xcolours/spacemacs-dark"
-!#include "/home/lie/.Xcolours/mikado"
-!#include "/home/lie/.Xcolours/kazu"
-!#include "/home/lie/.Xcolours/monokazu"
+!
 !#include "/home/lie/.Xcolours/lolitastic"
+!#include "/home/lie/.Xcolours/mikado"
+!#include "/home/lie/.Xcolours/monokazu"
 !#include "/home/lie/.Xcolours/apprentice"
-!#include "/home/lie/.Xcolours/gnome_noble_bright"
-!#include "/home/lie/.Xcolours/jwr-dark"
-!#include "/home/lie/.Xcolours/ivorylight"
-!#include "/home/lie/.Xcolours/farside"
 ! ?? 
+!#include "/home/lie/.Xcolours/jwr-dark"
+!#include "/home/lie/.Xcolours/farside"
+!#include "/home/lie/.Xcolours/gnome_noble_bright" @TODO: black color
+!#include "/home/lie/.Xcolours/ivorylight" @TODO: more medical
+!#include "/home/lie/.Xcolours/zig"
+!#include "/home/lie/.Xcolours/kazu"
+!#include "/home/lie/.Xcolours/spacemacs-dark"
 !#include "/home/lie/.Xcolours/todo/ghostguys"
 !#include "/home/lie/.Xcolours/todo/pinknoise"
 !#include "/home/lie/.Xcolours/todo/psybeams"
@@ -38,7 +40,6 @@ st.bold_font: 1
 !#include "/home/lie/.Xcolours/todo/vacuous"
 !#include "/home/lie/.Xcolours/todo/navy"
 !#include "/home/lie/.Xcolours/todo/erebus"
-!#include "/home/lie/.Xcolours/todo/zig"
 !#include "/home/lie/.Xcolours/todo/ltns"
 
 ! urxvt ----------------------------------------------------------------------
