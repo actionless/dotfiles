@@ -36,3 +36,7 @@ let g:indent_guides_auto_colors = 0
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=233 guibg=#2e2e2e
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=233 guibg=#1e1031
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234 guibg=#2e2041
+
+
+"TagBar:
+autocmd VimEnter,Colorscheme * :hi link TagbarHighlight IncSearch
