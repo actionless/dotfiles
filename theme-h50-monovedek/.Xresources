@@ -13,6 +13,8 @@ Xft.lcdfilter: lcddefault
 
 st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
 st.bold_font: 1
+st.bellvolume: 0
+
 ! terminal colorscheme -------------------------------------------------------
 !#include "/home/lie/.Xcolours/lcars3"
 !#include "/home/lie/.Xcolours/monovedek_old"
