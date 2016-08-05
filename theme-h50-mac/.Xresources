@@ -21,8 +21,8 @@ st.bellvolume: 0
 !#include "/home/lie/.Xcolours/monovedek"
 !#include "/home/lie/.Xcolours/monovedek-gray"
 !
-!#include "/home/lie/.Xcolours/lolitastic"
-#include "/home/lie/.Xcolours/mikado"
+#include "/home/lie/.Xcolours/lolitastic"
+!#include "/home/lie/.Xcolours/mikado"
 !#include "/home/lie/.Xcolours/monokazu"
 !#include "/home/lie/.Xcolours/apprentice"
 ! ?? 

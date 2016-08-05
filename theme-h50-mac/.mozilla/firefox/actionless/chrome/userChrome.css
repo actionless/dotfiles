@@ -9,14 +9,16 @@
 
 .tabbrowser-tab
 {
-	border-bottom: 1px solid #465457 !important;
+	/*border-bottom: 1px solid #465457 !important;*/
+	border: none !important;
 }
 
 .tabbrowser-tab[selected="true"],
 .tabbrowser-tab[selected="true"] *
 {
-	color: rgb(0,0,0) !important;
-	background: #c57595 !important;
+	/*color: rgb(0,0,0) !important;*/
+	color: #ffffff !important;
+	background: #000000 !important;
 }
 
 
@@ -24,7 +26,7 @@
 .tabbrowser-tab:hover *
 {
 	color: rgb(0,0,0) !important;
-	background: #d4a9d4 !important;
+	background: #9999ff !important;
 	box-shadow: none !important;
 	border-radius: 0 !important;
 }
