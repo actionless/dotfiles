@@ -1,0 +1,48 @@
+*foreground:	#e3e0d9
+*background:	#3e3143
+
+!black
+!*color0:	#1F1F1F
+*color0:	#020202
+!*color8:	#4d4d4d
+!*color8:	#381e1d
+!*color8:	#3b5e58
+*color8:	#4b5e58
+!redc
+!*color1:	#A54242
+*color1:	#ac471d
+!*color9:	#CC6666
+*color9:	#b96149
+!green
+*color2:	#67c33a
+!*color2:	#B7CE42
+*color10:	#a1c77a
+!*color10:	#BDE077
+!yellow
+!*color3:	#FEA63C
+*color3:	#c2b238
+!*color11:	#FFE863
+*color11:	#d6d03c
+!blue
+!*color4:	#66AABB
+*color4:	#519389
+!*color12:	#AACCBB
+*color12:	#9ebcb7
+!magenta
+!*color5:	#B7416E
+!*color5:	#7a416c
+*color5:	#8a617c
+!*color13:	#BB4466
+!*color13:	#855a6e
+*color13:	#a57a8e
+!cyan
+!*color6:	#5E7175
+*color6:	#5e8e82
+!*color14:	#A3BABF
+*color14:	#82a29b
+!white
+!*color7:	#DDEEDD
+!*color7:	#d2dbda
+*color7:	#abc2bc
+!*color15:	#6C887A
+*color15:	#f3f0e9
