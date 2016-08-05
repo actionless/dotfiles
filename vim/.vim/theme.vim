@@ -13,7 +13,10 @@ set cursorline
 if has("gui_running")
 	colorscheme fixed-dark-monokai-0e0021
 else
+	"set bg=light
 	colorscheme term-dark-actionless2
+	"colorscheme term-actionless3
+	"colorscheme term-wargrey
 endif
 "colorscheme miromiro
 "colorscheme delek

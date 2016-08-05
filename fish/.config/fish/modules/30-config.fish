@@ -30,7 +30,8 @@ function reload_fish
 	source ~/.config/fish/config.fish
 end
 
-set fish_color_autosuggestion 444\x1eyellow
+#set fish_color_autosuggestion 444\x1eyellow
+set fish_color_autosuggestion 666\x1eyellow
 set fish_color_command green --bold
 set fish_color_comment 555
 set fish_color_cwd purple
