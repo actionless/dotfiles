@@ -1,0 +1,36 @@
+"*":
+  core:
+    autoHideMenuBar: true
+    disabledPackages: [
+      "spacemacs-evil-keys"
+      "vim-mode-plus-ex-mode"
+      "vim-mode-plus-project-find-from-search"
+      "vim-mode-plus-replace-with-execution"
+      "vim-mode-plus"
+    ]
+    themes: [
+      "one-dark-ui"
+      "monovedek-syntax"
+    ]
+  editor:
+    fontSize: 20
+    invisibles: {}
+  "ex-mode":
+    splitbelow: true
+    splitright: true
+  "exception-reporting":
+    userId: "e575a650-9580-6ac1-ce0f-c1d06010dc32"
+  hidpi:
+    scaleFactor: 2
+  "one-dark-ui": {}
+  "vim-mode":
+    useClipboardAsDefaultRegister: true
+  "vim-mode-plus":
+    "normal-mode":
+      "!": "vim-mode-plus-ex-mode:toggle-setting"
+      ":": "vim-mode-plus-ex-mode:open"
+  welcome:
+    showOnStartup: false
+"atom-text-editor.normal-mode.vim-mode-plus":
+  "!": "vim-mode-plus-ex-mode:toggle-setting"
+  ":": "vim-mode-plus-ex-mode:open"
