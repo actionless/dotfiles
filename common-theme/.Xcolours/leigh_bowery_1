@@ -1,5 +1,6 @@
 *foreground:	#e3e0d9
-*background:	#3e3143
+!*background:	#3e3143
+*background:	#2e2133
 
 !black
 !*color0:	#1F1F1F
