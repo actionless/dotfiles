@@ -60,6 +60,7 @@ Plug 'majutsushi/tagbar'
 " CODING:
 "
 
+Plug 'editorconfig/editorconfig-vim'
 Plug 'google/vim-maktaba', { 'on': ['FormatCode', 'FormatLines'] }
 Plug 'google/vim-codefmtlib', { 'on': ['FormatCode', 'FormatLines'] }
 "Plug 'google/vim-codefmt', { 'on': ['FormatCode', 'FormatLines'] }
