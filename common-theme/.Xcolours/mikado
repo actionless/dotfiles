@@ -1,5 +1,8 @@
-*background:        #211708
-*foreground:        #978f83
+!*background:        #211708
+*background:        #110700
+!*foreground:        #978f83
+!*foreground:        #dedede
+*foreground:        #d2d2d2
 
 ! mikado colors
 !black

@@ -16,17 +16,21 @@
 .tabbrowser-tab[selected="true"],
 .tabbrowser-tab[selected="true"] *
 {
-	/*color: rgb(0,0,0) !important;*/
-	color: #ffffff !important;
-	background: #000000 !important;
+	/*color: #ffffff !important;*/
+	/*background: #000000 !important;*/
+	/*color: #cbb6c1 !important;*/
+	color: #dbc6d1 !important;
+	background: #3d3042 !important;
 }
 
 
 .tabbrowser-tab:hover,
 .tabbrowser-tab:hover *
 {
-	color: rgb(0,0,0) !important;
-	background: #9999ff !important;
+	/*color: rgb(0,0,0) !important;*/
+	/*background: #9999ff !important;*/
+	background: #ac441d !important;
+	color: #e4e1da !important;
 	box-shadow: none !important;
 	border-radius: 0 !important;
 }
