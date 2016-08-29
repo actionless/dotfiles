@@ -1,5 +1,4 @@
 *.pyc
 tmux/.tmux/plugins/
-nitrogen.cfg
 .netrwhist
 watch_later/
