@@ -22,8 +22,9 @@ map <leader>bb :CtrlPBuffer<CR>
 "map <C-M><C-P> :bprevious!<CR>
 "map <C-M><C-C> :Bclose<CR>
 
-noremap <leader>fl :FormatLines<CR>
-noremap <leader>fc :FormatCode<CR>
+"noremap <leader>fl :FormatLines<CR>
+"noremap <leader>fc :FormatCode<CR>
+noremap <leader>af :Autoformat<CR>
 
 noremap <leader>ig :IndentGuidesToggle<CR>
 

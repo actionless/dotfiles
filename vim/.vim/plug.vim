@@ -61,10 +61,19 @@ Plug 'majutsushi/tagbar'
 "
 
 Plug 'editorconfig/editorconfig-vim'
-Plug 'google/vim-maktaba', { 'on': ['FormatCode', 'FormatLines'] }
-Plug 'google/vim-codefmtlib', { 'on': ['FormatCode', 'FormatLines'] }
+
+"Plug 'google/vim-maktaba', { 'on': ['FormatCode', 'FormatLines'] }
+"Plug 'google/vim-codefmtlib', { 'on': ['FormatCode', 'FormatLines'] }
+""and
 "Plug 'google/vim-codefmt', { 'on': ['FormatCode', 'FormatLines'] }
-Plug 'actionless/vim-codefmt', { 'branch': 'add-lua', 'on': ['FormatCode', 'FormatLines'] }
+""or
+"Plug 'actionless/vim-codefmt', { 'branch': 'add-lua', 'on': ['FormatCode', 'FormatLines'] }
+
+Plug 'Chiel92/vim-autoformat', { 'on': ['Autoformat']}
+	let g:autoformat_autoindent = 0
+	let g:autoformat_retab = 0
+	let g:autoformat_remove_trailing_spaces = 1
+	let g:formatters_python=['yapf']
 
 "Plug 'tpope/vim-fugitive'
 
