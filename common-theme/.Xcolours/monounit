@@ -8,7 +8,8 @@
 !*background: #090f18
 ! classic:
 !*background: #08020e
-*background: #26222f
+!*background: #26222f
+*background: #1D1D22
 URxvt*background: [95]#0e0021
 xterm*background: #0e0021
 
