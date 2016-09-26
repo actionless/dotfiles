@@ -7,28 +7,81 @@
 	border-radius: 0 !important;
 }
 
-.tabbrowser-tab
-{
-	border-bottom: 1px solid #465457 !important;
-}
+/*#tabbrowser-tabs, .tabbrowser-tab*/
+/*{*/
+	/*color: #a5a5a5 !important;*/
+	/*background: #0f0f0f !important;*/
+	/*box-shadow: none !important;*/
+	/*border-bottom: 1px solid #465457 !important;*/
+/*}*/
+/*.tabbrowser-tab[selected="true"],*/
+/*.tabbrowser-tab[selected="true"] **/
+/*{*/
+	/*color: #000000 !important;*/
+	/*background: #c57595 !important;*/
+/*}*/
+/*.tabbrowser-tab:hover,*/
+/*.tabbrowser-tab:hover **/
+/*{*/
+	/*color: rgb(0,0,0) !important;*/
+	/*background: #d4a9d4 !important;*/
+	/*box-shadow: none !important;*/
+	/*border-radius: 0 !important;*/
+/*}*/
 
+
+/*#tabbrowser-tabs, .tabbrowser-tab*/
+/*{*/
+	/*color: #000000 !important;*/
+	/*background: #999999 !important;*/
+	/*box-shadow: none !important;*/
+	/*border: none !important;*/
+	/*[>border-bottom: 1px solid #465457 !important;<]*/
+/*}*/
+/*.tabbrowser-tab[selected="true"],*/
+/*.tabbrowser-tab[selected="true"] **/
+/*{*/
+	/*color: #000000 !important;*/
+	/*background: #a5a5a5 !important;*/
+	/*border: none !important;*/
+/*}*/
+/*.tabbrowser-tab[selected="true"]*/
+/*{*/
+	/*border-left: 3px solid #b36a87 !important;*/
+/*}*/
+/*.tabbrowser-tab:hover,*/
+/*.tabbrowser-tab:hover **/
+/*{*/
+	/*color: #000000 !important;*/
+	/*background: #bababa !important;*/
+	/*box-shadow: none !important;*/
+	/*border-radius: 0 !important;*/
+/*}*/
+
+
+#tabbrowser-tabs, .tabbrowser-tab
+{
+	color: #000000 !important;
+	background: #bbbbbb !important;
+	box-shadow: none !important;
+	border: none !important;
+	/*border-bottom: 1px solid #465457 !important;*/
+}
 .tabbrowser-tab[selected="true"],
 .tabbrowser-tab[selected="true"] *
 {
-	color: rgb(0,0,0) !important;
-	background: #c57595 !important;
+	color: #000000 !important;
+	background: #b36a87 !important;
+	border: none !important;
 }
-
-
 .tabbrowser-tab:hover,
 .tabbrowser-tab:hover *
 {
-	color: rgb(0,0,0) !important;
-	background: #d4a9d4 !important;
+	color: #000000 !important;
+	background: #b2b2b2 !important;
 	box-shadow: none !important;
 	border-radius: 0 !important;
 }
-
 
 
 /* Firefox - Remove borders/gradients on tab/nav bars
@@ -50,6 +103,10 @@
  border-top: 1px solid transparent !important;  /* Firefox 32+ */
 }
 
+#TabsToolbar {
+	color: #a5a5a5 !important;
+	background: #0f0f0f !important;
+}
 #TabsToolbar::after {
  border-bottom-color: transparent !important;
 }
