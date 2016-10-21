@@ -82,6 +82,12 @@
 	box-shadow: none !important;
 	border-radius: 0 !important;
 }
+.tabbrowser-tab:hover[selected="true"],
+.tabbrowser-tab:hover[selected="true"] *
+{
+	/*background: #a8617e !important;*/
+	background: #a15f79 !important;
+}
 
 
 /* Firefox - Remove borders/gradients on tab/nav bars
