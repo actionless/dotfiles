@@ -48,7 +48,8 @@ export XDG_CURRENT_DESKTOP=gnome
 
 #export QT_STYLE_OVERRIDE=gtk
 #export QT_QPA_PLATFORMTHEME='qgnomeplatform'
-export QT_QPA_PLATFORMTHEME='qt5ct'
+export QT_QPA_PLATFORMTHEME='gtk2'
+#export QT_QPA_PLATFORMTHEME='qt5ct'
 
 ## HiDPI
 # GTK3
