@@ -51,8 +51,6 @@ Plug 'kien/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer'] }
 	\ 'dir':  '\v[\/](\.git|env|node_modules|bower_components)$',
 	\ 'file': '\v(\.pyc|\~)$',
 	\ }
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-	let NERDTreeIgnore=['\~$', '\.pyc', '^__pycache__$']
 "Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 Plug 'majutsushi/tagbar'
 

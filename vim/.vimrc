@@ -27,6 +27,8 @@ set hlsearch
 set ignorecase
 set smartcase
 
+let g:netrw_winsize=20
+
 set clipboard=unnamedplus	" use system clipboard
 
 filetype off                   " required!
