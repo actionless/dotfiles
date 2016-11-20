@@ -2,6 +2,7 @@
 #include "/home/lie/.Xresources.workstation"
 
 st.opacity: 223
+st.font: Input Mono Narrow:pixelsize=25:antialias=true:autohint=true;
 
 ! terminal colorscheme -------------------------------------------------------
 !#include "/home/lie/.Xcolours/lcars3"

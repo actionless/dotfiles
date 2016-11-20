@@ -10,7 +10,8 @@ Gtk/FontName "Sans 10"
 #Gtk/FontName "Sans Medium 10"
 #Gtk/FontName "Roboto Medium 10"
 #Gtk/IconSizes "panel-menu=16,16:panel=16,16:gtk-menu=16,16:gtk-large-toolbar=16,16:gtk-small-toolbar=16,16:gtk-button=16,16"
-Gtk/IconSizes "panel-menu=40,40:panel=40,40:gtk-menu=40,40:gtk-large-toolbar=40,40:gtk-small-toolbar=40,40:gtk-button=40,40"
+#Gtk/IconSizes "panel-menu=40,40:panel=40,40:gtk-menu=40,40:gtk-large-toolbar=40,40:gtk-small-toolbar=40,40:gtk-button=40,40"
+Gtk/IconSizes "panel-menu=40,40:panel=40,40:gtk-menu=24,24:gtk-large-toolbar=40,40:gtk-small-toolbar=40,40:gtk-button=24,24"
 Gtk/KeyThemeName ""
 Gtk/MenuBarAccel "F10"
 Gtk/MenuImages 1
@@ -25,7 +26,7 @@ Net/EnableEventSounds 1
 Net/EnableInputFeedbackSounds 1
 Net/SoundThemeName "default"
 
-Net/IconThemeName "gnome-noble"
+Net/IconThemeName "oomox-shiki-noble"
 #Net/IconThemeName "oomox-monovedek-gray"
 #Net/IconThemeName "gnome"
 #Net/IconThemeName "Archdroid-Pink"

@@ -62,13 +62,15 @@
 #tabbrowser-tabs, .tabbrowser-tab
 {
 	color: #000000 !important;
-	background: #bbbbbb !important;
+	/*background: #bbbbbb !important;*/
+	background-color: #bbbbbb !important;
 	box-shadow: none !important;
 	border: none !important;
 	/*border-bottom: 1px solid #465457 !important;*/
 }
-.tabbrowser-tab[selected="true"],
-.tabbrowser-tab[selected="true"] *
+/*.tabbrowser-tab[selected="true"],*/
+/*.tabbrowser-tab[selected="true"] **/
+.tabbrowser-tab[selected="true"]
 {
 	color: #000000 !important;
 	background: #b36a87 !important;

@@ -15,6 +15,7 @@ function local_config.init(awesome_context)
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars-xresources-hidpi/theme.lua"
   awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/gtk/theme.lua"
   OOMOX_THEME_NAME = 'popart/leigh_bowery_3'
+  OOMOX_SEL_BORDER = "#5ebe38"
 
   awesome_context.autorun = {
     --"~/.scripts/tp_unmute",
