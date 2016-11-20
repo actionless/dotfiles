@@ -34,6 +34,16 @@ function git_prompt
 	echo " ""$git_branch_name""$git_branch_addition"" "
 end
 
+
+
+#set -x fish_prompt_left_separator ""
+#set -x fish_prompt_right_separator ""
+#set -x fish_prompt_mid_separator " "
+set -x fish_prompt_left_separator "퟼"
+set -x fish_prompt_right_separator "퟽"
+set -x fish_prompt_mid_separator ""
+
+
 function fish_prompt --description 'Write out the prompt'
 	set -l last_status $status
 
@@ -57,14 +67,6 @@ function fish_prompt --description 'Write out the prompt'
 	if [ $last_status -ne 0 ]
 		set prompt_status (set_color yellow -o) $inverse " ""$last_status"" " (set_color -b normal) $fish_prompt_mid_separator
 	end
-
-	set -x fish_prompt_left_separator ""
-	set -x fish_prompt_right_separator ""
-	set -x fish_prompt_mid_separator " "
-
-	#set -x fish_prompt_left_separator "퟼"
-	#set -x fish_prompt_right_separator "퟽"
-	#set -x fish_prompt_mid_separator ""
 
 	echo -e -n -s \
 "\n " \

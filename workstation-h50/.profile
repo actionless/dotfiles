@@ -12,10 +12,10 @@ test -z "$profile" && . /etc/profile || true
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
+	# include .bashrc if it exists
+	if [ -f "$HOME/.bashrc" ]; then
 	. "$HOME/.bashrc"
-    fi
+	fi
 fi
 
 # include sbin in PATH
@@ -67,12 +67,18 @@ export CHROMIUM_USER_FLAGS=" --force-device-scale-factor=2 "
 export GDK_CORE_DEVICE_EVENTS=1
 export QT_XCB_NO_XI2_MOUSE=1
 
+# @TODO: remove it?
 #FT2_SUBPIXEL_HINTING=0  # Classic mode (default in 2.6)
 #FT2_SUBPIXEL_HINTING=1  # Infinality mode
-FT2_SUBPIXEL_HINTING=2  # Minimal mode (default in 2.7)
+#FT2_SUBPIXEL_HINTING=2  # Minimal mode (default in 2.7)
 
 export VST_PATH=/usr/lib/vst:/usr/local/lib/vst:$HOME/.vst:$HOME/.vst-bridges/
 export LXVST_PATH=/usr/lib/lxvst:/usr/local/lib/lxvst:~/.lxvst:/someother/custom/dir
 export LADSPA_PATH=/usr/lib/ladspa:/usr/local/lib/ladspa:~/.ladspa:/someother/custom/dir
 export LV2_PATH=/usr/lib/lv2:/usr/local/lib/lv2:~/.lv2:/someother/custom/dir
 export DSSI_PATH=/usr/lib/dssi:/usr/local/lib/dssi:~/.dssi:/someother/custom/dir
+
+#ll /usr/share/kbd/consolefonts
+setfont ter-v32n
+
+test -f $HOME/.profile_theme && source $HOME/.profile_theme

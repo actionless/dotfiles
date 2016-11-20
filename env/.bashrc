@@ -77,3 +77,6 @@ export TERM="xterm-256color"
 #export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 #export LC_ALL="ru_RU.utf8"
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+
+test -f $HOME/.profile_theme && source $HOME/.profile_theme
