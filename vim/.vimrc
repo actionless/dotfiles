@@ -48,9 +48,6 @@ if has('nvim')
 	source ~/.vim/neovim.vim
 endif
 
-
-source ~/.vim/theme.vim
-
 set ttimeoutlen=30
 if &term =~ '^screen'
     " tmux will send xterm-style keys when its xterm-keys option is on
@@ -80,3 +77,8 @@ set laststatus=2
 source ~/.vim/default_config.vim
 source ~/.vim/bindings.vim
 
+
+source ~/.vim/theme.vim
+if filereadable(expand('~/.vim/theme_local.vim'))
+	source ~/.vim/theme_local.vim
+endif
