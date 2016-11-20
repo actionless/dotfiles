@@ -13,8 +13,6 @@ let mapleader = ","
 " sudo write
 noremap <leader>W :w !sudo tee %<CR>
 
-"map <C-N><C-N> :set invnumber<CR>
-
 map <C-P> :CtrlP<CR>
 map <leader>bb :CtrlPBuffer<CR>
 "map <C-M><C-N> :bnext!<CR>
