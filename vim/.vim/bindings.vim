@@ -35,5 +35,8 @@ noremap <leader>ft :Lex<CR>
 noremap <leader>nt :Lex<CR>
 noremap <leader>nn :set invnumber<CR>
 
+map <leader>p pgvyk<CR>
+map <leader>P Vpgvyk<CR>
+
 vnoremap < <gv
 vnoremap > >gv
