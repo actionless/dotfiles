@@ -15,7 +15,7 @@ if has("gui_running")
 else
 	"set bg=light
 	"colorscheme term-dark-actionless2
-	colorscheme github_term
+	colorscheme term-light-github
 	"colorscheme term-actionless3
 	"colorscheme term-wargrey
 endif

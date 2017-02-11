@@ -12,13 +12,13 @@ if version > 580
     endif
 endif
 
-let colors_name="github_term"
+let colors_name="term-light-github"
 
 if has("gui_running")
     set background=light
 endif
 
-hi Normal       guifg=#000000 ctermfg=16   guibg=#F8F8FF ctermbg=NONE  gui=NONE cterm=NONE
+hi Normal       guifg=#000000 ctermfg=NONE   guibg=#F8F8FF ctermbg=NONE  gui=NONE cterm=NONE
 hi DiffAdd      guifg=#003300 ctermfg=22   guibg=#DDFFDD ctermbg=194  gui=NONE cterm=NONE
 hi DiffChange   guibg=#ECECEC ctermbg=255  gui=NONE cterm=NONE
 hi DiffText     guifg=#000033 ctermfg=17   guibg=#DDDDFF ctermbg=189  gui=NONE cterm=NONE
