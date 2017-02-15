@@ -1,6 +1,6 @@
 " Vim color file
 
-set background=light
+"set background=light
 let g:colors_name="term-actionless3"
 
 " Code
@@ -9,7 +9,7 @@ hi FoldColumn                ctermbg=none
 hi NonText      ctermfg=8
 hi SpecialKey   ctermfg=0
 hi Statement    ctermfg=3
-hi Normal       ctermfg=7
+hi Normal       ctermfg=NONE
 
 " Spell
 hi SpellBad     ctermfg=9    ctermbg=none

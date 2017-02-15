@@ -14,12 +14,12 @@ if exists("syntax_on")
 	syntax reset
 endif
 
-let colors_name = "nightshade"
+let colors_name = "term-nightshade"
 
-hi Normal		guifg=#e0e0e0 guibg=#000000						ctermfg=gray ctermbg=black
+hi Normal		guifg=#e0e0e0 guibg=#000000						ctermfg=NONE ctermbg=NONE
 hi ErrorMsg		guifg=#ffffff guibg=#287eff						ctermfg=white ctermbg=lightblue
-hi Visual		guifg=#8080ff guibg=fg		gui=reverse				ctermfg=lightblue ctermbg=fg cterm=reverse
-hi VisualNOS	guifg=#8080ff guibg=fg		gui=reverse,underline	ctermfg=lightblue ctermbg=fg cterm=reverse,underline
+hi Visual		guifg=#8080ff guibg=#e0e0e0		gui=reverse				ctermfg=lightblue ctermbg=NONE cterm=reverse
+hi VisualNOS	guifg=#8080ff guibg=#e0e0e0		gui=reverse,underline	ctermfg=lightblue ctermbg=NONE cterm=reverse,underline
 hi Todo			guifg=#d14a14 guibg=#1248d1						ctermfg=red	ctermbg=darkblue
 hi Search		guifg=#90fff0 guibg=#2050d0						ctermfg=white ctermbg=darkblue cterm=underline term=underline
 hi IncSearch	guifg=#b0ffff guibg=#2050d0							ctermfg=darkblue ctermbg=gray
@@ -47,8 +47,8 @@ hi DiffChange		guibg=darkmagenta ctermbg=magenta cterm=none
 hi DiffDelete		ctermfg=blue ctermbg=cyan gui=bold guifg=Blue guibg=DarkCyan
 hi DiffText			cterm=bold ctermbg=red gui=bold guibg=Red
 
-hi Cursor			guifg=#000020 guibg=#ffaf38 ctermfg=bg ctermbg=brown
-hi lCursor			guifg=#ffffff guibg=#000000 ctermfg=bg ctermbg=darkgreen
+hi Cursor			guifg=#000020 guibg=#ffaf38 ctermfg=NONE cterm=reverse ctermbg=brown
+hi lCursor			guifg=#ffffff guibg=#000000 ctermfg=NONE cterm=reverse ctermbg=darkgreen
 
 
 hi Comment	guifg=yellow guibg=#000050 ctermfg=darkGray
@@ -70,7 +70,7 @@ hi UnitHeader	guibg=cyan guifg=black gui=bold ctermfg=Cyan
 hi Keyword      guifg=red ctermfg=Red
 
 hi Underlined	cterm=underline term=underline
-hi Ignore	guifg=bg ctermfg=bg
+hi Ignore	guifg=NONE ctermfg=NONE gui=reverse cterm=reverse
 
 hi Tooltip	guibg=red
 
