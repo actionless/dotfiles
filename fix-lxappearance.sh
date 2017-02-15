@@ -1,18 +1,20 @@
 #!/bin/sh
+set -ue
 
 SCRIPT_DIR=$(dirname $(readlink -e "$0"))
 THEME_NAME=$($SCRIPT_DIR/current-theme.sh)
 THEME_DIR=$SCRIPT_DIR/$THEME_NAME
 
 PC_NAME="$1"
-test -z $PC_NAME &&
-echo "Usage: $0 PC_NAME" &&
-echo "Usage: $0 (dell|thinkpad)" &&
-exit 1
+if [ -z $PC_NAME ] ; then
+	echo "Usage: $0 PC_NAME"
+	echo "Usage: $0 (dell|thinkpad)"
+	exit 1
+fi
 
-mv ~/.gtkrc-2.0 $THEME_DIR/.gtkrc-2.0 ;
-mv ~/.config/gtk-3.0/settings.ini $THEME_DIR/.config/gtk-3.0/ ;
+test ! -L ~/.gtkrc-2.0 && mv ~/.gtkrc-2.0 $THEME_DIR/.gtkrc-2.0
+test ! -L ~/.config/gtk-3.0/settings.ini && mv ~/.config/gtk-3.0/settings.ini $THEME_DIR/.config/gtk-3.0/settings.ini
 
-./bootstrap.sh "$PC_NAME" $THEME_NAME &&
+./bootstrap.sh "$PC_NAME" $THEME_NAME
 
 echo "done"
