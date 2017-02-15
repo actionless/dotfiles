@@ -1,0 +1,155 @@
+@-moz-document regexp("data:text\/html;charset=utf8,.+<link%20rel='stylesheet'%20href='chrome:\/\/devtools\/content\/sourceeditor\/codemirror\/lib\/codemirror\.css'><link%20rel='stylesheet'%20href='chrome:\/\/devtools\/content\/sourceeditor\/codemirror\/addon\/dialog\/dialog\.css'><link%20rel='stylesheet'%20href='chrome:\/\/devtools\/content\/sourceeditor\/codemirror\/mozilla\.css.+") {
+
+    .CodeMirror-sizer * {
+
+        font-family: Consolas;
+
+        font-size: 16px;
+
+    }
+
+    /* tint CodeMirror background color */
+
+    .CodeMirror {
+
+        background-color: #272822 !important;
+
+    }
+
+    /* tint line numbers background color */
+
+    .CodeMirror-gutters {
+
+        background-color: #272822 !important;
+
+    }
+
+    /* tint current line */
+
+    .CodeMirror-activeline-gutter, .CodeMirror-linebackground {
+
+        background-color: #3D4243 !important;
+
+    }
+
+    /* tint normal text */
+
+    .CodeMirror-line {
+
+        color: #F8F8F2 !important;
+
+    }
+
+    /* tint selected text */
+
+    .CodeMirror-selected {
+
+        background: #49483E !important;
+
+    }
+
+    .cm-def {
+
+        color: #66D9EF !important;
+
+    }
+
+    .cm-property {
+
+        color: #66D9EF !important;
+
+        font-style:  italic;
+
+    }
+
+    .cm-string {
+
+        color: #E6DB74 !important;
+
+    }
+
+    .cm-builtin {
+
+        color: #A6E22E !important;
+
+    }
+
+    .cm-qualifier {
+
+        color: #A6E22E !important;
+
+    }
+
+    .cm-number {
+
+        color: #AE81FF !important;
+
+    }
+
+    .cm-atom {
+
+        color: #AE81FF !important;
+
+    }
+
+    .cm-keyword {
+
+        color: #F92672 !important;
+
+    }
+
+    .cm-tag {
+
+        color: #F8F8F2 !important;
+
+    }
+
+    .cm-variable {
+
+        color: #33FF33 !important;
+
+    }
+
+    .cm-variable-3 {
+
+        color: #FF9966 !important;
+
+        font-style: italic;
+
+    }
+
+    ul.devtools-autocomplete-listbox>li.autocomplete {
+
+        font-size: 150% !important;
+
+    }
+
+}
+
+
+
+@-moz-document url-prefix("about:stylish-edit") {
+
+    #main-area,
+
+    #name,
+
+    #lineNumber,
+
+    .devtools-toolbarbutton {
+
+        background-color: #272822 !important;
+
+        color: white !important;
+
+    }
+
+    #errors {
+
+        color: #FF99FF !important;
+
+        font-size: 120%;
+
+    }
+
+}

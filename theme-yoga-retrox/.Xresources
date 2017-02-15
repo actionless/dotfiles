@@ -1,0 +1,40 @@
+#include "/home/lie/.Xresources.common"
+#include "/home/lie/.Xresources.workstation"
+
+!st.opacity: 223
+!st.opacity: 210
+st.opacity: 255
+st.font: Go Mono:pixelsize=20:antialias=true:autohint=true;
+
+! terminal colorscheme -------------------------------------------------------
+!#include "/home/lie/.Xcolours/lcars3"
+!#include "/home/lie/.Xcolours/monovedek_old"
+!#include "/home/lie/.Xcolours/monovedek"
+!#include "/home/lie/.Xcolours/monovedek-gray"
+!
+!#include "/home/lie/.Xcolours/lolitastic"
+!#include "/home/lie/.Xcolours/mikado"
+!#include "/home/lie/.Xcolours/monokazu"
+!#include "/home/lie/.Xcolours/apprentice"
+! ?? 
+!#include "/home/lie/.Xcolours/jwr-dark"
+!#include "/home/lie/.Xcolours/farside"
+!#include "/home/lie/.Xcolours/gnome_noble_bright" @TODO: black color
+!#include "/home/lie/.Xcolours/zig"
+!#include "/home/lie/.Xcolours/kazu"
+!#include "/home/lie/.Xcolours/spacemacs-dark"
+!#include "/home/lie/.Xcolours/todo/ghostguys"
+!#include "/home/lie/.Xcolours/todo/pinknoise"
+!#include "/home/lie/.Xcolours/todo/psybeams"
+!#include "/home/lie/.Xcolours/todo/gnome_noble_pale"
+!#include "/home/lie/.Xcolours/todo/vacuous"
+!#include "/home/lie/.Xcolours/todo/navy"
+!#include "/home/lie/.Xcolours/todo/erebus"
+!#include "/home/lie/.Xcolours/todo/unikitty-dark"
+! light: 
+!#include "/home/lie/.Xcolours/ivorylight" @TODO: more medical
+!#include "/home/lie/.Xcolours/todo/unikitty-light"
+!#include "/home/lie/.Xcolours/todo/light"
+!#include "/home/lie/.Xcolours/todo/business"
+!#include "/home/lie/.Xcolours/todo/ltns"
+#include "/home/lie/.Xcolours/tlight"

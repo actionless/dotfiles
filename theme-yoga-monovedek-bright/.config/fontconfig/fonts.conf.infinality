@@ -1,0 +1,56 @@
+<?xml version='1.0'?>
+<!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
+<fontconfig>
+ <!-- Byte-Code Interpreter (BCI) -->
+ <match target="font">
+  <edit mode="assign" name="hinting">
+   <bool>true</bool>
+  </edit>
+ </match>
+ <match target="font">
+  <edit mode="assign" name="embeddedbitmap">
+   <bool>false</bool>
+  </edit>
+ </match>
+ <alias>
+  <family>serif</family>
+  <prefer>
+   <family>PT Serif</family>
+   <family>Liberation Serif</family>
+   <family>DejaVu Serif</family>
+  </prefer>
+ </alias>
+ <alias>
+  <family>sans-serif</family>
+  <prefer>
+   <family>Trebuchet MS</family>
+   <family>Ubuntu</family>
+   <family>Ubuntu Condensed</family>
+   <!--<family>Kelly Slab</family>-->
+   <family>PT Sans</family>
+   <family>Source Sans Pro</family>
+   <family>DejaVu Sans</family>
+   <!--<family>Source Sans Pro</family>-->
+   <!--<family>DejaVu Sans Condensed</family>-->
+   <!--<family>Fira Sans</family>-->
+   <!--<family>Abel</family>-->
+   <!--<family>Delius</family>-->
+   <!--<family>Open Sans Condensed Light</family>-->
+   <family>Liberation Sans</family>
+   <family>FontAwesome</family>
+  </prefer>
+ </alias>
+ <alias>
+  <family>monospace</family>
+  <prefer>
+   <family>Meslo LG S for Lcarsline</family>
+   <family>Source Code Pro</family>
+   <family>Meslo LG S for Powerline</family>
+   <family>monoOne</family>
+   <!--<family>monoOne</family>-->
+   <!--<family>Share Tech Mono</family>-->
+   <family>DejaVu Sans Mono</family>
+   <family>FontAwesome</family>
+  </prefer>
+ </alias>
+</fontconfig>
