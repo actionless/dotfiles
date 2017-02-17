@@ -50,6 +50,9 @@ end
 # GIT
 ###
 
+abbr 'gits' 'git status'
+abbr 'gitd' 'git diff'
+abbr 'gitdc' 'git diff --cached'
 abbr 'gcm' 'git commit -m'
 abbr 'gcam' 'git commit -am'
 
