@@ -51,6 +51,7 @@ end
 ###
 
 abbr 'gcm' 'git commit -m'
+abbr 'gcam' 'git commit -am'
 
 function git_status_pwd
 	command git status $argv | grep -v "\.\."
