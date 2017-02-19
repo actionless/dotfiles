@@ -1,0 +1,125 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+.tabbrowser-tab,
+.tabbrowser-tab * {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+
+#tabbrowser-tabs,
+.tabbrowser-tab {
+    color: #000000 !important;
+    /*background: #bbbbbb !important;*/
+    background-color: #d4d3b8 !important;
+    box-shadow: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    /*border-bottom: 1px solid #465457 !important;*/
+}
+
+
+.tabbrowser-tab[selected="true"],
+.tabbrowser-tab[selected="true"] * {
+    color: #000000 !important;
+    background: #b36a87 !important;
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+.tabbrowser-tab:hover,
+.tabbrowser-tab:hover * {
+    color: #000000 !important;
+    background: #b2b2b2 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+.tabbrowser-tab:hover[selected="true"],
+.tabbrowser-tab:hover[selected="true"] * {
+    /*background: #a8617e !important;*/
+    background: #a15f79 !important;
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+/** Tab bar bottom border **/
+
+
+/* Australis */
+
+#main-window #TabsToolbar~toolbar#nav-bar {
+    margin-top: -1px !important;
+    border-top: 1px solid transparent !important;
+    /* Firefox 32+ */
+}
+
+#TabsToolbar {
+    color: #a5a5a5 !important;
+    background: #0f0f0f !important;
+}
+
+#TabsToolbar::after {
+    border-bottom-color: transparent !important;
+}
+
+
+/** End Tab bar bottom border **/
+
+
+/** Nav bar top border **/
+
+
+/* Australis only */
+
+#TabsToolbar~#nav-bar {
+    box-shadow: none !important;
+}
+
+
+/** End Nav bar top border **/
+
+
+/** Nav bar bottom border **/
+
+:disabled {}
+
+
+/** End Nav bar bottom border **/
+
+
+/* Nav bar background */
+
+
+/* Both Australis and pre-Australis */
+
+#nav-bar {
+    background: none !important;
+    border: #ff0000;
+}
+
+
+/** End Nav bar background **/
+
+.tabbrowser-tab .tab-close-button,
+.tabbrowser-tab:hover .tab-close-button {
+	/*background-color: #ff0000 !important;*/
+	/*background-color: none !important;*/
+    background-color: #85509b !important;
+	color: #0e0021 !important;
+	border-radius: 6px !important;
+	/*width: 24px !important;*/
+	/*height: 24px !important;*/
+	/*margin: 0 6px !important;*/
+	/*border-radius: 100%;*/
+	/*background-image: url("resource://tabcenter/skin/glyph-close-16.svg") !important;*/
+	/*background-position: center !important;*/
+	/*background-repeat: no-repeat !important;*/
+	/*background-size: 16px;*/
+}
+
+.tabbrowser-tab .tab-close-button:hover {
+    background-color: #b36a87 !important;
+	color: #0e0021 !important;
+}
