@@ -12,6 +12,10 @@ function a_replace -a grep_line original_value replace_value -d "replace stuff u
 	| xargs -0 -n 1 sed -i -e 's/'"$original_value"'/'"$replace_value"'/g'
 end
 
+function higrep -d "highlight using grep"
+	grep --color=always -E "$argv[1]|\$" (_cdr $argv)
+end
+
 ###
 # Python
 ###
@@ -63,6 +67,23 @@ end
 function git_fancy_log
 	#command git log --tags --decorate --graph --branches --abbrev-commit --pretty=short $argv
 	command git log --graph --pretty=tformat:"%Cred%D %Cgreen%h %Cblue%an %Creset%s" $argv
+end
+
+function git_fancy_log_dates
+	function git_log_base
+		command git log --date='format:%Y-%m-%d' $argv \
+		| higrep "[A-Z]+-[0-9]+"
+	end
+	if test "$argv[1]" = '-f' ; or test "$argv[1]" = '--flat' ;
+		git_log_base \
+			--pretty=tformat:"%ad %Cgreen%h %Cblue%an %Creset%s" \
+			(_cdr $argv)
+	else
+		git_log_base \
+			--graph \
+			--pretty=tformat:"%Cred%D%Creset %ad %Cgreen%h %Cblue%an %Creset%s" \
+			$argv
+	end
 end
 
 function git_checkout_i
