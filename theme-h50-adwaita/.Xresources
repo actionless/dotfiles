@@ -1,0 +1,72 @@
+#include "/home/lie/.Xresources.common"
+#include "/home/lie/.Xresources.workstation"
+
+st.font: Input Mono Narrow:pixelsize=25:antialias=true:autohint=true;
+st.blinktimeout: 175
+!st.cursorshape: 1
+st.cursorshape: 3
+!st.cursorshape: 9
+st.cursorblinkstyle: 0
+st.cursorblinkontype: 1
+st.opacity: 223
+!st.opacity: 235
+!st.opacity: 240
+!st.opacity: 192
+
+
+! terminal colorscheme -------------------------------------------------------
+
+! dark, high contrast:
+!#include "/home/lie/.Xcolours/lcars3"
+!#include "/home/lie/.Xcolours/monovedek_old"
+!#include "/home/lie/.Xcolours/monovedek"
+!#include "/home/lie/.Xcolours/monovedek-gray"
+!#include "/home/lie/.Xcolours/lolitastic"
+!#include "/home/lie/.Xcolours/mikado"
+!#include "/home/lie/.Xcolours/monokazu"
+
+! medium dark, high contrast:
+!#include "/home/lie/.Xcolours/new1/nvy"
+!#include "/home/lie/.Xcolours/apprentice"
+
+! medium dark, medium contrast:
+!#include "/home/lie/.Xcolours/new1/mtns"
+!#include "/home/lie/.Xcolours/new1/designr"
+
+! medium dark, low contrast:
+!#include "/home/lie/.Xcolours/new1/moonbow"
+
+! medium, high contrast:
+!#include "/home/lie/.Xcolours/new1/thunder"
+
+! medium, low-contrast:
+!#include "/home/lie/.Xcolours/new1/zent"
+!#include "/home/lie/.Xcolours/new1/cloudy"
+
+! todo dark:
+!#include "/home/lie/.Xcolours/jwr-dark"
+!#include "/home/lie/.Xcolours/farside"
+!#include "/home/lie/.Xcolours/gnome_noble_bright" @TODO: black color
+!#include "/home/lie/.Xcolours/zig"
+!#include "/home/lie/.Xcolours/kazu"
+!#include "/home/lie/.Xcolours/spacemacs-dark"
+!#include "/home/lie/.Xcolours/todo/ghostguys"
+!#include "/home/lie/.Xcolours/todo/pinknoise"
+!#include "/home/lie/.Xcolours/todo/psybeams"
+!#include "/home/lie/.Xcolours/todo/gnome_noble_pale"
+!#include "/home/lie/.Xcolours/todo/vacuous"
+!#include "/home/lie/.Xcolours/todo/navy"
+!#include "/home/lie/.Xcolours/todo/erebus"
+!#include "/home/lie/.Xcolours/todo/unikitty-dark"
+
+! light: 
+#include "/home/lie/.Xcolours/tlight"
+!#include "/home/lie/.Xcolours/new1/woody"
+
+! todo light:
+!#include "/home/lie/.Xcolours/ivorylight" @TODO: more medical
+!#include "/home/lie/.Xcolours/todo/unikitty-light"
+!#include "/home/lie/.Xcolours/todo/light"
+!#include "/home/lie/.Xcolours/todo/business"
+!#include "/home/lie/.Xcolours/todo/ltns"
+
