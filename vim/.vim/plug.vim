@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 " Style:
 "
-Plug 'gorodinskiy/vim-coloresque', {'for': ['css', 'less', 'sass', 'scss', 'vim', 'stylus']}
+Plug 'gorodinskiy/vim-coloresque', {'for': ['css', 'less', 'sass', 'scss', 'vim', 'stylus', 'xdefaults']}
 Plug 'kien/rainbow_parentheses.vim'
 	au VimEnter * RainbowParenthesesToggleAll
 	let g:rbpt_colorpairs = [

@@ -1,0 +1,1 @@
+/home/lie/.vimrc

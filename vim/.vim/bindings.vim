@@ -22,6 +22,11 @@ map <leader>bb :CtrlPBuffer<CR>
 "noremap <leader>fl :FormatLines<CR>
 "noremap <leader>fc :FormatCode<CR>
 noremap <leader>af :Autoformat<CR>
+autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
+autocmd FileType python nnoremap <leader>yr :0,$!yapf<Cr>
+autocmd FileType python nnoremap <leader>p :0,$!autopep8 --experimental --aggressive  -<Cr>
+autocmd FileType python nnoremap <leader>r :0,$!reindent<Cr>
+autocmd FileType python nnoremap <leader>f :0,$!format_code.py<Cr>
 
 noremap <leader>ig :IndentGuidesToggle<CR>
 
