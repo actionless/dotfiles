@@ -1,0 +1,32 @@
+! pale:
+!#include "/home/lie/.Xcolours/iterm2-light-xrdb/3024 Day.xrdb"
+!#include "/home/lie/.Xcolours/iterm2-light-xrdb/Tomorrow.xrdb"
+! bright:
+!#include "/home/lie/.Xcolours/iterm2-light-xrdb/CLRS.xrdb"
+#include "/home/lie/.Xcolours/iterm2-light-xrdb/Terminal Basic.xrdb"
+
+
+*color0:       Ansi_0_Color
+*color1:       Ansi_1_Color
+*color2:       Ansi_2_Color
+*color3:       Ansi_3_Color
+*color4:       Ansi_4_Color
+*color5:       Ansi_5_Color
+*color6:       Ansi_6_Color
+*color7:       Ansi_7_Color
+*color8:       Ansi_8_Color
+*color9:       Ansi_9_Color
+*color10:      Ansi_10_Color
+*color11:      Ansi_11_Color
+*color12:      Ansi_12_Color
+*color13:      Ansi_13_Color
+*color14:      Ansi_14_Color
+*color15:      Ansi_15_Color
+*colorBD:      Bold_Color
+*colorIT:      Italic_Color
+*colorUL:      Underline_Color
+*foreground:   Foreground_Color
+*background:   Background_Color
+*cursorColor:  Cursor_Color
+
+! vim:ft=xdefaults:
