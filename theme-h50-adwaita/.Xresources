@@ -15,15 +15,18 @@ st.opacity: 223
 
 
 ! terminal colorscheme -------------------------------------------------------
+!
 
 ! dark, high contrast:
 !#include "/home/lie/.Xcolours/lcars3"
 !#include "/home/lie/.Xcolours/monovedek_old"
 !#include "/home/lie/.Xcolours/monovedek"
+!#include "/home/lie/.Xcolours/basquiat_31"
 !#include "/home/lie/.Xcolours/monovedek-gray"
 !#include "/home/lie/.Xcolours/lolitastic"
 !#include "/home/lie/.Xcolours/mikado"
 !#include "/home/lie/.Xcolours/monokazu"
+!#include "/home/lie/.Xcolours/adwaita_test01"
 
 ! medium dark, high contrast:
 !#include "/home/lie/.Xcolours/new1/nvy"
@@ -37,6 +40,7 @@ st.opacity: 223
 !#include "/home/lie/.Xcolours/new1/moonbow"
 
 ! medium, high contrast:
+!#include "/home/lie/.Xcolours/hip"
 !#include "/home/lie/.Xcolours/new1/thunder"
 
 ! medium, low-contrast:
@@ -60,7 +64,14 @@ st.opacity: 223
 !#include "/home/lie/.Xcolours/todo/unikitty-dark"
 
 ! light: 
-#include "/home/lie/.Xcolours/tlight"
+!#include "/home/lie/.Xcolours/tlight"
+!#include "/home/lie/.Xcolours/basquiat_3"
+!! without theme_hint
+#include "/home/lie/.Xcolours/adwaita_test02"
+!! with theme_hint=3
+!#include "/home/lie/.Xcolours/adwaita_test03"
+!! with theme_hint=4
+!#include "/home/lie/.Xcolours/adwaita_test04" 
 !#include "/home/lie/.Xcolours/new1/woody"
 
 ! todo light:
