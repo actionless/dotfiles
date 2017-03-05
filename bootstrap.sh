@@ -16,7 +16,7 @@ exit 1
 stow -D $(./current-workstation.sh) ;
 for CONFIG in $(
 	ls \
-	| grep -E -v -e "theme-" -e "workstation-" -e "\." -e "-bak" -e "\.bak" ;\
+	| grep -E -v -e "^theme-" -e "^workstation-" -e "\." -e "-bak" -e "\.bak" ;\
 	echo $PC_NAME
 ); do
 	echo -n "$CONFIG: " ;

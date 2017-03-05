@@ -12,11 +12,13 @@ set cursorline
 "colorscheme term-actionless3
 if has("gui_running")
 	colorscheme fixed-dark-monokai-0e0021
+	let g:airline_theme='molokai'
 else
 	"set bg=light
 	colorscheme term-dark-actionless2
 	"colorscheme term-actionless3
 	"colorscheme term-wargrey
+	let g:airline_theme='term'
 endif
 "colorscheme miromiro
 "colorscheme delek
