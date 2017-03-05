@@ -41,5 +41,40 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=233 guibg=#1e1031
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234 guibg=#2e2041
 
 
-"TagBar:
+" TagBar:
 autocmd VimEnter,Colorscheme * :hi link TagbarHighlight IncSearch
+
+" Rainbow Parentheses:
+let g:rbpt_colorpairs = [
+	\ [8,   'RoyalBlue3'],
+	\ [7,    'SeaGreen3'],
+	\ [15,     'DarkOrchid3'],
+	\ [130,       'RoyalBlue3'],
+	\ [1,       'RoyalBlue3'],
+	\ [9,    'SeaGreen3'],
+	\ [3,    'DarkOrchid3'],
+	\ [11,   'firebrick3'],
+	\ [10,    'RoyalBlue3'],
+	\ [2,     'SeaGreen3'],
+	\ [6, 'DarkOrchid3'],
+	\ [14,       'firebrick3'],
+	\ [12,        'RoyalBlue3'],
+	\ [4,       'SeaGreen3'],
+	\ [13, 'DarkOrchid3'],
+	\ [5,    'firebrick3'],
+	\ ]
+	"\ [8,   'RoyalBlue3'],
+	"\ [7,    'SeaGreen3'],
+	"\ [15,     'DarkOrchid3'],
+	"
+
+" Airline:
+let g:airline_theme='term'
+let g:airline_powerline_fonts = 1
+"let g:airline_right_sep = ''
+"let g:airline_left_sep = ''
+let g:airline_left_sep = '퟽'
+let g:airline_right_sep = '퟼'
+" Enable the list of buffers:
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#fnamemod = ':t'

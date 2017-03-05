@@ -4,37 +4,8 @@ call plug#begin('~/.vim/plugged')
 "
 Plug 'gorodinskiy/vim-coloresque', {'for': ['css', 'less', 'sass', 'scss', 'vim', 'stylus', 'xdefaults']}
 Plug 'kien/rainbow_parentheses.vim'
-	au VimEnter * RainbowParenthesesToggleAll
-	let g:rbpt_colorpairs = [
-		\ [8,   'RoyalBlue3'],
-		\ [7,    'SeaGreen3'],
-		\ [15,     'DarkOrchid3'],
-		\ [130,       'RoyalBlue3'],
-		\ [1,       'RoyalBlue3'],
-		\ [9,    'SeaGreen3'],
-		\ [3,    'DarkOrchid3'],
-		\ [11,   'firebrick3'],
-		\ [10,    'RoyalBlue3'],
-		\ [2,     'SeaGreen3'],
-		\ [6, 'DarkOrchid3'],
-		\ [14,       'firebrick3'],
-		\ [12,        'RoyalBlue3'],
-		\ [4,       'SeaGreen3'],
-		\ [13, 'DarkOrchid3'],
-		\ [5,    'firebrick3'],
-		\ ]
-		"\ [8,   'RoyalBlue3'],
-		"\ [7,    'SeaGreen3'],
-		"\ [15,     'DarkOrchid3'],
-
 Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-	let g:airline_theme='term'
-	let g:airline_powerline_fonts = 1
-	"let g:airline_right_sep = ''
-	"let g:airline_left_sep = ''
-	let g:airline_left_sep = '퟽'
-	let g:airline_right_sep = '퟼'
+	Plug 'bling/vim-airline-themes'
 	" Enable the list of buffers:
 	"let g:airline#extensions#tabline#enabled = 1
 	"let g:airline#extensions#tabline#fnamemod = ':t'
@@ -111,13 +82,13 @@ Plug 'othree/html5.vim', {'for': 'html'}
 Plug 'groenewege/vim-less', {'for': 'less'}
 
 " Go:
-Plug 'fatih/vim-go', {'for': 'go'}
-	let g:go_highlight_functions = 1
-	let g:go_highlight_methods = 1
-	let g:go_highlight_structs = 1
-	highlight link goStruct Type
-	let g:go_highlight_operators = 1
-	let g:go_highlight_build_constraints = 1
+"Plug 'fatih/vim-go', {'for': 'go'}
+	"let g:go_highlight_functions = 1
+	"let g:go_highlight_methods = 1
+	"let g:go_highlight_structs = 1
+	"highlight link goStruct Type
+	"let g:go_highlight_operators = 1
+	"let g:go_highlight_build_constraints = 1
 
 " Nix:
 "Plug 'tlib', {'for': 'nix'}
@@ -134,7 +105,7 @@ Plug 'fatih/vim-go', {'for': 'go'}
 "Plug 'ajgrf/sprinkles'
 " fixed light:
 "Plug 'wimstefan/Lightning'
-Plug 'acarapetis/vim-colors-github'
+"Plug 'acarapetis/vim-colors-github'
 "Plug 'adampasz/stonewashed-themes'
 "Plug 'jlesquembre/peaksea'
 " fixed dark:
