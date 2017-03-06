@@ -67,11 +67,13 @@ st.opacity: 223
 !#include "/home/lie/.Xcolours/tlight"
 !#include "/home/lie/.Xcolours/basquiat_3"
 !! without theme_hint
-#include "/home/lie/.Xcolours/adwaita_test02"
+!#include "/home/lie/.Xcolours/adwaita_test02"
 !! with theme_hint=3
 !#include "/home/lie/.Xcolours/adwaita_test03"
 !! with theme_hint=4
 !#include "/home/lie/.Xcolours/adwaita_test04" 
+!! without theme_hint from tlight2
+#include "/home/lie/.Xcolours/adwaita_test05"
 !#include "/home/lie/.Xcolours/new1/woody"
 
 ! todo light:
