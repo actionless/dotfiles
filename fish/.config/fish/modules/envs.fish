@@ -22,13 +22,6 @@ function man -d "colored man"
 		man $argv
 end
 
-function wine64 -d "x64 wine workspace"
-	env \
-		WINEARCH=win64 \
-		WINEPREFIX=~.wine64 \
-		man $argv
-end
-
 abbr wine "env PULSE_LATENCY_MSEC=60 wine"
 
 #alias vi nvim
