@@ -1,4 +1,5 @@
 
+background: #ffffff
 URxvt*background: [95]#ffffff
 xterm*background: #ffffff
 
