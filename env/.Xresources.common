@@ -17,6 +17,11 @@ Xft.lcdfilter: lcddefault
 !st.opacity: 223
 st.bold_font: 1
 st.bellvolume: 0
+!st.xfps:         30
+!st.actionfps:    30
+!st.blinktimeout: 500
+!st.blinktimeout: 300
+!st.blinktimeout: 250
 
 ! urxvt ----------------------------------------------------------------------
 
@@ -123,3 +128,6 @@ xscreensaver.Dialog.shadowThickness:    2
 xscreensaver.passwd.thermometer.foreground:  #ff9900
 xscreensaver.passwd.thermometer.background:  #000000
 xscreensaver.passwd.thermometer.width:       8
+
+
+! vim: ft=xdefaults:
