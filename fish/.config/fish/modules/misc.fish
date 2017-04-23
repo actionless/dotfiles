@@ -14,24 +14,31 @@ complete -e -c ll
 function ll --wraps='exa'
 	exa -la $argv
 end
+function llg --wraps='exa'
+	ll --git $argv
+end
 function lrt --wraps='exa'
 	ll --reverse --sort modified
 end
 
-function colorize -d "colorize with pygments"
+function colorize -d "colorize with pygments" --wraps='highlight'
 	command highlight -O ansi $argv
 end
 
-function less
+function less --wraps='less'
 	command less -r $argv
 end
 
-function cless
+function cless --wraps='less'
 	colorize $argv | less
 end
 
-function no_comments --description 'cat and cut comments'
+function no_comments --description 'cat and cut comments' --wraps='cat'
 	command cat $argv | grep -E -v -e "^;" -e "^#" -e "^\$" -e "^\s+#"
+end
+
+function psauxf --wraps='grep'
+	ps auxf | grep -v grep | grep -C 5 -i $argv
 end
 
 function hibernate -d 'put machine into hibernation state'
