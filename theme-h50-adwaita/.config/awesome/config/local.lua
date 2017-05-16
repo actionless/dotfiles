@@ -16,8 +16,6 @@ function local_config.init(awesome_context)
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars-xresources-hidpi/theme.lua"
   awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/gtk/theme.lua"
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/twmish/theme.lua"
-  OOMOX_THEME_NAME="tumblr01"
-  --OOMOX_SEL_BG = "#546cc4"
 
   awesome_context.autorun = {
     --"~/.scripts/tp_unmute",
