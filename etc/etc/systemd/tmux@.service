@@ -1,0 +1,12 @@
+[Unit]
+Description=Start tmux in detached session
+
+[Service]
+Type=forking
+User=%I
+ExecStart=/usr/bin/tmux_wrapper new-session -s placeholder -d
+ExecStop=/usr/bin/tmux kill-session -t placeholder
+WorkingDirectory=/home/lie/
+
+[Install]
+WantedBy=multi-user.target
