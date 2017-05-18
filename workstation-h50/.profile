@@ -79,6 +79,6 @@ export LV2_PATH=/usr/lib/lv2:/usr/local/lib/lv2:~/.lv2:/someother/custom/dir
 export DSSI_PATH=/usr/lib/dssi:/usr/local/lib/dssi:~/.dssi:/someother/custom/dir
 
 #ll /usr/share/kbd/consolefonts
-setfont ter-v32n
+setfont ter-v32n || true
 
 test -f $HOME/.profile_theme && source $HOME/.profile_theme
