@@ -30,8 +30,8 @@ function local_config.init(awesome_context)
     --beautiful.widget_music_bg = "#c45754"
     --beautiful.widget_music_bg = "#748ce4"
     --beautiful.border_focus = "#546cc4"
-    beautiful.taglist_bg_focus  = "#ff0000"
-    beautiful.taglist_fg_focus  = "#0000ff"
+    --beautiful.taglist_bg_focus  = "#ff0000"
+    --beautiful.taglist_fg_focus  = "#0000ff"
   end
   awesome_context.after_config_loaded = awesome_context.before_config_loaded
 
