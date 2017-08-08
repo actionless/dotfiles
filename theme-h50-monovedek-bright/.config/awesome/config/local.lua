@@ -26,4 +26,5 @@ function local_config.init(awesome_context)
   return awesome_context
 end
 
+
 return local_config
