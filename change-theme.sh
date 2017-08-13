@@ -2,7 +2,7 @@
 set -ueo pipefail
 
 if [ -z "${1:-}" ]; then
-	STOW_TARGET=$(ls | grep theme- | grep $(./current-workstation.sh | sed 's/workstation-//') | bemenu -p "select theme:") || (echo "Canceled" ; exit 1)
+	STOW_TARGET=$(ls | grep theme- | grep $(./current-workstation.sh | sed 's/workstation-//') | fzf --prompt="select theme:") || (echo "Canceled" ; exit 1)
 else
 	STOW_TARGET=$1
 fi

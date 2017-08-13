@@ -66,7 +66,20 @@ end
 
 function git_fancy_log
 	#command git log --tags --decorate --graph --branches --abbrev-commit --pretty=short $argv
-	command git log --graph --pretty=tformat:"%Cred%D %Cgreen%h %Cblue%an %Creset%s" $argv
+	function git_log_base
+		command git log --date='format:%Y-%m-%d' $argv \
+		| higrep "[A-Z]+-[0-9]+"
+	end
+	if test "$argv[1]" = '-f' ; or test "$argv[1]" = '--flat' ;
+		git_log_base \
+			--pretty=tformat:"%Cgreen%h %Cblue%an %Creset%s" \
+			(_cdr $argv)
+	else
+		git_log_base \
+			--graph \
+			--pretty=tformat:"%Cred%D%Creset %Cgreen%h %Cblue%an %Creset%s" \
+			$argv
+	end
 end
 
 function git_fancy_log_dates
@@ -87,9 +100,10 @@ function git_fancy_log_dates
 end
 
 function git_checkout_i
-	command git ls-files -m \
-	| bemenu \
-	| xargs git checkout --
+	set branch (command git ls-files -m | fzf)
+	if test ! -z "$branch"
+		git checkout -- $branch
+	end
 end
 
 
