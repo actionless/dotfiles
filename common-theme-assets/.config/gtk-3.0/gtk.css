@@ -16,6 +16,7 @@ window decoration {
 	margin: 0;
 	/*margin-right: 2px;*/
 	/*margin-left: 2px;*/
+	border: none;
 }
 
 * {
