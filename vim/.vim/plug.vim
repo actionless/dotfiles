@@ -60,10 +60,7 @@ Plug 'scrooloose/syntastic'
 	"let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 	"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
-" installed system-wide for normal vim:
-"if has('nvim')
-	Plug 'Valloric/YouCompleteMe'
-"endif
+Plug 'Valloric/YouCompleteMe'
 " remove? :
 "Plug 'Shougo/neocomplete.vim'
 "source ~/.vim/neocomplete.vim
