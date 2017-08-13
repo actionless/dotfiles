@@ -31,6 +31,8 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+test -z "${XDG_RUNTIME_DIR}" && export XDG_RUNTIME_DIR=/run/user/$(id -u)
+
 export LANGUAGE="en_US.utf8"
 export LC_ALL="en_US.utf8"
 export LANG="en_US.utf8"
@@ -66,11 +68,6 @@ export CHROMIUM_USER_FLAGS=" --force-device-scale-factor=2 "
 # turn off touch screen support to workaround some mouse input bugs:
 export GDK_CORE_DEVICE_EVENTS=1
 export QT_XCB_NO_XI2_MOUSE=1
-
-# @TODO: remove it?
-#FT2_SUBPIXEL_HINTING=0  # Classic mode (default in 2.6)
-#FT2_SUBPIXEL_HINTING=1  # Infinality mode
-#FT2_SUBPIXEL_HINTING=2  # Minimal mode (default in 2.7)
 
 export VST_PATH=/usr/lib/vst:/usr/local/lib/vst:$HOME/.vst:$HOME/.vst-bridges/
 export LXVST_PATH=/usr/lib/lxvst:/usr/local/lib/lxvst:~/.lxvst:/someother/custom/dir
