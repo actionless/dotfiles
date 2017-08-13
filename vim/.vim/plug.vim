@@ -4,8 +4,8 @@ call plug#begin('~/.vim/plugged')
 "
 Plug 'gorodinskiy/vim-coloresque', {'for': ['css', 'less', 'sass', 'scss', 'vim', 'stylus', 'xdefaults']}
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'bling/vim-airline'
-	Plug 'bling/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 	" Enable the list of buffers:
 	"let g:airline#extensions#tabline#enabled = 1
 	"let g:airline#extensions#tabline#fnamemod = ':t'
