@@ -1,8 +1,11 @@
-abbr rm_temp='rm -v *~ ; rm -v *.swp ; rm -v .*~ ; rm -v .*.swp ; rm -v \#*\#'
-abbr vmi=vim
-
+alias rm "rm -I"
+alias rg='rg --hidden'
+alias gr='grep --color -iE'
 #alias ll='ls --color=auto -lah'
 #alias l 'ls --color=auto -lh'
+
+abbr vmi=vim
+
 function exa --wraps='exa'
 	command exa --color=always $argv
 end
@@ -36,6 +39,8 @@ end
 function no_comments --description 'cat and cut comments' --wraps='cat'
 	command cat $argv | grep -E -v -e "^;" -e "^#" -e "^\$" -e "^\s+#"
 end
+
+abbr rm_temp='rm -v *~ ; rm -v *.swp ; rm -v .*~ ; rm -v .*.swp ; rm -v \#*\#'
 
 function psauxf --wraps='grep'
 	ps auxf | grep -v grep | grep -C 5 -i $argv
