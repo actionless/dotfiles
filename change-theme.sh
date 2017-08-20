@@ -7,7 +7,10 @@ else
 	STOW_TARGET=$1
 fi
 
-stow -D $(./current-theme.sh) ;
+CURRENT_THEME=$(./current-theme.sh) || CURRENT_THEME=''
+if [[ ! -z ${CURRENT_THEME} ]] ; then
+	stow -D $(./current-theme.sh) ;
+fi
 stow "$STOW_TARGET"
 
 set +ueo pipefail

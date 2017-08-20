@@ -2,7 +2,10 @@
 set -ue
 
 SCRIPT_DIR=$(dirname $(readlink -e "$0"))
-THEME_NAME=$($SCRIPT_DIR/current-theme.sh)
+THEME_NAME="${2-}"
+if [[ -z ${THEME_NAME} ]] ; then
+	THEME_NAME=$($SCRIPT_DIR/current-theme.sh)
+fi
 THEME_DIR=$SCRIPT_DIR/$THEME_NAME
 
 PC_NAME="${1-}"
