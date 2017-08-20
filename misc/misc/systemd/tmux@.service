@@ -6,7 +6,7 @@ Type=forking
 User=%I
 ExecStart=/usr/bin/tmux_wrapper new-session -s placeholder -d
 ExecStop=/usr/bin/tmux kill-session -t placeholder
-WorkingDirectory=/home/lie/
+WorkingDirectory=/home/%I/
 
 [Install]
 WantedBy=multi-user.target
