@@ -1,5 +1,5 @@
-#include "/home/lie/.Xresources.common"
-#include "/home/lie/.Xresources.workstation"
+#include ".Xresources.common"
+#include ".Xresources.workstation"
 
 ! st -------------------------------------------------------------------------
 st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
@@ -15,5 +15,5 @@ st.opacity: 235
 
 
 ! terminal colorscheme -------------------------------------------------------
-#include "/home/lie/.Xcolours/mikado"
-!#include "/home/lie/.Xcolours/adventure_time_1-sel_bg-menu_bg-menu_fg-color9"
+#include ".Xcolours/mikado"
+!#include ".Xcolours/adventure_time_1-sel_bg-menu_bg-menu_fg-color9"

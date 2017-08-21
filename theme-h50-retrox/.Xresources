@@ -1,5 +1,5 @@
-#include "/home/lie/.Xresources.common"
-#include "/home/lie/.Xresources.workstation"
+#include ".Xresources.common"
+#include ".Xresources.workstation"
 
 !st.opacity: 223
 !st.opacity: 210
@@ -7,34 +7,34 @@ st.opacity: 255
 st.font: Go Mono:pixelsize=25:antialias=true:autohint=true;
 
 ! terminal colorscheme -------------------------------------------------------
-!#include "/home/lie/.Xcolours/lcars3"
-!#include "/home/lie/.Xcolours/monovedek_old"
-!#include "/home/lie/.Xcolours/monovedek"
-!#include "/home/lie/.Xcolours/monovedek-gray"
+!#include ".Xcolours/lcars3"
+!#include ".Xcolours/monovedek_old"
+!#include ".Xcolours/monovedek"
+!#include ".Xcolours/monovedek-gray"
 !
-!#include "/home/lie/.Xcolours/lolitastic"
-!#include "/home/lie/.Xcolours/mikado"
-!#include "/home/lie/.Xcolours/monokazu"
-!#include "/home/lie/.Xcolours/apprentice"
+!#include ".Xcolours/lolitastic"
+!#include ".Xcolours/mikado"
+!#include ".Xcolours/monokazu"
+!#include ".Xcolours/apprentice"
 ! ?? 
-!#include "/home/lie/.Xcolours/jwr-dark"
-!#include "/home/lie/.Xcolours/farside"
-!#include "/home/lie/.Xcolours/gnome_noble_bright" @TODO: black color
-!#include "/home/lie/.Xcolours/zig"
-!#include "/home/lie/.Xcolours/kazu"
-!#include "/home/lie/.Xcolours/spacemacs-dark"
-!#include "/home/lie/.Xcolours/todo/ghostguys"
-!#include "/home/lie/.Xcolours/todo/pinknoise"
-!#include "/home/lie/.Xcolours/todo/psybeams"
-!#include "/home/lie/.Xcolours/todo/gnome_noble_pale"
-!#include "/home/lie/.Xcolours/todo/vacuous"
-!#include "/home/lie/.Xcolours/todo/navy"
-!#include "/home/lie/.Xcolours/todo/erebus"
-!#include "/home/lie/.Xcolours/todo/unikitty-dark"
+!#include ".Xcolours/jwr-dark"
+!#include ".Xcolours/farside"
+!#include ".Xcolours/gnome_noble_bright" @TODO: black color
+!#include ".Xcolours/zig"
+!#include ".Xcolours/kazu"
+!#include ".Xcolours/spacemacs-dark"
+!#include ".Xcolours/todo/ghostguys"
+!#include ".Xcolours/todo/pinknoise"
+!#include ".Xcolours/todo/psybeams"
+!#include ".Xcolours/todo/gnome_noble_pale"
+!#include ".Xcolours/todo/vacuous"
+!#include ".Xcolours/todo/navy"
+!#include ".Xcolours/todo/erebus"
+!#include ".Xcolours/todo/unikitty-dark"
 ! light: 
-!#include "/home/lie/.Xcolours/ivorylight" @TODO: more medical
-!#include "/home/lie/.Xcolours/todo/unikitty-light"
-!#include "/home/lie/.Xcolours/todo/light"
-!#include "/home/lie/.Xcolours/todo/business"
-!#include "/home/lie/.Xcolours/todo/ltns"
-#include "/home/lie/.Xcolours/tlight"
+!#include ".Xcolours/ivorylight" @TODO: more medical
+!#include ".Xcolours/todo/unikitty-light"
+!#include ".Xcolours/todo/light"
+!#include ".Xcolours/todo/business"
+!#include ".Xcolours/todo/ltns"
+#include ".Xcolours/tlight"
