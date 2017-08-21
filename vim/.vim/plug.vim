@@ -60,8 +60,23 @@ Plug 'scrooloose/syntastic'
 	"let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 	"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
-Plug 'Valloric/YouCompleteMe'
-" remove? :
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py
+  endif
+endfunction
+"Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'on': [] }
+" https://github.com/junegunn/vim-plug/wiki/faq#loading-plugins-manually
+augroup load_us_ycm
+	autocmd!
+	autocmd InsertEnter * call plug#load('YouCompleteMe')
+						 \| autocmd! load_us_ycm
+augroup END
 "Plug 'Shougo/neocomplete.vim'
 "source ~/.vim/neocomplete.vim
 

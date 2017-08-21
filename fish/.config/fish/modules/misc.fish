@@ -1,6 +1,6 @@
 alias rm "rm -I"
-alias rg='rg --hidden'
-alias gr='grep --color -iE'
+alias rg='rg -u'
+alias gr='grep --color -iER'
 #alias ll='ls --color=auto -lah'
 #alias l 'ls --color=auto -lh'
 

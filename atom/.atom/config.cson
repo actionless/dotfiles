@@ -8,6 +8,7 @@
     disabledPackages: [
       "spacemacs-evil-keys"
       "activate-power-mode"
+      "linter-lua-findglobals"
     ]
     telemetryConsent: "no"
     themes: [
@@ -24,6 +25,8 @@
     userId: "e575a650-9580-6ac1-ce0f-c1d06010dc32"
   hidpi:
     scaleFactor: 2
+  "linter-ui-default":
+    showPanel: true
   "one-dark-ui": {}
   "vim-mode":
     useClipboardAsDefaultRegister: true
