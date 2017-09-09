@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec pass git push -u --all

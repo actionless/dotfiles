@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec env PASSWORD_STORE_DIR=/home/lie/.password-store3/ PASSWORD_STORE_GIT=/home/lie/.password-store3/ pass $@
