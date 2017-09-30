@@ -1,0 +1,68 @@
+#include ".Xresources.common"
+#include ".Xresources.workstation"
+
+st.opacity: 223
+!st.opacity: 192
+st.font: Input Mono Narrow:pixelsize=25:antialias=true:autohint=true;
+st.cursorshape: 3
+st.cursorblinkstyle: 0
+st.cursorblinkontype: 1
+st.blinktimeout: 175
+
+! terminal colorscheme -------------------------------------------------------
+
+! dark, high contrast:
+!#include ".Xcolours/lcars3"
+!#include ".Xcolours/monovedek_old"
+#include ".Xcolours/retro/c64"
+!#include ".Xcolours/monovedek"
+!#include ".Xcolours/monovedek-gray"
+!#include ".Xcolours/lolitastic"
+!#include ".Xcolours/mikado"
+!#include ".Xcolours/monokazu"
+
+! medium dark, high contrast:
+!#include ".Xcolours/new1/nvy"
+!#include ".Xcolours/apprentice"
+
+! medium dark, medium contrast:
+!#include ".Xcolours/new1/mtns"
+!#include ".Xcolours/new1/designr"
+
+! medium dark, low contrast:
+!#include ".Xcolours/new1/moonbow"
+
+! medium, high contrast:
+!#include ".Xcolours/new1/thunder"
+
+! medium, low-contrast:
+!#include ".Xcolours/new1/zent"
+!#include ".Xcolours/new1/cloudy"
+
+! todo dark:
+!#include ".Xcolours/jwr-dark"
+!#include ".Xcolours/farside"
+!#include ".Xcolours/gnome_noble_bright" @TODO: black color
+!#include ".Xcolours/zig"
+!#include ".Xcolours/kazu"
+!#include ".Xcolours/spacemacs-dark"
+!#include ".Xcolours/todo/ghostguys"
+!#include ".Xcolours/todo/pinknoise"
+!#include ".Xcolours/todo/psybeams"
+!#include ".Xcolours/todo/gnome_noble_pale"
+!#include ".Xcolours/todo/vacuous"
+!#include ".Xcolours/todo/navy"
+!#include ".Xcolours/todo/erebus"
+!#include ".Xcolours/todo/unikitty-dark"
+
+! light: 
+!#include ".Xcolours/tlight"
+!#include ".Xcolours/new1/woody"
+
+! todo light:
+!#include ".Xcolours/ivorylight" @TODO: more medical
+!#include ".Xcolours/todo/unikitty-light"
+!#include ".Xcolours/todo/light"
+!#include ".Xcolours/todo/business"
+!#include ".Xcolours/todo/ltns"
+
