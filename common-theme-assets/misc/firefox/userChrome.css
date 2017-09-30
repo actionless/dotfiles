@@ -1,0 +1,18 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* Hide tabs at the top */
+#TabsToolbar {
+    visibility: collapse !important;
+}
+
+/* Reduce the size of the sidebar header */
+#sidebar-header {
+	background-color: #a4a9ae !important;
+    border: none !important;
+    height: 10px !important;
+	padding: 1px !important;
+	margin: 0 !important;
+	font-size: 10px !important;
+	font-weight: normal !important;
+    /*visibility: collapse !important;*/
+}
