@@ -1,9 +1,9 @@
 ! pale:
-!#include ".Xcolours/iterm2-light-xrdb/3024 Day.xrdb"
+!#include ".Xcolours/iterm2-light-xrdb/3024_Day.xrdb"
 !#include ".Xcolours/iterm2-light-xrdb/Tomorrow.xrdb"
 ! bright:
 !#include ".Xcolours/iterm2-light-xrdb/CLRS.xrdb"
-#include ".Xcolours/iterm2-light-xrdb/Terminal Basic.xrdb"
+#include ".Xcolours/iterm2-light-xrdb/Terminal_Basic.xrdb"
 
 
 *color0:       Ansi_0_Color
