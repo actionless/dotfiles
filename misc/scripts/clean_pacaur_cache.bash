@@ -2,7 +2,7 @@
 set -ue
 cd ~/.cache/pacaur/
 echo -n "Cache size before:	"
-du -sh
+du -sh 2>/dev/null || true
 for file in */{*.tar*,pkg,src,*.rpm,*.deb} ; do
 	rm -rf $file
 done
