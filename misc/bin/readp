@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -ue
+read -p "->" -s p
+echo $p
