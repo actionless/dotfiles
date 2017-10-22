@@ -21,7 +21,7 @@ function llg --wraps='exa'
 	ll --git $argv
 end
 function lrt --wraps='exa'
-	ll --reverse --sort modified
+	ll --reverse --sort modified $argv
 end
 
 function colorize -d "colorize with pygments" --wraps='highlight'
