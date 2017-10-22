@@ -50,6 +50,9 @@ function docker_size
 	) MB
 end
 
+
+alias docker_ps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
+
 ###
 # GIT
 ###
