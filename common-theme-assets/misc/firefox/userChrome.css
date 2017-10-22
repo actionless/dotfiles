@@ -7,7 +7,7 @@
 
 /* Reduce the size of the sidebar header */
 #sidebar-header {
-	background-color: #a4a9ae !important;
+	background-color: WindowFrame !important;
     border: none !important;
     height: 10px !important;
 	padding: 1px !important;
@@ -16,3 +16,19 @@
 	font-weight: normal !important;
     /*visibility: collapse !important;*/
 }
+
+/*Bookmark's bar height:*/
+#editBMPanel_folderTreeRow {
+	height: 500px !important;
+}
+
+
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/color_value*/
+/*#tabbar {*/
+/*[>background-color: Background !important;<]*/
+/*background-color: -moz-Field !important;*/
+/*}*/
+
+/*.tab:not(.active):not(:hover) {*/
+	/*background-color: ButtonFace !important;*/
+/*}*/
