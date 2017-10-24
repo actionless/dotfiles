@@ -113,7 +113,7 @@ function git_fancy_log_dates
 end
 
 function git_checkout_i
-	set branch (command git ls-files -m | fzf)
+	set -l branch (command git ls-files -m | fzf)
 	if test ! -z "$branch"
 		git checkout -- $branch
 	end
@@ -127,9 +127,9 @@ end
 
 function svn
 	if test (count $argv) -ge 2 ; and test $argv[2] = 'nocolor'
-		set real_argv $argv[1]
+		set -l real_argv $argv[1]
 		if test (count $argv) -ge 3
-			set real_argv $real_argv $argv[3..(count $argv)]
+			set -l real_argv $real_argv $argv[3..(count $argv)]
 		end
 		env SVN_COLOR=never $HOME/scripts/svn-color.sh $real_argv
 	else
@@ -152,8 +152,8 @@ function svn_ci
 		echo "Usage: svn_ci 'message' ./file1 ./file2"
 		return 2
 	end
-	set commit_message $argv[1]
-	set commit_list $argv[2..(count $argv)]
+	set -l commit_message $argv[1]
+	set -l commit_list $argv[2..(count $argv)]
 	svn ci --username $SVN_USERNAME -m "$commit_message" $commit_list
 end
 
@@ -164,7 +164,7 @@ function svn_st
 		end
 		svn status $argv | grep -v -f ./.svnignore
 	else
-		set original_pwd (pwd)
+		set -l original_pwd (pwd)
 		cd ..
 		svn_st
 		cd $original_pwd
