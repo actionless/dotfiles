@@ -10,16 +10,19 @@ set cursorline
 "colorscheme term-wargrey
 "colorscheme term-dark-noctu
 "colorscheme term-actionless3
-if has("gui_running")
-	colorscheme fixed-dark-monokai-0e0021
-else
+"if has("gui_running")
+	"let g:airline_theme='molokai'
+	"colorscheme fixed-dark-monokai-0e0021
+"else
+	"let g:airline_theme='xtermlight'
 	"set bg=light
 	"colorscheme term-dark-actionless2
-	colorscheme fixed-light-github
+	"colorscheme fixed-light-github
 	"colorscheme term-actionless3
 	"colorscheme term-wargrey
-endif
-let g:airline_theme='xtermlight'
+"endif
+	let g:airline_theme='xtermlight'
+	colorscheme fixed-light-github
 "colorscheme miromiro
 "colorscheme delek
 "colorscheme noctu
@@ -35,13 +38,16 @@ let g:airline_theme='xtermlight'
 "autocmd VimEnter,Colorscheme * :hi Visual         term=reverse ctermbg=5 guibg=Yellow
 "autocmd VimEnter,Colorscheme * :hi ColorColumn term=reverse ctermbg=0 guibg=Black
 
+highlight CursorLineNr	cterm=bold	ctermfg=1 guifg=DarkOrange
+
 "" indent guides:
 let g:indent_guides_auto_colors = 0
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=232 guibg=#1e1e1e
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=233 guibg=#2e2e2e
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=233 guibg=#1e1031
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234 guibg=#2e2041
-
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=233 guibg=#1e1031
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234 guibg=#2e2041
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=253 guibg=#eeeeee
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=254 guibg=#bbbbbb
 
 "TagBar:
 autocmd VimEnter,Colorscheme * :hi link TagbarHighlight IncSearch
