@@ -67,6 +67,16 @@ function git_status_pwd
 	command git status $argv | grep -v "\.\."
 end
 
+function git_pr_to_branch
+	set -l pr_number "$argv[1]"
+	set -l branch_name "$argv[2]"
+	if test -z $branch_name ;
+		return 2
+	end
+	command git fetch origin pull/$pr_number/head:$branch_name
+	command git checkout $branch_name
+end
+
 function git_fancy_log
 	#command git log --tags --decorate --graph --branches --abbrev-commit --pretty=short $argv
 	function git_log_base
