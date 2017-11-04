@@ -32,6 +32,10 @@ function less --wraps='less'
 	command less -r $argv
 end
 
+function tldr --wraps='tldr'
+	command tldr -t base16 $argv
+end
+
 function cless --wraps='less'
 	colorize $argv | less
 end
