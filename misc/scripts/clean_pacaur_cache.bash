@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -ue
+sudo pacman -Scc
 cd ~/.cache/pacaur/
 echo -n "Cache size before:	"
 du -sh 2>/dev/null || true
