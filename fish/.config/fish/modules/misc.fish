@@ -1,39 +1,5 @@
-alias rm "rm -I"
-alias rg='rg -u'
-alias gr='grep --color -iER'
-#alias ll='ls --color=auto -lah'
-#alias l 'ls --color=auto -lh'
-
-abbr vmi=vim
-
-function exa --wraps='exa'
-	command exa --color=always $argv
-end
-complete -e -c l
-function l --wraps='exa'
-	exa $argv
-end
-complete -e -c ll
-function ll --wraps='exa'
-	exa -la $argv
-end
-function llg --wraps='exa'
-	ll --git $argv
-end
-function lrt --wraps='exa'
-	ll --reverse --sort modified $argv
-end
-
 function colorize -d "colorize with pygments" --wraps='highlight'
 	command highlight -O ansi $argv
-end
-
-function less --wraps='less'
-	command less -r $argv
-end
-
-function tldr --wraps='tldr'
-	command tldr -t base16 $argv
 end
 
 function cless --wraps='less'
