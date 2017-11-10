@@ -1,5 +1,5 @@
 alias rm "rm -I"
-alias rg='rg -u'
+alias rg='rg -u -L'
 alias gr='grep --color -iER'
 
 abbr vmi=vim
