@@ -1,11 +1,6 @@
-
 function sudo --description 'Wrapper for sudo'
 	if test (echo $argv[1]) = 'su' 
-		if test (count $argv) -eq 1 
-			command sudo su --shell=/usr/bin/fish
-		else
-			command sudo su --shell=/usr/bin/fish $argv[2..(count $argv)]
-		end
+		command sudo su --shell=/usr/bin/fish (_cdr $argv)
 	else
 		command sudo $argv
 	end
