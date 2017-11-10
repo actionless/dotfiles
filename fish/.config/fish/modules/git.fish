@@ -45,7 +45,7 @@ end
 
 function git_fancy_log_dates
 	function git_log_base
-		command git log --date='format:%Y-%m-%d' $argv \
+		command git log --color=always --date='format:%Y-%m-%d' $argv \
 		| higrep "[A-Z]+-[0-9]+"
 	end
 	if test "$argv[1]" = '-f' ; or test "$argv[1]" = '--flat' ;
