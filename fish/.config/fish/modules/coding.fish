@@ -5,7 +5,7 @@
 alias sprunge "curl -F 'sprunge=<-' http://sprunge.us"
 
 #abbr a_grep "ack --python --ignore-dir=env "
-alias a_grep "ag --ignore-dir=env "
+alias a_grep "ag --ignore-dir=env --hidden"
 
 function a_replace -a grep_line original_value replace_value -d "replace stuff using ag and sed"
 	a_grep -l --print0 "$grep_line" \
