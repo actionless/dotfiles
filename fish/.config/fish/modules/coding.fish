@@ -8,6 +8,10 @@ alias sprunge "curl -F 'sprunge=<-' http://sprunge.us"
 alias a_grep "ag --ignore-dir=env --hidden"
 
 function a_replace -a grep_line original_value replace_value -d "replace stuff using ag and sed"
+	if test (count $argv) -eq 2;
+		set replace_value $original_value
+		set original_value $grep_line
+	end
 	a_grep -l --print0 "$grep_line" \
 	| xargs -0 -n 1 sed -i -e 's/'"$original_value"'/'"$replace_value"'/g'
 end
