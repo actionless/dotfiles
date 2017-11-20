@@ -1,6 +1,6 @@
 Gtk/ButtonImages 1
 Gtk/CanChangeAccels 1
-#Gtk/ColorPalette "black:white:gray50:red:purple:blue:light blue:green:yellow:orange:lavender:brown:goldenrod4:dodger blue:pink:light green:gray10:gray30:gray75:gray90"
+Gtk/ColorPalette "black:white:gray50:red:purple:blue:light blue:green:yellow:orange:lavender:brown:goldenrod4:dodger blue:pink:light green:gray10:gray30:gray75:gray90"
 Gtk/CursorThemeName ""
 Gtk/CursorThemeSize 0
 #Gtk/DecorationLayout "close,menu:maximize"
@@ -35,7 +35,11 @@ Net/IconThemeName "oomox-shiki-noble"
 
 #Net/ThemeName "oomox-monovedek"
 #Net/ThemeName "oomox-black"
-Net/ThemeName "oomox-monovedek_old"
+Net/ThemeName "oomox-monovedek_lcars"
+#Net/ThemeName "Arc-Recolored"
+#Net/ThemeName "Arc-Monovedek"
+#Net/ThemeName "Flattastic-Monovedek-Dark"
+#Net/ThemeName "Flattastic-LCARS"
 
 
 # thinkpad:
