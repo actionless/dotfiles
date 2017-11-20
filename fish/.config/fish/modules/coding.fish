@@ -4,15 +4,14 @@
 
 alias sprunge "curl -F 'sprunge=<-' http://sprunge.us"
 
-#abbr a_grep "ack --python --ignore-dir=env "
-alias a_grep "ag --ignore-dir=env --hidden"
+alias a_grep "rg --hidden"
 
 function a_replace -a grep_line original_value replace_value -d "replace stuff using ag and sed"
 	if test (count $argv) -eq 2;
 		set replace_value $original_value
 		set original_value $grep_line
 	end
-	a_grep -l --print0 "$grep_line" \
+	a_grep -l --null "$grep_line" \
 	| xargs -0 -n 1 sed -i -e 's/'"$original_value"'/'"$replace_value"'/g'
 end
 
