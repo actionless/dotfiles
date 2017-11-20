@@ -13,6 +13,7 @@ function local_config.init(awesome_context)
   --conf.music_players = { 'mopidy', }
 
   awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars-xresources-hidpi/theme.lua"
+  --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/twmish/theme.lua"
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/gtk/theme.lua"
 
   awesome_context.autorun = {
