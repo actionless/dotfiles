@@ -1,5 +1,9 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
+* {
+	font-family: sans;
+ }
+
 /* Hide tabs at the top */
 #TabsToolbar {
     visibility: collapse !important;
