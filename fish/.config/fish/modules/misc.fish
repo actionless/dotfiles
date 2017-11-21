@@ -1,8 +1,9 @@
 function colorize -d "colorize with pygments" --wraps='highlight'
 	command highlight -O ansi $argv
 end
+alias catc colorize
 
-function cless --wraps='less'
+function lessc --wraps='less'
 	colorize $argv | less
 end
 

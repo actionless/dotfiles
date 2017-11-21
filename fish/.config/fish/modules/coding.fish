@@ -19,6 +19,18 @@ function higrep -d "highlight using grep"
 	grep --color=always -E "$argv[1]|\$" (_cdr $argv)
 end
 
+function diff-highlight
+	if which diff-highlight
+		command diff-highlight $argv
+	else
+		/usr/share/git/diff-highlight/diff-highlight $argv
+	end
+end
+
+function diffc -d "Color diff"
+	command diff -u --color --color=always $argv | diff-highlight
+end
+
 ###
 # Python
 ###

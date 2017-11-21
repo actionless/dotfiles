@@ -59,7 +59,12 @@ export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
 # Qt5.6+
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export QT_SCALE_FACTOR=0
+export QT_SCALE_FACTOR=0  # disable force setting scaling
+# if auto-detection fails:
+#export QT_AUTO_SCREEN_SCALE_FACTOR=0
+#export QT_SCREEN_SCALE_FACTORS=2
+# if auto-detection still fails:
+#export QT_SCALE_FACTOR=2
 # Qt5 legacy
 export QT_DEVICE_PIXEL_RATIO=2
 # other
