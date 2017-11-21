@@ -26,7 +26,8 @@ Net/EnableEventSounds 1
 Net/EnableInputFeedbackSounds 1
 Net/SoundThemeName "default"
 
-Net/IconThemeName "oomox-shiki-noble"
+#Net/IconThemeName "oomox-shiki-noble"
+Net/IconThemeName "oomox-monovedek_lcars-flat"
 #Net/IconThemeName "oomox-monovedek-gray"
 #Net/IconThemeName "gnome"
 #Net/IconThemeName "Archdroid-Pink"
