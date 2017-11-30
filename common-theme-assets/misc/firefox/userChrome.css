@@ -11,7 +11,8 @@
 
 /* Reduce the size of the sidebar header */
 #sidebar-header {
-	background-color: WindowFrame !important;
+	/*background-color: WindowFrame !important;*/
+	background-color: InactiveBorder !important;
     border: none !important;
     height: 10px !important;
 	padding: 1px !important;
@@ -23,7 +24,8 @@
 
 /*Bookmark's bar height:*/
 #editBMPanel_folderTreeRow {
-	height: 500px !important;
+	/*height: 500px !important;*/
+	height: 700px !important;
 }
 
 
@@ -45,38 +47,66 @@
 /*----------------------------------------*/
 /*----------------------------------------*/
 
-/* Show title of unread tabs with red and italic font */
+:root {
+    background: InactiveBorder;
+}
+
+#tabbar {
+    border:none;
+}
+
+/*        Tab         */
+
+.tab,
+.newtab-button-box {
+    background: ButtonFace !important;
+    border-color: ThreeDHighlight !important;
+    color: ButtonText !important;
+}
+
+.tab.active {
+    background: HighLight !important;
+    color: HighLightText !important;
+}
+
+.tab:hover,
+.newtab-button-box:hover {
+    opacity: 0.7;
+    /*mix-blend-mode: multiply;*/
+}
+
 /*
 .tab.unread .label {
-  color: red !important;
+  color: HighLight !important;
   font-style: italic !important;
 }
 */
 
-.tab, .newtab-button-box {
-background: ButtonFace !important;
-border-color: ThreeDHighlight !important;
-color: ButtonText !imporant;
-}
 
-.tab.active {
-background: HighLight !important;
-}
+/*        Closebox         */
 
-.tab:hover, tab:hover .label, .newtab-button-box:hover {
-background:  ButtonText  !important;
-opacity: 1;
-color: ButtonFace !important;
-}
-
-.tab.active:hover .label {
-  color: Highlight;
+.tab .closebox {
+    margin-top: -10px;
+    padding: 3px;
 }
 
 .tab .closebox:hover {
-  color: Highlight;
+    /*color: Highlight;*/
+    color: HighlightText;
+    background: Highlight;
+    opacity: 0.75 !important;
 }
 
-.tab.private-browsing .label:before {
-  content: "🕶";
+.tab.active .closebox:hover {
+    color: Highlight;
+    background: HighlightText;
+    opacity: 0.5;
 }
+
+
+/*        Misc         */
+
+.tab.private-browsing .label:before {
+    content: "🕶";
+}
+ 
