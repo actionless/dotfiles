@@ -36,3 +36,47 @@
 /*.tab:not(.active):not(:hover) {*/
 	/*background-color: ButtonFace !important;*/
 /*}*/
+
+
+
+/*----------------------------------------*/
+/*----------------------------------------*/
+/*Next section is all for TreeStyleTab addon:*/
+/*----------------------------------------*/
+/*----------------------------------------*/
+
+/* Show title of unread tabs with red and italic font */
+/*
+.tab.unread .label {
+  color: red !important;
+  font-style: italic !important;
+}
+*/
+
+.tab, .newtab-button-box {
+background: ButtonFace !important;
+border-color: ThreeDHighlight !important;
+color: ButtonText !imporant;
+}
+
+.tab.active {
+background: HighLight !important;
+}
+
+.tab:hover, tab:hover .label, .newtab-button-box:hover {
+background:  ButtonText  !important;
+opacity: 1;
+color: ButtonFace !important;
+}
+
+.tab.active:hover .label {
+  color: Highlight;
+}
+
+.tab .closebox:hover {
+  color: Highlight;
+}
+
+.tab.private-browsing .label:before {
+  content: "🕶";
+}
