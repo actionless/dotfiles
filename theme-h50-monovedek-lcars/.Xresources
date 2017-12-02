@@ -15,16 +15,20 @@ Xft.lcdfilter: lcddefault
 !st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
 !Fantasque:
 st.font: Monospace:pixelsize=29:antialias=true:autohint=true;
-!st.opacity: 240
 !st.opacity: 235
-st.opacity: 223
+!st.opacity: 223
 st.bold_font: 1
 st.bellvolume: 0
 
 ! terminal colorscheme -------------------------------------------------------
 !#include ".Xcolours/lcars3"
+!
 !#include ".Xcolours/monovedek_old"
+!st.opacity: 240
+
 #include ".Xcolours/monovedek_dusk"
+st.opacity: 247
+
 !#include ".Xcolours/monovedek"
 !#include ".Xcolours/monovedek-gray"
 !

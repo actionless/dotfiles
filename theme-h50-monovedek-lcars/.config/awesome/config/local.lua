@@ -1,4 +1,5 @@
 local awful = require("awful")
+local color_utils = require("actionless.util.color")
 
 
 local local_config = {}
@@ -21,6 +22,7 @@ function local_config.init(awesome_context)
   }
 
   awesome_context.have_battery = false
+  --awesome_context.have_battery = true
   awesome_context.sensor = "temp1"
   awesome_context.new_top = true
 
@@ -42,15 +44,26 @@ function local_config.init(awesome_context)
     beautiful.border_radius = dpi(8)
     beautiful.panel_widget_border_radius = dpi(7)
     beautiful.border_focus = beautiful.xrdb.color10
+    beautiful.actionless_titlebar_bg_focus  = beautiful.border_focus
     beautiful.basic_panel_height = dpi(20)
     beautiful.panel_padding_bottom = dpi(3)
     beautiful.panel_height = beautiful.basic_panel_height + beautiful.panel_padding_bottom
     beautiful.titlebar_height = beautiful.basic_panel_height + beautiful.base_border_width*2
 
+    beautiful.taglist_bg_focus		= color_utils.darker(
+      color_utils.mix(beautiful.panel_bg, beautiful.taglist_fg_occupied, 0.8),
+      -97
+    )
+    beautiful.taglist_fg_focus	        = beautiful.panel_bg
+
+    beautiful.taglist_bg_occupied       = beautiful.gtk.base_color
+
     -- Use music style from xresources theme:
     beautiful.widget_music_bg = beautiful.xrdb.color11
     beautiful.apw_fg_color = beautiful.xrdb.color14
     beautiful.apw_bg_color = beautiful.panel_widget_bg
+
+    --beautiful.show_widget_icon = true
   end
 
   --awesome_context.after_config_loaded = function()
