@@ -1,4 +1,5 @@
 local awful = require("awful")
+local gears = require("gears")
 local color_utils = require("actionless.util.color")
 
 
@@ -24,7 +25,6 @@ function local_config.init(awesome_context)
   awesome_context.have_battery = false
   --awesome_context.have_battery = true
   awesome_context.sensor = "temp1"
-  awesome_context.new_top = true
 
   awesome_context.before_config_loaded = function()
     local beautiful = require("beautiful")
@@ -41,7 +41,7 @@ function local_config.init(awesome_context)
     beautiful.notification_font = beautiful.sans_font
     beautiful.text_font = beautiful.sans_font
     -- Height fixes for that font:
-    beautiful.border_radius = dpi(8)
+    beautiful.client_border_radius = dpi(8)
     beautiful.panel_widget_border_radius = dpi(7)
     beautiful.border_focus = beautiful.xrdb.color10
     beautiful.actionless_titlebar_bg_focus  = beautiful.border_focus
@@ -58,11 +58,26 @@ function local_config.init(awesome_context)
 
     beautiful.taglist_bg_occupied       = beautiful.gtk.base_color
 
+    --nlog(beautiful.taglist_fg_occupied)
+
     -- Use music style from xresources theme:
     beautiful.widget_music_bg = beautiful.xrdb.color11
     beautiful.apw_fg_color = beautiful.xrdb.color14
     beautiful.apw_bg_color = beautiful.panel_widget_bg
 
+    local rounded_rect_shape = function(cr,w,h)
+      gears.shape.rounded_rect(
+        cr, w, h, beautiful.client_border_radius
+      )
+    end
+    local less_rounded_rect_shape = function(cr,w,h)
+      gears.shape.rounded_rect(
+        cr, w, h, beautiful.panel_widget_border_radius
+      )
+    end
+    beautiful.notification_shape = rounded_rect_shape
+    beautiful.tasklist_shape_minimized = less_rounded_rect_shape
+      --
     --beautiful.show_widget_icon = true
   end
 
