@@ -1,0 +1,65 @@
+[
+	{
+		"enabled": true,
+		"updateUrl": "https://userstyles.org/styles/chrome/107009.json",
+		"md5Url": "https://update.userstyles.org/107009.md5",
+		"url": "http://userstyles.org/styles/107009",
+		"originalMd5": "eb83011ea5250bc09670ff6ad7651bcf",
+		"sections": [
+			{
+				"code": "@namespace url(http://www.w3.org/1999/xhtml);\n*{\r\n    font-family: sans-serif;\r\n  }\r\n  \r\n  #subscriptions_buttons, #sb_rp_tools, #sb_tp_search_overlay {\r\n    background-color: #5e468c;\r\n    background-image: none;\r\n  }\r\n  \r\n  #sb_rp_upgrade {\r\n    display: none;\r\n  }\r\n  #subscriptions_buttons.sb_upgrade #sb_rp_gear {\r\n    right: 0;\r\n  }\r\n  #subscriptions_buttons.sb_upgrade #sb_rp_notifications {\r\n    right: 40px;\r\n  }\r\n  #subscriptions_buttons.sb_upgrade #sb_rp_tools {\r\n    right: 80px;\r\n  }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"inoreader.com"
+				],
+				"regexps": []
+			}
+		],
+		"name": "Inoreader Aqua-Simplified.",
+		"originalDigest": "35aa809b1b7644126a42e7af393b098eb46e9ced",
+		"id": 1
+	},
+	{
+		"enabled": true,
+		"updateUrl": "https://userstyles.org/styles/chrome/101942.json",
+		"md5Url": "https://update.userstyles.org/101942.md5",
+		"url": "http://userstyles.org/styles/101942",
+		"originalMd5": "d13ef13547eaa54c937d00b0ba70e9e4",
+		"sections": [
+			{
+				"code": "*{\r\n  font-family: sans !important;\r\n}\r\n.content{\r\n  font-size: 115% !important;\r\n}\r\ncode{\r\n  font-family: monospace !important;\r\n  font-size: 100%;\r\n}\r\ncode .comment{\r\n  font-family: monospace !important;\r\n}",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"habrahabr.ru"
+				],
+				"regexps": []
+			}
+		],
+		"name": "habr standard fonts",
+		"originalDigest": "3fe18bc0858b751c1d8837fcda5091ebd64d8ccc",
+		"id": 2
+	},
+	{
+		"enabled": true,
+		"updateUrl": "https://userstyles.org/styles/chrome/102017.json",
+		"md5Url": "https://update.userstyles.org/102017.md5",
+		"url": "http://userstyles.org/styles/102017",
+		"originalMd5": "904ac81697d5022d4d9edc62333730e8",
+		"sections": [
+			{
+				"code": "@namespace url(http://www.w3.org/1999/xhtml);\nbody {\r\n\t\tfont-size: medium !important;\r\n\t}\r\n\t\r\n\tbody, h1, h2, h3, h4, h5, h6 {\r\n\t\tfont-family: sans-serif !important;\r\n\t}\r\n\t\r\n\tcode {\r\n\t\tfont-family: monospace !important;\r\n\t}\r\n    \r\n    #interpage-adv {\r\n        display: none;\r\n    }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"linux.org.ru"
+				],
+				"regexps": []
+			}
+		],
+		"name": "lor standard fonts",
+		"originalDigest": "5efa2e1bbc2d11d1a95e91294432bf92205d2651",
+		"id": 3
+	}
+]
