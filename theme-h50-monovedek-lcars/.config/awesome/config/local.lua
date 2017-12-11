@@ -13,18 +13,18 @@ function local_config.init(awesome_context)
   conf.net_preset = 'systemd'
   conf.music_players = { 'spotify', 'clementine', 'mopidy' }
   --conf.music_players = { 'mopidy', }
-
-  --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars-xresources-hidpi/theme.lua"
-  awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/gtk/theme.lua"
+  awesome_context.have_battery = false
+  --awesome_context.have_battery = true
+  awesome_context.sensor = "temp1"
+  awesome_context.apw_on_the_left = false
 
   awesome_context.autorun = {
     --"~/.scripts/tp_unmute",
     --"killall compton ; compton",
   }
 
-  awesome_context.have_battery = false
-  --awesome_context.have_battery = true
-  awesome_context.sensor = "temp1"
+  --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars-xresources-hidpi/theme.lua"
+  awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/gtk/theme.lua"
 
   awesome_context.before_config_loaded = function()
     local beautiful = require("beautiful")
