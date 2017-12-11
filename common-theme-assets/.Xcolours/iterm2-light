@@ -3,7 +3,6 @@
 !#include ".Xcolours/iterm2-light-xrdb/Tomorrow.xrdb"
 ! bright:
 !#include ".Xcolours/iterm2-light-xrdb/CLRS.xrdb"
-#include ".Xcolours/iterm2-light-xrdb/Terminal_Basic.xrdb"
 
 
 *color0:       Ansi_0_Color
