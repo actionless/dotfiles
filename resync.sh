@@ -10,9 +10,7 @@ THEME_DIR=$SCRIPT_DIR/$THEME_NAME
 
 PC_NAME="${1-}"
 if [ -z $PC_NAME ] ; then
-	echo "Usage: $0 PC_NAME"
-	echo "Usage: $0 (dell|thinkpad)"
-	exit 1
+	PC_NAME=$($SCRIPT_DIR/current-workstation.sh)
 fi
 PC_NAME=$(basename ${PC_NAME})
 
