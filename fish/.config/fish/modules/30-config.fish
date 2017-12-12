@@ -23,7 +23,12 @@ function fish_user_key_bindings
 
 	# st fix:
 	bind \[P delete-char
+
+	# bash compativility:
+	bind "&&" 'commandline -i "; and"'
+	bind "||" 'commandline -i "; or"'
 end
+fish_user_key_bindings
 
 function reload_fish
 	for a in (abbr -l); abbr -e $a; end
