@@ -1,5 +1,4 @@
 #!/bin/sh
-
 set -ue
 
 SCRIPT_DIR=$(readlink -e $(dirname "$0"))
@@ -14,7 +13,12 @@ THEME_NAME="${2:-}"
 
 echo
 echo "Bootstrapping the config:"
-stow -D $(./current-workstation.sh)
+
+unstow_old_config=""
+current_workstation=$(./current-workstation.sh) || unstow_old_config=1
+if [[ ! -z "${unstow_old_config}" ]] ; then
+	stow -D $(./current-workstation.sh)
+fi
 for CONFIG in $(
 	ls \
 	| grep -E -v -e "^theme-" -e "^workstation-" -e "\." -e "-bak" -e "\.bak" ;\
