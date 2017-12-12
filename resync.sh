@@ -19,4 +19,5 @@ test ! -L ~/.config/gtk-3.0/settings.ini && mv ~/.config/gtk-3.0/settings.ini $T
 
 ./bootstrap.sh "$PC_NAME" $THEME_NAME
 
-echo "done"
+echo "--"
+echo "Resync done."

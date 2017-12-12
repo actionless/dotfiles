@@ -24,3 +24,8 @@ for line in $(env | grep -e ^TMUX_ -e ^FISH_ -e ^TERM_ | grep -v TMUX_PANE) ; do
 done;
 tmux source-file ~/.tmux.conf
 fish -c reload_fish
+
+echo
+echo "====================================================="
+echo "== Theme was changed to '${STOW_TARGET}'"
+echo "====================================================="

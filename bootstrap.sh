@@ -4,14 +4,13 @@ set -ue
 
 SCRIPT_DIR=$(readlink -e $(dirname "$0"))
 
-
-PC_NAME="$1"
-THEME_NAME="$2"
-
-test -z $PC_NAME &&
-echo "Usage: $0 PC_NAME" THEME_NAME&&
+test -z ${1:-} &&
+echo "Usage: $0 PC_NAME THEME_NAME" &&
 echo "Usage: $0 (dell|thinkpad) (theme-dell-lcars|...)" &&
 exit 1
+
+PC_NAME="$1"
+THEME_NAME="${2:-}"
 
 echo
 echo "Bootstrapping the config:"
