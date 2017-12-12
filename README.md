@@ -37,7 +37,7 @@ Info
 
 #### Theme structure
 
-```
+```sh
 theme-WORKSTATION_NAME-THEME_NAME/
 ├── .config
 │   ├── awesome
