@@ -8,7 +8,7 @@ https://github.com/actionless/dotfiles/blob/master/README_offline.md
 
 
 Usage
-==
+--
 
 Create symlinks for the first time:
 
@@ -32,11 +32,10 @@ To recreate symlink structure:
 
 
 Info
-==
+--
 
 
-Theme structure
-====
+#### Theme structure
 
 ```
 theme-WORKSTATION_NAME-THEME_NAME/
