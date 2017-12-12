@@ -24,11 +24,8 @@ function local_config.init(awesome_context)
   awesome_context.sensor = "temp1"
   awesome_context.new_top = true
 
-  awesome_context.before_config_loaded = function()
-    local beautiful = require("beautiful")
-    beautiful.widget_music_bg = "#65a093"
-    beautiful.titlebar_bg_focus  = "#4c8487"
-  end
+  --awesome_context.before_config_loaded = function()
+  --end
 
   return awesome_context
 end
