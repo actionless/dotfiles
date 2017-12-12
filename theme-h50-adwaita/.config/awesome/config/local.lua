@@ -1,5 +1,4 @@
 local awful = require("awful")
-local beautiful = require("beautiful")
 
 
 local local_config = {}
@@ -26,14 +25,15 @@ function local_config.init(awesome_context)
   awesome_context.sensor = "temp1"
   awesome_context.new_top = true
 
-  awesome_context.before_config_loaded = function()
+  --awesome_context.before_config_loaded = function()
+    --local beautiful = require("beautiful")
     --beautiful.widget_music_bg = "#c45754"
     --beautiful.widget_music_bg = "#748ce4"
     --beautiful.border_focus = "#546cc4"
     --beautiful.taglist_bg_focus  = "#ff0000"
     --beautiful.taglist_fg_focus  = "#0000ff"
-  end
-  awesome_context.after_config_loaded = awesome_context.before_config_loaded
+  --end
+  --awesome_context.after_config_loaded = awesome_context.before_config_loaded
 
   return awesome_context
 end
