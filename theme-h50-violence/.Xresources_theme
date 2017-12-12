@@ -1,0 +1,3 @@
+st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
+st.cursorshape: 1
+#include ".Xcolours/violet_jwr"

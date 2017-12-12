@@ -1,0 +1,9 @@
+!st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
+
+! terminal colorscheme -------------------------------------------------------
+!
+#include ".Xcolours/basquiat_3"
+!#include ".Xcolours/lolitastic"
+!#include ".Xcolours/mikado"
+!#include ".Xcolours/monokazu"
+!#include ".Xcolours/apprentice"

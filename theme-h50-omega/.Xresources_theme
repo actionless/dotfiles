@@ -1,0 +1,6 @@
+st.opacity: 223
+!st.opacity: 192
+st.font: Input Mono Narrow:pixelsize=25:antialias=true:autohint=true;
+
+!#include ".Xcolours/omega1"
+#include ".Xcolours/omega2"

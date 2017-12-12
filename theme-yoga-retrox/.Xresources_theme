@@ -1,0 +1,12 @@
+!st.opacity: 223
+!st.opacity: 210
+st.opacity: 255
+st.font: Go Mono:pixelsize=20:antialias=true:autohint=true;
+
+! light: 
+!#include ".Xcolours/ivorylight" @TODO: more medical
+!#include ".Xcolours/todo/unikitty-light"
+!#include ".Xcolours/todo/light"
+!#include ".Xcolours/todo/business"
+!#include ".Xcolours/todo/ltns"
+#include ".Xcolours/tlight"

@@ -48,7 +48,7 @@ workstation-WORKSTATION_NAME/
 │       └── default.pa
 ├── etc  # some extra configs @TODO: rename to misc
 ├── .profile_workstation  # vdpau, dpi and other env vars
-└── .Xresources.workstation  # dpi, st font size and other options
+└── .Xresources_workstation  # dpi, st font size and other options
 ```
 
 
@@ -72,9 +72,9 @@ theme-WORKSTATION_NAME-THEME_NAME/
 ├── images
 │   └── theme-wallpapers
 │       └── wallpaper.png
-├── .profile_theme  # term (tmux, fish) decorations
 ├── .vim
 │   └── theme_local.vim  # theme override
-├── .Xresources  # override colorscheme, st options or other @TODO: rename .Xresources->.Xresources_theme .Xresources.common->.Xresources
+├── .profile_theme  # term (tmux, fish) decorations
+├── .Xresources_theme  # override colorscheme, st options or other
 └── .xsettingsd  # GTK2 and GTK3 themes, icons, font and other options
 ```

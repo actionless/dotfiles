@@ -1,6 +1,3 @@
-#include ".Xresources.common"
-#include ".Xresources.workstation"
-
 ! st -------------------------------------------------------------------------
 st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
 st.blinktimeout: 175

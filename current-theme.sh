@@ -1,6 +1,6 @@
 #!/bin/sh
 if [[ -f ~/.Xresources ]] ; then
-	basename $(dirname $(readlink -e ~/.Xresources)) || (
+	basename $(dirname $(readlink -e ~/.Xresources_theme)) || (
 		echo "Not bootstrapped"
 		exit 1
 	)

@@ -7,50 +7,28 @@ Xft.hintstyle: hintfull
 !Xft.hintstyle: hintslight
 !Xft.dpi: 131
 !Xft.dpi: 185
-Xft.dpi: 192
+!Xft.dpi: 192
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
-st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
+!st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
+!st.opacity: 240
+!st.opacity: 235
+!st.opacity: 223
 st.bold_font: 1
 st.bellvolume: 0
-
-! terminal colorscheme -------------------------------------------------------
-!#include ".Xcolours/lcars3"
-!#include ".Xcolours/monovedek_old"
-!#include ".Xcolours/monovedek"
-#include ".Xcolours/monovedek-gray"
-!
-!#include ".Xcolours/lolitastic"
-!#include ".Xcolours/mikado"
-!#include ".Xcolours/monokazu"
-!#include ".Xcolours/apprentice"
-! ?? 
-!#include ".Xcolours/jwr-dark"
-!#include ".Xcolours/farside"
-!#include ".Xcolours/gnome_noble_bright" @TODO: black color
-!#include ".Xcolours/zig"
-!#include ".Xcolours/kazu"
-!#include ".Xcolours/spacemacs-dark"
-!#include ".Xcolours/todo/ghostguys"
-!#include ".Xcolours/todo/pinknoise"
-!#include ".Xcolours/todo/psybeams"
-!#include ".Xcolours/todo/gnome_noble_pale"
-!#include ".Xcolours/todo/vacuous"
-!#include ".Xcolours/todo/navy"
-!#include ".Xcolours/todo/erebus"
-!#include ".Xcolours/todo/unikitty-dark"
-! light: 
-!#include ".Xcolours/ivorylight" @TODO: more medical
-!#include ".Xcolours/todo/unikitty-light"
-!#include ".Xcolours/todo/light"
-!#include ".Xcolours/todo/business"
-!#include ".Xcolours/todo/ltns"
+!st.xfps:         30
+!st.actionfps:    30
+!st.blinktimeout: 500
+st.blinktimeout: 300
+!st.blinktimeout: 250
+st.opacity: 223
+st.cursorshape: 1
+st.cursorblinkstyle: 0
+st.cursorblinkontype: 1
+!st.blinktimeout: 175
 
 ! urxvt ----------------------------------------------------------------------
-
-!URxvt*background: [95]#240f27
-!URxvt*background: [95]#fdf6e3
 
 !URxvt*font:		 xft:tewi:pixelsize=11
 !URxvt*font:		 8x16
@@ -77,17 +55,19 @@ URxvt*buffered:			 false
 URxvt.urlLauncher:       /usr/bin/firefox
 URxvt.matcher.button:    1
 
+! Transparency
 urxvt*depth: 32
 !urxvt*depth: 24
-! Transparency
 ! fake:
-URxvt*transparent: true
-!URxvt*shading: 7
-URxvt*shading: 14
+!URxvt*transparent: true
+!!URxvt*shading: 7
+!URxvt*shading: 14
 !URxvt*blurRadius: 9x9
 ! true:
-!URxvt*transparent: false
-!URxvt*background:       rgba:0000/0000/0000/6666
+URxvt*transparent: false
+!URxvt*background: [95]#240f27
+!URxvt*background: [95]#fdf6e3
+
 
 !URxvt*scrollTtyOutput:      false
 !URxvt*scrollWithBuffer:     true
@@ -153,3 +133,8 @@ xscreensaver.Dialog.shadowThickness:    2
 xscreensaver.passwd.thermometer.foreground:  #ff9900
 xscreensaver.passwd.thermometer.background:  #000000
 xscreensaver.passwd.thermometer.width:       8
+
+#include ".Xresources_workstation"
+#include ".Xresources_theme"
+
+! vim: ft=xdefaults:

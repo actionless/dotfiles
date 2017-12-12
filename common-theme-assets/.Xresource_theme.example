@@ -1,24 +1,29 @@
-#include ".Xresources.common"
-#include ".Xresources.workstation"
-
-st.opacity: 223
-!st.opacity: 192
 st.font: Input Mono Narrow:pixelsize=25:antialias=true:autohint=true;
+st.blinktimeout: 175
+!st.cursorshape: 1
 st.cursorshape: 3
+!st.cursorshape: 9
 st.cursorblinkstyle: 0
 st.cursorblinkontype: 1
-st.blinktimeout: 175
+st.opacity: 223
+!st.opacity: 235
+!st.opacity: 240
+!st.opacity: 192
+
 
 ! terminal colorscheme -------------------------------------------------------
+!
 
 ! dark, high contrast:
 !#include ".Xcolours/lcars3"
-#include ".Xcolours/monovedek_old"
+!#include ".Xcolours/monovedek_old"
 !#include ".Xcolours/monovedek"
+!#include ".Xcolours/basquiat_31"
 !#include ".Xcolours/monovedek-gray"
 !#include ".Xcolours/lolitastic"
 !#include ".Xcolours/mikado"
 !#include ".Xcolours/monokazu"
+!#include ".Xcolours/adwaita_test01"
 
 ! medium dark, high contrast:
 !#include ".Xcolours/new1/nvy"
@@ -32,6 +37,7 @@ st.blinktimeout: 175
 !#include ".Xcolours/new1/moonbow"
 
 ! medium, high contrast:
+!#include ".Xcolours/hip"
 !#include ".Xcolours/new1/thunder"
 
 ! medium, low-contrast:
@@ -56,6 +62,15 @@ st.blinktimeout: 175
 
 ! light: 
 !#include ".Xcolours/tlight"
+!#include ".Xcolours/basquiat_3"
+!! without theme_hint
+!#include ".Xcolours/adwaita_test02"
+!! with theme_hint=3
+!#include ".Xcolours/adwaita_test03"
+!! with theme_hint=4
+!#include ".Xcolours/adwaita_test04" 
+!! without theme_hint from tlight2
+#include ".Xcolours/adwaita_test05"
 !#include ".Xcolours/new1/woody"
 
 ! todo light:
@@ -65,3 +80,4 @@ st.blinktimeout: 175
 !#include ".Xcolours/todo/business"
 !#include ".Xcolours/todo/ltns"
 
+! vim: ft=xdefaults:

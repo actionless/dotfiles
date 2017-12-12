@@ -1,0 +1,9 @@
+st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
+st.opacity: 231
+
+! terminal colorscheme -------------------------------------------------------
+!#include ".Xcolours/lcars3"
+!#include ".Xcolours/monovedek_old"
+!#include ".Xcolours/monovedek"
+#include ".Xcolours/monounit"
+!#include ".Xcolours/monovedek-gray"

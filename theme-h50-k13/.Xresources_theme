@@ -1,0 +1,39 @@
+!st.opacity: 223
+st.opacity: 238
+!st.opacity: 192
+st.font: Input Mono Narrow:pixelsize=25:antialias=true:autohint=true;
+st.cursorshape: 3
+st.cursorblinkstyle: 0
+st.cursorblinkontype: 1
+st.blinktimeout: 175
+
+! terminal colorscheme -------------------------------------------------------
+
+! dark, high contrast:
+!#include ".Xcolours/lcars3"
+!#include ".Xcolours/monovedek_old"
+#include ".Xcolours/waltz"
+!#include ".Xcolours/monovedek"
+!#include ".Xcolours/monovedek-gray"
+!#include ".Xcolours/lolitastic"
+!#include ".Xcolours/mikado"
+!#include ".Xcolours/monokazu"
+
+! medium dark, high contrast:
+!#include ".Xcolours/new1/nvy"
+!#include ".Xcolours/apprentice"
+
+! medium dark, medium contrast:
+!#include ".Xcolours/new1/mtns"
+!#include ".Xcolours/new1/designr"
+
+! medium dark, low contrast:
+!#include ".Xcolours/new1/moonbow"
+
+! medium, high contrast:
+!#include ".Xcolours/new1/thunder"
+
+! medium, low-contrast:
+!#include ".Xcolours/new1/zent"
+!#include ".Xcolours/new1/cloudy"
+
