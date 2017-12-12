@@ -31,4 +31,4 @@ done
 
 echo
 echo "Changing the theme:"
-test ! -z $THEME_NAME && $SCRIPT_DIR/change-theme.sh "$THEME_NAME"
+$SCRIPT_DIR/change-theme.sh "$THEME_NAME"
