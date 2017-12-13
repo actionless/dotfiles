@@ -46,7 +46,7 @@ workstation-WORKSTATION_NAME/
 │       ├── client.conf
 │       ├── daemon.conf
 │       └── default.pa
-├── etc  # some extra configs @TODO: rename to misc
+├── misc  # some extra configs
 ├── .profile_workstation  # vdpau, dpi and other env vars
 └── .Xresources_workstation  # dpi, st font size and other options
 ```
