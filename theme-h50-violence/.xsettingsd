@@ -25,7 +25,7 @@ Net/EnableEventSounds 1
 Net/EnableInputFeedbackSounds 1
 Net/SoundThemeName "default"
 
-Net/IconThemeName "shiki-noble"
+Net/IconThemeName "oomox-shiki-noble"
 
 Net/ThemeName "oomox-violet"
 
