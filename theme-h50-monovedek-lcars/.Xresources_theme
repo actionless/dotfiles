@@ -1,2 +1,6 @@
+!Normal font:
+!st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
+!Fantasque:
+st.font: Monospace:pixelsize=29:antialias=true:autohint=true;
 #include ".Xcolours/monovedek_dusk"
 st.opacity: 247
