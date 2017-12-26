@@ -1,12 +1,10 @@
 function docker_rmi
-	command docker rmi (
-		docker images \
-		| grep '^<none>' \
-		| awk '{print $3;}'
-	)
+	command docker images | awk '/<none>/ {print $3}' | xargs docker image rm
 end
 
-abbr docker_rm "docker rm -v (docker ps -a -q)"
+function docker_rm
+	command docker ps -a | awk '/Exited/ {print $1}' | xargs docker rm -v
+end
 
 abbr docker_rm_all "docker_rmi; docker_rm; docker_rmi"
 
