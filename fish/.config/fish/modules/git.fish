@@ -3,6 +3,9 @@ abbr 'gitd' 'git diff'
 abbr 'gitdc' 'git diff --cached'
 abbr 'gcm' 'git commit -m'
 abbr 'gcam' 'git commit -am'
+abbr 'gpsh' 'git push origin HEAD'
+abbr 'gpsm' 'git push origin master'
+abbr 'gplm' 'git pull origin master'
 
 function git_status_pwd
 	command git status $argv | grep -v "\.\."
