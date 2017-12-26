@@ -1,14 +1,18 @@
 
 @-moz-document url-prefix(about:blank) {
     * {
-        background-color: #221428;
-		color: #b9bcb5;
+        /*background-color: #221428;*/
+		/*color: #b9bcb5;*/
+        background-color: WindowFrame;
+		color: WindowText;
     }
 }
 @-moz-document url-prefix(about:newtab) {
     * {
-        background-color: #221428;
-		color: #b9bcb5;
+        /*background-color: #221428;*/
+		/*color: #b9bcb5;*/
+        background-color: WindowFrame;
+		color: WindowText;
     }
 }
 /*
@@ -109,4 +113,3 @@ input[type="checkbox"]:checked {
 /*svg path.active_color {*/
 	/*fill: Highlight;*/
 /*}*/
-
