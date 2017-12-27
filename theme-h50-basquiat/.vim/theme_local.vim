@@ -19,7 +19,8 @@ else
 	colorscheme term-actionless3
 	"colorscheme term-wargrey
 endif
-let g:airline_theme='xtermlight'
+let g:airline_theme='term_light'
+"let g:airline_theme='xtermlight'
 "colorscheme miromiro
 "colorscheme delek
 "colorscheme noctu
@@ -48,5 +49,7 @@ autocmd VimEnter,Colorscheme * :hi link TagbarHighlight IncSearch
 
 	"let g:airline_right_sep = ''
 	"let g:airline_left_sep = ''
-	let g:airline_left_sep = '퟽'
-	let g:airline_right_sep = '퟼'
+	"let g:airline_left_sep = '퟽'
+	"let g:airline_right_sep = '퟼'
+	let g:airline_left_sep = ''
+	let g:airline_right_sep = ''
