@@ -93,6 +93,8 @@ input[type="checkbox"] {
 	background-size: 100%;
 	border: none;
 	background-color: transparent;
+	min-height: 1em;
+	min-width: 1em;
 }
 
 
