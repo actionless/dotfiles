@@ -5,5 +5,7 @@ function _cdr -d "CDR, CAR's friend"
 	if test (count $argv) -gt 1;
 		set new_argv $argv[2..(count $argv)]
 	end
-	echo -n $new_argv
+	for arg in $new_argv
+		echo $arg
+	end
 end
