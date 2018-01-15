@@ -51,7 +51,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 	"let g:syntastic_python_checkers=['flake8', 'python', 'pylint']
 	"let g:syntastic_python_checkers=['flake8', 'pylint']
-	let g:syntastic_python_checkers=['flake8']
+	let g:syntastic_python_checkers=['flake8', 'python']
 	let g:syntastic_html_tidy_exec = '/usr/sbin/tidy'
 	let g:syntastic_lua_checkers = ['luac', 'luacheck']
 	let g:syntastic_c_checkers = ['gcc', 'make']
