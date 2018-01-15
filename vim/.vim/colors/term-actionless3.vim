@@ -62,7 +62,8 @@ highlight CursorLineNr	cterm=bold	ctermfg=1
 highlight CursorLine	ctermbg=NONE	ctermfg=NONE cterm=underline
 highlight ColorColumn			ctermbg=black
 highlight Pmenu ctermbg=237 gui=bold
-hi PmenuSel				ctermfg=0 ctermbg=DarkBlue
+hi Pmenu				ctermfg=NONE ctermbg=NONE cterm=inverse
+hi PmenuSel				ctermfg=15 ctermbg=DarkBlue
 hi TabLineFill    ctermbg=NONE cterm=NONE
 "hi TabLine        cterm=NONE ctermfg=fg ctermbg=NONE
 hi TabLineSel     cterm=bold ctermfg=15 ctermbg=DarkBlue
