@@ -1,7 +1,7 @@
 "" Free:
 " Ctrl+K
-" Ctrl+S -- now busy with UltiSnips
-" Ctrl+L (redraw)
+" Ctrl+S -- now busy with UltiSnips: insert <S>nippet
+" Ctrl+L (redraw) -- now busy with UltiSnips: <L>ist snippets
 " Ctrl+N (emacs)
 " Ctrl+Q (Ctrl+V dup)
 " Ctrl+J (return)
