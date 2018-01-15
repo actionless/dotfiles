@@ -43,6 +43,7 @@ select[disabled] ,
 input[disabled]:hover,
 select[disabled]:hover {
 	background-color: #676a65;
+    color: black;
 }
 
 select {
@@ -114,4 +115,12 @@ input[type="checkbox"]:checked {
 
 /*svg path.active_color {*/
 	/*fill: Highlight;*/
+/*}*/
+
+/** {*/
+	/*font-family: sans !important;*/
+/*}*/
+
+/*monospace, pre {*/
+	/*font-family: monospace !important;*/
 /*}*/
