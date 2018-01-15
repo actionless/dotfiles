@@ -1,6 +1,6 @@
 "" Free:
 " Ctrl+K
-" Ctrl+S
+" Ctrl+S -- now busy with UltiSnips
 " Ctrl+L (redraw)
 " Ctrl+N (emacs)
 " Ctrl+Q (Ctrl+V dup)

@@ -30,33 +30,24 @@ Plug 'kien/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer'] }
 Plug 'majutsushi/tagbar'
 
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " CODING:
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+" Misc:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'editorconfig/editorconfig-vim'
-
-"Plug 'google/vim-maktaba', { 'on': ['FormatCode', 'FormatLines'] }
-"Plug 'google/vim-codefmtlib', { 'on': ['FormatCode', 'FormatLines'] }
-""and
-"Plug 'google/vim-codefmt', { 'on': ['FormatCode', 'FormatLines'] }
-""or
-"Plug 'actionless/vim-codefmt', { 'branch': 'add-lua', 'on': ['FormatCode', 'FormatLines'] }
-
-Plug 'Chiel92/vim-autoformat', { 'on': ['Autoformat']}
-	let g:autoformat_autoindent = 0
-	let g:autoformat_retab = 0
-	let g:autoformat_remove_trailing_spaces = 1
-	let g:formatters_python=['yapf']
-
 "Plug 'tpope/vim-fugitive'
-
 Plug 'scrooloose/nerdcommenter'
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+" Syntax:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'scrooloose/syntastic'
 	"let g:syntastic_python_checkers=['flake8', 'python', 'pylint']
 	"let g:syntastic_python_checkers=['flake8', 'pylint']
@@ -70,6 +61,9 @@ Plug 'scrooloose/syntastic'
 	"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+" Completion:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! BuildYCM(info)
 	" info is a dictionary with 3 fields
 	" - name:   name of the plugin
@@ -79,18 +73,39 @@ function! BuildYCM(info)
 		!./install.py
 	endif
 endfunction
-"Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'on': [] }
-" https://github.com/junegunn/vim-plug/wiki/faq#loading-plugins-manually
-augroup load_us_ycm
-	autocmd!
-	autocmd InsertEnter * call plug#load('YouCompleteMe')
-						\| autocmd! load_us_ycm
-augroup END
+" a) always enabled:
+	"Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+" b) enabled on insert:
+	Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'on': [] }
+	" https://github.com/junegunn/vim-plug/wiki/faq#loading-plugins-manually
+	augroup load_us_ycm
+		autocmd!
+		autocmd InsertEnter * call plug#load('YouCompleteMe')
+							\| autocmd! load_us_ycm
+	augroup END
+" alternative complete plugin:
 "Plug 'Shougo/neocomplete.vim'
 "source ~/.vim/neocomplete.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+" Autoformatting:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'Chiel92/vim-autoformat', { 'on': ['Autoformat']}
+	let g:autoformat_autoindent = 0
+	let g:autoformat_retab = 0
+	let g:autoformat_remove_trailing_spaces = 1
+	let g:formatters_python=['yapf']
+"Plug 'google/vim-maktaba', { 'on': ['FormatCode', 'FormatLines'] }
+"Plug 'google/vim-codefmtlib', { 'on': ['FormatCode', 'FormatLines'] }
+"" a)
+	"Plug 'google/vim-codefmt', { 'on': ['FormatCode', 'FormatLines'] }
+"" b)
+	"Plug 'actionless/vim-codefmt', { 'branch': 'add-lua', 'on': ['FormatCode', 'FormatLines'] }
+
+
+" Snippets:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Track the engine.
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
@@ -132,7 +147,9 @@ Plug 'groenewege/vim-less', {'for': 'less'}
 	"let g:go_highlight_operators = 1
 	"let g:go_highlight_build_constraints = 1
 
+
 " Nix:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'tlib', {'for': 'nix'}
 "Plug 'MarcWeber/vim-addon-actions', {'for': 'nix'}
 "Plug 'MarcWeber/vim-addon-completion', {'for': 'nix'}
@@ -141,8 +158,9 @@ Plug 'groenewege/vim-less', {'for': 'less'}
 "Plug 'MarcWeber/vim-addon-mw-utils', {'for': 'nix'}
 "Plug 'MarcWeber/vim-addon-nix', {'for': 'nix'}
 
+
 " Themes:
-"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " term:
 "Plug 'ajgrf/sprinkles'
 " fixed light:
@@ -153,4 +171,6 @@ Plug 'groenewege/vim-less', {'for': 'less'}
 " fixed dark:
 "Plug 'romainl/Apprentice'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
+"##############################################################################
