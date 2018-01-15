@@ -12,6 +12,11 @@ function tldr --wraps='tldr'
 	command tldr -t base16 $argv
 end
 
+function dfc --wraps='dfc'
+	command dfc | head -n 1
+	command dfc -W -c always | grep '^/dev/.\+' | grep -v docker
+end
+
 
 ########################################
 # LS crazyness:
