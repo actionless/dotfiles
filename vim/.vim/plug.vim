@@ -1,7 +1,9 @@
 call plug#begin('~/.vim/plugged')
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Style:
-"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 Plug 'gorodinskiy/vim-coloresque', {'for': ['css', 'less', 'sass', 'scss', 'vim', 'stylus', 'xdefaults']}
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'vim-airline/vim-airline'
@@ -15,8 +17,10 @@ Plug 'kshenoy/vim-signature'
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Navigation:
-"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 Plug 'kien/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer'] }
 	let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\v[\/](\.git|env|node_modules|bower_components)$',
@@ -26,8 +30,11 @@ Plug 'kien/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer'] }
 Plug 'majutsushi/tagbar'
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 " CODING:
 "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -48,6 +55,8 @@ Plug 'Chiel92/vim-autoformat', { 'on': ['Autoformat']}
 
 Plug 'scrooloose/nerdcommenter'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 Plug 'scrooloose/syntastic'
 	"let g:syntastic_python_checkers=['flake8', 'python', 'pylint']
 	"let g:syntastic_python_checkers=['flake8', 'pylint']
@@ -59,15 +68,16 @@ Plug 'scrooloose/syntastic'
 	let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck', 'go']
 	"let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 	"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !./install.py
-  endif
+	" info is a dictionary with 3 fields
+	" - name:   name of the plugin
+	" - status: 'installed', 'updated', or 'unchanged'
+	" - force:  set on PlugInstall! or PlugUpdate!
+	if a:info.status == 'installed' || a:info.force
+		!./install.py
+	endif
 endfunction
 "Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'on': [] }
@@ -75,7 +85,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'on': [] }
 augroup load_us_ycm
 	autocmd!
 	autocmd InsertEnter * call plug#load('YouCompleteMe')
-						 \| autocmd! load_us_ycm
+						\| autocmd! load_us_ycm
 augroup END
 "Plug 'Shougo/neocomplete.vim'
 "source ~/.vim/neocomplete.vim
@@ -94,20 +104,26 @@ let g:UltiSnipsEditSplit="vertical"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-"
 " Fish:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'dag/vim-fish', {'for': 'fish'}
 
+
 " JS:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if !has('nvim')
 	Plug 'marijnh/tern_for_vim', {'for': ['javascript', 'html']}
 endif
 Plug 'othree/html5.vim', {'for': 'html'}
 
+
 " CSS:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'groenewege/vim-less', {'for': 'less'}
 
+
 " Go:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'fatih/vim-go', {'for': 'go'}
 	"let g:go_highlight_functions = 1
 	"let g:go_highlight_methods = 1
