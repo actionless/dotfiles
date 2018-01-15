@@ -27,3 +27,7 @@ function hibernate -d 'put machine into hibernation state'
 		and command sleep 2 ;
 		and command sudo pm-hibernate
 end
+
+function nanodate -d 'date with nanoseconds'
+	date +"%T.%3N"
+end
