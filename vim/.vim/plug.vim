@@ -57,6 +57,7 @@ Plug 'scrooloose/syntastic'
 	let g:syntastic_c_checkers = ['gcc', 'make']
 	let g:ycm_show_diagnostics_ui = 0
 	let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck', 'go']
+	let g:syntastic_sh_checkers = ['sh', 'shellcheck']
 	"let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 	"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
