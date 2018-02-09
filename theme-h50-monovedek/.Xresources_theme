@@ -10,7 +10,8 @@ st.blinktimeout: 175
 
 ! dark, high contrast:
 !#include ".Xcolours/lcars3"
-#include ".Xcolours/monovedek_old"
+!#include ".Xcolours/monovedek_old"
+#include ".Xcolours/monowaltz"
 !#include ".Xcolours/monovedek"
 !#include ".Xcolours/monovedek-gray"
 !#include ".Xcolours/lolitastic"
@@ -61,4 +62,4 @@ st.blinktimeout: 175
 !#include ".Xcolours/todo/light"
 !#include ".Xcolours/todo/business"
 !#include ".Xcolours/todo/ltns"
-
+! vim: set ft=xdefaults :

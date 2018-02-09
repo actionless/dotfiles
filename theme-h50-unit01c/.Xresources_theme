@@ -7,3 +7,5 @@ st.opacity: 231
 !#include ".Xcolours/monovedek"
 #include ".Xcolours/monounit"
 !#include ".Xcolours/monovedek-gray"
+
+! vim: ft=xdefaults:

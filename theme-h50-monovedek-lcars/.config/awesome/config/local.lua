@@ -43,8 +43,8 @@ function local_config.init(awesome_context)
     -- Height fixes for that font:
     beautiful.client_border_radius = dpi(8)
     beautiful.panel_widget_border_radius = dpi(7)
-    beautiful.border_focus = beautiful.xrdb.color10
-    beautiful.actionless_titlebar_bg_focus  = beautiful.border_focus
+    --beautiful.border_focus = beautiful.xrdb.color10
+    --beautiful.actionless_titlebar_bg_focus  = beautiful.border_focus
     beautiful.basic_panel_height = dpi(20)
     beautiful.panel_padding_bottom = dpi(3)
     beautiful.panel_height = beautiful.basic_panel_height + beautiful.panel_padding_bottom

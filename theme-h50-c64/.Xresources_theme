@@ -7,4 +7,7 @@ st.cursorblinkontype: 1
 st.blinktimeout: 175
 
 ! terminal colorscheme -------------------------------------------------------
-#include ".Xcolours/retro/c64"
+!#include ".Xcolours/retro/c64"
+#include ".Xcolours/retro/c64_alt"
+
+! vim: set ft=xdefaults :
