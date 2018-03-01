@@ -7,7 +7,7 @@ Gtk/CursorThemeSize 0
 #Gtk/DecorationLayout "close,minimize:menu:maximize"
 Gtk/DecorationLayout "menu:"
 #Gtk/FontName "PT Sans 7.5"
-Gtk/FontName "Sans 10"
+Gtk/FontName "Sans 10.5"
 #Gtk/FontName "Sans Medium 10"
 #Gtk/FontName "Roboto Medium 10"
 #Gtk/IconSizes "panel-menu=16,16:panel=16,16:gtk-menu=16,16:gtk-large-toolbar=16,16:gtk-small-toolbar=16,16:gtk-button=16,16"
