@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 set -ueo pipefail
 
 if [ -z "${1:-}" ]; then
@@ -29,6 +29,10 @@ for line in $(env | grep -e ^TMUX_ -e ^FISH_ -e ^TERM_ | grep -v TMUX_PANE) ; do
 done;
 tmux source-file ~/.tmux.conf
 fish -c reload_fish
+
+if [[ -f ~/.apply_theme.sh ]] ; then
+	~/.apply_theme.sh
+fi
 
 echo
 echo "====================================================="

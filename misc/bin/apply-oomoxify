@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+sudo echo
+oomoxify-cli $@
+
+if [[ $(pgrep spotify) ]] ; then
+       pkill spotify
+       spotify &
+       disown -a
+fi
+
+sleep 3 && fish -c 'awesome_music_toggle'
