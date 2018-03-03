@@ -1,0 +1,12 @@
+[submodule]
+	fetchJobs = 4
+[core]
+	pager = diff-highlight | less
+[interactive]
+	diffFilter = diff-highlight
+[diff]
+	compactionHeuristic = true
+[diff "image"]
+	command = ~/bin/git-imgdiff
+
+; vim: set ft=gitconfig :
