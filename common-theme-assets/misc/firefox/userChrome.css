@@ -29,5 +29,8 @@
 	height: 700px !important;
 }
 
+#nav-bar {
+	background: Window !important;
+}
 
 /*https://developer.mozilla.org/en-US/docs/Web/CSS/color_value*/
