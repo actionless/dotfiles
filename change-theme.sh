@@ -30,7 +30,13 @@ fi
 pgrep "^st\$" | xargs kill -s USR1
 for line in $(env | grep -e ^TMUX_ -e ^FISH_ -e ^TERM_ | grep -v TMUX_PANE) ; do
 	# shellcheck disable=SC2046
-	tmux setenv -g $(tr '=' ' ' <<< "$line") ;
+	key=$(cut -d'=' -f1 <<< "$line")
+	value=$(cut -d'=' -f2 <<< "$line")
+	if [[ -z "${value:-}" ]] ; then
+		tmux setenv -g "${key}" ''
+	else
+		tmux setenv -g "${key}" "${value:-}"
+	fi
 done;
 tmux source-file ~/.tmux.conf
 fish -c reload_fish
