@@ -1,8 +1,13 @@
-function ru -d 'use ru locale variable'
-	set prev_locale $LC_ALL
-	set -x LC_ALL "ru_RU.utf8"
+function ru -d 'use ru locale environment variables'
+	set -l new_locale "ru_RU.utf8"
+	set -l prev_locale $LC_ALL
+	set -x LC_ALL $new_locale
+	set -x LANG $new_locale
+	set -x LANGUAGE $new_locale
 	eval $argv
 	set -x LC_ALL $prev_locale
+	set -x LANG $prev_locale
+	set -x LANGUAGE $prev_locale
 end
 
 function alt_gtk -d "run app with fallback GTK theme"
