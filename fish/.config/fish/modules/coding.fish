@@ -18,7 +18,7 @@ function rgr -a original_value replace_value -d "replace stuff using ag and sed"
 	if test (count $argv) -gt 2;
 		set rest_argv (_cdr (_cdr $argv))
 	end
-	rg $rest_argv -l --null "$original_value" \
+	rg "$original_value" -l --null $rest_argv \
 	| xargs -0 -n 1 sed -i -e 's/'"$original_value"'/'"$replace_value"'/g'
 end
 
