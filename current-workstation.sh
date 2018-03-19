@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
 if [[ -f ~/.Xresources_workstation ]] ; then
 	basename $(dirname $(readlink -e ~/.Xresources_workstation)) || (
 		echo "Not bootstrapped"

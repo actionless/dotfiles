@@ -1,5 +1,7 @@
-#!/bin/sh
-set -ue
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
 
 SCRIPT_DIR=$(readlink -e $(dirname "$0"))
 

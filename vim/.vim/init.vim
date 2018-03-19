@@ -1,10 +1,4 @@
 set nocompatible               " be iMproved
-"if v:progname =~? "editor"
-"elseif v:progname =~? "view"
-""elseif v:progname =~? "vi"
-"else
-	"source ~/.vim/dein.vim
-"endif
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 

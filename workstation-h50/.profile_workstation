@@ -23,7 +23,7 @@ export QT_SCALE_FACTOR=0  # disable force setting scaling
 # if auto-detection still fails:
 #export QT_SCALE_FACTOR=2
 # Qt5 legacy
-export QT_DEVICE_PIXEL_RATIO=2
+#export QT_DEVICE_PIXEL_RATIO=2
 # other
 export CHROMIUM_USER_FLAGS=" --force-device-scale-factor=2 "
 

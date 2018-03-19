@@ -52,6 +52,7 @@ fi
 export LC_ALL=en_US.UTF-8
 . ~/.profile
 
+/usr/bin/vmware-user-suid-wrapper
 
 session="$2"
 #if [ -z "$session" ]
@@ -92,4 +93,3 @@ awesome_kde)
 	exec "$session" >> ~/.cache/sessout 2>> ~/.cache/sesserr
 	;;
 esac
-

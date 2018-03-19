@@ -17,6 +17,7 @@ Xft.lcdfilter: lcddefault
 !st.opacity: 223
 st.bold_font: 1
 st.bellvolume: 0
+!st.cursorshape: 1
 !st.xfps:         30
 !st.actionfps:    30
 !st.blinktimeout: 500

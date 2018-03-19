@@ -1,1 +1,0 @@
-../bundle/vim-fish/ftdetect/fish.vim

@@ -17,6 +17,7 @@ Gtk/MenuBarAccel "F10"
 Gtk/MenuImages 1
 #Gtk/ToolbarIconSize 1
 Gtk/ToolbarStyle "both"
+
 Net/CursorBlink 1
 Net/CursorBlinkTime 1200
 Net/DndDragThreshold 8
@@ -27,6 +28,7 @@ Net/EnableInputFeedbackSounds 1
 Net/SoundThemeName "default"
 
 Net/IconThemeName "oomox-shiki-noble"
+#Net/IconThemeName "oomox-monovedek_old"
 #Net/IconThemeName "oomox-monovedek-gray"
 #Net/IconThemeName "gnome"
 #Net/IconThemeName "Archdroid-Pink"
