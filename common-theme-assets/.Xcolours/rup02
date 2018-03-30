@@ -1,0 +1,23 @@
+*cursorColor:       #AE81FF
+*colorUL:           #ffffff
+*underlineColor:    #ffffff
+
+*background:  #000000
+*foreground:  #d6ccc2
+*color0:  #000000
+*color1:  #b23f67
+*color2:  #7db432
+*color3:  #fb8205
+*color4:  #6c1bca
+*color5:  #9e38c5
+*color6:  #4242ff
+*color7:  #8f76a3
+*color8:  #493a5d
+*color9:  #fc6379
+*color10:  #a8b15a
+*color11:  #f7b57b
+*color12:  #6b64fc
+*color13:  #a880f0
+*color14:  #7070ab
+*color15:  #ffffff
+! vim:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
