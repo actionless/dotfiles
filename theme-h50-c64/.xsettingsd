@@ -27,6 +27,8 @@ Net/EnableInputFeedbackSounds 1
 Net/SoundThemeName "default"
 
 Net/IconThemeName "oomox-c64"
+#Net/IconThemeName "oomox-monovedek64"
+#Net/IconThemeName "oomox-monovedek64-3"
 #Net/IconThemeName "oomox-monovedek-gray"
 #Net/IconThemeName "gnome"
 #Net/IconThemeName "Archdroid-Pink"
@@ -37,7 +39,9 @@ Net/IconThemeName "oomox-c64"
 #Net/ThemeName "oomox-black"
 #Net/ThemeName "oomox-c64"
 #Net/ThemeName "oomox-c64_3"
-Net/ThemeName "oomox-c64_alt"
+Net/ThemeName "oomox-c64"
+#Net/ThemeName "oomox-monovedek64-2"
+#Net/ThemeName "oomox-monovedek64-3"
 
 
 # thinkpad:

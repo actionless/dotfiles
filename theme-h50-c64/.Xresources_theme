@@ -9,5 +9,6 @@ st.blinktimeout: 175
 ! terminal colorscheme -------------------------------------------------------
 !#include ".Xcolours/retro/c64"
 #include ".Xcolours/retro/c64_alt"
+!#include ".Xcolours/monovedek64"
 
 ! vim: set ft=xdefaults :
