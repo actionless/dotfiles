@@ -7,6 +7,10 @@ function lessc --wraps='less'
 	colorize $argv | less
 end
 
+function no_color
+	sed -r "s/[[:cntrl:]]\[[0-9]{,3}m//g"
+end
+
 function no_comments --description 'cat and cut comments' --wraps='cat'
 	command cat $argv | grep -E -v -e "^;" -e "^#" -e "^\$" -e "^\s+#"
 end
