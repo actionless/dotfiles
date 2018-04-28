@@ -16,6 +16,7 @@ if [ -z $PC_NAME ] ; then
 fi
 PC_NAME=$(basename ${PC_NAME})
 
+test ! -L ~/.config/user-dirs.dirs && mv ~/.config/user-dirs.dirs env/.config/user-dirs.dirs || true
 test ! -L ~/.gtkrc-2.0 && mv ~/.gtkrc-2.0 $THEME_DIR/.gtkrc-2.0 || true
 test ! -L ~/.config/gtk-3.0/settings.ini && mv ~/.config/gtk-3.0/settings.ini $THEME_DIR/.config/gtk-3.0/settings.ini || true
 
