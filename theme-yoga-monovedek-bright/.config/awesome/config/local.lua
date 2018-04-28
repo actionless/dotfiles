@@ -17,6 +17,7 @@ function local_config.init(awesome_context)
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/gtk/theme.lua"
 
   awesome_context.autorun = {
+    "touchegg",
     --"~/.scripts/tp_unmute",
     --"killall compton ; compton",
   }
@@ -26,7 +27,7 @@ function local_config.init(awesome_context)
   awesome_context.sensor = "temp1"
   awesome_context.new_top = true
 
-  --awesome_context.apw_on_the_left= true
+  awesome_context.apw_on_the_left= true
 
   return awesome_context
 end
