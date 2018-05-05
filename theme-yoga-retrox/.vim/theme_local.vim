@@ -15,7 +15,9 @@ if has("gui_running")
 else
 	"set bg=light
 	"colorscheme term-dark-actionless2
-	colorscheme github_term
+	"colorscheme github_term
+	let g:airline_theme='xtermlight'
+	colorscheme fixed-light-github
 	"colorscheme term-actionless3
 	"colorscheme term-wargrey
 endif

@@ -1,5 +1,6 @@
 st.opacity: 223
-st.font: Input Mono Narrow:pixelsize=20:antialias=true:autohint=true;
+!st.font: Input Mono Narrow:pixelsize=20:antialias=true:autohint=true;
+st.font: Fantasque Sans Mono:pixelsize=23:antialias=true:autohint=true;
 st.cursorshape: 1
 !st.xfps:         30
 !st.actionfps:    30
