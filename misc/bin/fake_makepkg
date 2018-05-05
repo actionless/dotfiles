@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if [ ! $(grep foobz1 PKGBUILD) ]  && [ ! $(grep foobz2 PKGBUILD) ] ; then
+	echo 'package() {
+		echo "======= Fake package() ======="
+		echo "foobz1"
+	}
+
+package_linux-ck() {
+		echo "======= Fake prepare() ======="
+		echo "foobz2"
+	}
+
+package_linux-ck-headers() {
+		echo "======= Fake prepare() ======="
+		echo "foobz2"
+	}
+
+package_virtualbox-ck-host-modules() {
+	echo 
+}
+
+package_virtualbox-ck-guest-modules() {
+	echo
+}
+
+prepare() {
+		echo "======= Fake prepare() ======="
+		echo "foobz2"
+	}
+
+build() {
+		echo "======= Fake build() ======="
+		echo "foobz3"
+	}' >> ./PKGBUILD
+fi
+/usr/bin/makepkg --skippgpcheck $@
