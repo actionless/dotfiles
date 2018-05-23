@@ -1,0 +1,8 @@
+[user]
+	email = username@example.com
+	name = username
+[hub]
+	username = username
+	oauthtoken = blahblahblah
+[include]
+	path = .gitconfig_common

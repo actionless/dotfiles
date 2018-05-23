@@ -9,12 +9,12 @@ function local_config.init(awesome_context)
   conf.wlan_if = 'wlp4s0'
   conf.eth_if = 'enp0s25'
   conf.net_preset = 'systemd'
-  conf.music_players = { 'spotify', 'clementine', 'mopidy' }
+  conf.music_players = { 'spotify', 'gradio', 'clementine', }
   --conf.music_players = { 'mopidy', }
 
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars-xresources-hidpi/theme.lua"
-  --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/gtk/theme.lua"
   awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/twmish/theme.lua"
+  awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/gtk/theme.lua"
 
   awesome_context.autorun = {
     --"~/.scripts/tp_unmute",
@@ -25,7 +25,7 @@ function local_config.init(awesome_context)
   awesome_context.sensor = "temp1"
   awesome_context.new_top = true
 
-  awesome_context.cmds.file_manager = "dolphin"
+  awesome_context.apw_on_the_left= true
 
   return awesome_context
 end

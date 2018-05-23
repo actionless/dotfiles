@@ -19,7 +19,7 @@ echo "Bootstrapping the config:"
 unstow_old_config=""
 current_workstation=$(./current-workstation.sh) || unstow_old_config=1
 if [[ ! -z "${unstow_old_config}" ]] ; then
-	stow -D $(./current-workstation.sh)
+	stow -D $(./current-workstation.sh) || true
 fi
 for CONFIG in $(
 	ls \

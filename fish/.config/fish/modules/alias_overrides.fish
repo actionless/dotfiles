@@ -45,3 +45,5 @@ end
 function lrt --wraps='exa'
 	ll --reverse --sort modified $argv
 end
+
+abbr lrth "lrt | head"

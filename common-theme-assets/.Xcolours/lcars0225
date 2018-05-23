@@ -1,0 +1,49 @@
+*background:  #0a0a0d
+*colorUL:  #ffffff
+*cursorColor:  #b5a2da
+*foreground:  #c6bfc6
+*underlineColor:  #ffffff
+*xtermbackground:  #050423
+*color0:  #000000
+*color1:  #80627e
+*color2:  #888854
+*color3:  #a89a75
+*color4:  #6d62be
+*color5:  #d0b2ce
+*color6:  #8e9ccd
+*color7:  #897b7a
+*color8:  #4f5146
+*color9:  #80627e
+*color10:  #a89a75
+*color11:  #caca96
+*color12:  #6d62be
+*color13:  #b5a2da
+*color14:  #7177b1
+*color15:  #ffffff
+
+
+
+!*background:  #0d0c2c
+!*colorUL:  #f9afdf
+!*cursorColor:  #a831df
+!*foreground:  #d7d7d7
+!*underlineColor:  #f9afdf
+!*xtermbackground:  #080001
+!*color0:  #151412
+!*color1:  #664272
+!*color2:  #988c40
+!*color3:  #988c40
+!*color4:  #575ac3
+!*color5:  #645a8c
+!*color6:  #606e91
+!*color7:  #878787
+!*color8:  #595458
+!*color9:  #af8eab
+!*color10:  #afb084
+!*color11:  #aea27a
+!*color12:  #7177b1
+!*color13:  #af8eab
+!*color14:  #99aaba
+
+! vim: set ft=xdefaults:
+*color15:  #b5bbb9

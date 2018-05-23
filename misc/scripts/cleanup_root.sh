@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+#set -x
+
+if [[ $(id -u) -ne 0 ]] ; then
+	echo "You need to run it as root."
+	exit 1
+fi
+
+
+disk_stat() {
+	dfc | grep -E "[ 	]/[ 	]"
+}
+
+relocate_games() {
+	games_dest_dir="$1"
+	shift
+	games_prefix="$1"
+	shift
+	games_list=("${@}")
+	for game in "${games_list[@]}"; do
+		old_game_path=${games_prefix}/${game}
+		new_game_path=${games_dest_dir}/${game}
+		if [[ ! -L "${old_game_path}" ]] && [[ -d "${old_game_path}" ]] ; then
+			echo "Moving '$game' to $(readlink -e "${games_dest_dir}") ..."
+			(
+				if [[ -d "${new_game_path}" ]] ; then
+					rm -r "${new_game_path}"
+				fi
+				mv "${old_game_path}" "${games_dest_dir}/"
+				ln -s "${new_game_path}" "${old_game_path}"
+			)
+		fi
+	done
+}
+
+
+disk_stat
+echo
+
+
+pacman -Scc
+echo
+echo
+
+
+games_dest_dir="/opt/games"
+
+opt_games_dir="/opt"
+opt_games_list=(
+	'Pokemon Revolution'
+	'teamviewer'
+	'urbanterror'
+	'warsow'
+)
+relocate_games "${games_dest_dir}" "${opt_games_dir}" "${opt_games_list[@]}"
+
+usr_share_games_dir="/usr/share"
+usr_share_games_list=(
+	'xonotic'
+	'supertuxkart'
+)
+relocate_games "${games_dest_dir}" "${usr_share_games_dir}" "${usr_share_games_list[@]}"
+
+
+echo
+echo
+disk_stat
