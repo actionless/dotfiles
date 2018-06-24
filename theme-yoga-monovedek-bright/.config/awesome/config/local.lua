@@ -12,7 +12,7 @@ function local_config.init(awesome_context)
   conf.net_preset = 'netctl'
   --conf.music_players = { 'spotify', 'clementine', 'mopidy' }
   --conf.music_players = { 'clementine', }
-  conf.music_players = { 'spotify', 'clementine' }
+  conf.music_players = { 'spotify', 'gradio', 'clementine' }
 
   awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars-xresources-hidpi/theme.lua"
   awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/gtk/theme.lua"
