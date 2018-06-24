@@ -106,3 +106,6 @@ else
 	let &t_SR = "\<Esc>[4 q"
 	let &t_EI = "\<Esc>[2 q"
 endif
+
+"https://github.com/awesomeWM/awesome/issues/2291#issuecomment-398610795
+"au VimEnter * redraw!
