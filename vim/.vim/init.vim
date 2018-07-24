@@ -18,18 +18,18 @@ set noswapfile
 set number
 set relativenumber
 
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
+set history=50 " keep 50 lines of command line history
+set ruler      " show the cursor position all the time
+set showcmd    " display incomplete commands
 
-set incsearch		" do incremental searching
+set incsearch  " do incremental searching
 set hlsearch
 set ignorecase
 set smartcase
 
 let g:netrw_winsize=20
 
-set clipboard=unnamedplus	" use system clipboard
+set clipboard=unnamedplus " use system clipboard
 
 filetype off                   " required for Plug
 filetype plugin indent on     " required for Plug and Dein
@@ -45,7 +45,7 @@ set smarttab
 "set expandtab
 
 if has('nvim')
-	source ~/.vim/neovim.vim
+   source ~/.vim/neovim.vim
 endif
 
 set ttimeoutlen=30
@@ -68,7 +68,7 @@ endif
     "set t_ut=
 "endif
 
-"=============================================================================
+source ~/.vim/default_config.vim
 
 if v:progname =~? "editor"
   finish
@@ -78,34 +78,26 @@ elseif v:progname =~? "view"
 "  finish
 endif
 
+"=============================================================================
 
 source ~/.vim/plug.vim
+
 set laststatus=2
-source ~/.vim/default_config.vim
+
 source ~/.vim/bindings.vim
 
+source ~/.vim/caret_shape.vim
 
 source ~/.vim/theme.vim
 if filereadable(expand('~/.vim/theme_local.vim'))
-	source ~/.vim/theme_local.vim
+    source ~/.vim/theme_local.vim
 endif
-
 " Should go in the last place
 " otherwise Syntax event won't be applied correctly
 au VimEnter * RainbowParenthesesToggleAll
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
-if exists('$TMUX')
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>[6 q\<Esc>\\"
-    let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>[4 q\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
-else
-	let &t_SI = "\<Esc>[6 q"
-	let &t_SR = "\<Esc>[4 q"
-	let &t_EI = "\<Esc>[2 q"
-endif
 
 "https://github.com/awesomeWM/awesome/issues/2291#issuecomment-398610795
 "au VimEnter * redraw!
