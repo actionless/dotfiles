@@ -8,7 +8,6 @@ if [[ $(id -u) -ne 0 ]] ; then
 	exit 1
 fi
 
-
 disk_stat() {
 	dfc | grep -E "[ 	]/[ 	]"
 }
@@ -38,6 +37,17 @@ relocate_games() {
 
 disk_stat
 echo
+
+docker_status=0
+sudo systemctl status docker || docker_status=$?
+if [[ ${docker_status} -ne 0 ]] ; then
+	sudo systemctl start docker || true
+fi
+docker container prune -f || true
+docker image prune -f || true
+if [[ ${docker_status} -ne 0 ]] ; then
+	sudo systemctl stop docker || true
+fi
 
 
 pacman -Scc
