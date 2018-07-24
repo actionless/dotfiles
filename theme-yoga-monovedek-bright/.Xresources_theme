@@ -39,3 +39,5 @@ st.blinktimeout: 250
 !#include ".Xcolours/todo/light"
 !#include ".Xcolours/todo/business"
 !#include ".Xcolours/todo/ltns"
+
+! vim: ft=xdefaults:
