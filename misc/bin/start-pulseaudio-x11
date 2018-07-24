@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/start-pulseaudio-x11 || pulseaudio
