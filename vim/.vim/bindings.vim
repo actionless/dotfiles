@@ -48,12 +48,46 @@ vnoremap < <gv
 vnoremap > >gv
 
 
-function! MyAlePopup()
+function! MyAleFixMenu()
+	let l:base_menu = [
+		\	['s', ':ALEFixSuggest'],
+		\	['t', ':ALEFix remove_trailing_lines'],
+		\	['w', ':ALEFix trim_whitespace'],
+		\	['4', '<TAB> to 4 spaces', ':%s/	/    /g'],
+		\	['2', '<TAB> to 2 spaces', ':%s/	/  /g'],
+	\ ]
+	if &filetype == 'python'
+		let l:filetype_menu = [
+			\	['a', ':ALEFix autopep8'],
+			\	['b', ':ALEFix black'],
+			\	['i', ':ALEFix isort'],
+			\	['y', ':ALEFix yapf'],
+		\ ]
+	else
+		let l:filetype_menu = []
+	endif
+	call SimpleMenu(l:base_menu + l:filetype_menu)
+endfunction
+function! MyAleMenu()
 	call SimpleMenu([
-		\	['d', 'ALEDetail'],
-		\	['n', 'ALENext'],
-		\	['p', 'ALEPrevious'],
-		\	['i', 'ALEInfo'],
+		\	['o', ':ALEToggle'],
+		\	['d', ':ALEDetail'],
+		\	['h', ':ALEHover'],
+		\	['n', ':ALENextWrap'],
+		\	['p', ':ALEPreviousWrap'],
+		\	['i', ':ALEInfo'],
+		\	['r', ':ALEFindReferences'],
+		\	['d', ':ALEGoToDefinition'],
+		\	['t', ':ALEGoToDefinitionInTab'],
+		\	['f', 'Fix...', ':call MyAleFixMenu()'],
 	\ ])
 endfunction
-noremap <leader>l :call MyAlePopup()<CR>
+noremap <leader>l :call MyAleMenu()<CR>
+
+function! MyWindowMenu()
+	call SimpleMenu([
+		\	['k', 'close above', ':wincmd k | wincmd c'],
+		\	['j', 'close below', ':wincmd j | wincmd c'],
+	\ ])
+endfunction
+noremap <leader>w :call MyWindowMenu()<CR>
