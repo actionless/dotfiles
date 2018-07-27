@@ -78,50 +78,6 @@ Plug 'groenewege/vim-less', {'for': 'less'}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Language Server Protocol:
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'prabirshrestha/async.vim'
-"Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-"Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
-" don't show popup automatically and bind it to <TAB>:
-let g:asyncomplete_auto_popup = 0
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ asyncomplete#force_refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-""let g:asyncomplete_remove_duplicates = 1
-"" show preview:
-"set completeopt+=preview
-"" hide preview after:
-"autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-"if executable('pyls')
-	"" pacman -S python-language-server
-	"au User lsp_setup call lsp#register_server({
-		"\ 'name': 'pyls',
-		"\ 'cmd': {server_info->['pyls']},
-		"\ 'whitelist': ['python'],
-		"\ })
-"endif
-
-"if executable('docker-langserver')
-	"au User lsp_setup call lsp#register_server({
-		"\ 'name': 'docker-langserver',
-		"\ 'cmd': {server_info->[&shell, &shellcmdflag, 'docker-langserver --stdio']},
-		"\ 'whitelist': ['dockerfile'],
-		"\ })
-"endif
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Asynchronous Lint Engine:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -129,13 +85,28 @@ Plug 'w0rp/ale'
 let g:ale_completion_enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_echo_msg_format = '[%linter%] %code%: %s'
+"let g:ale_sign_column_always = 1
 "let g:ale_open_list = 1
 
+function! MyAleCompletion()
+	call ale#completion#GetCompletions()
+	return ale#completion#TriggerOmnicompleteMenu()
+endfunction
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ "\<C-R>=MyAleCompletion()\<CR>"
+inoremap <expr><S-TAB>
+	\ pumvisible() ? "\<C-p>" :
+	\ "\<C-h>"
+"inoremap <silent><expr> <C-@> "\<C-R>=MyAleCompletion()\<CR>"
+"inoremap <silent><expr> <C-N> "\<C-R>=MyAleCompletion()\<CR>"
+
 let g:ale_linters = {
-\	 'python': ['flake8', 'mypy', 'pylint', 'pyls'],
+\	 'python': ['flake8', 'mypy', 'pylint', 'pyls', 'vulture'],
 \}
 let b:ale_linters_ignore = ['pyls']
 let g:ale_python_mypy_options = '--ignore-missing-imports'
+let g:ale_python_vulture_options = ' ./maintenance_scripts/vulture_whitelist.py '
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

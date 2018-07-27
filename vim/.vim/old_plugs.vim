@@ -91,3 +91,47 @@
 "Plug 'jlesquembre/peaksea'
 " fixed dark:
 "Plug 'romainl/Apprentice'
+"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Language Server Protocol:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Plug 'prabirshrestha/async.vim'
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+"" don't show popup automatically and bind it to <TAB>:
+"let g:asyncomplete_auto_popup = 0
+"function! s:check_back_space() abort
+	"let col = col('.') - 1
+	"return !col || getline('.')[col - 1]  =~ '\s'
+"endfunction
+"inoremap <silent><expr> <TAB>
+	"\ pumvisible() ? "\<C-n>" :
+	"\ <SID>check_back_space() ? "\<TAB>" :
+	"\ asyncomplete#force_refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+""let g:asyncomplete_remove_duplicates = 1
+"" show preview:
+"set completeopt+=preview
+"" hide preview after:
+"autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+"if executable('pyls')
+	"" pacman -S python-language-server
+	"au User lsp_setup call lsp#register_server({
+		"\ 'name': 'pyls',
+		"\ 'cmd': {server_info->['pyls']},
+		"\ 'whitelist': ['python'],
+		"\ })
+"endif
+
+"if executable('docker-langserver')
+	"au User lsp_setup call lsp#register_server({
+		"\ 'name': 'docker-langserver',
+		"\ 'cmd': {server_info->[&shell, &shellcmdflag, 'docker-langserver --stdio']},
+		"\ 'whitelist': ['dockerfile'],
+		"\ })
+"endif
