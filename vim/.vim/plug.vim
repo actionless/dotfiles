@@ -92,20 +92,32 @@ function! MyAleCompletion()
 	call ale#completion#GetCompletions()
 	return ale#completion#TriggerOmnicompleteMenu()
 endfunction
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ "\<C-R>=MyAleCompletion()\<CR>"
+
+"inoremap <silent><expr> <TAB>
+	"\ pumvisible() ? "\<C-n>" :
+	"\ "\<C-R>=MyAleCompletion()\<CR>"
 inoremap <expr><S-TAB>
 	\ pumvisible() ? "\<C-p>" :
 	\ "\<C-h>"
+
 "inoremap <silent><expr> <C-@> "\<C-R>=MyAleCompletion()\<CR>"
 "inoremap <silent><expr> <C-N> "\<C-R>=MyAleCompletion()\<CR>"
+
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ "\<C-R>=MyAleCompletion()\<CR>"
+
 
 let g:ale_linters = {
 \	 'python': ['flake8', 'mypy', 'pylint', 'pyls', 'vulture'],
 \}
 let b:ale_linters_ignore = ['pyls']
-let g:ale_python_mypy_options = '--ignore-missing-imports'
+let g:ale_python_mypy_options = ' --ignore-missing-imports '
 let g:ale_python_vulture_options = ' ./maintenance_scripts/vulture_whitelist.py '
 
 
