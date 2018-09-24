@@ -70,6 +70,8 @@ if !has('nvim')
 endif
 Plug 'othree/html5.vim', {'for': 'html'}
 
+Plug 'pangloss/vim-javascript', {'for': ['javascript', 'html', 'jsx']}
+Plug 'maxmellon/vim-jsx-pretty', {'for': ['javascript', 'html', 'jsx']}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CSS:
@@ -90,27 +92,22 @@ let g:ale_echo_msg_format = '[%linter%] %code%: %s'
 
 function! MyAleCompletion()
 	call ale#completion#GetCompletions()
-	return ale#completion#TriggerOmnicompleteMenu()
+	return "\<C-x>\<C-o>"
 endfunction
-
-"inoremap <silent><expr> <TAB>
-	"\ pumvisible() ? "\<C-n>" :
-	"\ "\<C-R>=MyAleCompletion()\<CR>"
-inoremap <expr><S-TAB>
-	\ pumvisible() ? "\<C-p>" :
-	\ "\<C-h>"
-
-"inoremap <silent><expr> <C-@> "\<C-R>=MyAleCompletion()\<CR>"
-"inoremap <silent><expr> <C-N> "\<C-R>=MyAleCompletion()\<CR>"
 
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
+
 inoremap <silent><expr> <TAB>
 	\ pumvisible() ? "\<C-n>" :
 	\ <SID>check_back_space() ? "\<TAB>" :
 	\ "\<C-R>=MyAleCompletion()\<CR>"
+
+inoremap <expr><S-TAB>
+	\ pumvisible() ? "\<C-p>" :
+	\ "\<C-h>"
 
 
 let g:ale_linters = {
