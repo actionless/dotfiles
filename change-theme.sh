@@ -27,7 +27,7 @@ xrdb -merge "$HOME"/.Xresources
 if [[ -z "${NORESTART:-}" ]] ; then
 	echo "awesome.restart()" | awesome-client || true
 fi
-pgrep "^st\$" | xargs kill -s USR1
+pgrep "^xst\$" | xargs kill -s USR1
 for line in $(env | grep -e ^TMUX_ -e ^FISH_ -e ^TERM_ | grep -v TMUX_PANE) ; do
 	# shellcheck disable=SC2046
 	key=$(cut -d'=' -f1 <<< "$line")
