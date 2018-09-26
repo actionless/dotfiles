@@ -2,14 +2,10 @@ alias rm "rm -I"
 alias rg='rg -a -L'
 alias gr='grep --color -iER'
 
-abbr vmi=vim
+abbr -a vmi vim
 
 function less --wraps='less'
 	command less -r $argv
-end
-
-function tldr --wraps='tldr'
-	command tldr -t base16 $argv
 end
 
 function dfc --wraps='dfc'
