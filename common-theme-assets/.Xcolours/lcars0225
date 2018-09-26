@@ -3,7 +3,6 @@
 *cursorColor:  #b5a2da
 *foreground:  #c6bfc6
 *underlineColor:  #ffffff
-*xtermbackground:  #050423
 *color0:  #000000
 *color1:  #80627e
 *color2:  #888854
@@ -28,7 +27,6 @@
 !*cursorColor:  #a831df
 !*foreground:  #d7d7d7
 !*underlineColor:  #f9afdf
-!*xtermbackground:  #080001
 !*color0:  #151412
 !*color1:  #664272
 !*color2:  #988c40

@@ -1,11 +1,12 @@
 *background: #0e0021
-URxvt*background: [95]#0e0021
-xterm*background: #0e0021
-
+!URxvt*background: [95]#0e0021
+!xterm*background: #0e0021
 *foreground:        #bcbcbc
+
 *cursorColor:       #AE81FF
 *colorUL:           #ffffff
 *underlineColor:    #ffffff
+
 !black
 *color0:	#000000
 !*color8:	#1c1c1c
