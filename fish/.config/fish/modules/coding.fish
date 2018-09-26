@@ -19,7 +19,7 @@ function rgr -a original_value replace_value -d "replace stuff using ag and sed"
 		set rest_argv (_cdr (_cdr $argv))
 	end
 	rg "$original_value" -l --null $rest_argv \
-	| xargs -0 -n 1 sed -i -e 's/'"$original_value"'/'"$replace_value"'/g'
+	| xargs -0 -n 1 sed -i -e 's/'(echo $original_value | sed -e 's/\\\//g')'/'$replace_value'/g'
 end
 
 function higrep -d "highlight using grep"
