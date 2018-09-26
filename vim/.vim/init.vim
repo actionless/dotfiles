@@ -80,7 +80,7 @@ endif
 
 "=============================================================================
 
-source ~/.vim/plug.vim
+source ~/.vim/plug_config.vim
 
 set laststatus=2
 
