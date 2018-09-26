@@ -1,3 +1,9 @@
 !Xft.dpi: 192
 Xft.dpi: 157
-st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
+
+!st.opacity: 223
+st.opacity: 255
+
+st.font: Monospace:pixelsize=19:antialias=true:autohint=true;
+
+! vim: ft=xdefaults:
