@@ -38,6 +38,20 @@ function diffc -d "Color diff"
 	command diff -u --color --color=always $argv | diff-highlight
 end
 
+
+function co -d "Print columns"
+	set -l argn (count $argv)
+	set -l cmd "{ print "
+	for i in (seq $argn)
+		set cmd "$cmd \$$argv[$i]"
+		if test $i -ne $argn ;
+			set cmd "$cmd \" \""
+		end
+	end
+	set -l cmd "$cmd };"
+	command awk $cmd
+end
+
 ###
 # Python
 ###
