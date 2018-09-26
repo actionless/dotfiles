@@ -27,7 +27,7 @@ function higrep -d "highlight using grep"
 end
 
 function diff-highlight
-	if which diff-highlight
+	if which diff-highlight > /dev/null
 		command diff-highlight $argv
 	else
 		/usr/share/git/diff-highlight/diff-highlight $argv
