@@ -1,6 +1,9 @@
 *background: #f8f8f8
 *foreground: #0e0e0e
+
 *cursorColor: #181512
+*underlineColor: #181512
+*colorUL: #181512
 
 !black
 *color0:     #373737
@@ -18,13 +21,13 @@
 *color2:     #4d9186
 *color10:    #3d7363
 
-!yellow 
+!yellow
 !*color3:     #DBAB3B
 !*color11:    #C79520
 *color3:     #E39036
 *color11:    #C97820
 
-!blue 
+!blue
 *color4:     #7882BF
 *color12:    #596196
 
