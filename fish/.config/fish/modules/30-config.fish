@@ -31,10 +31,12 @@ end
 fish_user_key_bindings
 
 function reload_fish
-	for a in (abbr -l); abbr -e $a; end
+	set -g fish_user_abbreviations
 	rm /tmp/config-"$USER".fish
 	source ~/.config/fish/config.fish
 end
+
+set fish_greeting LCARS initialized
 
 #set fish_color_autosuggestion 444\x1eyellow
 set fish_color_autosuggestion 666\x1eyellow
@@ -52,17 +54,9 @@ set fish_color_param cyan\x1ecyan
 set fish_color_quote brown
 set fish_color_redirection normal
 set fish_color_valid_path green\x1e--underline
-set fish_greeting LCARS initialized
-#set fish_key_bindings fish_default_key_bindings
-
 #set -U fish_pager_color_completion normal
 set -U fish_pager_color_completion white
 set fish_color_search_match green\x1e--background=brblack
 set -U fish_pager_color_description 888\x1eyellow
 set -U fish_pager_color_prefix cyan
 set -U fish_pager_color_progress cyan
-
-#for file in ~/.config/fish/modules/*.fish
-	#echo $file
-#	. $file
-#end
