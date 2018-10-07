@@ -1,0 +1,7 @@
+#!/bin/bash
+echo ":: Loading makepkg library..."
+source /usr/share/makepkg/lint_pkgbuild.sh
+echo ":: Loading PKGBUILD..."
+source ${1-./PKGBUILD}
+echo ":: Linting..."
+lint_pkgbuild
