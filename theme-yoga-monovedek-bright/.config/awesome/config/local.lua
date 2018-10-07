@@ -14,11 +14,13 @@ function local_config.init(awesome_context)
   --conf.music_players = { 'clementine', }
   conf.music_players = { 'spotify', 'gradio', 'clementine' }
 
+  --awesome_context.cmds.file_manager = "pcmanfm"
+
   awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars-xresources-hidpi/theme.lua"
   awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/gtk/theme.lua"
 
   awesome_context.autorun = {
-    "touchegg",
+    --"touchegg",
     --"~/.scripts/tp_unmute",
     --"killall compton ; compton",
   }
