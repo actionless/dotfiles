@@ -1,0 +1,18 @@
+st.font: Source Code Pro:pixelsize=20:antialias=true:autohint=true;
+st.opacity: 244
+
+! terminal colorscheme -------------------------------------------------------
+!
+!#include ".Xcolours/basquiat_3"
+!#include ".Xcolours/basquiat_31"
+!#include ".Xcolours/basquiat_32"
+!#include ".Xcolours/basquiat_3t"
+!#include ".Xcolours/basquiat_3rev"
+!#include ".Xcolours/basquiat_3rev2"
+#include ".Xcolours/eboda01"
+!#include ".Xcolours/lolitastic"
+!#include ".Xcolours/mikado"
+!#include ".Xcolours/monokazu"
+!#include ".Xcolours/apprentice"
+
+! vim: ft=xdefaults:
