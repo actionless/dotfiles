@@ -1,4 +1,4 @@
-st.font: Source Code Pro:pixelsize=20:antialias=true:autohint=true;
+st.font: Source Code Pro:pixelsize=19:antialias=true:autohint=true;
 st.opacity: 244
 
 ! terminal colorscheme -------------------------------------------------------
