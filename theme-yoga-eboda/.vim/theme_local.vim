@@ -14,7 +14,8 @@ if has("gui_running")
 	colorscheme fixed-dark-monokai-0e0021
 else
 	"set bg=light
-	colorscheme term-dark-actionless
+	"colorscheme term-dark-actionless
+	colorscheme term-dark-actionless2
 	"colorscheme fixed-light-github
 	"colorscheme term-actionless3
 	"colorscheme term-wargrey
