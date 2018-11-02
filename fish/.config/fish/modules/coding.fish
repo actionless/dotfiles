@@ -6,6 +6,10 @@ function sprunge
 	command curl -F 'sprunge=<-' http://sprunge.us $argv
 end
 
+function sprunge_file
+	cat $argv | sprunge
+end
+
 function rgr -a original_value replace_value -d "replace stuff using rg and sed"
 	set -l rest_argv
 	if test (count $argv) -gt 2;
