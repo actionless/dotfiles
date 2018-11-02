@@ -15,8 +15,6 @@ function no_comments --description 'cat and cut comments' --wraps='cat'
 	command cat $argv | grep -E -v -e "^;" -e "^#" -e "^\$" -e "^\s+#"
 end
 
-abbr rm_temp='rm -v *~ ; rm -v *.swp ; rm -v .*~ ; rm -v .*.swp ; rm -v \#*\#'
-
 function psauxf --wraps='grep'
 	ps auxf | grep -v grep | grep -C 5 -i $argv
 end

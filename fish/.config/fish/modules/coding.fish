@@ -2,18 +2,11 @@
 ## MISC
 ####
 
-alias sprunge "curl -F 'sprunge=<-' http://sprunge.us"
-
-alias a_grep "rg"
-function a_replace -a grep_line original_value replace_value -d "replace stuff using ag and sed"
-	if test (count $argv) -eq 2;
-		set replace_value $original_value
-		set original_value $grep_line
-	end
-	a_grep -l --null "$grep_line" \
-	| xargs -0 -n 1 sed -i -e 's/'"$original_value"'/'"$replace_value"'/g'
+function sprunge
+	command curl -F 'sprunge=<-' http://sprunge.us $argv
 end
-function rgr -a original_value replace_value -d "replace stuff using ag and sed"
+
+function rgr -a original_value replace_value -d "replace stuff using rg and sed"
 	set -l rest_argv
 	if test (count $argv) -gt 2;
 		set rest_argv (_cdr (_cdr $argv))
@@ -56,6 +49,6 @@ end
 # Python
 ###
 
-alias activate "source env/bin/activate.fish"
-
-abbr prospector "prospector -s veryhigh -w frosted -w pyroma -W vulture -W pep257 --no-autodetect -D ./"
+function activate
+	source env/bin/activate.fish
+end
