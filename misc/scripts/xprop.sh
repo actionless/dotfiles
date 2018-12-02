@@ -15,7 +15,7 @@ if hash awesome-client >/dev/null; then
       if c.window == $windowid then
         local r = ""
         for _,p in pairs({"border_width", "type", "border_color", "urgent",
-            "window", "floating"}) do
+            "window", "floating", "class"}) do
           r = r .. p .. ": " .. tostring(c[p]) .. "\n"
         end
         return "\n" .. r .. "\n"
