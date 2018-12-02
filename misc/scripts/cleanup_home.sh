@@ -46,5 +46,7 @@ rm -fr ~/.qmc2/*cache*
 rm -fr ~/.rigsofrods/cache/
 rm -fr ~/.surf/cache/
 rm -fr ~/.thumbnails/
+rm -fr ~/.dub/
+find ./ -type d -name .mypy_cache -exec rm -r {} \;
 
 dfc | grep /home
