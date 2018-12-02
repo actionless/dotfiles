@@ -5,3 +5,4 @@ echo ":: Loading PKGBUILD..."
 source ${1-./PKGBUILD}
 echo ":: Linting..."
 lint_pkgbuild
+echo ":: Done"
