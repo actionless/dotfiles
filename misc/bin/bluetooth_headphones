@@ -11,3 +11,4 @@ bid=$?
 sudo bluealsa || true
 
 kill $bid
+sudo killall bluealsa
