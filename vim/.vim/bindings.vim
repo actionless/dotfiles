@@ -8,7 +8,12 @@
 "
 
 
+vnoremap < <gv
+vnoremap > >gv
+
+
 let mapleader = ","
+let menu_key = "\\"
 
 
 " sudo write
@@ -22,31 +27,46 @@ map <leader>bb :CtrlPBuffer<CR>
 
 "noremap <leader>fl :FormatLines<CR>
 "noremap <leader>fc :FormatCode<CR>
-noremap <leader>af :Autoformat<CR>
-autocmd FileType python nnoremap <leader>r :0,$!reindent<Cr>
-autocmd FileType python nnoremap <leader>f :0,$!format_code.py<Cr>
-
-autocmd FileType python vnoremap <leader>r :0,$!reindent<Cr>
-autocmd FileType python vnoremap <leader>f :0,$!format_code.py<Cr>
+"noremap <leader>af :Autoformat<CR>
+"autocmd FileType python noremap <leader>r :0,$!reindent<Cr>
+"autocmd FileType python noremap <leader>f :0,$!format_code.py<Cr>
 
 noremap <leader>ig :IndentGuidesToggle<CR>
 
-noremap <leader>] :tabnext<CR>
-noremap <leader>[ :tabprevious<CR>
-noremap <leader>tn :tabnew<CR>
-noremap <leader>td :tabclose<CR>
-
 noremap <leader>tt :TagbarToggle<CR>
 noremap <leader>ft :Lex<CR>
-noremap <leader>nt :Lex<CR>
 noremap <leader>nn :set invnumber<CR>
 
 noremap <leader>p pgvyk<CR>
 noremap <leader>P Vpgvyk<CR>
 
-vnoremap < <gv
-vnoremap > >gv
 
+function! MyMainMenu()
+	call SimpleMenu([
+		\	[']', 'tab next', ':tabnext'],
+		\	['[', 'tab previous', ':tabprevious'],
+		\	['t', 'tab menu', 'MyTabMenu'],
+		\	['w', 'window menu', 'MyWindowMenu'],
+		\	['l', 'ALE menu', 'MyAleMenu'],
+	\ ])
+endfunction
+execute "noremap " . menu_key . " :call MyMainMenu()<CR>"
+noremap <leader> :call MyMainMenu()<CR>
+
+function! MyTabMenu()
+	call SimpleMenu([
+		\	['n', 'tab next', ':tabnew'],
+		\	['d', 'tab previous', ':tabclose'],
+	\ ])
+endfunction
+
+function! MyWindowMenu()
+	call SimpleMenu([
+		\	['k', 'close above', ':wincmd k | wincmd c'],
+		\	['j', 'close below', ':wincmd j | wincmd c'],
+	\ ])
+endfunction
+noremap <leader>w :call MyWindowMenu()<CR>
 
 function! MyAleFixMenu()
 	let l:base_menu = [
@@ -83,11 +103,3 @@ function! MyAleMenu()
 	\ ])
 endfunction
 noremap <leader>l :call MyAleMenu()<CR>
-
-function! MyWindowMenu()
-	call SimpleMenu([
-		\	['k', 'close above', ':wincmd k | wincmd c'],
-		\	['j', 'close below', ':wincmd j | wincmd c'],
-	\ ])
-endfunction
-noremap <leader>w :call MyWindowMenu()<CR>
