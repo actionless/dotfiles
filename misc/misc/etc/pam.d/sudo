@@ -1,0 +1,4 @@
+#%PAM-1.0
+auth		include		sudo-auth
+account		include		sudo-auth
+session		include		sudo-auth
