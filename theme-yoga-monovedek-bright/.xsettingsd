@@ -56,8 +56,8 @@ Net/ThemeName "oomox-monovedek_old"
 Xft/DPI 160768
 
 Xft/Antialias 1
-#Xft/HintStyle "hintslight"
-Xft/HintStyle "hintfull"
+Xft/HintStyle "hintslight"
+#Xft/HintStyle "hintfull"
 Xft/RGBA "rgb"
 
 # vim:ft=conf
