@@ -38,12 +38,12 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "monokai"
+let colors_name = "fixed-dark-monokai-0e0021"
 
 " Palettes
 " --------
 
-if has("gui_running")
+"if has("gui_running")
   let s:vmode      = "gui"
   "let s:background = "#272822"
   let s:background = "#0e0021"
@@ -71,34 +71,34 @@ if has("gui_running")
   let s:delbg      = "#f75f5f"
   let s:changefg   = "#d7d7ff"
   let s:changebg   = "#5f5f87"
-else
-  let s:vmode      = "cterm"
-  let s:background = "NONE"
-  let s:foreground = "252"
-  let s:window     = "239"
-  let s:line       = "236"
-  let s:linenr     = "243"
-  let s:lncolumn   = "235"
-  let s:darkcolumn = "233"
-  let s:selection  = "237"
-  let s:comment    = "59"
-  let s:error      = "52"
-  let s:zentree    = "242"
+"else
+  "let s:vmode      = "cterm"
+  "let s:background = "NONE"
+  "let s:foreground = "252"
+  "let s:window     = "239"
+  "let s:line       = "236"
+  "let s:linenr     = "243"
+  "let s:lncolumn   = "235"
+  "let s:darkcolumn = "233"
+  "let s:selection  = "237"
+  "let s:comment    = "59"
+  "let s:error      = "52"
+  "let s:zentree    = "242"
   
-  let s:pink       = "197"
-  let s:green      = "148"
-  let s:aqua       = "81"
-  let s:yellow     = "186"
-  let s:orange     = "208"
-  let s:purple     = "141"
-  let s:red        = "196"
+  "let s:pink       = "197"
+  "let s:green      = "148"
+  "let s:aqua       = "81"
+  "let s:yellow     = "186"
+  "let s:orange     = "208"
+  "let s:purple     = "141"
+  "let s:red        = "196"
 
-  let s:addfg      = "193"
-  let s:addbg      = "65"
-  let s:delbg      = "167"
-  let s:changefg   = "189"
-  let s:changebg   = "60"
-endif
+  "let s:addfg      = "193"
+  "let s:addbg      = "65"
+  "let s:delbg      = "167"
+  "let s:changefg   = "189"
+  "let s:changebg   = "60"
+"endif
 
 " Formatting Options
 " ------------------
