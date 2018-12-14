@@ -6,6 +6,7 @@ st.cursorshape: 3
 st.cursorblinkstyle: 0
 st.cursorblinkontype: 1
 st.opacity: 223
+st.opacity: 255
 !st.opacity: 235
 !st.opacity: 240
 !st.opacity: 192
@@ -23,3 +24,5 @@ st.opacity: 223
 !#include ".Xcolours/adwaita_test04" 
 !! without theme_hint from tlight2
 #include ".Xcolours/adwaita_test05"
+
+! vim: set ft=xdefaults:
