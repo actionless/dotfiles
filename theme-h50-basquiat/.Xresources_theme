@@ -4,8 +4,8 @@
 !
 !#include ".Xcolours/basquiat_3"
 !#include ".Xcolours/basquiat_31"
-!#include ".Xcolours/basquiat_32"
-#include ".Xcolours/basquiat_3t"
+#include ".Xcolours/basquiat_32"
+!#include ".Xcolours/basquiat_3t"
 !#include ".Xcolours/lolitastic"
 !#include ".Xcolours/mikado"
 !#include ".Xcolours/monokazu"
