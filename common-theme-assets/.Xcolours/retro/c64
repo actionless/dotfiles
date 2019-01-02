@@ -17,5 +17,9 @@
 *color9:  #ff664c
 *colorUL:  #ffffff
 *cursorColor:  #cc99e5
-*foreground:  #988DEB
+!*foreground:  #988DEB
+!*foreground:  #a89DFB
+*foreground:  #b8aDFB
 *underlineColor:  #ffffff
+
+! vim: set ft=xdefaults:
