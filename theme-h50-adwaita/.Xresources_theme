@@ -5,7 +5,8 @@ st.cursorshape: 3
 !st.cursorshape: 9
 st.cursorblinkstyle: 0
 st.cursorblinkontype: 1
-st.opacity: 223
+
+!st.opacity: 223
 st.opacity: 255
 !st.opacity: 235
 !st.opacity: 240

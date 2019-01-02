@@ -1,2 +1,4 @@
 Xft.dpi: 192
 st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
+
+st.opacity: 255
