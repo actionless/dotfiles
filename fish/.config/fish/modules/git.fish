@@ -24,11 +24,19 @@ function git_pr_to_branch
 end
 
 function git_checkout_i
-	set -l branch (command git ls-files -m | fzf)
-	if test ! -z "$branch"
-		git checkout -- $branch
+	set -l file (command git ls-files -m | my_fish_menu)
+	if test ! -z "$file"
+		git checkout -- $file
 	end
 end
+
+function git_add_i
+	set -l file (command git ls-files -m | my_fish_menu)
+	if test ! -z "$file"
+		git add -- $file
+	end
+end
+
 
 function git_fancy_log
 	#command git log --tags --decorate --graph --branches --abbrev-commit --pretty=short $argv
