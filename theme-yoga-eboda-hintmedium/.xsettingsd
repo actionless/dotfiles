@@ -56,8 +56,8 @@ Net/ThemeName "oomox-ebodax-purple"
 Xft/DPI 160768
 
 Xft/Antialias 1
-Xft/HintStyle "hintslight"
-#Xft/HintStyle "hintmedium"
+#Xft/HintStyle "hintslight"
+Xft/HintStyle "hintmedium"
 #Xft/HintStyle "hintfull"
 Xft/RGBA "rgb"
 

@@ -1,5 +1,4 @@
-!Xft.hintstyle: hintmedium
-Xft.hintstyle: hintslight
+Xft.hintstyle: hintmedium
 st.font: Source Code Pro:pixelsize=19:antialias=true:autohint=true;
 st.opacity: 244
 
