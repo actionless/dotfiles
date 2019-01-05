@@ -23,14 +23,14 @@ function git_pr_to_branch
 	command git checkout $branch_name
 end
 
-function git_checkout_i
+function git_checkout_menu
 	set -l file (command git ls-files -m | my_fish_menu)
 	if test ! -z "$file"
 		git checkout -- $file
 	end
 end
 
-function git_add_i
+function git_add_menu
 	set -l file (command git ls-files -m | my_fish_menu)
 	if test ! -z "$file"
 		git add -- $file
