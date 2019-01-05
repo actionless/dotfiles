@@ -1,13 +1,13 @@
 function _get_git_branch_name
-	echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
+	echo (command git symbolic-ref HEAD 2>/dev/null | sed -e 's|^refs/heads/||')
 end
 
 function _is_git_dirty
-	echo (command git status -s --ignore-submodules=dirty ^/dev/null)
+	echo (command git status -s --ignore-submodules=dirty 2>/dev/null)
 end
 
 function _get_git_ahead_count -a branch_name
-	echo (command git log origin/$branch_name..HEAD ^/dev/null | \
+	echo (command git log origin/$branch_name..HEAD 2>/dev/null | \
 	grep '^commit' | wc -l | tr -d ' ')
 end
 
@@ -77,7 +77,7 @@ function fish_prompt --description 'Write out the prompt'
 (set_color -b normal) $fish_prompt_mid_separator \
 $inverse (set_color $user_color) " "$USER " " $__fish_prompt_hostname" " \
 (set_color -b normal) $fish_prompt_mid_separator \
-$inverse (set_color $fish_color_cwd) " "(pwd)" " \
+$inverse (set_color $fish_color_cwd) " "(pwd -P)" " \
 (set_color -b normal) $fish_prompt_mid_separator \
 $inverse (set_color $fish_color_cwd -o) (git_prompt ; and echo (set_color -b normal)$fish_prompt_mid_separator) \
 $prompt_status \
