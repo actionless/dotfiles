@@ -4,16 +4,19 @@
 ! *color0:  #3d626d
 ! *color0:  #2d525d
 *color0:  #525252
+!*color0:  #292929
 *color1:  #d26c77
 *color2:  #53bcbc
 *color3:  #e9bb6c
 *color4:  #7eadf5
 *color5:  #c5afd2
 *color6:  #70d4e6
-*color7:  #8eb3be
+! *color7:  #8eb3be
+*color7:  #b3b3b3
 
 ! *color8:  #4d727d
-*color8:  #5d828d
+!*color8:  #5d828d
+*color8:  #828282
 *color9:  #c0545f
 *color10:  #439e99
 *color11:  #cfa356
@@ -21,3 +24,6 @@
 *color13:  #b695bc
 *color14:  #63b6f7
 *color15:  #ffffff
+
+
+! vim: set ft=xdefaults :
