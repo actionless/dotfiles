@@ -25,6 +25,7 @@ rm -fr ~/.cache/Otter/
 rm -fr ~/.cache/parso/
 rm -fr ~/.cache/pip/
 rm -fr ~/.cache/qutebrowser/
+rm -fr ~/.cache/spotify/Data/
 rm -fr ~/.cache/thumbnails/
 rm -fr ~/.cache/vimfiles/
 rm -fr ~/.cache/wine/
