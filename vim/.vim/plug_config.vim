@@ -114,6 +114,8 @@ let g:ale_linters = {
 \	 'python': ['flake8', 'mypy', 'pylint', 'pyls', 'vulture'],
 \}
 let b:ale_linters_ignore = ['pyls']
+
+let g:ale_python_pylint_change_directory = 0
 let g:ale_python_mypy_options = ' --ignore-missing-imports '
 let g:ale_python_vulture_options = ' ./maintenance_scripts/vulture_whitelist.py '
 
