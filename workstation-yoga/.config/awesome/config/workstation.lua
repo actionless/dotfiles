@@ -18,6 +18,7 @@ function local_config.init(awesome_context)
   conf.music_players = { 'spotify', 'gradio', 'clementine' }
 
   awesome_context.autorun = {
+    'xinput disable "ELAN Touchscreen"',
     --"touchegg",
     --"~/.scripts/tp_unmute",
     --"killall compton ; compton",
