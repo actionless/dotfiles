@@ -1,5 +1,6 @@
 Xft.hintstyle: hintslight
-st.opacity: 223
+!st.opacity: 223
+st.opacity: 255
 st.font: Input Mono Narrow:pixelsize=20:antialias=true:autohint=true;
 st.cursorshape: 1
 !st.xfps:         30
