@@ -3,24 +3,31 @@ set -euo pipefail
 IFS=$'\n\t'
 
 
-SCRIPT_DIR=$(dirname $(readlink -e "$0"))
+SCRIPT_DIR=$(dirname "$(readlink -e "$0")")
 THEME_NAME="${2-}"
 if [[ -z ${THEME_NAME} ]] ; then
-	THEME_NAME=$($SCRIPT_DIR/current-theme.sh)
+	THEME_NAME=$("$SCRIPT_DIR"/current-theme.sh)
 fi
 THEME_DIR=$SCRIPT_DIR/$THEME_NAME
 
 PC_NAME="${1-}"
-if [ -z $PC_NAME ] ; then
-	PC_NAME=$($SCRIPT_DIR/current-workstation.sh)
+if [ -z "$PC_NAME" ] ; then
+	PC_NAME=$("$SCRIPT_DIR"/current-workstation.sh)
 fi
-PC_NAME=$(basename ${PC_NAME})
+PC_NAME=$(basename "$PC_NAME")
 
-test ! -L ~/.config/user-dirs.dirs && mv ~/.config/user-dirs.dirs env/.config/user-dirs.dirs || true
-test ! -L ~/.gtkrc-2.0 && mv ~/.gtkrc-2.0 $THEME_DIR/.gtkrc-2.0 || true
-test ! -L ~/.config/gtk-3.0/settings.ini && mv ~/.config/gtk-3.0/settings.ini $THEME_DIR/.config/gtk-3.0/settings.ini || true
+SYM_PATHS=(
+	'.config/user-dirs.dirs'
+	'.gtkrc-2.0'
+	'.config/gtk-3.0/settings.ini'
+)
+for path in "${SYM_PATHS[@]}" ; do
+	if [[ -f ~/"$path" && ! -L ~/"$path" ]] ; then 
+		mv ~/"$path" "$THEME_DIR"/"$path"
+	fi
+done
 
-./bootstrap.sh "$PC_NAME" $THEME_NAME
+./bootstrap.sh "$PC_NAME" "$THEME_NAME"
 
 echo "--"
 echo "Resync done."
