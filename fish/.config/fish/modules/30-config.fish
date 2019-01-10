@@ -14,16 +14,17 @@ dircolors -c ~/.dir_colors | sed 's/>&\/dev\/null$//' | source
 #
 #bind \eOD backward-word
 #bind \eOC forward-word
-bind \e\P forward-word
+#
+#bind \e\P forward-word
 
-bind \e\[8~ end-of-line
-bind \e\[7~ beginning-of-line
+#bind \e\[8~ end-of-line
+#bind \e\[7~ beginning-of-line
 
-bind \e\[4~ end-of-line
-bind \e\[1~ beginning-of-line
+#bind \e\[4~ end-of-line
+#bind \e\[1~ beginning-of-line
 
 # st fix:
-bind \[P delete-char
+#bind \[P delete-char
 
 # clean the line on ctrl+c instead of jumping the prompt
 bind \cc 'commandline ""'
