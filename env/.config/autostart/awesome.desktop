@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/bin/awesome
+Hidden=false
+X-MATE-Autostart-enabled=true
+Name[en_US]=awesome
+Name=awesome
+Comment[en_US]=
+Comment=
+NotShowIn=xfce;
