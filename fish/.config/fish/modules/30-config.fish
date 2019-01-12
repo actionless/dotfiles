@@ -1,3 +1,5 @@
+set FISH (which fish)
+
 #set TERM xterm-256color
 set -x EDITOR "vim"
 set -x PAGER "less"
@@ -11,20 +13,6 @@ set -x LC_ALL "en_US.UTF-8"
 dircolors -c ~/.dir_colors | sed 's/>&\/dev\/null$//' | source
 #set -x DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/"(id -u)"/bus"
 
-#
-#bind \eOD backward-word
-#bind \eOC forward-word
-#
-#bind \e\P forward-word
-
-#bind \e\[8~ end-of-line
-#bind \e\[7~ beginning-of-line
-
-#bind \e\[4~ end-of-line
-#bind \e\[1~ beginning-of-line
-
-# st fix:
-#bind \[P delete-char
 
 # clean the line on ctrl+c instead of jumping the prompt
 bind \cc 'commandline ""'

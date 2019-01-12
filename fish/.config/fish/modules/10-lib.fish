@@ -1,5 +1,3 @@
-set FISH (which fish)
-
 function _cdr -d "CDR, CAR's friend"
 	set -l new_argv
 	if test (count $argv) -gt 1;
