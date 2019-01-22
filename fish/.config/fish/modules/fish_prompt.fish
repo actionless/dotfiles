@@ -81,7 +81,7 @@ function fish_prompt --description 'Write out the prompt'
 (set_color -b $fish_color_cwd) " " \
 (set_color -b normal) $fish_prompt_mid_separator \
 $inverse (set_color $user_color) " "$USER \
-$__fish_prompt_hostname" " \
+$__fish_prompt_hostname " " \
 (set_color -b normal) $fish_prompt_mid_separator \
 $inverse (set_color $fish_color_cwd) " "(pwd -P)" " \
 (set_color -b normal) $fish_prompt_mid_separator \
