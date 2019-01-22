@@ -23,7 +23,7 @@ SYM_PATHS=(
 )
 for path in "${SYM_PATHS[@]}" ; do
 	if [[ -f ~/"$path" && ! -L ~/"$path" ]] ; then 
-		mv ~/"$path" "$THEME_DIR"/"$path"
+		mv ~/"$path" "$THEME_DIR"/"$path" || true
 	fi
 done
 
