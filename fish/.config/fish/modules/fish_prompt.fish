@@ -58,11 +58,16 @@ function fish_prompt --description 'Write out the prompt'
 		set user_prompt '$'
 	end
 
-	# hide hostname
-	#if not set -q __fish_prompt_hostname
-		#set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
-	#end
-	set -e __fish_prompt_hostname
+	if test -z $SSH_TTY
+		# hide hostname
+		set -e __fish_prompt_hostname
+	else
+		if not set -q __fish_prompt_hostname
+			set -g __fish_prompt_hostname "@"(hostname|cut -d . -f 1)
+		end
+		set fish_color_cwd cyan
+		set user_color green
+	end
 
 	set -l inverse "\e[7m"
 
@@ -75,7 +80,8 @@ function fish_prompt --description 'Write out the prompt'
 (set_color $fish_color_cwd) $fish_prompt_left_separator \
 (set_color -b $fish_color_cwd) " " \
 (set_color -b normal) $fish_prompt_mid_separator \
-$inverse (set_color $user_color) " "$USER " " $__fish_prompt_hostname" " \
+$inverse (set_color $user_color) " "$USER \
+$__fish_prompt_hostname" " \
 (set_color -b normal) $fish_prompt_mid_separator \
 $inverse (set_color $fish_color_cwd) " "(pwd -P)" " \
 (set_color -b normal) $fish_prompt_mid_separator \
