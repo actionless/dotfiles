@@ -31,8 +31,8 @@ Net/EnableEventSounds 1
 Net/EnableInputFeedbackSounds 1
 Net/SoundThemeName "default"
 
-Net/IconThemeName "oomox-orville01"
-Net/ThemeName "oomox-orville01"
+Net/IconThemeName "oomox-orville"
+Net/ThemeName "oomox-orville"
 
 # thinkpad:
 #Xft/DPI 134144

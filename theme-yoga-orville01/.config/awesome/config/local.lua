@@ -29,7 +29,7 @@ function local_config.init(awesome_context)
 
     --beautiful.border_radius = beautiful.xresources.apply_dpi(3)
     --beautiful.panel_widget_border_radius = beautiful.border_radius
-    beautiful.client_border_radius = beautiful.border_radius * 0.7
+    --beautiful.client_border_radius = beautiful.border_radius * 0.7
 
     local color_utils = require("actionless.util.color")
 
@@ -58,6 +58,8 @@ function local_config.init(awesome_context)
       --0.2
     --)
     --
+    --
+    beautiful.icon_theme = 'oomox-orville'
 
   end
 
