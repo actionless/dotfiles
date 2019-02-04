@@ -59,7 +59,6 @@ function local_config.init(awesome_context)
     --)
     --
     --
-    beautiful.icon_theme = 'oomox-orville'
 
   end
 

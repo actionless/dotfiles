@@ -11,6 +11,10 @@ function local_config.init(awesome_context)
 
   --awesome_context.apw_on_the_left= true
 
+  --awesome_context.before_config_loaded = function()
+    --local beautiful = require('beautiful')
+  --end
+
   return awesome_context
 end
 

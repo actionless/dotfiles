@@ -27,8 +27,8 @@ function local_config.init(awesome_context)
     beautiful.client_border_radius = beautiful.xresources.apply_dpi(10)
     --beautiful.icon_theme = "oomox-lcars-r0225-3"
     --beautiful.icon_path = "/home/lie/.icons/oomox-lcars-r0225-3"
-    beautiful.icon_theme = "Adwaita"
-    beautiful.icon_path = "/usr/share/icons/Adwaita"
+    --beautiful.icon_theme = "Adwaita"
+    --beautiful.icon_path = "/usr/share/icons/Adwaita"
   end
 
   awesome_context.have_battery = false
