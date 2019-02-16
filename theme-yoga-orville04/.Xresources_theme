@@ -1,0 +1,15 @@
+Xft.hintstyle: hintslight
+!st.opacity: 223
+st.opacity: 255
+st.font: Space Mono:pixelsize=20:antialias=true:autohint=true;
+st.cursorshape: 1
+!st.xfps:         30
+!st.actionfps:    30
+!st.blinktimeout: 500
+!st.blinktimeout: 300
+st.blinktimeout: 250
+
+! terminal colorscheme -------------------------------------------------------
+#include ".Xcolours/oomox/orville04"
+
+! vim: ft=xdefaults:
