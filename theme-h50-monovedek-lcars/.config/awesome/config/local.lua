@@ -7,22 +7,6 @@ local local_config = {}
 
 function local_config.init(awesome_context)
 
-  local conf = awesome_context.config
-  conf.wlan_if = 'wlp4s0'
-  conf.eth_if = 'enp0s25'
-  conf.net_preset = 'systemd'
-  conf.music_players = { 'spotify', 'clementine', 'mopidy' }
-  --conf.music_players = { 'mopidy', }
-  awesome_context.have_battery = false
-  --awesome_context.have_battery = true
-  awesome_context.sensor = "temp1"
-  awesome_context.apw_on_the_left = false
-
-  awesome_context.autorun = {
-    --"~/.scripts/tp_unmute",
-    --"killall compton ; compton",
-  }
-
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars-xresources-hidpi/theme.lua"
   awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/gtk/theme.lua"
 
@@ -50,13 +34,23 @@ function local_config.init(awesome_context)
     beautiful.panel_height = beautiful.basic_panel_height + beautiful.panel_padding_bottom
     beautiful.titlebar_height = beautiful.basic_panel_height + beautiful.base_border_width*2
 
-    beautiful.taglist_bg_focus		= color_utils.darker(
-      color_utils.mix(beautiful.panel_bg, beautiful.taglist_fg_occupied, 0.8),
-      -97
-    )
-    beautiful.taglist_fg_focus	        = beautiful.panel_bg
 
-    beautiful.taglist_bg_occupied       = beautiful.gtk.base_color
+    beautiful.taglist_bg_occupied = color_utils.mix(
+      beautiful.gsc.base_color,
+      beautiful.gsc.header_button_bg_color,
+      0.3
+    )
+
+    beautiful.taglist_fg_focus = beautiful.panel_bg
+    beautiful.taglist_bg_focus = color_utils.mix(
+      color_utils.mix(
+        beautiful.taglist_bg_occupied,
+        beautiful.taglist_fg_occupied,
+        0.4
+      ),
+      beautiful.gsc.selected_bg_color,
+      0.8
+    )
 
     --nlog(beautiful.taglist_fg_occupied)
 
