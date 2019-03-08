@@ -1,0 +1,3 @@
+#!/bin/bash
+mapfile -t not_needed_deps < <(pacman -Qtdq)
+exec sudo pacman -Rs "${not_needed_deps[@]}"
