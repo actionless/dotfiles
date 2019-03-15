@@ -3,3 +3,5 @@ tmux/.tmux/plugins/
 .netrwhist
 watch_later/
 vim/.vim/autoload/plug.vim.old
+*.pkg.*
+/pkg/
