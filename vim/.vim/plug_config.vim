@@ -91,7 +91,7 @@ let g:ale_echo_msg_format = '[%linter%] %code%: %s'
 "let g:ale_open_list = 1
 
 function! MyAleCompletion()
-	call ale#completion#GetCompletions()
+	call ale#completion#GetCompletions(1)
 	return "\<C-x>\<C-o>"
 endfunction
 
