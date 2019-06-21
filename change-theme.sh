@@ -2,8 +2,7 @@
 set -ueo pipefail
 
 warn() {
-	# shellcheck disable=SC2145
-	echo "[33m$@ [30m[m"
+	echo "[33m$* [30m[m"
 }
 
 if [ -z "${1:-}" ]; then

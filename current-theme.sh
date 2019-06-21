@@ -3,7 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 if [[ -f ~/.Xresources_theme ]] ; then
-	basename $(dirname $(readlink -e ~/.Xresources_theme)) || (
+	basename "$(dirname "$(readlink -e ~/.Xresources_theme)")" || (
 		echo "Not bootstrapped"
 		exit 1
 	)

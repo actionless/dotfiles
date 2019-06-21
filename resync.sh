@@ -2,6 +2,9 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+blue() {
+	echo "[34m$* [30m[m"
+}
 
 SCRIPT_DIR=$(dirname "$(readlink -e "$0")")
 THEME_NAME="${2-}"
@@ -29,5 +32,7 @@ done
 
 ./bootstrap.sh "$PC_NAME" "$THEME_NAME"
 
-echo "--"
-echo "Resync done."
+echo
+blue "  --> <--"
+blue "Resync done."
+blue "  --> <--"
