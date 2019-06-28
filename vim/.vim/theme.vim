@@ -78,8 +78,10 @@ let g:airline_theme='term'
 let g:airline_powerline_fonts = 1
 "let g:airline_right_sep = ''
 "let g:airline_left_sep = ''
-let g:airline_left_sep = '퟽'
-let g:airline_right_sep = '퟼'
+"let g:airline_left_sep = '퟽'
+"let g:airline_right_sep = '퟼'
+let g:airline_left_sep = $TERM_DECORATION_RIGHT
+let g:airline_right_sep = $TERM_DECORATION_LEFT
 " Enable the list of buffers:
 "let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#fnamemod = ':t'
