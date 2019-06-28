@@ -65,9 +65,9 @@ Plug 'dag/vim-fish', {'for': 'fish'}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " JS:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if !has('nvim')
-	Plug 'marijnh/tern_for_vim', {'for': ['javascript', 'html']}
-endif
+"if !has('nvim')
+	"Plug 'marijnh/tern_for_vim', {'for': ['javascript', 'html']}
+"endif
 Plug 'othree/html5.vim', {'for': 'html'}
 
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'html', 'jsx']}
