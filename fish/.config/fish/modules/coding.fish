@@ -58,5 +58,7 @@ function activate
 end
 
 function poetry_shell
-	source $HOME/.cache/pypoetry/virtualenvs/(basename $PWD)-py(python --version | grep -o '[0-9].[0-9]')/bin/activate.fish
+	set -l project_name (basename $PWD | sed 's/_/-/g')
+	set -l python_version (python --version | grep -o '[0-9].[0-9]')
+	source $HOME/.cache/pypoetry/virtualenvs/$project_name-py$python_version/bin/activate.fish
 end
