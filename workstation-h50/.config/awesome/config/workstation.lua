@@ -7,9 +7,20 @@ function local_config.init(awesome_context)
   conf.eth_if = 'enp0s25'
   conf.net_preset = 'systemd'
 
+
   awesome_context.have_battery = false
-  awesome_context.sensor = "temp1"
-  awesome_context.apw_on_the_left= false
+  awesome_context.sensors = {
+    gpu = {
+      device = 'amdgpu-pci-0100',
+      sensor = 'temp1',
+      warning = 89,
+    },
+    cpu = {
+      device = 'k10temp-pci-00c3',
+      sensor = 'temp1',
+      warning = 65,
+    },
+  }
 
   --awesome_context.cmds.file_manager = "pcmanfm"
 
