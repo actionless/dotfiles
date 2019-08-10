@@ -2,6 +2,7 @@ alias rm "rm -I"
 alias rg='rg -a -L'
 alias gr='grep --color -iER'
 
+abbr -a v viewnior
 abbr -a vmi vim
 
 function less --wraps='less'
@@ -11,6 +12,20 @@ end
 function dfc --wraps='dfc'
 	command dfc | head -n 1
 	command dfc -W -c always | grep '^/dev/.\+' | grep -v docker
+	#command dfc -W -c always | grep -e FILESYSTEM -e '^/dev/.\+' | grep -v docker
+end
+
+function which --wraps='which'
+	command which $argv ;
+	or begin
+		set -l abbr_result (abbr --show | grep " $argv[1] .*")
+		if test -n "$abbr_result"
+			echo -e "\nFish abbreviation:\n\n$abbr_result"
+		else
+			echo -e '\nFish function:\n'
+			command fish -c "set EDITOR cat ; funced $argv[1]" | head -n -1
+		end
+	end
 end
 
 
