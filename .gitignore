@@ -5,3 +5,6 @@ watch_later/
 vim/.vim/autoload/plug.vim.old
 *.pkg.*
 /pkg/
+.mypy_cache/
+last_installed.txt
+.SRCINFO
