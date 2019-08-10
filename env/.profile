@@ -39,8 +39,7 @@ export LANG="en_US.utf8"
 export GDM_LANG="en_US.utf8"
 
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
-#export GOPATH=$HOME/.go
-export GOPATH=/media/ext/.go
+export GOPATH=$HOME/.go
 
 # uncomment one when not in GNOME:
 export XDG_CURRENT_DESKTOP=gnome
@@ -77,6 +76,9 @@ export TMUX_FG=colour0
 export TERM_DECORATION_LEFT="퟼"
 export TERM_DECORATION_RIGHT="퟽"
 export TERM_DECORATION_SEPARATOR=""
+export TERM_DECORATION_SEPARATOR_LEFT=" "
+export TERM_DECORATION_SEPARATOR_RIGHT=" "
+
 export TMUX_DECORATION_LEFT=${TERM_DECORATION_LEFT}
 export TMUX_DECORATION_RIGHT=${TERM_DECORATION_RIGHT}
 export TMUX_DECORATION_SEPARATOR_LEFT=${TERM_DECORATION_SEPARATOR}

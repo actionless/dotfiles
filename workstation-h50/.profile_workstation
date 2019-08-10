@@ -1,5 +1,7 @@
 export VDPAU_DRIVER=radeonsi
 
+export GOPATH=/media/ext/.go
+
 
 ## uncomment one when not in GNOME:
 #export XDG_CURRENT_DESKTOP=gnome

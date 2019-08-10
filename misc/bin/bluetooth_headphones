@@ -3,12 +3,37 @@ set -euo pipefail
 IFS=$'\n\t'
 
 
-sudo -v
+echo ":: Starting Bluetooth service..."
+sudo systemctl start bluetooth
+sleep 0.2
 
+echo ":: Starting blueman-manager..."
 blueman-manager &
-bid=$?
+sleep 0.2
 
-sudo bluealsa || true
 
-kill $bid
-sudo killall bluealsa
+stop_bluetooth_and_exit() {
+	exit_code=$?
+	set +e
+
+	echo ":: Stopping Bluetooth service..."
+	sudo systemctl stop bluetooth
+
+	if pgrep blueman-manager ; then
+		echo ":: Killing blueman-manager..."
+		killall blueman-manager
+	fi
+
+	if sudo pgrep bluealsa ; then
+		echo ":: Killing bluealsa..."
+		sudo killall bluealsa
+	fi
+
+	exit $exit_code
+}
+trap stop_bluetooth_and_exit HUP INT TERM
+
+echo ":: Starting bluealsa..."
+sudo bluealsa
+
+stop_bluetooth_and_exit

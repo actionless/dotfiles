@@ -110,8 +110,9 @@ inoremap <expr><S-TAB>
 	\ "\<C-h>"
 
 
+"\	 'python': ['flake8', 'mypy', 'pylint', 'pyls', 'vulture'],
 let g:ale_linters = {
-\	 'python': ['flake8', 'mypy', 'pylint', 'pyls', 'vulture'],
+\	 'python': ['mypy', 'pylint', 'pyls', ],
 \}
 let b:ale_linters_ignore = ['pyls']
 

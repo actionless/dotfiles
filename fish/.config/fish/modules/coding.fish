@@ -56,3 +56,7 @@ end
 function activate
 	source env/bin/activate.fish
 end
+
+function poetry_shell
+	source $HOME/.cache/pypoetry/virtualenvs/(basename $PWD)-py(python --version | grep -o '[0-9].[0-9]')/bin/activate.fish
+end

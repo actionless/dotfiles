@@ -11,8 +11,12 @@ end
 
 function dfc --wraps='dfc'
 	command dfc | head -n 1
-	command dfc -W -c always | grep '^/dev/.\+' | grep -v docker
+	command dfc -W -c always $argv | grep '^/dev/.\+' | grep -v docker
 	#command dfc -W -c always | grep -e FILESYSTEM -e '^/dev/.\+' | grep -v docker
+end
+
+function ncdu --wraps='ncdu'
+	command ncdu --color=dark $argv
 end
 
 function which --wraps='which'

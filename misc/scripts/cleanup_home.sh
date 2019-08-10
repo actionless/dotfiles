@@ -43,10 +43,12 @@ rm -fr ~/.surf/cache/
 rm -fr ~/.qmc2/*cache*
 
 # programming languages: ######################################################
+rm -fr ~/.cache/yarn/
 rm -fr ~/.cargo/
 rm -fr ~/.dub/
 rm -fr ~/.electron/
 rm -fr ~/.gem/
+rm -fr ~/.go/*
 rm -fr ~/.*-gyp/
 rm -fr ~/.lazarus/
 rm -fr ~/.luarocks/

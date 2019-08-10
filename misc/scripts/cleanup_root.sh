@@ -73,6 +73,7 @@ usr_share_games_list=(
 )
 relocate_games "${games_dest_dir}" "${usr_share_games_dir}" "${usr_share_games_list[@]}"
 
+rm -fr /opt/user_cache/spotify/Data/*
 
 echo
 echo

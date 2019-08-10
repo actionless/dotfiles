@@ -78,7 +78,7 @@ function fish_prompt --description 'Write out the prompt'
 	echo -e -n -s \
 "\n " \
 (set_color $fish_color_cwd) $fish_prompt_left_separator \
-(set_color -b $fish_color_cwd) " " \
+(set_color -b $fish_color_cwd) $fish_prompt_mid_separator_left \
 (set_color -b normal) $fish_prompt_mid_separator \
 $inverse (set_color $user_color) " "$USER \
 $__fish_prompt_hostname " " \
@@ -87,7 +87,7 @@ $inverse (set_color $fish_color_cwd) " "(pwd -P)" " \
 (set_color -b normal) $fish_prompt_mid_separator \
 $inverse (set_color $fish_color_cwd -o) (git_prompt ; and echo (set_color -b normal)$fish_prompt_mid_separator) \
 $prompt_status \
-(set_color -b $fish_color_cwd normal) " " \
+(set_color -b $fish_color_cwd normal) $fish_prompt_mid_separator_right \
 (set_color -b normal $fish_color_cwd) $fish_prompt_right_separator " " \
 (set_color -b normal) \
 $__fish_prompt_normal "\n" \

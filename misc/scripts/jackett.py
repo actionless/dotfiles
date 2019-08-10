@@ -162,8 +162,10 @@ class jackett(object):
 def main(search_queries):
     jackett_se = jackett()
     results = jackett_se.search(' '.join(search_queries), 'all')
+    if not results:
+        return
     # prettyPrinter(results)
-    results.sort(key=lambda x: -x['seeds'])
+    results.sort(key=lambda x: -(x['seeds'] or 0))
     print('\n'.join([
         r'[1m[32m{seeds}[30m[m {name} [34m{link}[30m[m'.format(
             seeds=r['seeds'], name=r['name'], link=r['link']
