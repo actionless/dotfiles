@@ -1,5 +1,5 @@
 export VDPAU_DRIVER=radeonsi
-
+#export MAGICK_OCL_DEVICE=OFF  # in case of ImageMagick gpu acceleration broken with the current driver
 export GOPATH=/media/ext/.go
 
 
