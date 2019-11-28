@@ -39,12 +39,14 @@ disk_stat
 echo
 
 docker_status=0
-sudo systemctl status docker || docker_status=$?
+sudo systemctl status docker --no-pager || docker_status=$?
 if [[ ${docker_status} -ne 0 ]] ; then
 	sudo systemctl start docker || true
 fi
-docker container prune -f || true
-docker image prune -f || true
++#docker container prune -f || true
++#docker image prune -f || true
++#docker system prune -f || true
++docker system prune -af --volumes || true
 if [[ ${docker_status} -ne 0 ]] ; then
 	sudo systemctl stop docker || true
 fi
