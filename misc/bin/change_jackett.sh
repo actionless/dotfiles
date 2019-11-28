@@ -2,6 +2,10 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+if [[ $(id -u) -ne 0 ]] ; then
+	exec sudo "$0" "$@"
+fi
+
 
 lang=$( \
 	echo "ru
@@ -18,15 +22,17 @@ cd /var/lib/jackett
 
 
 if [[ -L Indexers ]] ; then
-	sudo rm Indexers
+	rm Indexers
 fi
 if [[ -f Indexers ]] ; then
 	ls -la
 	exit 2
 fi
-sudo ln -s Indexers."$lang" Indexers
+ln -s Indexers."$lang" Indexers
 
-sudo systemctl start jackett
+systemctl start jackett
+systemctl start nginx
 echo 'Started. Press [Enter] to stop...'
 read -r
-sudo systemctl stop jackett
+systemctl stop jackett
+systemctl stop nginx
