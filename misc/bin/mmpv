@@ -1,0 +1,2 @@
+#!/bin/sh
+exec mpv --audio-client-name=mmpv --x11-name=mmpv --script /usr/lib/mpv/mpris.so "$@"

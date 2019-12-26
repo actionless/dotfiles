@@ -2,7 +2,7 @@
 
 pkgname=actionless_dotfiles_meta
 pkgver=0.1
-pkgrel=3
+pkgrel=4
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
@@ -22,6 +22,7 @@ depends=(
 
 	# theming:
 	'breeze'  # cursor themes
+	'gnome-icon-theme'
 
 	# fonts:
 	'adobe-source-code-pro-fonts'
@@ -29,6 +30,10 @@ depends=(
 	'adobe-source-serif-pro-fonts'
 	'adobe-source-han-sans-jp-fonts'
 	'adobe-source-han-serif-jp-fonts'
+
+	# apps:
+	'mpv'
+	'mpv-mpris'
 )
 optdepends=(
 	#'gnome-settings-daemon: rc: alternative to xsettingsd'

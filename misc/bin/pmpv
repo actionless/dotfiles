@@ -1,0 +1,2 @@
+#!/bin/sh
+exec mpv --audio-client-name=pmpv --x11-name=pmpv --volume 28 "$@"
