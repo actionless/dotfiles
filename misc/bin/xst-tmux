@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# to use with org.cinnamon.desktop.default-applications.terminal
+#
+# org.cinnamon.desktop.default-applications.terminal.exec-arg should be set to "-c"
+#
+exec xst -e tmux "$@"
