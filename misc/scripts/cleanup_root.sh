@@ -65,6 +65,7 @@ opt_games_list=(
 	'teamviewer'
 	'urbanterror'
 	'warsow'
+	'thedarkmod'
 )
 relocate_games "${games_dest_dir}" "${opt_games_dir}" "${opt_games_list[@]}"
 
