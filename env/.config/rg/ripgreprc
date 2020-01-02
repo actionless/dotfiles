@@ -1,0 +1,9 @@
+# follow symbolic links:
+--follow
+
+# Search binary files as if they were text:
+--text
+
+# ignore png:
+--glob
+!*.png

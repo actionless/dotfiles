@@ -57,6 +57,7 @@ export LADSPA_PATH=/usr/lib/ladspa:/usr/local/lib/ladspa:~/.ladspa:/someother/cu
 export LV2_PATH=/usr/lib/lv2:/usr/local/lib/lv2:~/.lv2:/someother/custom/dir
 export DSSI_PATH=/usr/lib/dssi:/usr/local/lib/dssi:~/.dssi:/someother/custom/dir
 
+export RIPGREP_CONFIG_PATH=~/.config/rg/ripgreprc
 
 ################################################################################
 ## Theme options:

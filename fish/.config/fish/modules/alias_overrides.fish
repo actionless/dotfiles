@@ -1,5 +1,4 @@
 alias rm "rm -I"
-alias rg='rg -a -L'
 alias gr='grep --color -iER'
 
 abbr -a v viewnior
