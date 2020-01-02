@@ -7,3 +7,6 @@
 # ignore png:
 --glob
 !*.png
+
+# case insensitive unless caps letter used:
+--smart-case
