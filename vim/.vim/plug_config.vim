@@ -6,9 +6,11 @@ call plug#begin('~/.vim/plugged')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Plug 'actionless/simple-menu.vim'
-Plug 'editorconfig/editorconfig-vim'
+"Plug 'editorconfig/editorconfig-vim'
+Plug 'sgur/vim-editorconfig'
 "Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
+let g:NERDDefaultAlign = 'left'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -70,8 +72,8 @@ Plug 'dag/vim-fish', {'for': 'fish'}
 "endif
 Plug 'othree/html5.vim', {'for': 'html'}
 
-Plug 'pangloss/vim-javascript', {'for': ['javascript', 'html', 'jsx']}
-Plug 'maxmellon/vim-jsx-pretty', {'for': ['javascript', 'html', 'jsx']}
+"Plug 'pangloss/vim-javascript', {'for': ['javascript', 'html', 'jsx']}
+"Plug 'maxmellon/vim-jsx-pretty', {'for': ['javascript', 'html', 'jsx']}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CSS:
@@ -113,6 +115,7 @@ inoremap <expr><S-TAB>
 "\	 'python': ['flake8', 'mypy', 'pylint', 'pyls', 'vulture'],
 let g:ale_linters = {
 \	 'python': ['mypy', 'pylint', 'pyls', ],
+\	 'javascript': ['eslint', 'fecs', 'flow', 'flow-language-server', 'jscs', 'standard', 'tsserver', 'xo'],
 \}
 let b:ale_linters_ignore = ['pyls']
 
@@ -121,6 +124,11 @@ let g:ale_python_mypy_options = ' --ignore-missing-imports '
 let g:ale_python_vulture_options = ' ./maintenance_scripts/vulture_whitelist.py '
 
 
+Plug 'vim/killersheep', {'on': 'KillKillKill'}
+
+"Plug 'tpope/vim-speeddating', {'for': 'org'}
+Plug 'tpope/vim-speeddating'
+Plug 'jceb/vim-orgmode', {'for': 'org'}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
 "##############################################################################

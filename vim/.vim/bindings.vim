@@ -13,7 +13,7 @@ vnoremap > >gv
 
 
 let mapleader = ","
-let menu_key = "\\"
+let maplocalleader = "\\"
 
 
 " sudo write
@@ -50,7 +50,7 @@ function! MyMainMenu()
 		\	['l', 'ALE menu', 'MyAleMenu'],
 	\ ])
 endfunction
-execute "noremap " . menu_key . " :call MyMainMenu()<CR>"
+"execute "noremap " . menu_key . " :call MyMainMenu()<CR>"
 noremap <leader> :call MyMainMenu()<CR>
 
 function! MyTabMenu()
