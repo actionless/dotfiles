@@ -2,6 +2,8 @@
 
 set -uex
 
+#export MAGICK_OCL_DEVICE=OFF
+
 target=${1-./*.jpg}
 delay=${2-11}
 resize=${3-500}
@@ -19,7 +21,7 @@ echo "copying files..."
 cp ${target} ${workdir}/
 cd ${workdir}
 echo "optimizing source images..."
-mogrify -resample 72x72 -resize ${resize}x${resize} ./*
+mogrify -resample 72x72 -resize "${resize}x${resize}" ./*
 echo "creating gif..."
 convert -delay ${delay} -loop 0 ./* myimage.gif
 echo "optimizing gif..."
