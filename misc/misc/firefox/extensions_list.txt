@@ -1,0 +1,43 @@
+initial:
+===========================================
+browserpass (browserpass-ce)
+greasemonkey
+https everywhere
+inoreader companion
+noscript
+pinterest save button
+?privacy badger (replace to no-cookie?)
+search by image
+stylish
+tab suspender
+tree style tab
+ublock origin
+vimium
+wayback machine
+X s3.translator/mate translate
+X zoom page we/nosquint plus
+
+2018.02.20
+===========================================
+browserpass
+greasemonkey
+noscript
+stylus
+tab suspender
+tree style tab
+ublock
+vimium
+
+
+2020.01.04
+===========================================
+auto tab discard
+facebook container
+noscript
+pinterest_light
+search_bulbapedia
+search_rutracker_by_date
+tampermonkey
+tree style tab + move unloaded tabs for tree style tab
+ublock origin
+vimium
