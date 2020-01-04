@@ -2,4 +2,4 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-apply-oomoxify -f "Fantasque Sans Mono" /opt/oomox/colors/monovedek/monovedek_lcars
+apply-oomoxify -f "Fantasque Sans Mono" /opt/oomox/colors/Monovedek/monovedek_lcars
