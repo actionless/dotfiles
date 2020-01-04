@@ -3,6 +3,8 @@
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
+elif [ -f /etc/bash.bashrc ]; then
+	. /etc/bash.bashrc
 fi
 
 if [[ $- != *i* ]]; then
@@ -77,6 +79,7 @@ export TERM="xterm-256color"
 #export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 #export LC_ALL="ru_RU.utf8"
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:/usr/bin/core_perl # perl workaround
 
 
 test -f $HOME/.profile_theme && source $HOME/.profile_theme
