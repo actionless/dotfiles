@@ -3,7 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 sudo echo
-oomoxify-cli $@
+oomoxify-cli -s /opt/spotify/Apps/ $@
 
 if [[ $(pgrep spotify) ]] ; then
        pkill spotify
