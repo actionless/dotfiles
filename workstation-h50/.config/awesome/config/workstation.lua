@@ -12,7 +12,7 @@ function local_config.init(awesome_context)
   awesome_context.sensors = {
     gpu = {
       device = 'amdgpu-pci-0100',
-      sensor = 'temp1',
+      sensor = 'edge',
       warning = 89,
     },
     cpu = {
@@ -26,9 +26,10 @@ function local_config.init(awesome_context)
 
   --conf.music_players = { 'spotify', 'clementine', 'mopidy' }
   conf.music_players = {
-    'spotify',
     'gradio',
-    'clementine',
+    'mpv',
+    --'clementine',
+    --'spotify',
     --'mopidy'
   }
 
