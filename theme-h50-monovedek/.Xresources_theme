@@ -1,6 +1,7 @@
 st.opacity: 223
 !st.opacity: 192
-st.font: Input Mono Narrow:pixelsize=25:antialias=true:autohint=true;
+!st.font: Input Mono Narrow:pixelsize=25:antialias=true:autohint=true;
+st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
 st.cursorblinkstyle: 0
 st.cursorblinkontype: 1
 !st.cursorshape: 3
