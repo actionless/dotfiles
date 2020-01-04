@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=/usr/bin/awesome
+Exec=/usr/bin/awesome_no_argb
 Hidden=false
 X-MATE-Autostart-enabled=true
 Name[en_US]=awesome
