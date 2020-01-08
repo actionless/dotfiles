@@ -1,0 +1,378 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title> Test of System Color Values defined in CSS 2</title>
+<link rel="stylesheet" href="Test%20of%20System%20Color%20Values%20defined%20in%20CSS%202_files/style-main.css">
+<link rel="stylesheet" href="Test%20of%20System%20Color%20Values%20defined%20in%20CSS%202_files/style-extra.css">
+<style> 
+body,div,td,th {font-family: arial,helvetica,sans-serif}
+th,td { vertical-align: top; }
+th    {text-align: left; 
+       background-color: #cccccc; }
+code  {font-family: courier,monospace}
+.ActiveCaption  {background-color: ActiveCaption; }
+.AppWorkspace  {background-color: AppWorkspace; }
+.Background  {background-color: Background; }
+.ButtonFace  {background-color: ButtonFace; }
+.ButtonHighlight  {background-color: ButtonHighlight; }
+.ButtonShadow  {background-color: ButtonShadow; }
+.ButtonText  {background-color: ButtonText; }
+.CaptionText  {background-color: CaptionText; }
+.GrayText  {background-color: GrayText; }
+.Highlight  {background-color: Highlight; }
+.HighlightText  {background-color: HighlightText; }
+.InactiveBorder  {background-color: InactiveBorder; }
+.InactiveCaption  {background-color: InactiveCaption; }
+.InactiveCaptionText  {background-color: InactiveCaptionText; }
+.InfoBackground  {background-color: InfoBackground; }
+.InfoText  {background-color: InfoText; }
+.Menu  {background-color: Menu; }
+.MenuText  {background-color: MenuText; }
+.Scrollbar  {background-color: Scrollbar; }
+.ThreeDDarkShadow  {background-color: ThreeDDarkShadow; }
+.ThreeDFace  {background-color: ThreeDFace; }
+.ThreeDHighlight  {background-color: ThreeDHighlight; }
+.ThreeDLightShadow  {background-color: ThreeDLightShadow; }
+.ThreeDShadow  {background-color: ThreeDShadow; }
+.Window  {background-color: Window; }
+.WindowFrame  {background-color: WindowFrame; }
+.WindowText  {background-color: WindowText; }
+div.note {border: 0.3em solid red; 
+	  border-right-width: 0em;
+	  border-top-width: 0em;
+	  border-bottom-width: 0em;
+	  padding-left: 0.5em;  } 
+div.note h4 {color: red; font-family: arial; }
+h4.table-heading {font-size: 0.9em; margin-bottom: 0.1em; }
+</style>
+</head>
+<body>
+<div class="header" align="center">
+<table width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody><tr align="center">
+<td width="30%" nowrap="nowrap" align="left"><a href="http://www.iangraham.org/books/xhtml1/index.html#chap">Contents</a></td>
+<td width="70%" nowrap="nowrap" align="right"><i> Updates to The XHTML Language
+and Design Sourcebook</i></td>
+</tr>
+</tbody></table>
+<hr size="1" noshade="noshade">
+</div>
+
+<div class="mainblock">
+<h2> Test of System Colors Specified in CSS 2</h2>
+<p>CSS Level 2 defines several additional color names that represent
+  the special system-specific colors used by the Windowing system
+  for colors such as the standard text background color, the colors
+  of scrollbars, the color of the title bar in active windows, and
+  so on. By using these named colors, you can design a document, using
+  CSS2, that closely integrates itself with the look and feel of the
+  other windows on the page. These named colors are summarized
+  in the following table. Of course, the colors that actually appear
+  in the "demonstration" column (the middle one) will depend on the 
+  system colors set for your computer.</p>
+  <div class="note">
+  <h4>NOTE: Systems Colors Don't Work with Navigator 4/
+    Internet Explorer 4</h4>
+  <p>The system colors defined here work on Navigator 5 and Internet Explorer 5,
+  but not on Navigator 4 or Internet Explorer 4. In the latter cases,
+  the browser interprets the names as if they were hexadecimal RGB color 
+  codes - and will produce bizarre and totally incorrect colors!  
+  </p>
+  </div>
+
+
+<h4 class="table-heading">Table: System color names defined in CSS 2. These color names are 
+  supported by Navigator 5 and greater, and by Internet Explorer 5 and greater.
+  </h4>
+<table width="80%" cellspacing="3" cellpadding="3" border="1">
+<tbody><tr>
+  <th>CSS 2 Color Name </th>
+  <th>Example (Using <code>Background-color</code>)</th>
+  <th>Description </th>
+</tr>
+
+
+<tr>
+  <td> ActiveBorder </td>
+  <td style="background-color: ActiveBorder"> &nbsp; </td>
+  <td> Active window border. </td>
+</tr>
+
+<tr>
+  <td> ActiveCaption </td>
+  <td class="ActiveCaption"> &nbsp; </td>
+  <td> Active window caption. </td>
+</tr><tr>
+  <td> AppWorkspace </td>
+  <td class="AppWorkspace"> &nbsp; </td>
+  <td> Background color of multiple document interface. </td>
+</tr><tr>
+  <td> Background </td>
+  <td class="Background"> &nbsp; </td>
+  <td> Desktop background. </td>
+</tr>
+
+<tr>
+  <td> ButtonFace </td>
+  <td class="ButtonFace"> &nbsp; </td>
+  <td> Face color for three-dimensional display elements. </td>
+</tr><tr>
+  <td> ButtonHighlight </td>
+  <td class="ButtonHighlight"> &nbsp; </td>
+  <td> Dark shadow for three-dimensional display elements (for edges facing away from the light source). </td>
+</tr><tr>
+  <td> ButtonShadow </td>
+  <td class="ButtonShadow"> &nbsp; </td>
+  <td> Shadow color for three-dimensional display elements. </td>
+</tr><tr>
+  <td> ButtonText </td>
+  <td class="ButtonText"> &nbsp; </td>
+  <td> Text on push buttons. </td>
+</tr>
+
+<tr>
+  <td> CaptionText </td>
+  <td class="CaptionText"> &nbsp; </td>
+  <td> Text in caption, size box, and scrollbar arrow box. </td>
+</tr><tr>
+  <td> GrayText </td>
+  <td class="GrayText"> &nbsp; </td>
+  <td> Grayed (disabled) text. This color is set to #000 if the current display driver does not support a solid gray color. </td>
+</tr><tr>
+  <td> Highlight </td>
+  <td class="Highlight"> &nbsp; </td>
+  <td> Item(s) selected in a control. </td>
+</tr><tr>
+  <td> HighlightText </td>
+  <td class="HighlightText"> &nbsp; </td>
+  <td> Text of item(s) selected in a control. </td>
+</tr><tr>
+  <td> InactiveBorder </td>
+  <td class="InactiveBorder"> &nbsp; </td>
+  <td> Inactive window border. </td>
+</tr><tr>
+  <td> InactiveCaption </td>
+  <td class="InactiveCaption"> &nbsp; </td>
+  <td> Inactive window caption. </td>
+</tr><tr>
+  <td> InactiveCaptionText </td>
+  <td class="InactiveCaptionText"> &nbsp; </td>
+  <td> Color of text in an inactive caption. </td>
+</tr><tr>
+  <td> InfoBackground </td>
+  <td class="InfoBackground"> &nbsp; </td>
+  <td> Background color for tooltip controls. </td>
+</tr><tr>
+  <td> InfoText </td>
+  <td class="InfoText"> &nbsp; </td>
+  <td> Text color for tooltip controls. </td>
+</tr><tr>
+  <td> Menu </td>
+  <td class="Menu"> &nbsp; </td>
+  <td> Menu background. </td>
+</tr><tr>
+  <td> MenuText </td>
+  <td class="MenuText"> &nbsp; </td>
+  <td> Text in menus. </td>
+</tr><tr>
+  <td> Scrollbar </td>
+  <td class="Scrollbar"> &nbsp; </td>
+  <td> Scroll bar gray area. </td>
+</tr><tr>
+  <td> ThreeDDarkShadow </td>
+  <td class="ThreeDDarkShadow"> &nbsp; </td>
+  <td> Dark shadow for three-dimensional display elements. </td>
+</tr><tr>
+  <td> ThreeDFace </td>
+  <td class="ThreeDFace"> &nbsp; </td>
+  <td> Face color for three-dimensional display elements. </td>
+</tr><tr>
+  <td> ThreeDHighlight </td>
+  <td class="ThreeDHighlight"> &nbsp; </td>
+  <td> Highlight color for three-dimensional display elements. </td>
+</tr><tr>
+  <td> ThreeDLightShadow </td>
+  <td class="ThreeDLightShadow"> &nbsp; </td>
+  <td> Light color for three-dimensional display elements (for edges facing the light source). </td>
+</tr><tr>
+  <td> ThreeDShadow </td>
+  <td class="ThreeDShadow"> &nbsp; </td>
+  <td> Dark shadow for three-dimensional display elements. </td>
+</tr><tr>
+  <td> Window </td>
+  <td class="Window"> &nbsp; </td>
+  <td> Window background. </td>
+</tr><tr>
+  <td> WindowFrame </td>
+  <td class="WindowFrame"> &nbsp; </td>
+  <td> Window frame. </td>
+</tr><tr>
+  <td> WindowText </td>
+  <td class="WindowText"> &nbsp; </td>
+  <td> Text in windows. </td>
+</tr>
+
+<!--================================-->
+<tr><td colspan=3/></tr>
+
+<tr>
+  <td> -moz-ButtonDefault </td>
+  <td style="background-color: -moz-ButtonDefault"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-ButtonHoverFace </td>
+  <td style="background-color: -moz-ButtonHoverFace"> &nbsp; </td>
+  <td> Hovered button background. </td>
+</tr>
+<tr>
+  <td> -moz-ButtonHoverText </td>
+  <td style="background-color: -moz-ButtonHoverText"> &nbsp; </td>
+  <td> Hovered button text. </td>
+</tr>
+<tr>
+  <td> -moz-CellHighlight </td>
+  <td style="background-color: -moz-CellHighlight"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-CellHighlightText </td>
+  <td style="background-color: -moz-CellHighlightText"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-html-CellHighlight </td>
+  <td style="background-color: -moz-CellHighlight"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-html-CellHighlightText </td>
+  <td style="background-color: -moz-CellHighlightText"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-Combobox </td>
+  <td style="background-color: -moz-Combobox"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-ComboboxText </td>
+  <td style="background-color: -moz-ComboboxText"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-Dialog </td>
+  <td style="background-color: -moz-Dialog"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-DialogText </td>
+  <td style="background-color: -moz-DialogText"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-EvenTreeRow </td>
+  <td style="background-color: -moz-EvenTreeRow"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-OddTreeRow </td>
+  <td style="background-color: -moz-OddTreeRow"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-Field </td>
+  <td style="background-color: -moz-Field"> &nbsp; </td>
+  <td> Text input background </td>
+</tr>
+
+<tr>
+  <td> -moz-FieldText </td>
+  <td style="background-color: -moz-FieldText"> &nbsp; </td>
+  <td> Text input color </td>
+</tr>
+
+<tr>
+  <td> -moz-MenuHover </td>
+  <td style="background-color: -moz-MenuHover"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-MenuHoverText </td>
+  <td style="background-color: -moz-MenuHoverText"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-MenuBarText </td>
+  <td style="background-color: -moz-MenuBarText"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-MenuBarHoverText </td>
+  <td style="background-color: -moz-MenuBarHoverText"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-nativehyperlinktext </td>
+  <td style="background-color: -moz-nativehyperlinktext"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<!--================================-->
+<tr><td colspan=3/></tr>
+
+<tr>
+  <td> -moz-win-communicationstext </td>
+  <td style="background-color: -moz-win-communicationstext"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-win-mediatext </td>
+  <td style="background-color: -moz-win-mediatext"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-win-accentcolor </td>
+  <td style="background-color: -moz-win-accentcolor"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<tr>
+  <td> -moz-win-accentcolortext </td>
+  <td style="background-color: -moz-win-accentcolortext"> &nbsp; </td>
+  <td>  </td>
+</tr>
+
+<!--================================-->
+
+</tbody></table>
+</div>
+<br>
+<div class="header">
+<hr size="1" noshade="noshade">
+<table width="100%" cellspacing="0" cellpadding="3" border="0">
+<tbody><tr>
+   <td valign="top" align="left">© 2000, by
+	 <a href="http://www.iangraham.org/books/xhtml1/copy.html">Ian S. Graham</a></td>
+	    <td valign="top" align="right"><b>Last Modified:</b> 22 February 2000</td>
+	    </tr>
+	    </tbody></table>
+	    </div>
+
+</body></html>
