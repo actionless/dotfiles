@@ -1,96 +1,125 @@
 /* AGENT_SHEET */
-@-moz-document url-prefix(about:blank) {
-    * {
-        background: Window !important;
-        color: WindowText !important;
-    }
-}
-@-moz-document url-prefix(about:){
+:root {
+/*	--theme-body-background: Window !important;*/
+/*	--theme-body-color: WindowText !important;*/
 
-* {
-	box-shadow: none !important;
-}
+	--in-content-page-background: -moz-Field !important;
+	--in-content-page-color: -moz-FieldText !important;
+	--in-content-table-background: -moz-Field !important;
 
-/*html, body, page, hbox, label, h1 {*/
-/*  color: WindowText !important;*/
-/*}*/
-/*html, body, page {*/
-/*  background: Window !important;*/
-/*}*/
-/*hbox, label {*/
-/*  background: #00000000 !important;*/
-/*}*/
+	--in-content-link-color: Highlight !important;
+	--in-content-link-color-hover: -moz-MenuHover !important;
+	--in-content-link-color-selected: Highlight !important;
+	--in-content-link-color-active: HighlightText !important;
 
-/*tree label {*/
-/*  color: black !important;*/
-/*    background: #00000000;*/
-/*}*/
-/*treechildren {*/
-/*        background: white !important;*/
-/*}*/
+	--in-content-primary-button-background: Highlight !important;
+	--in-content-primary-button-background-hover: -moz-MenuHover !important;
+	--in-content-primary-button-background-active: Highlight !important;
 
-/*.icon{*/
-/*  filter: invert(100%);*/
-/*}*/
-/*.icon, .category-icon {*/
-/*  color: WindowText !important;*/
-/*  fill: currentColor !important;*/
-/*}*/
+	--panel-disabled-color: InactiveCaption !important;
+	--in-content-deemphasized-text: InactiveCaptionText !important;
 
-/*button, .button-box {*/
-/*    background-color: #00000000 !important;*/
-/*    color: ButtonText !important;*/
-/*}*/
-/*button {*/
-/*    background-color: ButtonFace !important;*/
-/*    border-radius: 5px !important;*/
-/*    border-color: InactiveBorder !important;*/
-/*    filter: brightness(95%) !important;*/
-/*    [>-moz-appearance: button !important;<]*/
-/*}*/
-/*button:hover {*/
-/*    background-color: ThreeDShadow !important;*/
-/*    color: ButtonText !important;*/
-/*    filter: brightness(122%) !important;*/
-/*}*/
+	--in-content-item-selected: Highlight !important;
+	--in-content-item-hover: -moz-MenuHover !important;
+	--in-content-selected-text: HighlightText !important;
+	--in-content-border-active: Highlight !important;
+	--in-content-border-active-shadow: Highlight !important;
+	--in-content-border-focus: Highlight !important;
+	--in-content-border-highlight: Highlight !important;
 
-/*richlistitem {*/
-/*  border-color: Window !important;*/
-/*  background: #00000000 !important;*/
-/*}*/
-richlistitem[selected="true"],
-richlistitem[selected="true"] image,
-richlistitem[selected="true"] label{
-	color: HighlightText !important;
-	background-color: Highlight !important;
+	--in-content-box-border-color: InactiveBorder !important;
+	--in-content-box-background: -moz-Field !important;
+
+	--in-content-category-text-selected: Highlight !important;
+	--in-content-category-text-selected-active: Highlight !important;
+	--in-content-category-background-selected-hover: -moz-buttonhoverface !important;
+	--in-content-category-background-selected-active: Highlight !important;
+	--in-content-category-background-hover: -moz-MenuHover !important;
+	--in-content-category-background-active: Highlight !important;
+	--in-content-category-text-hover: HighlightText !important;
 }
 
-a, .text-link {
-	color: Highlight !important;
-	filter: brightness(66%) !important;
-}
-/*a:hover, .text-link:hover {*/
-/*    [>filter: brightness(100%) !important;<]*/
-/*    filter: brightness(88%) !important;*/
-/*}*/
-
-/*input[type="checkbox"] {*/
-/*  -moz-appearance: checkbox !important;*/
-/*}*/
-
-/*.checkbox-check, .radio-check, textbox, menulist, toolbarbutton {*/
-/*  background-color: Window !important;*/
-/*  color: WindowText !important;*/
-/*    filter: brightness(133%) !important;*/
-/*    box-shadow: none !important;*/
-/*    border-color: InactiveBorder !important;*/
-/*}*/
-.checkbox-check[checked], .radio-check[selected] {
-  background-color: Highlight !important;
-  color: Window !important;
-	filter: brightness(100%) !important;
+body:empty {
+	background: Window !important;
 }
 
+
+@-moz-document url("about:blank") {
+	* {
+		background: Window !important;
+		color: WindowText !important;
+	}
+}
+
+@-moz-document url("about:newtab"), url("about:home") {
+
+	body {
+		box-shadow: none !important;
+		--newtab-background-color: -moz-Field !important;
+		--newtab-text-primary-color: -moz-FieldText !important;
+		--newtab-topsites-label-color: -moz-FieldText !important;
+		--newtab-icon-tertiary-color: -moz-FieldText !important;
+
+		--newtab-snippets-background-color: Window !important;
+		--newtab-textbox-focus-color: Highlight !important;
+		--newtab-topsites-background-color: Window !important;
+		--newtab-border-secondary-color: InactiveBorder !important;
+
+		--newtab-element-hover-color: -moz-buttonhoverface !important;
+		--newtab-contextmenu-background-color: Menu !important;
+		--newtab-icon-primary-color: MenuText !important;
+		--newtab-link-primary-color: Highlight !important;
+	}
+
+	input {
+		color: WindowText !important;;
+		background-color: Window !important;;
+	}
+
+	/*Logo above search box*/
+	/*main::before {*/
+	/*		display: block;*/
+	/*		margin: -10px auto 10px;*/
+	/*		content: "";*/
+	/*		width: 97px; height: 97px;*/
+	/*		background: url("chrome://branding/content/icon128.png") no-repeat;*/
+	/*		background-size: 97px;*/
+	/*}*/
+
+}
+
+
+@-moz-document url-prefix("about:"){
+
+	* {
+		box-shadow: none !important;
+	}
+
+	richlistitem[selected="true"],
+	richlistitem[selected="true"] image,
+	richlistitem[selected="true"] label{
+		color: HighlightText !important;
+		background-color: Highlight !important;
+	}
+	richlistitem:hover {
+		color: HighlightText !important;
+		/*filter: brightness(88%) !important;*/
+	}
+
+	.checkbox-check[checked], .radio-check[selected] {
+		background-color: Highlight !important;
+		fill: HighlightText !important;
+	}
+
+	/*button:hover {*/
+	/*    [>opacity: 0.8;<]*/
+	/*    [>filter: brightness(122%) !important;<]*/
+	/*    filter: brightness(92%) !important;*/
+	/*}*/
+
+	/*a:hover, .text-link:hover {*/
+	/*    filter: brightness(92%) !important;*/
+	/*}*/
 
 }
 
