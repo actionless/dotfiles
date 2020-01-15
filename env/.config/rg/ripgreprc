@@ -4,9 +4,15 @@
 # Search binary files as if they were text:
 --text
 
-# ignore png:
+# ignore patterns:
 --glob
 !*.png
+--glob
+!*.jpg
+--glob
+!*.jpeg
+--glob
+!.git/*
 
 # case insensitive unless caps letter used:
 --smart-case
