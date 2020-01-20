@@ -28,6 +28,7 @@ function local_config.init(awesome_context)
   conf.music_players = {
     'gradio',
     'mpv',
+    --'headset',
     --'clementine',
     --'spotify',
     --'mopidy'
