@@ -11,7 +11,7 @@ set -x LC_ALL "en_US.UTF-8"
 #set --universal fish_user_paths $fish_user_paths $HOME/scripts/;
 #eval (dircolors -c ~/.dir_colors | sed 's/>&\/dev\/null$//')
 dircolors -c ~/.dir_colors | sed 's/>&\/dev\/null$//' | source
-#set -x DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/"(id -u)"/bus"
+set -x DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/"(id -u)"/bus"
 
 
 # clean the line on ctrl+c instead of jumping the prompt
