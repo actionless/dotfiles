@@ -37,7 +37,14 @@ function local_config.init(awesome_context)
   --awesome_context.cmds.file_manager = "pcmanfm"
 
   --conf.music_players = { 'spotify', 'clementine', 'mopidy' }
-  conf.music_players = { 'spotify', 'gradio', 'clementine' }
+  conf.music_players = {
+    --'spotify',
+    'gradio',
+    'mpv',
+    --'clementine'
+  }
+
+
 
   awesome_context.autorun = {
     'xinput disable "ELAN Touchscreen"',
@@ -45,6 +52,19 @@ function local_config.init(awesome_context)
     --"~/.scripts/tp_unmute",
     --"killall compton ; compton",
   }
+
+  local touchpad_id = 14
+  if touchpad_id then  -- detect it after asynchronously reading `xinput list` output
+    --https://github.com/p2rkw/xf86-input-mtrack
+    for _, line in ipairs({
+      'xinput set-prop ' .. touchpad_id .. ' "Device Accel Velocity Scaling" 50',
+      'xinput set-prop ' .. touchpad_id .. ' "Trackpad Sensitivity" 0.3',
+      'xinput set-prop ' .. touchpad_id .. ' "Trackpad Edge Sizes" {0,0,0,0}',
+      'xinput set-prop ' .. touchpad_id .. ' "Trackpad Button Emulation Values" {1,3,2}',
+    }) do
+      table.insert(awesome_context.autorun, line)
+    end
+  end
 
   -- Available options, actual theme usually set in config/local.lua:
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars-xresources-hidpi/theme.lua"
