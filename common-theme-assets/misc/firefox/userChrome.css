@@ -1,8 +1,7 @@
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-
 * {
   font-family: sans;
  }
+
 
 /* Hide tabs at the top */
 #TabsToolbar {
@@ -35,19 +34,20 @@
 #editBookmarkPanel .panel-header {
   display: none !important;
 }
-#editBookmarkPanelInfoArea {
-  display: none !important;
-}
-
-/*hide icon*/
-#editBookmarkPanelFaviconContainer,
-#editBookmarkPanelFavicon {
+#editBookmarkPanel #editBookmarkPanelImage{
   display: none !important;
 }
 /*hide page preview*/
-#editBookmarkPanelImage {
-  display: none;
+/*hide icon*/
+#editBookmarkPanelInfoArea,
+#editBookmarkPanelFaviconContainer,
+#editBookmarkPanelFavicon,
+#editBookmarkPanelRecommendation {
+  display: none !important;
+  max-height: 0 !important;
+  height: 0 !important;
 }
+
 /*hide all labels*/
 #editBookmarkPanelRows > vbox > label {
   display: none;
