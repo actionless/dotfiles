@@ -50,13 +50,13 @@ function local_config.init(awesome_context)
   }
 
 
-
-  awesome_context.autorun = {
-    'xinput disable "ELAN Touchscreen"',
+  local au = awesome_context.autorun
+  au[#au+1] = 'xinput disable "ELAN Touchscreen"'
+  --{
     --"touchegg",
     --"~/.scripts/tp_unmute",
     --"killall compton ; compton",
-  }
+  --}
 
   local touchpad_id = 14
   if touchpad_id then  -- detect it after asynchronously reading `xinput list` output
