@@ -1,3 +1,5 @@
+local pgrep_run_once = require("actionless.util.spawn").run_once
+
 local local_config = {}
 
 function local_config.init(awesome_context)
@@ -75,6 +77,12 @@ function local_config.init(awesome_context)
   --  #(awesome_context.before_config_loaded)+1
   --] = function()
   --end
+
+  awesome_context.after_config_loaded[
+    #(awesome_context.after_config_loaded)+1
+  ] = function()
+    pgrep_run_once('python /usr/sbin/autolight')
+  end
 
   return awesome_context
 end
