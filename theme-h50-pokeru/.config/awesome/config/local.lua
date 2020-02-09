@@ -26,7 +26,7 @@ function local_config.init(awesome_context)
   awesome_context.new_top = true
 
 
-  awesome_context.before_config_loaded = function()
+  awesome_context.before_config_loaded[#(awesome_context.before_config_loaded)+1] = function()
     -- size fixes for Fanstasque Sans Mono:
     local beautiful = require("beautiful")
     beautiful.font = "Monospace Bold 11"
@@ -40,7 +40,7 @@ function local_config.init(awesome_context)
     beautiful.useless_gap = 5
   end
 
-  awesome_context.after_config_loaded = function()
+  awesome_context.after_config_loaded[#(awesome_context.after_config_loaded)+1] = function()
   end
 
 

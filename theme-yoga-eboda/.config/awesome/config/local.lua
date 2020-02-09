@@ -11,7 +11,7 @@ function local_config.init(awesome_context)
   awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/gtk/theme.lua"
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/twmish/theme.lua"
 
-  awesome_context.before_config_loaded = function()
+  awesome_context.before_config_loaded[#(awesome_context.before_config_loaded)+1] = function()
     local beautiful = require('beautiful')
     local dpi = beautiful.xresources.apply_dpi
     local color_utils = require("actionless.util.color")

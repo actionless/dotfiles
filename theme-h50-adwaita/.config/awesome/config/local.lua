@@ -25,7 +25,7 @@ function local_config.init(awesome_context)
   awesome_context.sensor = "temp1"
   awesome_context.new_top = true
 
-  --awesome_context.before_config_loaded = function()
+  --awesome_context.before_config_loaded[#(awesome_context.before_config_loaded)+1] = function()
     --local beautiful = require("beautiful")
     --beautiful.widget_music_bg = "#c45754"
     --beautiful.widget_music_bg = "#748ce4"

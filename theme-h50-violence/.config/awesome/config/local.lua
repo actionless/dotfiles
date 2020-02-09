@@ -24,7 +24,7 @@ function local_config.init(awesome_context)
   awesome_context.sensor = "temp1"
   awesome_context.new_top = true
 
-  --awesome_context.before_config_loaded = function()
+  --awesome_context.before_config_loaded[#(awesome_context.before_config_loaded)+1] = function()
   --end
 
   return awesome_context

@@ -21,7 +21,7 @@ function local_config.init(awesome_context)
     --"killall compton ; compton",
   }
 
-  awesome_context.before_config_loaded = function()
+  awesome_context.before_config_loaded[#(awesome_context.before_config_loaded)+1] = function()
     local beautiful = require("beautiful")
     --beautiful.useless_gap = beautiful.xresources.apply_dpi(10)
     beautiful.client_border_radius = beautiful.xresources.apply_dpi(10)
