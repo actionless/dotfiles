@@ -31,7 +31,6 @@ function local_config.init(awesome_context)
     --beautiful.icon_path = "/usr/share/icons/Adwaita"
   end
 
-  awesome_context.have_battery = false
   awesome_context.sensor = "temp1"
   awesome_context.new_top = true
 

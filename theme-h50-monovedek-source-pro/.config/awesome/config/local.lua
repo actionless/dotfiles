@@ -21,7 +21,6 @@ function local_config.init(awesome_context)
     --"killall compton ; compton",
   }
 
-  awesome_context.have_battery = false
   awesome_context.sensor = "temp1"
 
   awesome_context.before_config_loaded[#(awesome_context.before_config_loaded)+1] = function()

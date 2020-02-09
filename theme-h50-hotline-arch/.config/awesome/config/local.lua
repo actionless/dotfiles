@@ -13,8 +13,6 @@ function local_config.init(awesome_context)
   conf.net_preset = 'systemd'
   conf.music_players = { 'spotify', 'clementine', 'mopidy' }
   --conf.music_players = { 'mopidy', }
-  awesome_context.have_battery = false
-  --awesome_context.have_battery = true
   awesome_context.sensor = "temp1"
   awesome_context.apw_on_the_left = false
 
