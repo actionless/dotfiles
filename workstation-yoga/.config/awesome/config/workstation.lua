@@ -1,4 +1,7 @@
+local awful = require("awful")
+
 local pgrep_run_once = require("actionless.util.spawn").run_once
+
 
 local local_config = {}
 
@@ -83,6 +86,18 @@ function local_config.init(awesome_context)
   ] = function()
     pgrep_run_once('python /usr/sbin/autolight')
   end
+
+  local modkey = awesome_context.modkey
+  awesome_context.extra_global_keys[
+    #(awesome_context.extra_global_keys)+1
+  ] = awful.key({modkey}, "Page_Up", function ()
+    awesome_context.widgets.volume.Up()
+  end)
+  awesome_context.extra_global_keys[
+    #(awesome_context.extra_global_keys)+1
+  ] = awful.key({modkey}, "Page_Down", function ()
+    awesome_context.widgets.volume.Down()
+  end)
 
   return awesome_context
 end
