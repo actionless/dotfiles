@@ -29,14 +29,19 @@
 
 	--in-content-box-border-color: InactiveBorder !important;
 	--in-content-box-background: -moz-Field !important;
+	/*table header bg:*/
+	--in-content-box-background-hover: ButtonHighlight !important;
 
 	--in-content-category-text-selected: Highlight !important;
 	--in-content-category-text-selected-active: Highlight !important;
-	--in-content-category-background-selected-hover: -moz-buttonhoverface !important;
+	/*--in-content-category-background-selected-hover: -moz-buttonhoverface !important;*/
+	--in-content-category-background-selected-hover: Highlight !important;
 	--in-content-category-background-selected-active: Highlight !important;
 	--in-content-category-background-hover: -moz-MenuHover !important;
 	--in-content-category-background-active: Highlight !important;
 	--in-content-category-text-hover: HighlightText !important;
+
+	--in-content-dialog-header-background: ButtonFace !important;
 }
 
 body:empty {
@@ -65,15 +70,22 @@ body:empty {
 		--newtab-topsites-background-color: Window !important;
 		--newtab-border-secondary-color: InactiveBorder !important;
 
-		--newtab-element-hover-color: -moz-buttonhoverface !important;
-		--newtab-contextmenu-background-color: Menu !important;
-		--newtab-icon-primary-color: MenuText !important;
+		/*--newtab-element-hover-color: -moz-buttonhoverface !important;*/
+		--newtab-element-hover-color: Highlight !important;
+		--newtab-contextmenu-background-color: ButtonFace !important; /*should be contrast to --newtab-text-primary-color*/
+		--newtab-icon-primary-color: ButtonText !important;
 		--newtab-link-primary-color: Highlight !important;
+		--newtab-section-header-text-color: WindowText !important;
 	}
 
 	input {
 		color: WindowText !important;;
 		background-color: Window !important;;
+	}
+
+	/*new tab "Top Sites" dropdown*/
+	.ds-header, .ds-layout .section-title span {
+		color: var(--newtab-text-secondary-color) !important;
 	}
 
 	/*Logo above search box*/
@@ -94,6 +106,13 @@ body:empty {
 	* {
 		box-shadow: none !important;
 	}
+
+	/*table header fg*/
+	treecol:not([hideheader="true"]) {
+		color: ButtonText !important;
+	}
+
+
 
 	richlistitem[selected="true"],
 	richlistitem[selected="true"] image,
