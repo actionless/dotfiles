@@ -14,28 +14,32 @@ function local_config.init(awesome_context)
   conf.net_preset = 'netctl'
 
   awesome_context.have_battery = true
-  awesome_context.sensors = {}
+  awesome_context.sensors = {
     --gpu_v = {
-      --device = 'nouveau-pci-0300',
-      --sensor = 'in0',
-      --warning = 1,
+    --  device = 'nouveau-pci-0300',
+    --  sensor = 'GPU core',
+    --  sensor_input = 'in0',
+    --  warning = 1,
     --},
-    --cpu = {
-      --device = 'coretemp-isa-0000',
-      --sensor = 'temp1',
-      --warning = 90,
-    --},
-    --cpu0 = {
-      --device = 'coretemp-isa-0000',
-      --sensor = 'temp2',
-      --warning = 90,
-    --},
-    --cpu1 = {
-      --device = 'coretemp-isa-0000',
-      --sensor = 'temp3',
-      --warning = 45,
-    --},
-  --}
+    cpu = {
+      device = 'coretemp-isa-0000',
+      sensor = 'Package id 0',
+      sensor_input = 'temp1',
+      warning = 90,
+    },
+    cpu0 = {
+      device = 'coretemp-isa-0000',
+      sensor = 'Core 0',
+      sensor_input = 'temp2',
+      warning = 90,
+    },
+    cpu1 = {
+      device = 'coretemp-isa-0000',
+      sensor = 'Core 1',
+      sensor_input = 'temp3',
+      warning = 90,
+    },
+  }
 
   awesome_context.apw_on_the_left= true
 
