@@ -28,7 +28,7 @@ Net/EnableInputFeedbackSounds 1
 Net/SoundThemeName "default"
 
 Net/IconThemeName "oomox-shiki-noble"
-#Net/IconThemeName "oomox-monovedek_old"
+#Net/IconThemeName "oomox-monovedek"
 #Net/IconThemeName "oomox-monovedek-gray"
 #Net/IconThemeName "gnome"
 #Net/IconThemeName "Archdroid-Pink"
@@ -36,6 +36,7 @@ Net/IconThemeName "oomox-shiki-noble"
 #Net/IconThemeName "Archdroid-DeepPurple"
 
 #Net/ThemeName "oomox-monovedek"
+#Net/ThemeName "oomox-monovedek_pale"
 Net/ThemeName "oomox-monovedek_gray"
 #Net/ThemeName "Arc-Recolored"
 #Net/ThemeName "Arc-Monovedek"

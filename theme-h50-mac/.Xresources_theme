@@ -2,7 +2,6 @@ st.opacity: 223
 
 ! terminal colorscheme -------------------------------------------------------
 !#include ".Xcolours/lcars3"
-!#include ".Xcolours/monovedek_old"
 !#include ".Xcolours/monovedek"
 !#include ".Xcolours/monovedek-gray"
 !
@@ -31,3 +30,5 @@ st.opacity: 223
 !#include ".Xcolours/todo/light"
 !#include ".Xcolours/todo/business"
 !#include ".Xcolours/todo/ltns"
+
+! vim: ft=xdefaults:

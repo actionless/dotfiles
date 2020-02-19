@@ -10,7 +10,7 @@ st.blinktimeout: 175
 
 ! dark, high contrast:
 !#include ".Xcolours/lcars3"
-!#include ".Xcolours/monovedek_old"
+!#include ".Xcolours/monovedek"
 #include ".Xcolours/lcars0225"
 !#include ".Xcolours/test0880"
 !#include ".Xcolours/test0304"

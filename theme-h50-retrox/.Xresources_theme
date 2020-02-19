@@ -5,7 +5,6 @@ st.font: Go Mono:pixelsize=25:antialias=true:autohint=true;
 
 ! terminal colorscheme -------------------------------------------------------
 !#include ".Xcolours/lcars3"
-!#include ".Xcolours/monovedek_old"
 !#include ".Xcolours/monovedek"
 !#include ".Xcolours/monovedek-gray"
 !
@@ -35,3 +34,5 @@ st.font: Go Mono:pixelsize=25:antialias=true:autohint=true;
 !#include ".Xcolours/todo/business"
 !#include ".Xcolours/todo/ltns"
 #include ".Xcolours/tlight"
+
+! vim: ft=xdefaults:

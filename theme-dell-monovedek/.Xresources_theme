@@ -1,7 +1,6 @@
 ! terminal colorscheme -------------------------------------------------------
 !
-#include ".Xcolours/monovedek_old"
-!#include ".Xcolours/monovedek"
+#include ".Xcolours/monovedek"
 !#include ".Xcolours/gnome_noble_alt"
 !#include ".Xcolours/gnome_noble_light"
 !#include ".Xcolours/waltz"
