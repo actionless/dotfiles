@@ -1,6 +1,6 @@
 local awful = require("awful")
 
-local pgrep_run_once = require("actionless.util.spawn").run_once
+local run_once = require("actionless.util.spawn").run_once
 
 
 local local_config = {}
@@ -88,7 +88,8 @@ function local_config.init(awesome_context)
   awesome_context.after_config_loaded[
     #(awesome_context.after_config_loaded)+1
   ] = function()
-    pgrep_run_once('python /usr/sbin/autolight')
+    run_once('python /usr/sbin/autolight')
+    run_once{"xscreensaver -no-splash"}
   end
 
   local modkey = awesome_context.modkey
