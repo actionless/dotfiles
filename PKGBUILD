@@ -2,12 +2,13 @@
 
 pkgname=actionless_dotfiles_meta
 pkgver=0.1
-pkgrel=4
+pkgrel=8
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
 license=('GPL3')
 depends=(
+	'stow'
 	'awesome'
 	'bash'
 	'coreutils'
@@ -18,6 +19,7 @@ depends=(
 	'python-language-server'
 	'python-rope'
 	'bash-language-server'
+	'xsel'
 	# see more: `pikaur -Ssq language server | grep -i -e 'language[-]server' -e ls`
 
 	# theming:
@@ -30,10 +32,15 @@ depends=(
 	'adobe-source-serif-pro-fonts'
 	'adobe-source-han-sans-jp-fonts'
 	'adobe-source-han-serif-jp-fonts'
+	'otf-fantasque-sans-mono'
 
 	# apps:
 	'mpv'
 	'mpv-mpris'
+
+	# shell aliases:
+	'ripgrep'
+	'exa'
 )
 optdepends=(
 	#'gnome-settings-daemon: rc: alternative to xsettingsd'
