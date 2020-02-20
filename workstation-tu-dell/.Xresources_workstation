@@ -1,0 +1,14 @@
+!*chooseSessionPopup*font:	-*-*-*-r-*-*-20-*-*-*-*-*-*-*
+*font:                      -misc-inputmonocondensed-medium-r-condensed--24-0-0-0-m-0-ascii-0
+
+!Xft.dpi: 192
+Xft.dpi: 157
+!Xft.dpi: 340
+
+!st.opacity: 223
+st.opacity: 255
+
+st.font: Monospace:pixelsize=20:antialias=true:autohint=true;
+
+
+! vim: ft=xdefaults:
