@@ -125,9 +125,20 @@ body:empty {
 		/*filter: brightness(88%) !important;*/
 	}
 
-	.checkbox-check[checked], .radio-check[selected] {
+	.checkbox-check[checked],
+	.radio-check[selected] {
 		background-color: Highlight !important;
 		fill: HighlightText !important;
+	}
+
+	/* checkbox inside table */
+	treechildren::-moz-tree-image(checked) {
+		fill: Highlight !important;
+	}
+	treechildren::-moz-tree-image(checked, hover),
+	treechildren::-moz-tree-image(checked, selected) {
+		fill: HighlightText !important;
+		stroke: none !important;
 	}
 
 	/*button:hover {*/
