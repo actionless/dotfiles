@@ -1,6 +1,7 @@
 * {
   font-family: sans;
- }
+  --toolbarbutton-icon-fill-attention: Highlight !important;
+}
 
 
 /* Hide tabs at the top */
