@@ -19,13 +19,25 @@
 	--panel-disabled-color: InactiveCaption !important;
 	--in-content-deemphasized-text: InactiveCaptionText !important;
 
+	--in-content-selected-text: HighlightText !important;
 	--in-content-item-selected: Highlight !important;
 	--in-content-item-hover: -moz-MenuHover !important;
-	--in-content-selected-text: HighlightText !important;
+	--in-content-border-highlight: Highlight !important;
+	--in-content-border-focus: Highlight !important;
 	--in-content-border-active: Highlight !important;
 	--in-content-border-active-shadow: Highlight !important;
-	--in-content-border-focus: Highlight !important;
-	--in-content-border-highlight: Highlight !important;
+	--in-content-category-outline-focus: 1px dotted Highlight !important;
+	--in-content-category-text-selected: Highlight !important;
+	--in-content-category-text-selected-active: Highlight !important;
+	--in-content-table-header-background: Highlight !important;
+
+	--blue-40: Highlight !important;
+	--blue-40-a10: Highlight !important;
+	--blue-50: Highlight !important;
+	--blue-50-a30: Highlight !important;
+	--blue-60: Highlight !important;
+	--blue-70: Highlight !important;
+	--blue-80: Highlight !important;
 
 	--in-content-box-border-color: InactiveBorder !important;
 	--in-content-box-background: -moz-Field !important;
