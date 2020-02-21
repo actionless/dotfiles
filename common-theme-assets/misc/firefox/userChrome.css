@@ -27,6 +27,11 @@
   background: Window !important;
 }
 
+/* favorite star in address bar */
+#star-button[starred], #star-button-animatable-image {
+	fill: Highlight !important;
+	stroke: Highlight !important;
+}
 
 /*Minimize style of bookmarks panel:*/
 
