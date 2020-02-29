@@ -6,7 +6,7 @@ function sudo --description 'Wrapper for sudo'
 	end
 end
 
-function time --description 'Wrapper for time'
+function bin_time --description 'Wrapper for time'
 	command time -p $FISH -c "$argv"
 end
 
