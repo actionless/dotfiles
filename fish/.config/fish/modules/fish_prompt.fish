@@ -6,9 +6,10 @@ function _fish_git_prompt
 	if [ -z $git_branch_name ]
 		return 1
 	else
-		set -l IFS ''
-
-		set -l git_status (command git status --porcelain --ignore-submodules=dirty 2>/dev/null)
+		set -l git_status (
+			command git status --porcelain --ignore-submodules=dirty 2>/dev/null \
+			| string collect
+		)
 		if [ -n "$git_status" ]
 			set_color red -o
 			set git_branch_name_uncommited (echo $git_status | grep "^ [MD]" | wc -l)
