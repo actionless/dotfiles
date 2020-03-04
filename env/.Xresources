@@ -107,6 +107,7 @@ XTerm*scaleHeight: 0.80
 xterm*saveLines:	0
 xterm*termName:		xterm-256color
 xterm*bellIsUrgent:	true
+xterm*decTerminalID	:	vt340
 
 ! xscreensaver ---------------------------------------------------------------
 !font settings
