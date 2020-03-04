@@ -52,7 +52,7 @@ fi
 export LC_ALL=en_US.UTF-8
 . ~/.profile
 
-/usr/bin/vmware-user-suid-wrapper
+test -f /usr/bin/vmware-user-suid-wrapper && /usr/bin/vmware-user-suid-wrapper || true
 
 session="$2"
 #if [ -z "$session" ]
