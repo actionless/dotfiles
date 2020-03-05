@@ -56,8 +56,7 @@ rm -fr ~/.atom/compile-cache/
 rm -fr ~/.config/{Atom,Headset,Notion,Slack,Soundnode}/{assetCache,Cache,GPUCache,Logs}/
 rm -fr ~/.config/Clementine{,-qt5}/spotify-cache/Storage/
 rm -fr ~/.config/Code/{Cache,CachedData,CachedExtensions,logs}/
-rm -fr ~/".config/falkon/profiles/*/Service Worker/{CacheStorage,ScriptCache}"
-rm -fr ~/".config/{google-chrome,chromium,vivaldi}/*/Service Worker/{CacheStorage,ScriptCache}"
+rm -fr ~/.config/{Slack,chromium/*,google-chrome/*,falkon/profiles/*,vivaldi/*}/"Service Worker"/{CacheStorage,ScriptCache}
 rm -fr ~/.config/qupzilla/profiles/default/networkcache/
 rm -fr ~/.qmc2/*cache*
 rm -fr ~/.rigsofrods/cache/
