@@ -2,9 +2,9 @@
 !Xft.autohint: 0
 Xft.antialias: 1
 Xft.hinting: 1
-Xft.hintstyle: hintfull
+!Xft.hintstyle: hintfull
 !Xft.hintstyle: hintmedium
-!Xft.hintstyle: hintslight
+Xft.hintstyle: hintslight
 !Xft.dpi: 131
 !Xft.dpi: 185
 !Xft.dpi: 192

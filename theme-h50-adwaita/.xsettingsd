@@ -46,8 +46,8 @@ Net/ThemeName "Adwaita"
 Xft/DPI 196608
 
 Xft/Antialias 1
-#Xft/HintStyle "hintslight"
-Xft/HintStyle "hintfull"
+Xft/HintStyle "hintslight"
+#Xft/HintStyle "hintfull"
 Xft/RGBA "rgb"
 
 # vim:ft=conf
