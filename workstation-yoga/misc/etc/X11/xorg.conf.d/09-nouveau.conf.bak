@@ -1,0 +1,9 @@
+Section "Device"
+	Identifier "nvidia_card"
+	#Identifier      "Default Device"
+	#Identifier  "Card0"
+	#Identifier  "Card1"
+	Driver      "nouveau"
+	Option "GLXVBlank" "true"
+	BusID       "PCI:3:0:0"
+EndSection

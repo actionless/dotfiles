@@ -1,5 +1,6 @@
 #export VDPAU_DRIVER=radeonsi
-export VDPAU_DRIVER=intel
+#export VDPAU_DRIVER=intel
+export VDPAU_DRIVER=nvidia
 
 ## HiDPI
 # GTK3

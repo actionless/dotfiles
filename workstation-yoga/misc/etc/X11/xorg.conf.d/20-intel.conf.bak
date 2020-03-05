@@ -1,12 +1,14 @@
 Section "Device"
-  Identifier  "Intel Graphics"
+  #Identifier  "Intel Graphics"
+  Identifier  "Card0"
   Driver      "intel"
  #Option      "AccelMethod"  "uxa"
  Option      "AccelMethod"  "sna"
 
   Option      "DRI" "2"
  #Option "DRI" "3"
+ #Option "DRI" "3"
   Option      "TearFree" "true"
   Option	"SwapbuffersWait" "true"
-#  BusID       "00:02.0"
+  BusID       "PCI:0:2:0"
 EndSection

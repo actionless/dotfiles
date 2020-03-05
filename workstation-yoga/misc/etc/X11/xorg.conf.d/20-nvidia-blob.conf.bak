@@ -1,0 +1,10 @@
+Section "Device"
+	#Identifier  "Card0"
+	Identifier "Nvidia card"
+	Driver      "nvidia"
+	BusID       "PCI:3:0:0"
+	Option	"NoLogo"	"true"
+#	Option "OnDemandVBlankInterrupts" "1"
+	Option "metamodes" "nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
+EndSection
+
