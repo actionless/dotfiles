@@ -89,7 +89,7 @@ function local_config.init(awesome_context)
   awesome_context.after_config_loaded[
     #(awesome_context.after_config_loaded)+1
   ] = function()
-    run_once('python /usr/sbin/autolight')
+    --run_once('python /usr/sbin/autolight')
     run_once{"xscreensaver -no-splash"}
   end
 
