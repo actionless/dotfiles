@@ -72,6 +72,7 @@ rm -fr ~/.electron/
 rm -fr ~/.gem/
 rm -fr ~/.go/* || sudo rm -fr ~/.go/*
 rm -fr ~/.*-gyp/
+rm -fr ~/.gradle/
 rm -fr ~/.lazarus/
 rm -fr ~/.luarocks/
 rm -fr ~/.npm/
