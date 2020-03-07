@@ -62,14 +62,15 @@ function local_config.init(awesome_context)
     --"killall compton ; compton",
   --}
 
-  local touchpad_id = 14
+  local touchpad_id = "SynPS/2 Synaptics TouchPad"
   if touchpad_id then  -- detect it after asynchronously reading `xinput list` output
     --https://github.com/p2rkw/xf86-input-mtrack
     for _, line in ipairs({
-      'xinput set-prop ' .. touchpad_id .. ' "Device Accel Velocity Scaling" 50',
-      'xinput set-prop ' .. touchpad_id .. ' "Trackpad Sensitivity" 0.3',
-      'xinput set-prop ' .. touchpad_id .. ' "Trackpad Edge Sizes" {0,0,0,0}',
-      'xinput set-prop ' .. touchpad_id .. ' "Trackpad Button Emulation Values" {1,3,2}',
+      'xinput set-prop "' .. touchpad_id .. '" "Device Accel Velocity Scaling" 10',
+      'xinput set-prop "' .. touchpad_id .. '" "Trackpad Sensitivity" 0.3',
+      'xinput set-prop "' .. touchpad_id .. '" "Trackpad Edge Sizes" {0,0,0,0}',
+      'xinput set-prop "' .. touchpad_id .. '" "Trackpad Button Emulation Values" {1,3,2}',
+      'xinput set-prop "' .. touchpad_id .. '" "Trackpad Palm Detection" {0,0}',
     }) do
       table.insert(awesome_context.autorun, line)
     end
