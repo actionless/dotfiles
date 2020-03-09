@@ -13,6 +13,8 @@
 !*.jpeg
 --glob
 !.git/*
+--glob
+!env/*
 
 # case insensitive unless caps letter used:
 --smart-case
