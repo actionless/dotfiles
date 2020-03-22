@@ -1,7 +1,8 @@
 Gtk/ButtonImages 1
 Gtk/CanChangeAccels 1
 Gtk/ColorPalette "black:white:gray50:red:purple:blue:light blue:green:yellow:orange:lavender:brown:goldenrod4:dodger blue:pink:light green:gray10:gray30:gray75:gray90"
-Gtk/CursorThemeName ""
+Gtk/CursorThemeName "default"
+#Gtk/CursorThemeName "Breeze_Snow"
 Gtk/CursorThemeSize 0
 #Gtk/DecorationLayout "close,menu:maximize"
 Gtk/DecorationLayout "menu:"
