@@ -1,0 +1,2 @@
+#!/bin/bash
+nitrogen --sort=rtime ~/images/theme-wallpapers/
