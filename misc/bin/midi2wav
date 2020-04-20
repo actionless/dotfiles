@@ -1,0 +1,7 @@
+#!/bin/bash
+set -ueo pipefail
+
+input="$1"
+output="$2"
+
+fluidsynth "$input" -F "$output" /usr/share/tuxguitar/share/soundfont/MagicSFver2.sf2

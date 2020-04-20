@@ -1,0 +1,11 @@
+#!/bin/bash
+set -ueo pipefail
+
+input="$1"
+output="$2"
+
+temp_wav="$(mktemp XXX.wav)"
+
+midi2wav "$input" "$temp_wav"
+lame "$temp_wav" "$output"
+rm "$temp_wav"
