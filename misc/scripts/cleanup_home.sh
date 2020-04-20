@@ -17,6 +17,10 @@ move_cache_dir() {
 	fi
 }
 
+rmfiles() {
+	find "$1" -type f -delete
+}
+
 # SHOW USAGE BEFORE ###########################################################
 dfc | grep /home
 
@@ -33,7 +37,7 @@ rm -fr ~/.cache/google-chrome/
 rm -fr ~/.cache/jedi/
 rm -fr ~/.cache/*.kcache
 rm -fr ~/.cache/mesa/
-rm -fr ~/.cache/mozilla/firefox/*/cache2/
+rmfiles ~/.cache/mozilla/
 rm -fr ~/.cache/netsurf/
 rm -fr ~/.cache/Otter/
 rm -fr ~/.cache/parso/
