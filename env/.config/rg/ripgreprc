@@ -12,6 +12,8 @@
 --glob
 !*.jpeg
 --glob
+!*.so
+--glob
 !.git/*
 --glob
 !env/*
