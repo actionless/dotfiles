@@ -1,0 +1,198 @@
+/*
+*   Abricotine - Markdown Editor
+*   Copyright (c) 2020 Actionless
+*   Licensed under GNU-GPLv3 <http://www.gnu.org/licenses/gpl.html>
+*/
+
+// Monovedek Theme
+
+// USER INTERFACE
+// ==============
+
+// Main
+@ui-font-size: 14px;
+@ui-background-color: #0e0021;
+
+// Pane
+@ui-pane-color: #0e0021;
+@ui-pane-background-color: #888a85;
+@ui-pane-border-color: #8c8984;
+.ui-pane-item() {
+}
+.ui-pane-item-hover() {
+    background: rgba(0,0,0,.03);
+    box-shadow: inset 0 0 1px rgba(0,0,0,.1);
+    text-shadow: 0 -1px 0 #fffefe;
+}
+.ui-pane-item-active() {
+    background: #dc5e86;
+    color: #0e0021;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,.2);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+}
+
+// CodeMirror dialogs
+@ui-dialog-color: @ui-pane-color;
+@ui-dialog-background: @ui-pane-background-color;
+@ui-dialog-button-background: #85509b;
+@ui-dialog-button-focus-background: #dc5e86;
+@ui-dialog-button-color: #0e0021;
+@ui-dialog-border-color: @ui-pane-border-color;
+
+// Scrollbars
+@ui-scrollbar-track-color: #888a85;
+@ui-scrollbar-color: #4e4061;
+@ui-scrollbar-hover-color: @ui-scrollbar-color;
+@ui-scrollbar-width: 8px;
+@ui-scrollbar-search-background: #dc5e86;
+
+// EDITOR
+// ======
+
+// Text
+@editor-font-family: "Fantasque Sans Mono", monospace;
+@editor-ligatures: true;
+@editor-text-color: #0e0021;
+@editor-background-color: #c0bbbb;
+
+// Headers
+.editor-headers() {
+    color: #0e0021;
+    font-family: Fantasque Sans Mono, sans-serif;
+}
+.editor-header-1() {
+    font-size: 300%;
+}
+.editor-header-2() {
+    font-size: 220%;
+}
+.editor-header-3() {
+    font-size: 180%;
+}
+.editor-header-4() {
+    font-size: 150%;
+}
+.editor-header-5() {
+    font-size: 130%;
+}
+.editor-header-6() {
+    font-size: 110%;
+}
+
+// Code
+@editor-code-font-family: "Fantasque Sans Mono", monospace;
+
+.editor-code() {
+    color: #0e0021;
+    background: #888a85;
+}
+
+.codeblock, .codeblock-delimiter {
+    background: #0e0021;
+}
+
+div.CodeMirror-code div pre {
+	span, span.cm-m-markdown.cm-comment, span.cm-m-null.cm-comment {
+		color: #c0bbbb;
+		background: #0e0021;
+	}
+	span.cm-formatting.cm-formatting-code-block {
+		color: #5edcb4;
+	}
+}
+
+// Quote
+.editor-quote() {
+    color: #0e0021;
+	background: #858a85;
+	margin: 0;
+	padding: 4px;
+}
+
+// List
+@editor-list-padding-left: 0;
+@editor-list-checked-color: #888a85;
+.editor-list() {
+    color: auto;
+}
+.editor-list-checked() {
+    text-decoration: line-through;
+}
+
+// Horizontal rule
+.editor-hr() {
+    color: #888a85;
+}
+
+// Image
+.editor-image() {
+    color: #cb1578;
+}
+
+// Link and URL
+.editor-link() {
+	color: #cb15c9;
+}
+.editor-link-href() {
+	color: #15b4cb;
+    color: #6f15cb;
+}
+
+// Text formating
+.editor-em() {};
+.editor-strong() {};
+.editor-strikethrough() {};
+
+// Formatting marks and hidden characters
+// @editor-formatting-color: #15b4cb;
+@editor-formatting-color: #6f15cb;
+@editor-hidden-characters-color: #cb1578;
+
+// Cursors and selections
+@editor-cursor-color: #b75edc;
+@editor-cursor-width: 2px;
+.editor-selection() {
+    background-color: #dc5e86;
+}
+.editor-searching() {
+    background: transparent;
+    padding: 1px;
+    border: 2px solid #cb9a15;
+    border-radius: 3px;
+}
+
+// Show blocks option
+@editor-block-margin-color: #888a85;
+@editor-block-margin-size: 5px;
+
+// Errors
+@error-color: #cb1578;
+@error-color-contrast: #fffefe;
+
+// CodeMirror code highlighting
+@cm-atom-color: #cb15c9;
+@cm-attribute-color: #5edcb4;
+@cm-builtin-color: #6f15cb;
+@cm-bracket-color: #cb9a15;
+@cm-comment-color: #888a85;
+@cm-def-color: #6f15cb;
+@cm-header-color: #6f15cb;
+@cm-hr-color: #888a85;
+@cm-keyword-color: #9edc60;
+@cm-link-color: #5edcb4;
+@cm-meta-color: #8c8984;
+@cm-node-color: #15b4cb;
+@cm-number-color: #b75edc;
+@cm-operator-color: auto;
+@cm-property-color: #5edcb4;
+@cm-punctuation-color: auto;
+@cm-qualifier-color: #8ecb15;
+@cm-quote-color: #8ecb15;
+@cm-string-color: #dcb65e;
+@cm-string-2-color: #cb1578;
+@cm-tag-color: #15b4cb;
+@cm-variable-color: #5edcb4;
+@cm-variable-2-color: #6f15cb;
+@cm-variable-3-color: #5edcb4;
+@cm-negative-color: #cb1578;
+@cm-positive-color: #8ecb15;
