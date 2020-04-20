@@ -33,6 +33,7 @@ pikaur -Scc --aur
 rm -fr ~/.cache/chromium/
 rm -fr ~/.cache/electron/
 rm -fr ~/.cache/flatpak/
+rm -fr ~/.cache/go-build/
 rm -fr ~/.cache/google-chrome/
 rm -fr ~/.cache/jedi/
 rm -fr ~/.cache/*.kcache
@@ -57,9 +58,9 @@ rm -fr ~/.cache/mesa_shader_cache/*
 set -x
 # more cache:
 rm -fr ~/.atom/compile-cache/
-rm -fr ~/.config/{Atom,Headset,Notion,Slack,Soundnode}/{assetCache,Cache,GPUCache,Logs}/
+rm -fr ~/.config/{Atom,Code,Headset,Notion,skypeforlinux,Slack,Soundnode}/{assetCache,Cache,"Code Cache",GPUCache,Logs,logs}/
+rm -fr ~/.config/Code/{CachedData,CachedExtensions}/
 rm -fr ~/.config/Clementine{,-qt5}/spotify-cache/Storage/
-rm -fr ~/.config/Code/{Cache,CachedData,CachedExtensions,logs}/
 rm -fr ~/.config/{Slack,chromium/*,google-chrome/*,falkon/profiles/*,vivaldi/*}/"Service Worker"/{CacheStorage,ScriptCache}
 rm -fr ~/.config/qupzilla/profiles/default/networkcache/
 rm -fr ~/.qmc2/*cache*
@@ -81,6 +82,8 @@ rm -fr ~/.lazarus/
 rm -fr ~/.luarocks/
 rm -fr ~/.npm/
 rm -fr ~/.opam/
+rm -fr ~/.nuget/
+rm -fr ~/.local/share/NuGet/
 #find ~ -type d -name .mypy_cache -exec rm -r {} \;
 
 # misc: #######################################################################
