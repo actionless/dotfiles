@@ -12,6 +12,7 @@ Plug 'sgur/vim-editorconfig'
 Plug 'scrooloose/nerdcommenter'
 let g:NERDDefaultAlign = 'left'
 
+Plug 'aklt/plantuml-syntax', {'for': ['plantuml']}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Style:
