@@ -28,20 +28,11 @@ Net/EnableEventSounds 1
 Net/EnableInputFeedbackSounds 1
 Net/SoundThemeName "default"
 
-Net/IconThemeName "oomox-shiki-noble"
-#Net/IconThemeName "oomox-monovedek-gray"
+#Net/IconThemeName "oomox-shiki-noble"
+Net/IconThemeName "oomox-monovedek"
 #Net/IconThemeName "gnome"
-#Net/IconThemeName "Archdroid-Pink"
-#Net/IconThemeName "Archdroid-Teal"
-#Net/IconThemeName "Archdroid-DeepPurple"
 
-#Net/ThemeName "oomox-monovedek"
-#Net/ThemeName "oomox-black"
 Net/ThemeName "oomox-monovedek"
-#Net/ThemeName "Arc-Recolored"
-#Net/ThemeName "Arc-Monovedek"
-#Net/ThemeName "Flattastic-Monovedek-Dark"
-#Net/ThemeName "Flattastic-LCARS"
 
 
 # thinkpad:
