@@ -2,22 +2,29 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+start_bluetooth_stack() {
+	echo ":: Unblocking Bluetooth RF switches..."
+	set -x
+	# shellcheck disable=2046
+	rfkill unblock $(rfkill list | grep -i bluetooth | cut -d: -f1)
+	set +x
+	sleep 1
 
-echo ":: Starting Bluetooth service..."
-sudo systemctl start bluetooth
-sleep 0.2
+	echo ":: Starting Bluetooth service..."
+	sudo systemctl start bluetooth
+	sleep 1
 
-echo ":: Starting blueman-manager..."
-blueman-manager &
-sleep 0.2
+	echo ":: Starting blueman-manager..."
+	blueman-manager &
+	sleep 0.2
 
+	echo ":: Starting bluealsa..."
+	sudo bluealsa
+}
 
 stop_bluetooth_and_exit() {
 	exit_code=$?
 	set +e
-
-	echo ":: Stopping Bluetooth service..."
-	sudo systemctl stop bluetooth
 
 	if pgrep blueman-manager ; then
 		echo ":: Killing blueman-manager..."
@@ -29,11 +36,16 @@ stop_bluetooth_and_exit() {
 		sudo killall bluealsa
 	fi
 
+	echo ":: Stopping Bluetooth service..."
+	sudo systemctl stop bluetooth
+
+	echo ":: Blocking Bluetooth RF switches..."
+	# shellcheck disable=2046
+	rfkill block $(rfkill list | grep -i bluetooth | cut -d: -f1)
+
+	trap - EXIT
 	exit $exit_code
 }
-trap stop_bluetooth_and_exit HUP INT TERM
 
-echo ":: Starting bluealsa..."
-sudo bluealsa
-
-stop_bluetooth_and_exit
+trap stop_bluetooth_and_exit HUP INT TERM EXIT
+start_bluetooth_stack
