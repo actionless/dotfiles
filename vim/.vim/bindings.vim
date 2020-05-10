@@ -69,7 +69,8 @@ endfunction
 noremap <leader>w :call MyWindowMenu()<CR>
 
 function! MyAleFixMenu()
-	let l:base_menu = [
+	let l:fix_menu = []
+	let l:fix_menu += [
 		\	['s', ':ALEFixSuggest'],
 		\	['t', ':ALEFix remove_trailing_lines'],
 		\	['w', ':ALEFix trim_whitespace'],
@@ -77,19 +78,17 @@ function! MyAleFixMenu()
 		\	['2', '<TAB> to 2 spaces', ':%s/	/  /g'],
 	\ ]
 	if &filetype == 'python'
-		let l:filetype_menu = [
+		let l:fix_menu += [
 			\	['a', ':ALEFix autopep8'],
 			\	['b', ':ALEFix black'],
 			\	['i', ':ALEFix isort'],
 			\	['y', ':ALEFix yapf'],
 		\ ]
-	else
-		let l:filetype_menu = []
 	endif
-	call SimpleMenu(l:base_menu + l:filetype_menu)
+	call SimpleMenu(l:fix_menu)
 endfunction
 function! MyAleMenu()
-	call SimpleMenu([
+	let l:root_menu = [
 		\	['o', ':ALEToggle'],
 		\	['d', ':ALEDetail'],
 		\	['h', ':ALEHover'],
@@ -100,6 +99,13 @@ function! MyAleMenu()
 		\	['d', ':ALEGoToDefinition'],
 		\	['t', ':ALEGoToDefinitionInTab'],
 		\	['f', 'Fix...', ':call MyAleFixMenu()'],
-	\ ])
+	\ ]
+	if &diff
+		let l:root_menu += [
+			\	['g', ':diffget'],
+			\	['p', ':diffput'],
+		\ ]
+	endif
+	call SimpleMenu(l:root_menu)
 endfunction
 noremap <leader>l :call MyAleMenu()<CR>
