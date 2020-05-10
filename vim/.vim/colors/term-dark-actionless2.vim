@@ -28,7 +28,8 @@ hi TabLineFill    ctermbg=NONE cterm=NONE
 "hi TabLine        cterm=NONE ctermfg=fg ctermbg=NONE
 hi TabLineSel     cterm=bold ctermfg=15 ctermbg=DarkBlue
 
-hi Comment        term=bold		ctermfg=8
+"hi Comment       cterm=NONE		ctermfg=8
+hi Comment        cterm=bold		ctermfg=6
 hi Constant       term=underline	ctermfg=blue
 hi Special        term=bold		ctermfg=3
 hi Identifier     cterm=bold ctermfg=green
