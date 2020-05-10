@@ -14,6 +14,8 @@
 --glob
 !*.so
 --glob
+!*.pyc
+--glob
 !.git/*
 --glob
 !env/*
