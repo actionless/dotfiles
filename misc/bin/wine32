@@ -1,0 +1,2 @@
+#!/bin/sh
+exec env WINEARCH=win32 WINEPREFIX=$(readlink -e ~/.wine32/) $@
