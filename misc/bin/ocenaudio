@@ -1,0 +1,2 @@
+#!/bin/sh
+exec env QT_SCREEN_SCALE_FACTORS=1.6 /opt/ocenaudio/bin/ocenaudio "$@"
