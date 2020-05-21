@@ -1,2 +1,8 @@
-#!/usr/bin/env sh
-exec pikaur -Rs $(pikaur -Qdtq)
+#!/usr/bin/env bash
+
+results=("$(pacman -Qdtq)")
+if [ -z "${results[*]}" ] ; then
+	echo "Nothing to do."
+else
+	exec sudo pacman -Rs "${results[@]}"
+fi
