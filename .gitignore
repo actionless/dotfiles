@@ -8,3 +8,4 @@ vim/.vim/autoload/plug.vim.old
 .mypy_cache/
 last_installed.txt
 .SRCINFO
+private.fish
