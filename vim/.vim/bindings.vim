@@ -102,8 +102,10 @@ function! MyAleMenu()
 	\ ]
 	if &diff
 		let l:root_menu += [
-			\	['g', ':diffget'],
-			\	['p', ':diffput'],
+			\	['u', ':diffupdate'],
+			\	['r', ':diffget RE'],
+			\	['b', ':diffget BA'],
+			\	['l', ':diffget LO'],
 		\ ]
 	endif
 	call SimpleMenu(l:root_menu)
