@@ -45,9 +45,8 @@ function local_config.init(awesome_context)
 
   --awesome_context.cmds.file_manager = "pcmanfm"
 
-  --conf.music_players = { 'spotify', 'clementine', 'mopidy' }
   conf.music_players = {
-    --'spotify',
+    'spotify',
     'gradio',
     'mpv',
     --'clementine'
