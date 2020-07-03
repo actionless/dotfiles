@@ -4,6 +4,7 @@ st.opacity: 223
 !st.font: Fantasque Sans Mono:pixelsize=21.75:antialias=true:autohint=true;
 st.font: Fantasque Sans Mono:pixelsize=22:antialias=true:autohint=true;
 st.cursorshape: 1
+!st.cursorshape: 9
 !st.xfps:         30
 !st.actionfps:    30
 !st.blinktimeout: 500
