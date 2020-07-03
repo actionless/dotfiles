@@ -2,7 +2,7 @@
 
 pkgname=actionless_dotfiles_meta
 pkgver=0.1
-pkgrel=8
+pkgrel=9
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
@@ -33,6 +33,9 @@ depends=(
 	'adobe-source-han-sans-jp-fonts'
 	'adobe-source-han-serif-jp-fonts'
 	'otf-fantasque-sans-mono'
+	#
+	'ttf-go-mono-git'
+	'ttf-go-sans-git'
 
 	# apps:
 	'mpv'
