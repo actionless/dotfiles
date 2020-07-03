@@ -50,6 +50,7 @@ export XDG_CURRENT_DESKTOP=gnome
 #export QT_QPA_PLATFORMTHEME='gtk2'
 export QT_QPA_PLATFORMTHEME='qt5ct'
 
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 export VST_PATH=/usr/lib/vst:/usr/local/lib/vst:$HOME/.vst:$HOME/.vst-bridges/
 export LXVST_PATH=/usr/lib/lxvst:/usr/local/lib/lxvst:~/.lxvst:/someother/custom/dir
