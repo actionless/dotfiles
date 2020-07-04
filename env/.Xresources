@@ -28,6 +28,7 @@ st.cursorshape: 1
 st.cursorblinkstyle: 0
 st.cursorblinkontype: 1
 !st.blinktimeout: 175
+st.borderpx:          10
 
 ! urxvt ----------------------------------------------------------------------
 
