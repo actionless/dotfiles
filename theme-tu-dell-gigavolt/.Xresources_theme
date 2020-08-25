@@ -19,7 +19,8 @@ st.blinktimeout: 250
 !#include ".Xcolours/apprentice"
 !
 !#include ".Xcolours/oomox/gigavolt"
-#include ".Xcolours/oomox/gigavolt_lighter"
+!#include ".Xcolours/oomox/gigavolt_lighter"
+#include ".Xcolours/oomox/gigavolt_darker"
 ! ?? 
 !#include ".Xcolours/jwr-dark"
 !#include ".Xcolours/farside"
