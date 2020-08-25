@@ -17,6 +17,9 @@ set -x DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/"(id -u)"/bus"
 # clean the line on ctrl+c instead of jumping the prompt
 bind \cc 'commandline ""'
 
+ # st fix:
+bind \[P delete-char
+
 
 function reload_fish
 	#set -g fish_user_abbreviations
