@@ -1,3 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 mapfile -t not_needed_deps < <(pacman -Qtdq)
-exec sudo pacman -Rs "${not_needed_deps[@]}"
+if [ -z "${not_needed_deps[*]}" ] ; then
+	echo "Nothing to do."
+else
+	exec sudo pacman -Rs "${not_needed_deps[@]}"
+fi
