@@ -34,14 +34,37 @@ function local_config.init(awesome_context)
     --'mopidy'
   }
 
-  awesome_context.autorun = {
+  local au = awesome_context.autorun
     --"~/.scripts/tp_unmute",
     --"killall compton ; compton",
     --'xinput disable "ELAN Touchscreen"',
     --"touchegg",
     --"~/.scripts/tp_unmute",
     --"killall compton ; compton",
-  }
+
+  local sanwa_pad = true
+  if sanwa_pad then  -- detect it after asynchronously reading `xinput list` output
+    --legacy evdev-based:
+    --local sanwa_big = 12
+    --with_shell('xinput set-prop ' .. sanwa_pad .. ' "Device Accel Velocity Scaling" 26')
+    --with_shell('xinput set-prop ' .. sanwa_pad .. ' "Evdev Middle Button Emulation" 1')
+    --with_shell('xinput set-prop ' .. sanwa_pad .. ' "Evdev Wheel Emulation" 1')
+    --with_shell('xinput set-prop ' .. sanwa_pad .. ' "Evdev Wheel Emulation Button" 2')
+    --with_shell('xinput set-prop ' .. sanwa_pad .. ' "Evdev Wheel Emulation Timeout" 200')
+    ----wheel inertia:
+    ----default:
+    --with_shell('xinput set-prop ' .. sanwa_pad .. ' "Evdev Wheel Emulation Inertia" 350')
+    ----from workstation:
+    ----with_shell('xinput set-prop ' .. sanwa_pad .. ' "Evdev Wheel Emulation Inertia" 50')
+    ----from vm:
+    ----with_shell('xinput set-prop ' .. sanwa_pad .. ' "Evdev Wheel Emulation Inertia" 170')
+
+    --libinput-based:
+    au[#au+1] = {
+        'xinput', 'set-prop', 'HID 04d9:1166',
+        "libinput Scroll Method Enabled", '0', '0', '1'
+      }
+  end
 
   -- Available options, actual theme usually set in config/local.lua:
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars-xresources-hidpi/theme.lua"
