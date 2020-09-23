@@ -11,7 +11,6 @@ function local_config.init(awesome_context)
   conf.wlan_if = 'wlp4s0'
   conf.eth_if = 'enp0s25'
   --conf.net_preset = 'systemd'
-  conf.net_preset = 'netctl'
 
   awesome_context.have_battery = true
   awesome_context.sensors = {
@@ -49,32 +48,19 @@ function local_config.init(awesome_context)
     'spotify',
     'gradio',
     'mpv',
+    'firefox',
     --'clementine'
   }
 
 
   local au = awesome_context.autorun
-  au[#au+1] = 'xscreensaver -no-splash'
-  au[#au+1] = 'xinput disable "ELAN Touchscreen"'
+  --au[#au+1] = 'xscreensaver -no-splash'
   au[#au+1] = '~/.screenlayout/default.sh'
   --{
     --"touchegg",
     --"~/.scripts/tp_unmute",
     --"killall compton ; compton",
   --}
-
-  local touchpad_id = 14
-  if touchpad_id then  -- detect it after asynchronously reading `xinput list` output
-    --https://github.com/p2rkw/xf86-input-mtrack
-    for _, line in ipairs({
-      'xinput set-prop ' .. touchpad_id .. ' "Device Accel Velocity Scaling" 50',
-      'xinput set-prop ' .. touchpad_id .. ' "Trackpad Sensitivity" 0.3',
-      'xinput set-prop ' .. touchpad_id .. ' "Trackpad Edge Sizes" {0,0,0,0}',
-      'xinput set-prop ' .. touchpad_id .. ' "Trackpad Button Emulation Values" {1,3,2}',
-    }) do
-      table.insert(awesome_context.autorun, line)
-    end
-  end
 
   -- Available options, actual theme usually set in config/local.lua:
   --awesome_context.theme_dir = awful.util.getdir("config") .. "/themes/lcars-xresources-hidpi/theme.lua"
@@ -86,11 +72,11 @@ function local_config.init(awesome_context)
   --] = function()
   --end
 
-  awesome_context.after_config_loaded[
-    #(awesome_context.after_config_loaded)+1
-  ] = function()
-    pgrep_run_once('python /usr/sbin/autolight')
-  end
+  --awesome_context.after_config_loaded[
+  --  #(awesome_context.after_config_loaded)+1
+  --] = function()
+  --  pgrep_run_once('python /usr/sbin/autolight')
+  --end
 
   local modkey = awesome_context.modkey
   --awesome_context.extra_global_keys[
