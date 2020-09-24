@@ -7,10 +7,13 @@ if [[ $(id -u) -ne 0 ]] ; then
 fi
 
 
-lang=$( \
-	echo "ru
+lang="${1:-}"
+if [[ -z "${lang}" ]] ; then
+	lang=$( \
+		echo "ru
 en" | fzf \
-)
+	)
+fi
 if [[ -z "${lang}" ]] ; then
 	exit 1
 fi
@@ -18,8 +21,24 @@ echo
 echo ":: '${lang}' language chosen"
 echo
 
-cd /var/lib/jackett
 
+stop_jackett_and_nginx() {
+	exit_code=$?
+	set +e
+
+	echo "Exiting..."
+
+	systemctl stop jackett
+	systemctl stop nginx
+
+	trap - EXIT
+	exit $exit_code
+}
+
+trap stop_jackett_and_nginx HUP INT TERM EXIT
+
+
+cd /var/lib/jackett
 
 if [[ -L Indexers ]] ; then
 	rm Indexers
@@ -34,5 +53,3 @@ systemctl start jackett
 systemctl start nginx
 echo 'Started. Press [Enter] to stop...'
 read -r
-systemctl stop jackett
-systemctl stop nginx
