@@ -12,12 +12,14 @@ Gtk/FontName "Roboto Sans Mono 9.9"
 #Gtk/FontName "Roboto Medium 10"
 #Gtk/IconSizes "panel-menu=16,16:panel=16,16:gtk-menu=16,16:gtk-large-toolbar=16,16:gtk-small-toolbar=16,16:gtk-button=16,16"
 #Gtk/IconSizes "panel-menu=40,40:panel=40,40:gtk-menu=40,40:gtk-large-toolbar=40,40:gtk-small-toolbar=40,40:gtk-button=40,40"
-Gtk/IconSizes "panel-menu=40,40:panel=40,40:gtk-menu=24,24:gtk-large-toolbar=40,40:gtk-small-toolbar=40,40:gtk-button=24,24"
+#Gtk/IconSizes "panel-menu=40,40:panel=40,40:gtk-menu=24,24:gtk-large-toolbar=40,40:gtk-small-toolbar=40,40:gtk-button=24,24"
+Gtk/IconSizes "panel-menu=40,40:panel=40,40:gtk-menu=24,24:gtk-large-toolbar=24,24:gtk-small-toolbar=16,16:gtk-button=24,24"
 Gtk/KeyThemeName ""
 Gtk/MenuBarAccel "F10"
 Gtk/MenuImages 1
 #Gtk/ToolbarIconSize 1
-Gtk/ToolbarStyle "both"
+#Gtk/ToolbarStyle "both"
+Gtk/ToolbarStyle "GTK_TOOLBAR_BOTH_HORIZ"
 Net/CursorBlink 1
 Net/CursorBlinkTime 1200
 Net/DndDragThreshold 8
