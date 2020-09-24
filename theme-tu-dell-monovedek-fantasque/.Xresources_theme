@@ -10,6 +10,7 @@ st.cursorshape: 1
 !st.blinktimeout: 500
 !st.blinktimeout: 300
 st.blinktimeout: 250
+!st.disable_alpha_correction: 0
 
 ! terminal colorscheme -------------------------------------------------------
 !#include ".Xcolours/lcars3"
