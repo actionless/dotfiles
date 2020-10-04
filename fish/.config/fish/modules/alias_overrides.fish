@@ -3,6 +3,7 @@ alias gr='grep --color -iER'
 
 abbr -a v viewnior
 abbr -a vmi vim
+abbr -a ':q' exit
 
 function less --wraps='less'
 	command less -r $argv
