@@ -71,7 +71,7 @@ go-for-it-git
 goodvibes
 google-chrome
 gparted
-gpick
+gpick-gtk3
 gpicview-gtk3
 gradio
 graphviz
