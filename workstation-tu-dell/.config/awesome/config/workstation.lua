@@ -46,7 +46,8 @@ function local_config.init(awesome_context)
 
   conf.music_players = {
     'spotify',
-    'gradio',
+    --'shortwave',
+    'goodvibes',
     'mpv',
     'firefox',
     --'clementine'
