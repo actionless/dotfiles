@@ -77,6 +77,7 @@ function local_config.init(awesome_context)
 
     beautiful.panel_close = beautiful.xrdb.color1
     beautiful.widget_close_bg = beautiful.xrdb.color1
+    beautiful.widget_close_fg = beautiful.panel_bg
     --theme.widget_close_fg = "theme.panel_widget_fg"
 
   end
