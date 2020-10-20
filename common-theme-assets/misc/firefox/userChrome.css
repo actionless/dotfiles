@@ -62,8 +62,8 @@
 #editBMPanel_folderTreeRow {
   /*height: 500px !important;*/
   /*height: 700px !important;*/
-  height: 666px !important;
-  /*height: 435px !important;*/
+  /*height: 666px !important;*/
+  height: 435px !important;
 }
 /*hide "Show for new bookmarks" checkbox*/
 #editBookmarkPanel_showForNewBookmarks {
