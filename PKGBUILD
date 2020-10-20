@@ -37,6 +37,7 @@ depends=(
 	'ttf-input'
 	'ttf-go-mono-git'
 	'ttf-go-sans-git'
+	'ttf-paratype'
 
 	# apps:
 	'mpv'
