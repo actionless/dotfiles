@@ -1,0 +1,63 @@
+Gtk/ButtonImages 1
+Gtk/CanChangeAccels 1
+Gtk/ColorPalette "black:white:gray50:red:purple:blue:light blue:green:yellow:orange:lavender:brown:goldenrod4:dodger blue:pink:light green:gray10:gray30:gray75:gray90"
+Gtk/CursorThemeName "Breeze Light"
+Gtk/CursorThemeSize 0
+#Gtk/DecorationLayout "close,menu:maximize"
+Gtk/DecorationLayout "menu:"
+#Gtk/FontName "PT Sans 7.5"
+#Gtk/FontName "Sans 10"
+#Gtk/FontName "Roboto Sans Mono 9.9"
+Gtk/FontName "Lucida MAC 9"
+#Gtk/FontName "Sans Medium 10"
+#Gtk/FontName "Roboto Medium 10"
+#Gtk/IconSizes "panel-menu=16,16:panel=16,16:gtk-menu=16,16:gtk-large-toolbar=16,16:gtk-small-toolbar=16,16:gtk-button=16,16"
+#Gtk/IconSizes "panel-menu=40,40:panel=40,40:gtk-menu=40,40:gtk-large-toolbar=40,40:gtk-small-toolbar=40,40:gtk-button=40,40"
+#Gtk/IconSizes "panel-menu=40,40:panel=40,40:gtk-menu=24,24:gtk-large-toolbar=40,40:gtk-small-toolbar=40,40:gtk-button=24,24"
+Gtk/IconSizes "panel-menu=40,40:panel=40,40:gtk-menu=24,24:gtk-large-toolbar=24,24:gtk-small-toolbar=16,16:gtk-button=24,24"
+Gtk/KeyThemeName ""
+Gtk/MenuBarAccel "F10"
+Gtk/MenuImages 1
+#Gtk/ToolbarIconSize 1
+#Gtk/ToolbarStyle "both"
+Gtk/ToolbarStyle "GTK_TOOLBAR_BOTH_HORIZ"
+Net/CursorBlink 1
+Net/CursorBlinkTime 1200
+Net/DndDragThreshold 8
+Net/DoubleClickDistance 5
+Net/DoubleClickTime 250
+Net/EnableEventSounds 1
+Net/EnableInputFeedbackSounds 1
+Net/SoundThemeName "default"
+
+#Net/IconThemeName "oomox-shiki-noble"
+Net/IconThemeName "oomox-uzi3"
+#Net/IconThemeName "gnome"
+#Net/IconThemeName "Archdroid-Pink"
+#Net/IconThemeName "Archdroid-Teal"
+#Net/IconThemeName "Archdroid-DeepPurple"
+
+#Net/ThemeName "oomox-monovedek"
+#Net/ThemeName "oomox-black"
+Net/ThemeName "oomox-uzi3"
+#Net/ThemeName "Arc-Recolored"
+#Net/ThemeName "Arc-Monovedek"
+#Net/ThemeName "Flattastic-Monovedek-Dark"
+#Net/ThemeName "Flattastic-LCARS"
+
+
+# thinkpad:
+#Xft/DPI 134144
+# del u2415q:
+#Xft/DPI 189440
+# just x2:
+#Xft/DPI 196608
+# 157
+Xft/DPI 160768
+
+Xft/Antialias 1
+Xft/HintStyle "hintslight"
+#Xft/HintStyle "hintfull"
+Xft/RGBA "rgb"
+
+# vim:ft=conf
