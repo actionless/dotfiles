@@ -29,7 +29,9 @@ for path in "${SYM_PATHS[@]}" ; do
 		mv ~/"$path" "$THEME_DIR"/"$path" || true
 	fi
 done
-pacman -Qqe > "$PC_NAME/misc/pacman_Qqe.txt"
+if which pacman ; then
+	pacman -Qqe > "$PC_NAME/misc/pacman_Qqe.txt"
+fi
 
 ./bootstrap.sh "$PC_NAME" "$THEME_NAME"
 
