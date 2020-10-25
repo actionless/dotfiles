@@ -25,10 +25,11 @@ SYM_PATHS=(
 	'.config/gtk-3.0/settings.ini'
 )
 for path in "${SYM_PATHS[@]}" ; do
-	if [[ -f ~/"$path" && ! -L ~/"$path" ]] ; then 
+	if [[ -f ~/"$path" && ! -L ~/"$path" ]] ; then
 		mv ~/"$path" "$THEME_DIR"/"$path" || true
 	fi
 done
+pacman -Qqe > "$PC_NAME/misc/pacman_Qqe.txt"
 
 ./bootstrap.sh "$PC_NAME" "$THEME_NAME"
 
