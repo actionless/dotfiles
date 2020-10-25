@@ -151,7 +151,7 @@ otf-sfmono
 pacman
 patch
 pavucontrol
-picom-git
+picom-ibhagwan-git
 pikaur-git
 pinta
 pkgconf
