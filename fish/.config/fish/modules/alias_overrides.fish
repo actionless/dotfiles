@@ -5,6 +5,12 @@ abbr -a v viewnior
 abbr -a vmi vim
 abbr -a ':q' exit
 
+function mdcd --description='mkdir and cd to'
+	set -l path $argv[1]
+	command mkdir -p $path
+	and cd $path
+end
+
 function less --wraps='less'
 	command less -r $argv
 end
@@ -62,3 +68,8 @@ function lrt --wraps='exa'
 end
 
 abbr lrth "lrt | head"
+
+# LS END
+#########################################
+
+## END ##################################
