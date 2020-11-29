@@ -1,0 +1,42 @@
+# Base16 oomox-monovedek 256 - alacritty color config
+# oomox-monovedek
+colors:
+  # Default colors
+  primary:
+    background: '0x0e0021'
+    foreground: '0xc0bbbb'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x0e0021'
+    cursor: '0xc0bbbb'
+
+  # Normal colors
+  normal:
+    black:   '0x0e0021'
+    red:     '0xdc5e86'
+    green:   '0x9edc60'
+    yellow:  '0xdcb65e'
+    blue:    '0x7e5edc'
+    magenta: '0xb75edc'
+    cyan:    '0x5edcb4'
+    white:   '0xc0bbbb'
+
+  # Bright colors
+  bright:
+    black:   '0x675d6d'
+    red:     '0xdc5e86'
+    green:   '0x9edc60'
+    yellow:  '0xdcb65e'
+    blue:    '0x7e5edc'
+    magenta: '0xb75edc'
+    cyan:    '0x5edcb4'
+    white:   '0xfffefe'
+
+  indexed_colors:
+    - { index: 16, color: '0xcb9a15' }
+    - { index: 17, color: '0xbf6839' }
+    - { index: 18, color: '0x000000' }
+    - { index: 19, color: '0x465457' }
+    - { index: 20, color: '0x221435' }
+    - { index: 21, color: '0x8c8984' }
