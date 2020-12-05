@@ -56,6 +56,7 @@ function local_config.init(awesome_context)
 
   local au = awesome_context.autorun
   au[#au+1] = 'xinput disable "ELAN Touchscreen"'
+  au[#au+1] = '/sbin/prime-offload'
   --{
     --"touchegg",
     --"~/.scripts/tp_unmute",
