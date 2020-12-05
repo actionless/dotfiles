@@ -11,6 +11,18 @@
 vnoremap < <gv
 vnoremap > >gv
 
+" Fix Ctrl+Left/Right Arrows
+" it was like that til november 2020 (but wasn't even needed):
+"map <ESC>[5D <C-Left>
+"map <ESC>[5C <C-Right>
+"map! <ESC>[5D <C-Left>
+"map! <ESC>[5C <C-Right>
+" but next either in vim or terminfo smth changed:
+map <ESC>[1;5D <C-Left>
+map <ESC>[1;5C <C-Right>
+map! <ESC>[1;5D <C-Left>
+map! <ESC>[1;5C <C-Right>
+
 
 let mapleader = ","
 let maplocalleader = "\\"
