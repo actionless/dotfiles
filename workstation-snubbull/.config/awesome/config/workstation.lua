@@ -10,8 +10,7 @@ function local_config.init(awesome_context)
 
   conf.wlan_if = 'wlp4s0'
   conf.eth_if = 'enp0s25'
-  --conf.net_preset = 'systemd'
-  conf.net_preset = 'netctl'
+  conf.net_preset = 'systemd'
 
   awesome_context.have_battery = true
   awesome_context.sensors = {
@@ -45,23 +44,24 @@ function local_config.init(awesome_context)
 
   --awesome_context.cmds.file_manager = "pcmanfm"
 
-  --conf.music_players = { 'spotify', 'clementine', 'mopidy' }
   conf.music_players = {
     'spotify',
     'goodvibes',
     'mpv',
+    'shortwave',
     --'clementine'
   }
 
 
-  local au = awesome_context.autorun
-  au[#au+1] = 'xinput disable "ELAN Touchscreen"'
-  au[#au+1] = '/sbin/prime-offload'
-  --{
+  for _, line in ipairs({
+    'xinput disable "ELAN Touchscreen"',
+    '/sbin/prime-offload',
     --"touchegg",
     --"~/.scripts/tp_unmute",
     --"killall compton ; compton",
-  --}
+  }) do
+    table.insert(awesome_context.autorun, line)
+  end
 
   local touchpad_id = "SynPS/2 Synaptics TouchPad"
   if touchpad_id then  -- detect it after asynchronously reading `xinput list` output
@@ -91,7 +91,8 @@ function local_config.init(awesome_context)
     #(awesome_context.after_config_loaded)+1
   ] = function()
     --run_once('python /usr/sbin/autolight')
-    run_once{"xscreensaver -no-splash"}
+    run_once("xscreensaver -no-splash")
+    --run_once{"firefox-dpms"}
   end
 
   local modkey = awesome_context.modkey

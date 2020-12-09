@@ -13,6 +13,7 @@ function local_config.init(awesome_context)
   --awesome_context.config.bat_show_when_charged = true
 
   --awesome_context.apw_on_the_left= true
+  awesome_context.apw_width = 100
 
   awesome_context.before_config_loaded[#(awesome_context.before_config_loaded)+1] = function()
     local beautiful = require('beautiful')
@@ -53,6 +54,7 @@ function local_config.init(awesome_context)
       beautiful.panel_bg,
       0.3
     )
+    beautiful.bg_systray    = beautiful.panel_widget_bg
 
     beautiful.panel_widget_progress_fg = beautiful.xrdb.color14
     beautiful.panel_widget_progress_fg = beautiful.xrdb.color13
