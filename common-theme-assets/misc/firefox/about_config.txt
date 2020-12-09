@@ -1,0 +1,22 @@
+# must for CSS system colors to work,
+# before also privacy.trackingprotection.fingerprinting.enabled was needed
+# to be turned off but not anymore, now it's totally safe :3
+widget.content.allow-gtk-dark-theme = true
+toolkit.legacyUserProfileCustomizations.stylesheets = true
+
+# small behavior defaults:
+browser.uidensity = 1
+findbar.highlightAll = true
+full-screen-api.exit-on.windowRaise = false
+browser.download.useDownloadDir = false
+
+# a bit of anti-too-much-tracking procedures:
+network.dns.disablePrefetch = true
+network.http.speculative-parallel-limit = 0
+network.predictor.enabled = false
+network.prefetch-next = false
+privacy.trackingprotection.enabled = true
+privacy.trackingprotection.* = true
+
+# needed later for furritron, to set from webext using new api:
+browser.ssb.enabled = true
