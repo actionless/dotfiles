@@ -15,10 +15,13 @@ function less --wraps='less'
 	command less -r $argv
 end
 
+abbr dfca 'command dfc'
 function dfc --wraps='dfc'
-	command dfc | head -n 1
-	command dfc -W -c always $argv | grep '^/dev/.\+' | grep -v docker
-	#command dfc -W -c always | grep -e FILESYSTEM -e '^/dev/.\+' | grep -v docker
+	command dfc -W -c always $argv 2>&1 \
+	| grep -v -E \
+		-e '^(|.+)(|dev)tmpfs' \
+		-e 'docker' \
+		-e 'Operation not permitted'
 end
 
 function ncdu --wraps='ncdu'
