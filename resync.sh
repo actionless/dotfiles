@@ -3,7 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 blue() {
-	echo "[34m$* [30m[m"
+	echo "[34m$*[30m[m"
 }
 
 SCRIPT_DIR=$(dirname "$(readlink -e "$0")")
