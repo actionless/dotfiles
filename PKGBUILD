@@ -1,8 +1,6 @@
-# Upstream URL: https://github.com/actionless/dotfiles
-
 pkgname=actionless_dotfiles_meta
 pkgver=0.1
-pkgrel=11
+pkgrel=12
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
@@ -42,6 +40,7 @@ depends=(
 	# apps:
 	'mpv'
 	'mpv-mpris'
+	'tldr'
 
 	# shell aliases:
 	'ripgrep'
