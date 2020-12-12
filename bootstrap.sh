@@ -47,6 +47,8 @@ for CONFIG in $(
 		-not -name 'theme-*' \
 		-not -name 'workstation-*' \
 		-not -name '_*' \
+		-not -name 'src' \
+		-not -name 'pkg' \
 		-exec basename {} \; ;
 	echo "$PC_NAME"
 ); do
