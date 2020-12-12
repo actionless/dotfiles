@@ -11,6 +11,8 @@ xprop=$(xprop -id "$windowid" _NET_WM_PID WM_CLASS WM_WINDOW_ROLE WM_NAME WM_WIN
 # Get interesting props from awesome-client.
 if hash awesome-client >/dev/null; then
   awesome_info=$(cat <<EOF |
+    local inspect = tostring
+	pcall(function() inspect = require("actionless.util.inspect") end)
     for _,c in ipairs(client.get()) do
       if c.window == $windowid then
         local r = ""
@@ -18,7 +20,7 @@ if hash awesome-client >/dev/null; then
 			"border_width", "type", "border_color", "urgent",
             "window", "floating", "class", "instance", "role", "name",
 		}) do
-          r = r .. p .. ": " .. tostring(c[p]) .. "\n"
+          r = r .. p .. ": " .. inspect(c[p]) .. "\n"
         end
         return "\n" .. r .. "\n"
       end
