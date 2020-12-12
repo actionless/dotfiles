@@ -14,6 +14,9 @@ green() {
 red() {
 	echo "[31m$* [30m[m"
 }
+cyan() {
+	echo "[36m$*[30m[m"
+}
 
 
 test -z "${1:-}" &&
@@ -43,6 +46,7 @@ for CONFIG in $(
 		-not -name '.*' \
 		-not -name 'theme-*' \
 		-not -name 'workstation-*' \
+		-not -name '_*' \
 		-exec basename {} \; ;
 	echo "$PC_NAME"
 ); do
@@ -54,8 +58,7 @@ for CONFIG in $(
 	fi
 done
 
-
 echo
-purp ":: Changing the theme:"
+purp ":: Changing the theme to $(cyan "$THEME_NAME"):"
 "$SCRIPT_DIR"/change-theme.sh "$THEME_NAME"
 green ":: Bootstrapped successfully"
