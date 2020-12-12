@@ -8,14 +8,16 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-test -z "$profile" && . /etc/profile || true
+# shellcheck source=/dev/null
+
+if test -z "${profile:-}" ; then . /etc/profile ; fi
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-	# include .bashrc if it exists
-	if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-	fi
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
 fi
 
 # include sbin in PATH
@@ -31,7 +33,10 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-test -z "${XDG_RUNTIME_DIR}" && export XDG_RUNTIME_DIR=/run/user/$(id -u)
+if test -z "${XDG_RUNTIME_DIR}" ; then
+    XDG_RUNTIME_DIR=/run/user/$(id -u)
+    export XDG_RUNTIME_DIR
+fi
 
 export LANGUAGE="en_US.utf8"
 export LC_ALL="en_US.utf8"
@@ -49,6 +54,8 @@ export XDG_CURRENT_DESKTOP=gnome
 #export QT_QPA_PLATFORMTHEME='qgnomeplatform'
 #export QT_QPA_PLATFORMTHEME='gtk2'
 export QT_QPA_PLATFORMTHEME='qt5ct'
+export DO_NOT_UNSET_QT_QPA_PLATFORMTHEME=1
+export DO_NOT_SET_DESKTOP_SETTINGS_UNAWARE=1
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
@@ -98,5 +105,5 @@ export TMUX_DECORATION_SEPARATOR_RIGHT=${TERM_DECORATION_SEPARATOR}
 ## Local overrides:
 ################################################################################
 
-test -f $HOME/.profile_workstation && source $HOME/.profile_workstation
-test -f $HOME/.profile_theme && source $HOME/.profile_theme
+test -f "$HOME/.profile_workstation" && source "$HOME/.profile_workstation"
+test -f "$HOME/.profile_theme" && source "$HOME/.profile_theme"
