@@ -4,14 +4,15 @@
 !st.font: Fantasque Sans Mono:pixelsize=22.5:antialias=true:autohint=true;
 !st.font: Fantasque Sans Mono:pixelsize=21.75:antialias=true:autohint=true;
 st.font: Fantasque Sans Mono:pixelsize=22:antialias=true:autohint=true;
-st.cursorshape: 1
+st.cursorshape: 0
+!st.cursorshape: 5
 !st.xfps:         30
 !st.actionfps:    30
 !st.blinktimeout: 500
 !st.blinktimeout: 300
 st.blinktimeout: 250
 
-st.cursorshape: 9
+!st.cursorshape: 1
 st.cursorblinkstyle: 1
 
 ! terminal colorscheme -------------------------------------------------------
