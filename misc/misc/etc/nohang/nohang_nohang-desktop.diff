@@ -1,0 +1,11 @@
+--- nohang.conf	2020-07-02 07:17:36.548992526 +0200
++++ nohang-desktop.conf	2020-07-02 07:14:19.554884143 +0200
+@@ -40,9 +40,9 @@
+ 
+-psi_checking_enabled = False
++psi_checking_enabled = True
+ 
+@@ -131,9 +131,9 @@
+ 
+-post_action_gui_notifications = False
++post_action_gui_notifications = True
