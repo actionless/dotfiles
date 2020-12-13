@@ -1,6 +1,7 @@
 #!/bin/sh
 set -eu
-found=$(ps x | grep -v -e grep -e pskill | grep "$@" || true)
+found=$(ps x | grep -v -e grep -e pskill | grep "$1" || true)
+shift
 if [ -z "$found" ] ; then
 	echo "Not found"
 	exit 1
@@ -11,7 +12,7 @@ echo "$found"
 echo
 read -p 'Kill? [y/N] -> ' answer
 if [ "$answer" = 'y' ] ; then
-	kill $(echo "$found" | awk '{ print $1 }')
+	kill "$@" $(echo "$found" | awk '{ print $1 }')
 else
 	exit 128
 fi
