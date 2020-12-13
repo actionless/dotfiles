@@ -41,8 +41,8 @@ function quoted_fish_clipboard_paste
 	#######################
 	# ############
 	# ################
-	# Escape URLs containing question mark
-	if echo $data | grep -e '^http.*?.*' > /dev/null
+	# Escape URLs containing question mark or ampersand
+	if echo $data | grep -e '^http.*[?&].*' > /dev/null
 		set data '"'$data'"'
 	end
 ##### MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
