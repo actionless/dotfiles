@@ -29,7 +29,7 @@ for path in "${SYM_PATHS[@]}" ; do
 		mv ~/"$path" "$THEME_DIR"/"$path" || true
 	fi
 done
-if which pacman ; then
+if which pacman > /dev/null ; then
 	pacman -Qqe > "$PC_NAME/misc/pacman_Qqe.txt"
 fi
 
