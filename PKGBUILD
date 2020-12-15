@@ -1,6 +1,6 @@
 pkgname=actionless_dotfiles_meta
 pkgver=0.1
-pkgrel=12
+pkgrel=13
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
@@ -46,6 +46,8 @@ depends=(
 	'ripgrep'
 	'exa'
 	'broot'
+	# shell/script helpers:
+	'highlight'
 )
 optdepends=(
 	#'gnome-settings-daemon: rc: alternative to xsettingsd'
