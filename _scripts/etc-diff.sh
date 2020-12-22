@@ -21,9 +21,8 @@ while IFS= read -r -d '' path ; do
 
 	diff -q "$path" "$system_path" > /dev/null || (
 		dotfile_relpath=$(readlink -e "$path" | sed -e "s|$DOTFILES_PATH/||")
-		dotfile_subdir="$(sed -E 's|([^/]*)/.*|\1|g' <<< "$dotfile_relpath")"
 		yellow -----------------------------------------------------------------
-		echo "$(purple :: "$dotfile_subdir")${dotfile_relpath//$dotfile_subdir/}"
+		echo "$(purple :: "${dotfile_relpath%%/*}")/${dotfile_relpath#*/}"
 		yellow -----------------------------------------------------------------
 
 		diff --color=always -u "$path" "$system_path"
