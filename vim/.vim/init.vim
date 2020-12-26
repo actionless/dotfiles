@@ -101,3 +101,7 @@ au Syntax * RainbowParenthesesLoadBraces
 
 "https://github.com/awesomeWM/awesome/issues/2291#issuecomment-398610795
 "au VimEnter * redraw!
+
+if stridx(expand('%:p:h'), '/home/'.$USER.'/Dropbox/notes') == 0
+	set exrc
+endif
