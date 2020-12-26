@@ -16,16 +16,16 @@ purple() {
 }
 
 
-while IFS= read -r -d '' path ; do
-	system_path=${path//$REFERENCE_CONFIGS_PATH/$SYSTEM_CONFIGS_PATH}
+while IFS= read -r -d '' reference_config_path ; do
+	system_config_path=${reference_config_path//$REFERENCE_CONFIGS_PATH/$SYSTEM_CONFIGS_PATH}
 
-	diff -q "$path" "$system_path" > /dev/null || (
-		dotfile_relpath=$(readlink -e "$path" | sed -e "s|$DOTFILES_PATH/||")
+	diff -q "$reference_config_path" "$system_config_path" > /dev/null || (
+		dotfile_relpath=$(readlink -e "$reference_config_path" | sed -e "s|$DOTFILES_PATH/||")
 		yellow -----------------------------------------------------------------
 		echo "$(purple :: "${dotfile_relpath%%/*}")/${dotfile_relpath#*/}"
 		yellow -----------------------------------------------------------------
 
-		diff --color=always -u "$path" "$system_path"
+		diff --color=always -u "$reference_config_path" "$system_config_path"
 
 		echo
 	)
