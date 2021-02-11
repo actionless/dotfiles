@@ -48,6 +48,7 @@ function local_config.init(awesome_context)
     'spotify',
     'goodvibes',
     'mpv',
+    'firefox',
     'shortwave',
     --'clementine'
   }
@@ -90,8 +91,9 @@ function local_config.init(awesome_context)
   awesome_context.after_config_loaded[
     #(awesome_context.after_config_loaded)+1
   ] = function()
+    local _ = run_once -- placeholder
     --run_once('python /usr/sbin/autolight')
-    run_once("xscreensaver -no-splash")
+    --run_once("xscreensaver -no-splash")
     --run_once{"firefox-dpms"}
   end
 
