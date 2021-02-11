@@ -142,9 +142,13 @@ load-module module-filter-apply
 
 .nofail
 
-load-module module-combine-sink
+## simultaneous output:
+#load-module module-combine-sink
 
 ### Make some devices default
 #set-card-profile 2 output:analog-stereo
 #set-default-sink 2
 #set-default-source input
+
+#load-module module-dbus-protocol
+#load-module module-equalizer-sink
