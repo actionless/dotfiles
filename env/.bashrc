@@ -71,6 +71,8 @@ elif [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
 
+test -f "$HOME/.cargo/env" && source "$HOME/.cargo/env"
+
 export TERM="xterm-256color"
 
 # to clean-up:

@@ -45,6 +45,7 @@ export GDM_LANG="en_US.utf8"
 
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
 export GOPATH=$HOME/.go
+test -f "$HOME/.cargo/env" && source "$HOME/.cargo/env"
 
 # uncomment one when not in GNOME:
 export XDG_CURRENT_DESKTOP=gnome
