@@ -10,7 +10,9 @@ set -x LC_ALL "en_US.UTF-8"
 #set --universal fish_user_paths $fish_user_paths $HOME/.gem/ruby/2.1.0/bin/;
 #set --universal fish_user_paths $fish_user_paths $HOME/scripts/;
 #eval (dircolors -c ~/.dir_colors | sed 's/>&\/dev\/null$//')
-dircolors -c ~/.dir_colors | sed 's/>&\/dev\/null$//' | source
+if command which dircolors then
+	dircolors -c ~/.dir_colors | sed 's/>&\/dev\/null$//' | source
+end
 set -x DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/"(id -u)"/bus"
 
 
