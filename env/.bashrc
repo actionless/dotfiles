@@ -8,7 +8,7 @@ elif [ -f /etc/bash.bashrc ]; then
 fi
 
 if [[ $- != *i* ]]; then
-  return
+	return
 fi
 
 shopt -s histappend
@@ -18,16 +18,16 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s checkwinsize
 
 function parse_git_branch_and_add_brackets {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ \[\1\]/'
+	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ \[\1\]/'
 }
 
 # xterm title:
 case "$TERM" in
 xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\n\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-    ;;
+	PROMPT_COMMAND='echo -ne "\n\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+	;;
 *)
-    ;;
+	;;
 esac
 
 # User specific aliases and functions
@@ -66,9 +66,9 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
+	. /usr/share/bash-completion/bash_completion
 elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+	. /etc/bash_completion
 fi
 
 export TERM="xterm-256color"
