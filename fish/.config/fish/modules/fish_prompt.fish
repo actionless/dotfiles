@@ -12,15 +12,15 @@ function _fish_git_prompt
 		)
 		if [ -n "$git_status" ]
 			set_color red -o
-			set git_branch_name_uncommited (echo $git_status | grep "^ [MD]" | wc -l)
-			set git_branch_name_unstaged (echo $git_status | grep "^??" | wc -l)
+			set git_branch_name_uncommited (echo $git_status | grep "^ [MD]" | wc -l | tr -d '[:space:]')
+			set git_branch_name_unstaged (echo $git_status | grep "^??" | wc -l | tr -d '[:space:]')
 			set git_branch_addition " ($git_branch_name_uncommited/$git_branch_name_unstaged)"
 		end
 
 		set git_ahead_count (
 			command git log origin/$git_branch_name..HEAD 2>/dev/null \
 			| grep '^commit' \
-			| wc -l
+			| wc -l | tr -d '[:space:]'
 		)
 		if [ $git_ahead_count -gt 0 ]
 			set_color green -o
