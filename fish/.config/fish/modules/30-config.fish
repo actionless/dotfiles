@@ -16,7 +16,7 @@ end
 if test -d /usr/local/Cellar/coreutils ; and test -d /usr/local/Cellar/coreutils/*/bin
 	set --universal fish_user_paths /usr/local/Cellar/coreutils/*/bin $fish_user_paths
 end
-if command which dircolors
+if command which dircolors > /dev/null
 	dircolors -c ~/.dir_colors | sed 's/>&\/dev\/null$//' | source
 end
 set -x DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/"(id -u)"/bus"
