@@ -95,6 +95,7 @@ function local_config.init(awesome_context)
     --run_once('python /usr/sbin/autolight')
     --run_once("xscreensaver -no-splash")
     --run_once{"firefox-dpms"}
+    run_once{"bluetooth_headphones"}
   end
 
   local modkey = awesome_context.modkey
