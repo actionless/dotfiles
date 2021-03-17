@@ -1,6 +1,6 @@
 pkgname=actionless_dotfiles_meta
 pkgver=0.1
-pkgrel=13
+pkgrel=14
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
@@ -21,7 +21,7 @@ depends=(
 	# see more: `pikaur -Ssq language server | grep -i -e 'language[-]server' -e ls`
 
 	# theming:
-	'breeze'  # cursor themes
+	'xcursor-breeze'
 	'gnome-icon-theme'
 
 	# fonts:
