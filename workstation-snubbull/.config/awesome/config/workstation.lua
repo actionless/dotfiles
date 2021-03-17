@@ -71,7 +71,8 @@ function local_config.init(awesome_context)
       'xinput set-prop "' .. touchpad_id .. '" "Device Accel Velocity Scaling" 10',
       'xinput set-prop "' .. touchpad_id .. '" "Trackpad Sensitivity" 0.3',
       'xinput set-prop "' .. touchpad_id .. '" "Trackpad Edge Sizes" {0,0,0,0}',
-      'xinput set-prop "' .. touchpad_id .. '" "Trackpad Button Emulation Values" {1,1,3,0}',
+                                              -- {bottom area, one finger, two fingers, 3? }:
+      'xinput set-prop "' .. touchpad_id .. '" "Trackpad Button Emulation Values" {2,1,3,2}',
       'xinput set-prop "' .. touchpad_id .. '" "Trackpad Palm Detection" {0,0}',
     }) do
       table.insert(awesome_context.autorun, line)
