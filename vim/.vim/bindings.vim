@@ -54,13 +54,20 @@ noremap <leader>P Vpgvyk<CR>
 
 
 function! MyMainMenu()
-	call SimpleMenu([
+	let l:main_menu = []
+	let l:main_menu += [
 		\	[']', 'tab next', ':tabnext'],
 		\	['[', 'tab previous', ':tabprevious'],
 		\	['t', 'tab menu', 'MyTabMenu'],
 		\	['w', 'window menu', 'MyWindowMenu'],
 		\	['l', 'ALE menu', 'MyAleMenu'],
-	\ ])
+	\ ]
+	if &filetype == 'python'
+		let l:main_menu += [
+			\	['d', 'pylint disable', 'normal! A  # pylint: disable='],
+		\ ]
+	endif
+	call SimpleMenu(l:main_menu)
 endfunction
 "execute "noremap " . menu_key . " :call MyMainMenu()<CR>"
 noremap <leader> :call MyMainMenu()<CR>
