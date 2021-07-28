@@ -1,9 +1,11 @@
 alias rm "rm -I"
 alias gr='grep --color -iER'
 
+abbr -a ':q' exit
 abbr -a v viewnior
 abbr -a vmi vim
-abbr -a ':q' exit
+abbr -a ptp ptpython
+
 
 function mdcd --description='mkdir and cd to'
 	set -l path $argv[1]
@@ -15,7 +17,7 @@ function less --wraps='less'
 	command less -r $argv
 end
 
-abbr dfca 'command dfc'
+abbr -a dfca 'command dfc'
 function dfc --wraps='dfc'
 	command dfc -W -c always $argv 2>&1 \
 	| grep -v -E \
@@ -66,11 +68,15 @@ function llg --wraps='exa'
 	ll --git $argv
 end
 
+function lt --wraps='exa'
+	ll --sort modified $argv
+end
+
 function lrt --wraps='exa'
 	ll --reverse --sort modified $argv
 end
 
-abbr lrth "lrt | head"
+abbr -a lrth "lrt | head"
 
 # LS END
 #########################################
