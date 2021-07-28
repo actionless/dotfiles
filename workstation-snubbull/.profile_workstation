@@ -1,6 +1,21 @@
-#export VDPAU_DRIVER=radeonsi
-#export VDPAU_DRIVER=intel
+#    For Intel graphics you need to set it to va_gl.
+#    For the open source AMD driver set it to the proper driver version depending on your GPU.
+#    For the open source Nouveau driver set it to nouveau.
+#    For NVIDIA's proprietary version set it to nvidia.
 export VDPAU_DRIVER=nvidia
+#export VDPAU_DRIVER=va_gl
+
+#Intel graphics:
+#    For libva-intel-driver use i965.
+#    For intel-media-driver use iHD.
+#NVIDIA:
+#    For Nouveau use nouveau.
+#    For NVIDIA use vdpau.
+#AMD:
+#    For AMDGPU driver use radeonsi.
+export LIBVA_DRIVER_NAME=vdpau
+#export LIBVA_DRIVER_NAME=iHD
+
 
 ## HiDPI
 # GTK3
