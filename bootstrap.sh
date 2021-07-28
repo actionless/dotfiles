@@ -35,6 +35,7 @@ purp ":: Bootstrapping the config:"
 unstow_old_config=""
 current_workstation=$(./current-workstation.sh) || unstow_old_config=1
 if [[ -n "$unstow_old_config" ]] ; then
+	purp ":: Unstowing old workstation-level config:"
 	stow -D "$current_workstation" || true
 fi
 
