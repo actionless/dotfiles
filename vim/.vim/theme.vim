@@ -15,9 +15,13 @@ if has("gui_running")
 	let g:airline_theme='molokai'
 else
 	"set bg=light
-	colorscheme term-dark-actionless2
-	"colorscheme term-actionless3
-	"colorscheme term-wargrey
+	if &diff
+		colorscheme blue
+	else
+		colorscheme term-dark-actionless2
+		"colorscheme term-actionless3
+		"colorscheme term-wargrey
+	endif
 	let g:airline_theme='term'
 endif
 "colorscheme miromiro
