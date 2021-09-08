@@ -86,8 +86,9 @@ Plug 'groenewege/vim-less', {'for': 'less'}
 " Asynchronous Lint Engine:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Plug 'w0rp/ale'
 let g:ale_completion_enabled = 1
+Plug 'w0rp/ale'
+let g:ale_completion_autoimport = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_echo_msg_format = '[%linter%] %code%: %s'
 "let g:ale_sign_column_always = 1
@@ -113,16 +114,19 @@ inoremap <expr><S-TAB>
 	\ "\<C-h>"
 
 
-"\	 'python': ['flake8', 'mypy', 'pylint', 'pyls', 'vulture'],
+"\	 'python': ['flake8', 'mypy', 'pylint', 'pylsp', 'vulture'],
 let g:ale_linters = {
-\	 'python': ['mypy', 'pylint', 'pyls', ],
+\	 'python': ['mypy', 'pylint', 'pylsp'],
 \	 'javascript': ['eslint', 'fecs', 'flow', 'flow-language-server', 'jscs', 'standard', 'tsserver', 'xo'],
 \}
-let b:ale_linters_ignore = ['pyls']
+let b:ale_linters_ignore = ['pylsp']
+"set completeopt=menu,menuone,popup,noselect,noinsert
 
+let g:ale_python_pylsp_executable = 'pyls'
 let g:ale_python_pylint_change_directory = 0
 let g:ale_python_mypy_options = ' --ignore-missing-imports '
 let g:ale_python_vulture_options = ' ./maintenance_scripts/vulture_whitelist.py '
+"set omnifunc=ale#completion#OmniFunc
 
 
 Plug 'vim/killersheep', {'on': 'KillKillKill'}
