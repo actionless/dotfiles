@@ -2,8 +2,8 @@
 #    For the open source AMD driver set it to the proper driver version depending on your GPU.
 #    For the open source Nouveau driver set it to nouveau.
 #    For NVIDIA's proprietary version set it to nvidia.
-export VDPAU_DRIVER=nvidia
-#export VDPAU_DRIVER=va_gl
+#export VDPAU_DRIVER=nvidia
+export VDPAU_DRIVER=va_gl
 
 #Intel graphics:
 #    For libva-intel-driver use i965.
@@ -13,8 +13,8 @@ export VDPAU_DRIVER=nvidia
 #    For NVIDIA use vdpau.
 #AMD:
 #    For AMDGPU driver use radeonsi.
-export LIBVA_DRIVER_NAME=vdpau
-#export LIBVA_DRIVER_NAME=iHD
+#export LIBVA_DRIVER_NAME=vdpau
+export LIBVA_DRIVER_NAME=iHD
 
 
 ## HiDPI
