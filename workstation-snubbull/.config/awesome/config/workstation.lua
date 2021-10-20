@@ -41,6 +41,7 @@ function local_config.init(awesome_context)
   }
 
   awesome_context.apw_on_the_left= true
+  awesome_context.music_on_the_left= true
 
   --awesome_context.cmds.file_manager = "pcmanfm"
 
@@ -50,7 +51,8 @@ function local_config.init(awesome_context)
     'mpv',
     'firefox',
     'shortwave',
-    --'clementine'
+    'clementine',
+    --'strawberry',
   }
 
 
