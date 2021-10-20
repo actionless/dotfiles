@@ -152,3 +152,10 @@ load-module module-filter-apply
 
 #load-module module-dbus-protocol
 #load-module module-equalizer-sink
+
+# Create mono outputs for monitoring:
+#load-module module-remap-sink sink_name=mono_onyx master=alsa_output.usb-Loud_Technologies_Inc._Onyx_Blackjack-00.analog-stereo channels=2 channel_map=mono,mono
+#load-module module-remap-sink sink_name=mono_bt master=bluez_sink.08_DF_1F_D9_D0_CF.a2dp_sink channels=2 channel_map=mono,mono
+
+# actual monitoring:
+#pactl load-module module-loopback
