@@ -46,6 +46,10 @@ export GDM_LANG="en_US.utf8"
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
 export GOPATH=$HOME/.go
 test -f "$HOME/.cargo/env" && source "$HOME/.cargo/env"
+# Fix for Keyring error with pip. Hopefully new pip will fix it soon:
+# https://github.com/pypa/pip/pull/8687
+# https://github.com/pypa/pip/issues/8719#issuecomment-859535075
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
 # uncomment one when not in GNOME:
 export XDG_CURRENT_DESKTOP=gnome
