@@ -1,0 +1,11 @@
+#!/bin/sh
+set -eu
+input_file="$1"
+output_file="$2"
+start_time="$3"
+duration="$4"
+ffmpeg \
+	-i "$input_file" \
+	-ss "$start_time" -t "$duration" \
+	-c:v copy -c:a copy \
+	"$output_file"
