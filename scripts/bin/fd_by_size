@@ -1,0 +1,3 @@
+#!/bin/sh
+#fd -L -t f --exec-batch ls -S $@
+fd --follow --type file --exec-batch ls --sort=size $@
