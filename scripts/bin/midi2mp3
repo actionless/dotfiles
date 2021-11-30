@@ -3,9 +3,10 @@ set -ueo pipefail
 
 input="$1"
 output="$2"
+font="${3:-}"
 
 temp_wav="$(mktemp XXX.wav)"
 
-midi2wav "$input" "$temp_wav"
+midi2wav "$input" "$temp_wav" "${font:-}"
 lame "$temp_wav" "$output"
 rm "$temp_wav"

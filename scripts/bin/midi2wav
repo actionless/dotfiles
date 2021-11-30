@@ -3,5 +3,15 @@ set -ueo pipefail
 
 input="$1"
 output="$2"
+font="${3:-}"
 
-fluidsynth "$input" -F "$output" /usr/share/tuxguitar/share/soundfont/MagicSFver2.sf2
+if [[ -z "$font" ]] ; then
+	if [[ -f /usr/share/soundfonts/FatBoy.sf2 ]] ; then
+		font=/usr/share/soundfonts/FatBoy.sf2
+	elif [[ -f /usr/share/soundfonts/Arachno.sf2 ]] ; then
+		font=/usr/share/soundfonts/Arachno.sf2
+	else
+		font=/usr/share/tuxguitar/share/soundfont/MagicSFver2.sf2
+	fi
+fi
+fluidsynth "$font" "$input" -F "$output"
