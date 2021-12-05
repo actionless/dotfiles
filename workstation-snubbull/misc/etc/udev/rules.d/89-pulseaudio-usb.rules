@@ -1,0 +1,2 @@
+# disable for Focusrite Scarlett 6i6
+ATTRS{idVendor}=="1235", ATTRS{idProduct}=="8203", ENV{PULSE_IGNORE}="1"
