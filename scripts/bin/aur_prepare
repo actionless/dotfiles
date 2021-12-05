@@ -1,0 +1,4 @@
+#!/bin/sh
+updpkgsums \
+	&& makepkg -fsr "$@" \
+	&& makepkg --printsrcinfo > .SRCINFO
