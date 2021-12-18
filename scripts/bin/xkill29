@@ -1,2 +1,2 @@
 #!/bin/bash
-xprop _NET_WM_PID | cut -d' ' -f3 | xargs kill
+xprop _NET_WM_PID | cut -d' ' -f3 | xargs kill -9
