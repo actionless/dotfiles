@@ -1,6 +1,7 @@
 # must for CSS system colors to work,
 # before also privacy.trackingprotection.fingerprinting.enabled was needed
 # to be turned off but not anymore, now it's totally safe :3
+widget.non-native-theme.enabled = false
 widget.content.allow-gtk-dark-theme = true
 toolkit.legacyUserProfileCustomizations.stylesheets = true
 
