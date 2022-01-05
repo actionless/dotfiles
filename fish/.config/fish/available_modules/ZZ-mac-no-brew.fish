@@ -1,3 +1,5 @@
+alias rm "command rm"
+
 function rg --wraps='grep'
 	if test (count $argv) -eq 1
 		grep -R $argv *
