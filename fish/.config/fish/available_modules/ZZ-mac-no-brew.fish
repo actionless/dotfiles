@@ -18,7 +18,7 @@ function l --wraps='ls'
 end
 
 function ll --wraps='ls'
-	ls -la $argv
+	ls -h -la $argv
 end
 
 function llg --wraps='ls'
