@@ -31,6 +31,9 @@ stop_bluetooth_and_exit() {
 		killall blueman-manager
 	fi
 
+	echo ":: Stopping Blueman helper service..."
+	sudo systemctl stop blueman-mechanism
+
 	if sudo pgrep bluealsa ; then
 		echo ":: Killing bluealsa..."
 		sudo killall bluealsa
