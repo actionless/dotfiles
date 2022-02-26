@@ -25,14 +25,21 @@ function local_config.init(awesome_context)
     --beautiful.mono_font = "Monospace " .. font_size
     --beautiful.sans_font = "Sans Bold " .. font_size
     --beautiful.text_font = "Monospace " .. font_size
-    beautiful.font = beautiful.mono_font
-    beautiful.tasklist_font = beautiful.font
-    beautiful.taglist_font = beautiful.bold_font
-    beautiful.tasklist_font = beautiful.bold_font
+    beautiful.font = beautiful.mono_font or beautiful.font
+    --beautiful.tasklist_font = beautiful.font
+    beautiful.taglist_font = beautiful.bold_font or beautiful.font
+    beautiful.tasklist_font = beautiful.bold_font or beautiful.font
 
     beautiful.menu_height = beautiful.xresources.apply_dpi(28)
 
-    beautiful.border_radius = beautiful.xresources.apply_dpi(3)
+    --beautiful.border_radius = beautiful.xresources.apply_dpi(3)
+    if awesome.composite_manager_running then
+      beautiful.base_border_width = beautiful.xresources.apply_dpi(2.5)
+      beautiful.border_radius = beautiful.xresources.apply_dpi(5)
+    else
+      beautiful.base_border_width = beautiful.xresources.apply_dpi(3.4)
+      beautiful.border_radius = beautiful.xresources.apply_dpi(5)
+    end
     beautiful.panel_widget_border_radius = beautiful.border_radius
     beautiful.client_border_radius = beautiful.border_radius
 
