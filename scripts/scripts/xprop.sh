@@ -6,7 +6,7 @@
 windowid=$(xwininfo -int | sed -n '/^xwininfo: Window id: / { s/xwininfo: Window id: //; s/ .*//p }')
 
 # Get interesting props from xprop.
-xprop=$(xprop -id "$windowid" _NET_WM_PID WM_CLASS WM_WINDOW_ROLE WM_NAME WM_WINDOW_ROLE WM_TRANSIENT_FOR _NET_WM_WINDOW_TYPE _NET_WM_STATE _NET_WM_PID)
+xprop=$(xprop -id "$windowid" _NET_WM_PID WM_CLASS WM_WINDOW_ROLE WM_NAME WM_WINDOW_ROLE WM_TRANSIENT_FOR _NET_WM_WINDOW_TYPE _NET_WM_STATE _NET_WM_PID _ACTNLZZ_IGNORE_PICOM_BORDER)
 
 # Get interesting props from awesome-client.
 if hash awesome-client >/dev/null; then
