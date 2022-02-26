@@ -1,2 +1,2 @@
 #!/bin/bash
-/usr/bin/start-pulseaudio-x11 || pulseaudio
+pipewire-pulse || /usr/bin/start-pulseaudio-x11 || pulseaudio
