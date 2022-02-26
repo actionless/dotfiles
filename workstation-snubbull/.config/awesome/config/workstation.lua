@@ -57,6 +57,9 @@ function local_config.init(awesome_context)
 
 
   for _, line in ipairs({
+    '~/.screenlayout/inverted_New.sh',
+    'xinput disable "SynPS/2 Synaptics TouchPad"',
+    'xinput disable "AT Translated Set 2 keyboard"',
     'xinput disable "ELAN Touchscreen"',
     '/sbin/prime-offload',
     --"touchegg",
