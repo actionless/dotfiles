@@ -1,0 +1,90 @@
+" All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
+" /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
+" you can find below.  If you wish to change any of those settings, you should
+" do it in this file (/etc/vimrc), since archlinux.vim will be overwritten
+" everytime an upgrade of the vim packages is performed.  It is recommended to
+" make changes after sourcing archlinux.vim since it alters the value of the
+" 'compatible' option.
+
+" This line should not be removed as it ensures that various options are
+" properly set to work with the Vim-related packages.
+runtime! archlinux.vim
+
+	if &diff
+		colorscheme blue
+	endif
+
+" If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
+" Or better yet, read /usr/share/vim/vim80/vimrc_example.vim or the vim manual
+" and configure vim to your own liking!
+
+" do not load defaults if ~/.vimrc is missing
+"let skip_defaults_vim=1
+
+let mapleader = ","
+let maplocalleader = "\\"
+
+function! SimpleMenu(options)
+
+  let l:choice_map = {}
+
+  for choice in a:options
+    let l:key = choice[0]
+    let l:description = choice[1]
+    if len(choice) == 3
+        let l:choice_map[l:key] = choice[2]
+    else
+        let l:choice_map[l:key] = choice[1]
+        let l:description = substitute(l:description, "^:", '', '')
+    endif
+    echohl Boolean
+    echon ' ' . l:key . ' '
+    echohl None
+    echon l:description
+    echo ''
+  endfor
+
+  let l:response = nr2char(getchar())
+
+  redraw!
+
+  if has_key(l:choice_map, l:response)
+    if l:choice_map[l:response][0] == ':'
+        " if it starts from colon interpret it as vim command: `:foo`
+        execute l:choice_map[l:response]
+    else
+        " otherwise it's a function name so do: `:call foo()`
+        call call(l:choice_map[l:response], [])
+    endif
+  endif
+endfunction
+
+
+function! MyAleMenu()
+        let l:root_menu = []
+        "let l:root_menu = [
+        "       \       ['o', ':ALEToggle'],
+        "       \       ['d', ':ALEDetail'],
+        "       \       ['h', ':ALEHover'],
+        "       \       ['n', ':ALENextWrap'],
+        "       \       ['p', ':ALEPreviousWrap'],
+        "       \       ['i', ':ALEInfo'],
+        "       \       ['r', ':ALEFindReferences'],
+        "       \       ['d', ':ALEGoToDefinition'],
+        "       \       ['t', ':ALEGoToDefinitionInTab'],
+        "       \       ['f', 'Fix...', ':call MyAleFixMenu()'],
+        "\ ]
+        if &diff
+                let l:root_menu += [
+                        \       ['g', ':diffget'],
+                        \       ['p', ':diffput'],
+                \ ]
+        endif
+        call SimpleMenu(l:root_menu)
+endfunction
+"noremap <leader>l :call MyAleMenu()<CR>
+noremap <leader> :call MyAleMenu()<CR>
+
+
+set mouse=
+set ttymouse=
