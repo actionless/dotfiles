@@ -43,6 +43,7 @@ rm -fr ~/.cache/netsurf/
 rm -fr ~/.cache/Otter/
 rm -fr ~/.cache/parso/
 rm -fr ~/.cache/pip/
+rm -fr ~/.pub-cache/
 rm -fr ~/.cache/qutebrowser/
 rm -fr ~/.cache/thumbnails/
 rm -fr ~/.cache/vimfiles/
@@ -50,7 +51,11 @@ rm -fr ~/.cache/wine/
 rm -fr ~/.cache/winetricks/
 rm -fr ~/.cache/winewizard/
 rm -fr ~/.cache/yarn/
+
+# firefox:
 rm -fr ~/.mozilla/firefox/"Crash Reports"
+rm -fr ~/.mozilla/firefox/*/storage/default/*/cache/
+
 # mesa shader cache:
 set +x
 echo 'rm -fr ~/.cache/mesa_shader_cache/*'
