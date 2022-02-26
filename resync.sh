@@ -32,6 +32,8 @@ done
 if which pacman > /dev/null ; then
 	pacman -Qqe > "$PC_NAME/misc/pacman_Qqe.txt"
 fi
+sudo systemctl --type=service > "$PC_NAME/misc/services_root.txt"
+systemctl --type=service --user > "$PC_NAME/misc/services_user.txt"
 
 ./bootstrap.sh "$PC_NAME" "$THEME_NAME"
 

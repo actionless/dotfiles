@@ -1,0 +1,19 @@
+  UNIT                                LOAD   ACTIVE SUB     DESCRIPTION
+  at-spi-dbus-bus.service             loaded active running Accessibility services bus
+  blueman-applet.service              loaded active running Bluetooth management applet
+  dbus.service                        loaded active running D-Bus User Message Bus
+  dconf.service                       loaded active running User preferences database
+  gvfs-daemon.service                 loaded active running Virtual filesystem service
+  gvfs-goa-volume-monitor.service     loaded active running Virtual filesystem service - GNOME Online Accounts monitor
+  gvfs-metadata.service               loaded active running Virtual filesystem metadata service
+  gvfs-udisks2-volume-monitor.service loaded active running Virtual filesystem service - disk device monitor
+  obex.service                        loaded active running Bluetooth OBEX service
+  pipewire-media-session.service      loaded active running PipeWire Media Session Manager
+  pipewire-pulse.service              loaded active running PipeWire PulseAudio
+  pipewire.service                    loaded active running PipeWire Multimedia Service
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+12 loaded units listed. Pass --all to see loaded but inactive units, too.
+To show all installed unit files use 'systemctl list-unit-files'.
