@@ -1,3 +1,3 @@
 #!/bin/sh
 set -eu
-ffmpeg -i "$1" -vf "transpose=clock" -acodec copy "$2"
+ffmpeg -i "$1" -preset veryfast -vf "transpose=clock" -acodec copy "$2"
