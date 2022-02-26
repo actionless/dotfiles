@@ -1,6 +1,6 @@
 pkgname=actionless_dotfiles_meta
 pkgver=0.1
-pkgrel=14
+pkgrel=15
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
@@ -21,7 +21,8 @@ depends=(
 	# see more: `pikaur -Ssq language server | grep -i -e 'language[-]server' -e ls`
 
 	# theming:
-	'xcursor-breeze'
+	'breeze'
+	#'xcursor-breeze'
 	'gnome-icon-theme'
 
 	# fonts:
@@ -52,6 +53,9 @@ depends=(
 optdepends=(
 	#'gnome-settings-daemon: rc: alternative to xsettingsd'
 	'fzf: menu'
+
+	'noto-fonts-emoji: or'
+	'ttf-twemoji-color: or'
 )
 
 #package() {
