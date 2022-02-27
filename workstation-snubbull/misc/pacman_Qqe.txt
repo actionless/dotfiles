@@ -101,6 +101,8 @@ dub
 dunedynasty
 e2fsprogs
 easy_spice
+easyeffects
+ebumeter
 efibootmgr
 elementary-icon-theme
 enet
@@ -109,7 +111,9 @@ eslint
 evolution-ews
 exa
 exfat-utils
+ext4magic
 extremetuxracer
+extundelete
 faad2
 fakeroot
 falkon
@@ -172,6 +176,7 @@ grep
 groff
 grub
 gst-libav
+gst-plugin-pipewire
 gst-plugins-bad
 gst-plugins-good
 gstreamer-vaapi
@@ -218,6 +223,8 @@ lib32-libvdpau
 lib32-mesa-vdpau
 lib32-mpg123
 lib32-opencl-nvidia
+lib32-pipewire
+lib32-pipewire-jack
 lib32-primus_vk
 lib32-virtualgl
 libcue
@@ -330,6 +337,8 @@ pidgin
 pidgin-sipe
 pikaur-git
 pinta
+pipecontrol
+pipewire-alsa
 pipewire-jack
 pipewire-pulse
 pkgconf
@@ -347,8 +356,8 @@ progress
 projectm-git
 psmisc
 ptpython
-pulseaudio-alsa
 purple-skypeweb
+pw-viz
 pwgen
 pxltrm-git
 pyalpm
@@ -387,6 +396,7 @@ python34
 qbittorrent
 qemu
 qjackctl
+qpwgraph
 qt5-styleplugins
 qt5ct
 qt6ct
@@ -447,6 +457,7 @@ systemd-sysvcompat
 tamsyn-font
 tar
 termdown-git
+testdisk
 texinfo
 the_silver_searcher
 themix-full-git
