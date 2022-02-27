@@ -6,4 +6,4 @@ h=$(cut -d+ -f2 <<< "$geo")
 x=$(cut -d+ -f3 <<< "$geo")
 y=$(cut -d+ -f4 <<< "$geo")
 read -r
-exec recordmydesktop --width="$w" --height="$h" --x="$x" --y="$y" "$@"
+exec recordmydesktop --device pulse --width="$w" --height="$h" --x="$x" --y="$y" "$@"
