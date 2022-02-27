@@ -30,8 +30,14 @@ for path in "${SYM_PATHS[@]}" ; do
 	fi
 done
 if which pacman > /dev/null ; then
-	pacman -Qqe > "$PC_NAME/misc/pacman_Qqe.txt"
+	pacman -Qqe | grep -v -f <(\
+		grep '^IgnorePkg' /etc/pacman.conf \
+		| cut --delimiter='=' -f2 \
+		| sed 's/ /\n/g' \
+		| grep -v -e '^$' -e actionless -e federation \
+	) > "$PC_NAME/misc/pacman_Qqe.txt"
 fi
+# shellcheck disable=SC2024
 sudo systemctl --type=service > "$PC_NAME/misc/services_root.txt"
 systemctl --type=service --user > "$PC_NAME/misc/services_user.txt"
 
