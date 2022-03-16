@@ -35,28 +35,41 @@ warn "-- Applying profile..."
 # shellcheck source=$HOME/.profile disable=SC1091
 source ~/.profile
 
-warn "-- Applying xrdb..."
-xrdb -merge "$HOME"/.Xresources
-if [[ -z "${NORESTART:-}" ]] ; then
-	warn "-- Restarting AwesomeWM..."
-	echo "awesome.restart()" | awesome-client || true
+if ! which xrdb ; then
+	warn "!! xrdb is not installed"
+else
+	warn "-- Applying xrdb..."
+	xrdb -merge "$HOME"/.Xresources
 fi
 
-warn "-- Applying env inside tmux sessions..."
-IFS=$'\n'
-for line in $(env | grep -e ^TMUX_ -e ^FISH_ -e ^TERM_ | grep -v TMUX_PANE) ; do
-	# shellcheck disable=SC2046
-	key=$(cut -d'=' -f1 <<< "$line")
-	value=$(cut -d'=' -f2 <<< "$line")
-	if [[ -z "${value:-}" ]] ; then
-		tmux setenv -g "${key}" ''
-	else
-		tmux setenv -g "${key}" "${value:-}"
+if ! which awesome-client ; then
+	warn "!! awesome is not installed"
+else
+	if [[ -z "${NORESTART:-}" ]] ; then
+		warn "-- Restarting AwesomeWM..."
+		echo "awesome.restart()" | awesome-client || true
 	fi
-done;
+fi
 
-warn "-- Reloading tmux..."
-tmux source-file ~/.tmux.conf
+if ! which tmux ; then
+	warn "!! tmux is not installed"
+else
+	warn "-- Applying env inside tmux sessions..."
+	IFS=$'\n'
+	for line in $(env | grep -e ^TMUX_ -e ^FISH_ -e ^TERM_ | grep -v TMUX_PANE) ; do
+		# shellcheck disable=SC2046
+		key=$(cut -d'=' -f1 <<< "$line")
+		value=$(cut -d'=' -f2 <<< "$line")
+		if [[ -z "${value:-}" ]] ; then
+			tmux setenv -g "${key}" ''
+		else
+			tmux setenv -g "${key}" "${value:-}"
+		fi
+	done;
+
+	warn "-- Reloading tmux..."
+	tmux source-file ~/.tmux.conf
+fi
 
 warn "-- Reloading fish..."
 fish -c reload_fish

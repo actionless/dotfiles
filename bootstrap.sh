@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-SCRIPT_DIR="$(readlink -e "$(dirname "$0")")"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 
 purp() {

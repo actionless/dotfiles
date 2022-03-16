@@ -6,7 +6,7 @@ blue() {
 	echo "[34m$*[30m[m"
 }
 
-SCRIPT_DIR=$(dirname "$(readlink -e "$0")")
+SCRIPT_DIR=$(cd $(dirname "$0") && pwd)
 THEME_NAME="${2-}"
 if [[ -z ${THEME_NAME} ]] ; then
 	THEME_NAME=$("$SCRIPT_DIR"/current-theme.sh)
@@ -38,8 +38,10 @@ if which pacman > /dev/null ; then
 	) > "$PC_NAME/misc/pacman_Qqe.txt"
 fi
 # shellcheck disable=SC2024
-sudo systemctl --type=service > "$PC_NAME/misc/services_root.txt"
-systemctl --type=service --user > "$PC_NAME/misc/services_user.txt"
+if which systemctl ; then
+	sudo systemctl --type=service > "$PC_NAME/misc/services_root.txt"
+	systemctl --type=service --user > "$PC_NAME/misc/services_user.txt"
+fi
 
 ./bootstrap.sh "$PC_NAME" "$THEME_NAME"
 
