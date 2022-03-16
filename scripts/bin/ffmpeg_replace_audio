@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+
+if [[ $# -ne 3 ]] ; then
+	echo "Usage: $0 INPUT_VIDEO INPUT_AUDIO OUTPUT_VIDEO"
+	exit 1
+fi
+
+INPUT_VIDEO="$1"
+INPUT_AUDIO="$2"
+OUTPUT_VIDEO="$3"
+
+ffmpeg \
+	-i "$INPUT_VIDEO" \
+	-i "$INPUT_AUDIO" \
+	-c:v copy \
+	-map 0:v:0 \
+	-map 1:a:0 \
+	-ab 320k \
+	"$OUTPUT_VIDEO"
