@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+
+if [[ $# -lt 2 ]] ; then
+	echo "Usage: $0 OUTPUT_FILE FILE_TO_CONCAT_1 [... FILE_TO_CONCAT_N]"
+	exit 1
+fi
+
+OUTPUT_FILE="$1"
+shift
+
+exec ffmpeg \
+	-f concat \
+	-safe 0 \
+	-i <(\
+		for path in "$@"; do \
+			find "$path" -type f ; \
+		done \
+		| sed -e 's/\(.*\)/file \1/g' \
+	) \
+	-c copy \
+	"$OUTPUT_FILE"
