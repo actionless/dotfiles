@@ -19,6 +19,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <e> <s>            :"🚬"
 <Multi_key> <e> <t>            :"🙏"
 <Multi_key> <e> <v>            :"🔊"
+<Multi_key> <e> <w>            :"💀"
 <Multi_key> <e> <1>            :"💯"
 <Multi_key> <e> <plus>            :"👍"
 
