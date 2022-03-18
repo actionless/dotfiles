@@ -8,7 +8,8 @@ Xft.dpi: 157
 !st.opacity: 223
 st.opacity: 255
 
-st.font: Monospace:pixelsize=20:antialias=true:autohint=true;
+st.font: Monospace:pixelsize=20:antialias=true:autohint=true
+st.font_fallback:     Meslo LG S for Lcarsline:style=Regular:pixelsize=20:antialias=true
 
 
 ! vim: ft=xdefaults:
