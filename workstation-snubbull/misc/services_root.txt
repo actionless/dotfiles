@@ -39,9 +39,3 @@
   upower.service                                                                            loaded active running Daemon for power management
   user-runtime-dir@1000.service                                                             loaded active exited  User Runtime Directory /run/user/1000
   user@1000.service                                                                         loaded active running User Manager for UID 1000
-
-LOAD   = Reflects whether the unit definition was properly loaded.
-ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
-SUB    = The low-level unit activation state, values depend on unit type.
-40 loaded units listed. Pass --all to see loaded but inactive units, too.
-To show all installed unit files use 'systemctl list-unit-files'.

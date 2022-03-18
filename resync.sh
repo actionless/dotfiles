@@ -39,8 +39,8 @@ if which pacman > /dev/null ; then
 fi
 # shellcheck disable=SC2024
 if which systemctl ; then
-	sudo systemctl --type=service > "$PC_NAME/misc/services_root.txt"
-	systemctl --type=service --user > "$PC_NAME/misc/services_user.txt"
+	sudo systemctl --type=service | head -n -6 > "$PC_NAME/misc/services_root.txt"
+	systemctl --type=service --user | head -n -6 > "$PC_NAME/misc/services_user.txt"
 fi
 
 ./bootstrap.sh "$PC_NAME" "$THEME_NAME"
