@@ -2,6 +2,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+USE_ALSA=${USE_ALSA:-0}
+
 start_bluetooth_stack() {
 	echo ":: Unblocking Bluetooth RF switches..."
 	set -x
@@ -18,8 +20,15 @@ start_bluetooth_stack() {
 	blueman-manager &
 	sleep 0.2
 
-	echo ":: Starting bluealsa..."
-	sudo bluealsa
+	if [[ "$USE_ALSA" -eq 1 ]] ; then
+		echo ":: Starting bluealsa..."
+		sudo bluealsa
+	else
+		echo "!! alsa support is disabled (USE_ALSA=0)"
+
+		echo ":: started..."
+		read -r
+	fi
 }
 
 stop_bluetooth_and_exit() {
@@ -34,9 +43,13 @@ stop_bluetooth_and_exit() {
 	echo ":: Stopping Blueman helper service..."
 	sudo systemctl stop blueman-mechanism
 
-	if sudo pgrep bluealsa ; then
-		echo ":: Killing bluealsa..."
-		sudo killall bluealsa
+	if [[ "$USE_ALSA" -eq 1 ]] ; then
+		if sudo pgrep bluealsa ; then
+			echo ":: Killing bluealsa..."
+			sudo killall bluealsa
+		fi
+	else
+		echo "!! alsa support is disabled (USE_ALSA=0)"
 	fi
 
 	echo ":: Stopping Bluetooth service..."
