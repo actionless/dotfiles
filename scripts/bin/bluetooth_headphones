@@ -27,7 +27,9 @@ start_bluetooth_stack() {
 		echo "!! alsa support is disabled (USE_ALSA=0)"
 
 		echo ":: started..."
-		read -r
+		while true ; do
+			sleep 1000
+		done
 	fi
 }
 
