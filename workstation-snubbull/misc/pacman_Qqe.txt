@@ -190,7 +190,6 @@ helvum
 highlight
 htop
 httpie
-hub
 i3lock
 iempluginsuite
 ifuse
@@ -485,7 +484,6 @@ ttf-input
 ttf-liberation
 ttf-mononoki
 ttf-oldeenglish
-ttf-open-sans
 ttf-roboto
 ttf-share-gf
 ttf-spacemono
