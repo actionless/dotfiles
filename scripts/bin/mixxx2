@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec env QT_SCREEN_SCALE_FACTORS=2 mixxx "$@"
