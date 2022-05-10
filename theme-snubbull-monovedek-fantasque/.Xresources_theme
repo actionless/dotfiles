@@ -1,11 +1,21 @@
-st.opacity: 223
-!st.opacity: 233
 !st.font: Input Mono Narrow:pixelsize=20:antialias=true:autohint=true;
 !st.font: Fantasque Sans Mono:pixelsize=22.5:antialias=true:autohint=true;
 !st.font: Fantasque Sans Mono:pixelsize=21.75:antialias=true:autohint=true;
 st.font: Fantasque Sans Mono:pixelsize=22:antialias=true:autohint=true;
 !st.font_fallback:     Meslo LG S for Lcarsline:style=Regular:pixelsize=22:antialias=true
-st.font_fallback:     Meslo LG S for Lcarsline:style=Regular:pixelsize=17.8:antialias=true:autohint=true
+!st.font_fallback:     Meslo LG S for Lcarsline:style=Regular:pixelsize=17.8:antialias=true:autohint=true
+
+! not crashing:
+st.font_fallback:     Twitter Color Emoji:style=Regular:pixelsize=22:antialias=true:autohint=true,Meslo LG S for Lcarsline:style=Regular:pixelsize=17.8:antialias=true:autohint=true
+
+! crashing:
+!st.font_fallback:     Noto Color Emoji:style=Regular:pixelsize=22:antialias=true:autohint=true,Meslo LG S for Lcarsline:style=Regular:pixelsize=17.8:antialias=true:autohint=true
+
+! crashing:
+!st.font_fallback:     Twemoji:style=Regular:pixelsize=22:antialias=true:autohint=true,Meslo LG S for Lcarsline:style=Regular:pixelsize=17.8:antialias=true:autohint=true
+
+st.opacity: 223
+!st.opacity: 233
 st.cursorshape: 0
 !st.cursorshape: 5
 !st.xfps:         30
