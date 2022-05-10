@@ -1,3 +1,8 @@
-#!/bin/sh
-set -eu
-ffmpeg -i "$1" -preset veryfast -vf "transpose=cclock" -acodec copy "$2"
+#!/usr/bin/env bash
+set -euo pipefail
+
+input_file="$1"
+output_file="$2"
+
+bitrate="$(ffprobe "$input_file" -select_streams v -show_entries stream=bit_rate -of compact=p=0:nk=1 2>/dev/null)"
+exec ffmpeg -i "$input_file" -preset veryfast -vf "transpose=cclock" -acodec copy -b:v "$bitrate" "$output_file"
