@@ -21,3 +21,6 @@ privacy.trackingprotection.* = true
 
 # needed later for furritron, to set from webext using new api:
 browser.ssb.enabled = true
+
+# mpris:
+media.hardwaremediakeys.enabled = true
