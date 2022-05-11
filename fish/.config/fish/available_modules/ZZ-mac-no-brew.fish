@@ -1,3 +1,7 @@
+test -e $HOME/.iterm2_shell_integration.fish ; and source $HOME/.iterm2_shell_integration.fish ; or true
+#set --universal fish_user_paths /Library/Developer/CommandLineTools/usr/bin $fish_user_paths
+
+
 alias rm "command rm"
 
 function rg --wraps='grep'
@@ -8,6 +12,16 @@ function rg --wraps='grep'
 	end
 	return $status
 end
+
+function fd --wraps='find'
+	if test (count $argv) -eq 1
+		find . -name $argv
+	else
+		find $argv
+	end
+	return $status
+end
+
 
 ########################################
 # LS crazyness:
