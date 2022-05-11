@@ -119,7 +119,9 @@ let g:ale_linters = {
 \	 'python': ['mypy', 'pylint', 'pylsp'],
 \	 'javascript': ['eslint', 'fecs', 'flow', 'flow-language-server', 'jscs', 'standard', 'tsserver', 'xo'],
 \}
-let b:ale_linters_ignore = ['pylsp']
+let g:ale_linters_ignore = {
+\	 'python': ['pylsp']
+\}
 "set completeopt=menu,menuone,popup,noselect,noinsert
 
 let g:ale_python_pylsp_executable = 'pyls'
