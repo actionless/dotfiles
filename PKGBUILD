@@ -1,6 +1,6 @@
 pkgname=actionless_dotfiles_meta
 pkgver=0.1
-pkgrel=15
+pkgrel=16
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
@@ -23,7 +23,7 @@ depends=(
 	# theming:
 	'breeze'
 	#'xcursor-breeze'
-	'gnome-icon-theme'
+	'adwaita-icon-theme'
 
 	# fonts:
 	'adobe-source-code-pro-fonts'
