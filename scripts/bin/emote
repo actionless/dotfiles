@@ -1,0 +1,4 @@
+#!/bin/sh
+cd ~/projects/Emote/
+exec python -m emote --font skip
+#exec emote --font skip
