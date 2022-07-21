@@ -53,6 +53,7 @@ breeze-icons
 brightnessctl
 brumbrumrally
 bspwm
+bulky
 bumblebee
 bzip2
 calc
@@ -67,7 +68,6 @@ cli-visualizer
 cmatrix
 colorz
 coreutils
-crda
 cryptsetup
 ctags
 dash
@@ -100,11 +100,11 @@ dscanner
 dub
 dunedynasty
 e2fsprogs
-easy_spice
 easyeffects
 ebumeter
 efibootmgr
 elementary-icon-theme
+emote
 enet
 eog
 eslint
@@ -139,12 +139,11 @@ freerdp
 freetype2
 fwupd
 fzf
-gajim
 gawk
 gcc
-gcc-d
 gcolor3
 gdb
+geckodriver
 gedit
 geeqie
 gettext
@@ -153,7 +152,6 @@ gifsicle
 gimp
 gimp-plugin-gmic
 git
-git-cola
 github-cli
 gksu
 glade
@@ -161,7 +159,6 @@ glances
 glibc
 gnome-characters
 gnome-font-viewer
-gnome-icon-theme
 gnome-keyring
 gnome-todo
 gnome-tweaks
@@ -183,6 +180,7 @@ gstreamer-vaapi
 gthumb
 gtk-theme-elementary
 gtk3-demos
+gtk4-demos
 gvim
 gzip
 hddtemp
@@ -205,10 +203,9 @@ iputils
 ipython
 iw
 iwd
-jdk8-openjdk
+jamesdsp
 jfsutils
 jpegoptim
-jre8-openjdk
 kbdd-git
 kde-cli-tools
 kdenlive
@@ -226,6 +223,8 @@ lib32-pipewire
 lib32-pipewire-jack
 lib32-primus_vk
 lib32-virtualgl
+libc++
+libc++abi
 libcue
 liblphobos
 libpng12
@@ -238,6 +237,7 @@ libvdpau-va-gl
 licenses
 lightdm
 lightdm-gtk-greeter
+lightworks
 lingot
 linux
 lm_sensors
@@ -263,6 +263,7 @@ mate-polkit
 mate-session-manager
 materia-theme-git
 mc
+mda.lv2
 mdadm
 megasync-bin
 meld
@@ -271,6 +272,7 @@ mesa-utils
 mesa-vdpau
 micropython
 micropython-lib
+mixxx
 mkinitcpio-archlogo
 mkvtoolnix-cli
 mlocate
@@ -292,9 +294,14 @@ nfs-utils
 nginx
 ngspice
 ninjas2
+nitch
 nitrogen
+nodejs
 nohang-git
 nomacs
+non-mixer
+non-sequencer
+non-timeline
 notification-daemon
 noto-fonts-emoji
 noto-fonts-extra
@@ -308,6 +315,7 @@ nvidia-settings
 nvtop
 obconf
 ocenaudio-bin
+olive-git
 onboard
 openbox
 openbsd-netcat
@@ -326,6 +334,7 @@ paprefs
 parted
 patch
 patchelf
+patroneo
 pavucontrol
 pciutils
 pcmanfm-qt
@@ -340,6 +349,7 @@ pipecontrol
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
+pitivi
 pkgconf
 pkgfile
 plantuml
@@ -352,7 +362,10 @@ prettier
 primus_vk
 procps-ng
 progress
+projectm-creamofthecroppresets
 projectm-git
+projectm-presets-classic-git
+projectm-sdl2-git
 psmisc
 ptpython
 purple-skypeweb
@@ -391,9 +404,7 @@ python-tox
 python-urwid
 python-virtualenv
 python-xcffib
-python34
 qbittorrent
-qemu
 qjackctl
 qpwgraph
 qt5-styleplugins
@@ -435,7 +446,6 @@ soundfont-sgm
 soundfont-titanic
 soundfont-zelda3sf2
 soundfont-zeldamcsf2
-soundnode-youtube-dl
 spectmorph
 spectre-meltdown-checker
 spotify
@@ -455,6 +465,7 @@ sysfsutils
 systemd-sysvcompat
 tamsyn-font
 tar
+telegram-desktop
 termdown-git
 testdisk
 texinfo
@@ -470,10 +481,10 @@ tmux
 todotxt
 toilet
 tor
-tor-browser
 tracktion-waveform-9
 transmission-gtk
 tree
+ttf-bitstream-vera
 ttf-cousine
 ttf-fira-code
 ttf-fira-sans
@@ -481,17 +492,20 @@ ttf-go-mono-git
 ttf-go-sans-git
 ttf-inconsolata
 ttf-input
+ttf-joypixels
 ttf-liberation
 ttf-mononoki
 ttf-oldeenglish
 ttf-roboto
 ttf-share-gf
 ttf-spacemono
+ttf-twemoji
 ttf-twemoji-color
 tuna
 tuxguitar
 tuxguitar-fluidsynth
 twine
+udiskie
 uncrustify
 unrar
 upower
@@ -563,6 +577,7 @@ xviewer
 yaft
 yaftx
 youtube-dl
+yt-dlp
 zam-plugins
 zenity
 zynaddsubfx

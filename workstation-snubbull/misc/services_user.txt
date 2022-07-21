@@ -3,6 +3,7 @@
   blueman-applet.service              loaded active running Bluetooth management applet
   dbus.service                        loaded active running D-Bus User Message Bus
   dconf.service                       loaded active running User preferences database
+  gnome-keyring-daemon.service        loaded active running GNOME Keyring daemon
   gvfs-daemon.service                 loaded active running Virtual filesystem service
   gvfs-goa-volume-monitor.service     loaded active running Virtual filesystem service - GNOME Online Accounts monitor
   gvfs-metadata.service               loaded active running Virtual filesystem metadata service

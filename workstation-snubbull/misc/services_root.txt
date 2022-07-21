@@ -5,6 +5,7 @@
   dbus.service                                                                              loaded active running D-Bus System Message Bus
   iwd.service                                                                               loaded active running Wireless service
   kmod-static-nodes.service                                                                 loaded active exited  Create List of Static Device Nodes
+  ldconfig.service                                                                          loaded active exited  Rebuild Dynamic Linker Cache
   lightdm.service                                                                           loaded active running Light Display Manager
   lm_sensors.service                                                                        loaded active exited  Initialize hardware monitoring sensors
   lvm2-monitor.service                                                                      loaded active exited  Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling
@@ -18,6 +19,8 @@
   systemd-binfmt.service                                                                    loaded active exited  Set Up Additional Binary Formats
   systemd-fsck-root.service                                                                 loaded active exited  File System Check on Root Device
   systemd-fsck@dev-disk-by\x2duuid-6dbacd72\x2d3c1f\x2d437c\x2db70c\x2d3e4f8e17c29b.service loaded active exited  File System Check on /dev/disk/by-uuid/6dbacd72-3c1f-437c-b70c-3e4f8e17c29b
+  systemd-hwdb-update.service                                                               loaded active exited  Rebuild Hardware Database
+  systemd-journal-catalog-update.service                                                    loaded active exited  Rebuild Journal Catalog
   systemd-journal-flush.service                                                             loaded active exited  Flush Journal to Persistent Storage
   systemd-journald.service                                                                  loaded active running Journal Service
   systemd-logind.service                                                                    loaded active running User Login Management
@@ -27,11 +30,13 @@
   systemd-remount-fs.service                                                                loaded active exited  Remount Root and Kernel File Systems
   systemd-resolved.service                                                                  loaded active running Network Name Resolution
   systemd-sysctl.service                                                                    loaded active exited  Apply Kernel Variables
+  systemd-sysusers.service                                                                  loaded active exited  Create System Users
   systemd-timesyncd.service                                                                 loaded active running Network Time Synchronization
   systemd-tmpfiles-setup-dev.service                                                        loaded active exited  Create Static Device Nodes in /dev
   systemd-tmpfiles-setup.service                                                            loaded active exited  Create Volatile Files and Directories
   systemd-udev-trigger.service                                                              loaded active exited  Coldplug All udev Devices
   systemd-udevd.service                                                                     loaded active running Rule-based Manager for Device Events and Files
+  systemd-update-done.service                                                               loaded active exited  Update is Completed
   systemd-update-utmp.service                                                               loaded active exited  Record System Boot/Shutdown in UTMP
   systemd-user-sessions.service                                                             loaded active exited  Permit User Sessions
   tmux@lie.service                                                                          loaded active running Start tmux in detached session
