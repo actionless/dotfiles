@@ -1,3 +1,4 @@
+export GTK_THEME=oomox-monovedek
 export TMUX_FG="colour0"
 
 #export TERM_DECORATION_LEFT="퟼"
