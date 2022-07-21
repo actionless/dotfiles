@@ -105,6 +105,7 @@ export TMUX_DECORATION_SEPARATOR_RIGHT=${TERM_DECORATION_SEPARATOR}
 #export TMUX_DECORATION_LEFT=${TERM_DECORATION_LEFT}
 #export TMUX_DECORATION_RIGHT=""
 
+#export GTK_THEME=oomox-monovedek
 
 ################################################################################
 ## Local overrides:
