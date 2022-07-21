@@ -8,6 +8,6 @@
   gvfs-metadata.service               loaded active running Virtual filesystem metadata service
   gvfs-udisks2-volume-monitor.service loaded active running Virtual filesystem service - disk device monitor
   obex.service                        loaded active running Bluetooth OBEX service
-  pipewire-media-session.service      loaded active running PipeWire Media Session Manager
   pipewire-pulse.service              loaded active running PipeWire PulseAudio
   pipewire.service                    loaded active running PipeWire Multimedia Service
+  wireplumber.service                 loaded active running Multimedia Service Session Manager

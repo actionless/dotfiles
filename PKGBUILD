@@ -49,6 +49,9 @@ depends=(
 	'broot'
 	# shell/script helpers:
 	'highlight'
+
+	'wireplumber'  # pipewire
+	'realtime-privileges'  # pipewire
 )
 optdepends=(
 	#'gnome-settings-daemon: rc: alternative to xsettingsd'
