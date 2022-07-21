@@ -1,6 +1,8 @@
 " |||| THEME ||||
 
 set cursorline
+"set t_Co=256
+set t_Co=16
 
 "colorscheme default
 "set bg=dark
