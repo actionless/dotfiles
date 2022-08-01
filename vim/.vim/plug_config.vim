@@ -124,7 +124,7 @@ let g:ale_linters_ignore = {
 \}
 "set completeopt=menu,menuone,popup,noselect,noinsert
 
-let g:ale_python_pylsp_executable = 'pyls'
+"let g:ale_python_pylsp_executable = 'pyls'
 let g:ale_python_pylint_change_directory = 0
 let g:ale_python_mypy_options = ' --ignore-missing-imports '
 let g:ale_python_vulture_options = ' ./maintenance_scripts/vulture_whitelist.py '

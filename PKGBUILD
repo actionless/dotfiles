@@ -1,6 +1,6 @@
 pkgname=actionless_dotfiles_meta
 pkgver=0.1
-pkgrel=16
+pkgrel=17
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
@@ -14,7 +14,7 @@ depends=(
 
 	## vim stuff:
 	'vim'
-	'python-language-server'
+	'python-lsp-server'
 	'python-rope'
 	'bash-language-server'
 	'xsel'
