@@ -19,6 +19,7 @@ arandr
 arc-gtk-theme
 arc-icon-theme
 arch-install-scripts
+ardour
 asp
 atomicparsley
 atril
@@ -102,7 +103,9 @@ dunedynasty
 e2fsprogs
 easyeffects
 ebumeter
+ecasound
 efibootmgr
+element
 elementary-icon-theme
 emote
 enet
@@ -181,6 +184,7 @@ gthumb
 gtk-theme-elementary
 gtk3-demos
 gtk4-demos
+guitarix
 gvim
 gzip
 hddtemp
@@ -203,6 +207,7 @@ iputils
 ipython
 iw
 iwd
+jalv
 jamesdsp
 jfsutils
 jpegoptim
@@ -281,6 +286,7 @@ moreutils
 mpv
 munt
 munt-alsadrv
+muse
 mypy
 nano
 nano-syntax-highlighting
@@ -387,7 +393,7 @@ python-gaphas
 python-gaphor
 python-haishoku
 python-jedi
-python-language-server
+python-lsp-server
 python-matplotlib
 python-netifaces
 python-nose
@@ -410,8 +416,10 @@ qpwgraph
 qt5-styleplugins
 qt5ct
 qt6ct
+qtractor
 ranger
 realtime-privileges
+reaper
 recode
 recordmydesktop
 reiserfsprogs
@@ -535,6 +543,7 @@ whois
 wine
 winetricks
 wireless-regdb
+wireplumber
 wolf-shaper
 wolf-spectrum
 wpa_supplicant
