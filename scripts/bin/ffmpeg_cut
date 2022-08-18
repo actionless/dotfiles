@@ -1,11 +1,17 @@
 #!/bin/sh
 set -eu
 input_file="$1"
-output_file="$2"
-start_time="$3"
-duration="$4"
+shift
+output_file="$1"
+shift
+start_time="$1"
+shift
+duration="$1"
+shift
+set -x
 ffmpeg \
 	-i "$input_file" \
+	"$@" \
 	-ss "$start_time" -t "$duration" \
 	-c:v copy -c:a copy \
 	"$output_file"
