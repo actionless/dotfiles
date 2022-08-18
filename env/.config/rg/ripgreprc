@@ -18,7 +18,7 @@
 --glob
 !.git/*
 --glob
-!env/*
+!(*/|)env/lib*/*/site-packages/*
 
 # case insensitive unless caps letter used:
 --smart-case
