@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+set -ueo pipefail
+ffmpeg \
+	-i "$1" \
+	-framerate 24 \
+	-vf setsar=1:1 \
+	-c:v libx264 \
+	-pix_fmt yuv420p \
+	-profile:v high \
+	-crf 23 \
+	-preset fast \
+	-movflags +faststart \
+	-report -y \
+	"$2"
