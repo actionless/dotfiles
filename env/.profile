@@ -55,6 +55,8 @@ export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 export XDG_CURRENT_DESKTOP=gnome
 #export XDG_CURRENT_DESKTOP=xfce
 
+#export GTK3_MODULES="${GTK3_MODULES:+$GTK3_MODULES:}/usr/lib/libplotinus.so"
+
 #export QT_STYLE_OVERRIDE=gtk
 #export QT_QPA_PLATFORMTHEME='qgnomeplatform'
 #export QT_QPA_PLATFORMTHEME='gtk2'
