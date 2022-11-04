@@ -1,0 +1,1 @@
+abbr sc 'sudo systemctl'
