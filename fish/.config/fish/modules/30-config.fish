@@ -37,7 +37,9 @@ function reload_fish
 	source ~/.config/fish/config.fish
 end
 
-set fish_greeting LCARS initialized
+if status is-interactive
+	set fish_greeting LCARS initialized
+end
 
 #set fish_color_autosuggestion 444\x1eyellow
 #set fish_color_autosuggestion 666\x1eyellow
