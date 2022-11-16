@@ -93,6 +93,7 @@ rm -fr ~/.local/share/NuGet/
 
 # misc: #######################################################################
 flush_files ~/.cache/awesome_std*
+flush_files ~/wireplumber.log
 rm -fr ~/btfs/
 rm -fr ~/.local/share/Trash/
 rm -fr ~/.local/tmp/
