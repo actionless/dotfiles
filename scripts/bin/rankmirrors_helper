@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+mirrorlist_file=/etc/pacman.d/mirrorlist
+mirrorlist_new="${mirrorlist_file}.pacnew"
+mirrorlist_wip="${mirrorlist_file}.wip"
+mirrorlist_all="${mirrorlist_file}.all"
+
+if [[ ! -f "$mirrorlist_new" ]] ; then
+	echo "No ${mirrorlist_new} found"
+	exit 1
+fi
+if [[ -f "$mirrorlist_wip" ]] ; then
+	echo "${mirrorlist_wip} already exists"
+	exit 2
+fi
+
+prev_date="$(date +"%Y%m%d" -d "@""$(stat "$mirrorlist_file" --format "%W")")"
+
+sed -e 's/#Server\(.*https.*\)/Server\1/g' "$mirrorlist_new" \
+| sudo tee "$mirrorlist_wip" \
+> /dev/null
+sudo cp "$mirrorlist_file" "${mirrorlist_file}.${prev_date}.bak"
+rankmirrors -n 20 "$mirrorlist_wip" | sudo tee "$mirrorlist_file"
+sudo mv "$mirrorlist_wip" "$mirrorlist_all"
+sudo rm "$mirrorlist_new"
+echo '$$$$ FULL SUCCESS $$$$'
