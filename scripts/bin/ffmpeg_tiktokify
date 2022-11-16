@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+input_file="$1"
+output_file="$2"
+alignment="${3:-center}"
+
+bitrate="$(ffmpeg_get_bitrate "$1")"
+
+if [[ "$alignment" = "center" ]] ; then
+	vf="crop=w=ih*(9/16):h=ih"
+elif [[ "$alignment" = "left" ]] ; then
+	vf="crop=w=ih*(9/16):h=ih:x=0"
+elif [[ "$alignment" = "right" ]] ; then
+	vf="crop=w=ih*(9/16):h=ih:x=iw-(ih*(9/16))"
+else
+	echo "Unknown video alignment '$alignment'"
+	exit 1
+fi
+
+	#-crf 21 \
+exec ffmpeg \
+	-i "$input_file" \
+	-preset veryfast \
+	-vf "$vf" \
+	-acodec copy \
+	-b:v "$bitrate" \
+	"$output_file"
