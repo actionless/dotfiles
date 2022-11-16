@@ -14,7 +14,7 @@ exec ffmpeg \
 	-safe 0 \
 	-i <(\
 		for path in "$@"; do \
-			find "$path" -type f ; \
+			readlink -e "$(find "$path" -type f)" | sed 's/ /\\ /g' ; \
 		done \
 		| sed -e 's/\(.*\)/file \1/g' \
 	) \
