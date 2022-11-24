@@ -52,7 +52,7 @@ if [[ ${docker_status} -ne 0 ]] ; then
 fi
 
 
-pacman -Scc
+pikaur -Scc --repo --noconfirm
 echo
 echo
 
