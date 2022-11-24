@@ -15,6 +15,9 @@
 	--in-content-primary-button-background: Highlight !important;
 	--in-content-primary-button-background-hover: -moz-MenuHover !important;
 	--in-content-primary-button-background-active: Highlight !important;
+	--in-content-button-background: ButtonFace !important;
+	--in-content-button-text-color: ButtonText !important;
+	--in-content-button-border-color: ButtonBorder !important;
 
 	--panel-disabled-color: InactiveCaption !important;
 	--in-content-deemphasized-text: InactiveCaptionText !important;
@@ -72,10 +75,13 @@ body:empty {
 
 	body {
 		box-shadow: none !important;
-		--newtab-background-color: -moz-Field !important;
-		--newtab-text-primary-color: -moz-FieldText !important;
-		--newtab-topsites-label-color: -moz-FieldText !important;
-		--newtab-icon-tertiary-color: -moz-FieldText !important;
+		--newtab-background-color: Field !important;
+		--newtab-text-primary-color: FieldText !important;
+		--newtab-topsites-label-color: FieldText !important;
+		--newtab-icon-tertiary-color: FieldText !important;
+		--newtab-background-color-secondary: Window !important;
+		--newtab-text-secondary-color: WindowText !important;
+		--newtab-wordmark-color: FieldText !important;
 
 		--newtab-snippets-background-color: Window !important;
 		--newtab-textbox-focus-color: Highlight !important;
