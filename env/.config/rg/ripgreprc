@@ -1,10 +1,32 @@
+# case insensitive unless caps letter used:
+--smart-case
+
 # follow symbolic links:
 --follow
 
 # Search binary files as if they were text:
 --text
 
-# ignore patterns:
+# ... and ignore certain binary types manually:
+# binaries:
+--glob
+!*.so
+--glob
+!*.zip
+--glob
+!*.ZIP
+--glob
+!*.7z
+# python:
+--glob
+!*.pyc
+--glob
+!env/*
+#!(*/|)env/lib*/*/site-packages/*
+# git:
+--glob
+!.git/*
+# images:
 --glob
 !*.png
 --glob
@@ -12,13 +34,44 @@
 --glob
 !*.jpeg
 --glob
-!*.so
+!*.gif
 --glob
-!*.pyc
+!*.xcf
 --glob
-!.git/*
+!*.bmp
+# audio:
 --glob
-!(*/|)env/lib*/*/site-packages/*
-
-# case insensitive unless caps letter used:
---smart-case
+!*.mp3
+--glob
+!*.wav
+--glob
+!*.m4a
+--glob
+!*.flac
+--glob
+!*.opus
+--glob
+!*.ogg
+--glob
+!*.brain
+--glob
+!*.samplebrain
+# video:
+--glob
+!*.mp4
+--glob
+!*.MP4
+--glob
+!*.webm
+--glob
+!*.mov
+--glob
+!*.MOV
+--glob
+!*.ogv
+--glob
+!*.avi
+--glob
+!*.AVI
+--glob
+!*.mkv
