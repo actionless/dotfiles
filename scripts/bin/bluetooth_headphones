@@ -25,10 +25,10 @@ start_bluetooth_stack() {
 		sudo bluealsa
 	else
 		echo "!! alsa support is disabled (USE_ALSA=0)"
-
-		echo ":: started..."
+		echo
+		echo ":: running..."
 		while true ; do
-			sleep 1000
+			sleep 100000
 		done
 	fi
 }
