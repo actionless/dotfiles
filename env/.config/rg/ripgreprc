@@ -12,6 +12,8 @@
 --glob
 !*.so
 --glob
+!*.a
+--glob
 !*.zip
 --glob
 !*.ZIP
