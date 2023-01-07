@@ -49,8 +49,12 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=233 guibg=#1e1031
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234 guibg=#2e2041
 
 " ALE:
-highlight ALEWarning ctermbg=8
-highlight ALEError ctermbg=9 ctermfg=0
+autocmd VimEnter,Colorscheme * :hi ALEWarning ctermbg=8
+autocmd VimEnter,Colorscheme * :hi ALEError ctermbg=9 ctermfg=0
+autocmd VimEnter,Colorscheme * :hi link ALEVirtualTextError WarningMsg
+autocmd VimEnter,Colorscheme * :hi link ALEVirtualTextWarning SpellBad
+"autocmd VimEnter,Colorscheme * :hi link ALEVirtualTextError SpellBad
+"autocmd VimEnter,Colorscheme * :hi link ALEVirtualTextWarning WarningMsg
 
 " TagBar:
 autocmd VimEnter,Colorscheme * :hi link TagbarHighlight IncSearch
