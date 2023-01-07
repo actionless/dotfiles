@@ -1,0 +1,5 @@
+#!/bin/sh
+echo
+echo "In google-chrome open 'chrome://inspect/#devices' and in 'Remote Target' choose port :9222"
+echo
+exec spotify --remote-debugging-port=9222 --no-default-browser-check "$@"
