@@ -118,6 +118,7 @@ inoremap <expr><S-TAB>
 
 
 "\	 'python': ['flake8', 'mypy', 'pylint', 'pylsp', 'vulture'],
+"\	 'python': ['ruff', 'pylsp'],
 let g:ale_linters = {
 \	 'python': ['mypy', 'pylint', 'pylsp'],
 \	 'javascript': ['eslint', 'fecs', 'flow', 'flow-language-server', 'jscs', 'standard', 'tsserver', 'xo'],
@@ -129,8 +130,9 @@ let g:ale_linters_ignore = {
 
 "let g:ale_python_pylsp_executable = 'pyls'
 let g:ale_python_pylint_change_directory = 0
-let g:ale_python_mypy_options = ' --ignore-missing-imports '
-let g:ale_python_vulture_options = ' ./maintenance_scripts/vulture_whitelist.py '
+"let g:ale_python_mypy_options = ' --ignore-missing-imports '
+"let g:ale_python_vulture_options = ' ./maintenance_scripts/vulture_whitelist.py '
+"let g:ale_python_ruff_options = ' --config pyproject.toml '
 "set omnifunc=ale#completion#OmniFunc
 
 
