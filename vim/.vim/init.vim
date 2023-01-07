@@ -105,3 +105,9 @@ au Syntax * RainbowParenthesesLoadBraces
 if stridx(expand('%:p:h'), '/home/'.$USER.'/Dropbox/notes') == 0
 	set exrc
 endif
+
+if stridx(expand('%:p:h'), '/home/'.$USER.'/projects/') == 0 && filereadable('./.vimrc')
+	source ./.vimrc
+endif
+
+"END
