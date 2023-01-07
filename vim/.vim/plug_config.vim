@@ -15,6 +15,11 @@ let g:NERDDefaultAlign = 'left'
 Plug 'aklt/plantuml-syntax', {'for': ['plantuml']}
 Plug 'junegunn/vader.vim', {'for': 'vader'}
 
+Plug 'tpope/vim-speeddating', {'for': 'org'}
+"Plug 'tpope/vim-speeddating'
+Plug 'jceb/vim-orgmode', {'for': 'org'}
+
+Plug 'vim/killersheep', {'on': 'KillKillKill'}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Style:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -135,12 +140,6 @@ let g:ale_python_pylint_change_directory = 0
 "let g:ale_python_ruff_options = ' --config pyproject.toml '
 "set omnifunc=ale#completion#OmniFunc
 
-
-Plug 'vim/killersheep', {'on': 'KillKillKill'}
-
-"Plug 'tpope/vim-speeddating', {'for': 'org'}
-Plug 'tpope/vim-speeddating'
-Plug 'jceb/vim-orgmode', {'for': 'org'}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
 "##############################################################################
