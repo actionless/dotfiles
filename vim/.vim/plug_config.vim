@@ -13,6 +13,7 @@ Plug 'scrooloose/nerdcommenter'
 let g:NERDDefaultAlign = 'left'
 
 Plug 'aklt/plantuml-syntax', {'for': ['plantuml']}
+Plug 'junegunn/vader.vim', {'for': 'vader'}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Style:
