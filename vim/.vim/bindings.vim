@@ -11,6 +11,8 @@
 vnoremap < <gv
 vnoremap > >gv
 
+"noremap n nzz
+
 " Fix Ctrl+Left/Right Arrows
 " it was like that til november 2020 (but wasn't even needed):
 "map <ESC>[5D <C-Left>
