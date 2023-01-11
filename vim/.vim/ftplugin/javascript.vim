@@ -23,3 +23,4 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 autocmd FileType html noremap <buffer> <leader><c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader><c-f> :call CSSBeautify()<cr>
 
+let g:NERDSpaceDelims = 1
