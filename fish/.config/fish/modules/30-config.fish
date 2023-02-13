@@ -19,7 +19,19 @@ end
 if command which dircolors > /dev/null
 	dircolors -c ~/.dir_colors | sed 's/>&\/dev\/null$//' | source
 end
-set -x DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/"(id -u)"/bus"
+
+if ! echo $PATH | grep -q $HOME
+	set PATH $HOME/bin $PATH
+end
+if test -z "$DISPLAY"
+	set -x DISPLAY ":0"
+end
+if test -z "$DBUS_SESSION_BUS_ADDRESS"
+	set -x DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/"(id -u)"/bus"
+end
+if test -z "$XAUTHORITY"
+	set -x XAUTHORITY "$HOME/.Xauthority"
+end
 
 
 # clean the line on ctrl+c instead of jumping the prompt
