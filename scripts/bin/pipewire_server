@@ -1,0 +1,7 @@
+#!/bin/bash
+set -ueo pipefail
+#ip=$(ip addr | grep enp0 | grep inet | cut -d' ' -f6 | cut -d/ -f1)
+ip=$(hostname -i | cut -d' ' -f1)
+set -x
+pactl load-module module-native-protocol-tcp listen="$ip"
+pactl load-module module-zeroconf-publish
