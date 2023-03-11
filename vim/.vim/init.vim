@@ -103,11 +103,13 @@ au Syntax * RainbowParenthesesLoadBraces
 "au VimEnter * redraw!
 
 if stridx(expand('%:p:h'), '/home/'.$USER.'/Dropbox/notes') == 0
+	" this will source local .vimrc:
 	set exrc
 endif
 
 if stridx(expand('%:p:h'), '/home/'.$USER.'/projects/') == 0 && filereadable('./.vimrc')
-	source ./.vimrc
+	" this will source local .vimrc:
+	set exrc
 endif
 
 "END
