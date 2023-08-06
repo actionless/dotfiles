@@ -1,0 +1,29 @@
+#!/bin/bash
+set -ueo pipefail
+
+input_file="$1"
+shift
+
+if [[ -z "${9:-}" ]] ; then
+	echo "Not enough arguments"
+	exit 1
+fi
+
+if [[ -n "${10:-}" ]] ; then
+	echo "Too many arguments"
+	exit 1
+fi
+
+ffmpeg \
+	-i "$1" -i "$2" -i "$3"\
+	-i "$4" -i "$5" -i "$6"\
+	-i "$7" -i "$8" -i "$9" \
+	-filter_complex \
+	"[0:v][1:v][2:v]hstack=inputs=3[top]; \
+     [3:v][4:v][5:v]hstack=inputs=3[middle]; \
+     [6:v][7:v][8:v]hstack=inputs=3[bottom];
+     [top][middle][bottom]vstack=inputs=3[v]" \
+	-map "[v]" \
+	-c:v "$(ffmpeg_get_codec "$1")" \
+	-b:v "$(ffmpeg_get_bitrate "$1")" \
+	"$input_file"

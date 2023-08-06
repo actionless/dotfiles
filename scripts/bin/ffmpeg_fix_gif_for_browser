@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 set -ueo pipefail
+output_file=${2:-$1.mp4}
 ffmpeg \
 	-i "$1" \
 	-framerate 24 \
@@ -11,4 +12,4 @@ ffmpeg \
 	-preset fast \
 	-movflags +faststart \
 	-report -y \
-	"$2"
+	"$output_file"

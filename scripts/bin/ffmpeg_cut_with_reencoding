@@ -1,0 +1,18 @@
+#!/bin/sh
+set -eu
+input_file="$1"
+shift
+output_file="$1"
+shift
+start_time="$1"
+shift
+duration="$1"
+shift
+set -x
+ffmpeg \
+	-i "$input_file" \
+	"$@" \
+	-ss "$start_time" -t "$duration" \
+	-b:v "$(ffmpeg_get_bitrate "$input_file")" \
+	-c:a copy \
+	"$output_file"

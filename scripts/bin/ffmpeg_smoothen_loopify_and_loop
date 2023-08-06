@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+
+input_file="$(readlink -e "$1")"
+shift
+
+dirname=$(dirname -- "$input_file")
+filename=$(basename -- "$input_file")
+basename="${filename%.*}"
+extension="${filename##*.}"
+
+limit="${1:-60}"
+shift || true
+
+fps="${1:-30}"
+shift || true
+
+output_file_x4="${1:-${dirname}/${basename}.${limit}s_x4_loop.${extension}}"
+shift || true
+
+output_file_x2="${1:-${dirname}/${basename}.${limit}s_x2_loop.${extension}}"
+shift || true
+
+tmp_x2="${input_file}.x2_tmp.${extension}"
+cd ~/ai/mmediting
+./video_interpolation.sh "$input_file" "$tmp_x2"
+
+ffmpeg_loopify_and_loop "$tmp_x2" "$limit" "$output_file_x2"
+
+tmp_x4="${input_file}.x4_tmp.${extension}"
+./video_interpolation.sh "$tmp_x2" "$tmp_x4"
+rm "$tmp_x2"
+
+tmp_refps="${input_file}.refps_tmp.${extension}"
+#./refps_without_reencoding.sh "$tmp_x4" "$tmp_refps" "$fps"
+./refps_WITH_reencoding.sh "$tmp_x4" "$tmp_refps" 1 "$fps"
+rm "$tmp_x4"
+
+ffmpeg_loopify_and_loop "$tmp_refps" "$limit" "$output_file_x4"
+rm "$tmp_refps"

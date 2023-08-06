@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+
+input_file="$1"
+shift
+
+dirname=$(dirname -- "$input_file")
+filename=$(basename -- "$input_file")
+basename="${filename%.*}"
+extension="${filename##*.}"
+
+limit="${1:-60}"
+shift || true
+
+output_file="${1:-${dirname}/${basename}.${limit}s_loop.${extension}}"
+shift || true
+
+ffmpeg -stream_loop -1 -i "$input_file" -c copy -t "$limit" "$output_file"

@@ -1,0 +1,2 @@
+#!/bin/sh
+ffprobe -loglevel error -select_streams v:0 -show_entries stream=codec_name -of default=nk=1:nw=1 "$1"

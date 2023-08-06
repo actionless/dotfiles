@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+
+input_file="$1"
+shift
+
+filename=$(basename -- "$input_file")
+extension="${filename##*.}"
+
+output_file="${1:-$input_file.reversed.$extension}"
+shift || true
+
+
+ffmpeg \
+	-i "$input_file" \
+	-vf reverse \
+	-af areverse \
+	-c:v "$(ffmpeg_get_codec "$input_file")" \
+	-b:v "$(ffmpeg_get_bitrate "$input_file")" \
+	"$output_file"

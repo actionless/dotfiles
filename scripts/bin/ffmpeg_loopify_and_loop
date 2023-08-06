@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+
+input_file="$1"
+shift
+
+dirname=$(dirname -- "$input_file")
+filename=$(basename -- "$input_file")
+basename="${filename%.*}"
+extension="${filename##*.}"
+
+limit="${1:-60}"
+shift || true
+
+output_file="${1:-${dirname}/${basename}.${limit}s_loop.${extension}}"
+shift || true
+
+tmp_loopified="${input_file}.loopified_tmp.${extension}"
+ffmpeg_loopify "$input_file" "$tmp_loopified"
+ffmpeg_loop "$tmp_loopified" "$limit" "$output_file"
+rm "$tmp_loopified"

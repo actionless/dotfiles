@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+
+input_file="$1"
+shift
+
+dirname=$(dirname -- "$input_file")
+filename=$(basename -- "$input_file")
+basename="${filename%.*}"
+extension="${filename##*.}"
+
+output_file="${1:-${dirname}/${basename}.loopified.${extension}}"
+shift || true
+
+tmp_reversed="${input_file}.reversed_tmp.${extension}"
+ffmpeg_reverse "$input_file" "$tmp_reversed"
+
+ffmpeg_concat_WITH_reencoding "$output_file" "$input_file" "$tmp_reversed"
+rm "$tmp_reversed"
