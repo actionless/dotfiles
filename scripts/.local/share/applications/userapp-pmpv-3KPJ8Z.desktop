@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+#NoDisplay=true
+Exec=pmpv %f
+Name=mpv custom pulseadio
+Comment=MPV with custom Pulseaudio output
+#Icon=mpv
+Icon=audio-speakers-symbolic

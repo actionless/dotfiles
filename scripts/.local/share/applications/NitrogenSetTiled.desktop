@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=false
+#Exec=nitrogen --set-color=#888888 --set-tiled %F
+Exec=bash -c "killall gifview ; nitrogen --save --set-color=#$(xrdb -query | grep "^*background" | cut -d# -f2) --set-tiled %F"
+Name=Nitrogen: set tiled
+Comment=Set wallpaper in tiled layout

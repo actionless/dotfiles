@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=true
+Exec=/home/lie/bin/tuxguitar_hidpi %f
+Name=tuxguitar_hidpi
+Comment=Custom definition for tuxguitar_hidpi

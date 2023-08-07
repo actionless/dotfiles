@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=false
+#Exec=bash -c "killall gifview ; gifview --animate -w root %F"
+Exec=bash -c "killall gifview ; xwinwrap -ov -fs -- gifview --bg \"#$(xrdb -query | grep "^*background" | cut -d# -f2)\" -w WID -a %F"
+Name=GifView: set tiled
+Comment=Set wallpaper in tiled layout

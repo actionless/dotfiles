@@ -1,0 +1,22 @@
+[Desktop Entry]
+Name=ocenaudio
+Name[pt]=ocenaudio
+Name[de]=ocenaudio
+Name[ru]=ocenaudio
+GenericName=Audio Editor
+GenericName[pt]=Editor de Áudio
+GenericName[de]=Audio Editor
+GenericName[ru]=Звуковой редактор
+Comment=Edit audio files
+Comment[pt]=Edite arquivos de áudio
+Comment[de]=Audio Dateien bearbeiten
+Comment[ru]=Редактирование звуковых файлов
+
+Icon=ocenaudio
+Type=Application
+Categories=AudioVideo;Audio;AudioVideoEditing;
+
+Exec=ocenaudio %F
+StartupNotify=false
+Terminal=false
+MimeType=application/ogg;audio/basic;audio/mpeg;audio/x-aiff;audio/x-mp3;audio/x-wav;application/x-ocenlink;x-scheme-handler/ocenaudio;
