@@ -1,0 +1,55 @@
+  UNIT                                                                                      LOAD      ACTIVE SUB     DESCRIPTION
+  accounts-daemon.service                                                                   loaded    active running Accounts Service
+  alsa-restore.service                                                                      loaded    active exited  Save/Restore Sound Card State
+  cpupower.service                                                                          loaded    active exited  Apply cpupower configuration
+  dbus.service                                                                              loaded    active running D-Bus System Message Bus
+  getty@tty3.service                                                                        loaded    active running Getty on tty3
+  getty@tty4.service                                                                        loaded    active running Getty on tty4
+  getty@tty5.service                                                                        loaded    active running Getty on tty5
+  getty@tty6.service                                                                        loaded    active running Getty on tty6
+  gssproxy.service                                                                          loaded    active running GSSAPI Proxy Daemon
+  kmod-static-nodes.service                                                                 loaded    active exited  Create List of Static Device Nodes
+● lightdm.service                                                                           loaded    failed failed  Light Display Manager
+● lvm2-lvmetad.service                                                                      not-found active running lvm2-lvmetad.service
+  lvm2-monitor.service                                                                      loaded    active exited  Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling
+  netctl.service                                                                            loaded    active exited  (Re)store the netctl profile state
+  nfs-idmapd.service                                                                        loaded    active running NFSv4 ID-name mapping service
+  nfs-mountd.service                                                                        loaded    active running NFS Mount Daemon
+  nfs-server.service                                                                        loaded    active exited  NFS server and services
+  nfsdcld.service                                                                           loaded    active running NFSv4 Client Tracking Daemon
+  nohang-desktop.service                                                                    loaded    active running Sophisticated low memory handler
+  ntpd.service                                                                              loaded    active running Network Time Service
+  polkit.service                                                                            loaded    active running Authorization Manager
+  rpc-statd-notify.service                                                                  loaded    active exited  Notify NFS peers of a restart
+  rpc-statd.service                                                                         loaded    active running NFS status monitor for NFSv2/3 locking.
+  rpcbind.service                                                                           loaded    active running RPC Bind
+● shadow.service                                                                            loaded    failed failed  Verify integrity of password and group files
+  sshd.service                                                                              loaded    active running OpenSSH Daemon
+  systemd-binfmt.service                                                                    loaded    active exited  Set Up Additional Binary Formats
+  systemd-fsck@dev-disk-by\x2duuid-005cd4d8\x2d3f5e\x2d41ea\x2da301\x2d7df5701aece8.service loaded    active exited  File System Check on /dev/disk/by-uuid/005cd4d8-3f5e-41ea-a301-7df5701aece8
+  systemd-fsck@dev-disk-by\x2duuid-0C1F\x2d006D.service                                     loaded    active exited  File System Check on /dev/disk/by-uuid/0C1F-006D
+  systemd-fsck@dev-sdb3.service                                                             loaded    active exited  File System Check on /dev/sdb3
+  systemd-fsck@dev-sdc5.service                                                             loaded    active exited  File System Check on /dev/sdc5
+  systemd-fsck@dev-sdc6.service                                                             loaded    active exited  File System Check on /dev/sdc6
+  systemd-journal-flush.service                                                             loaded    active exited  Flush Journal to Persistent Storage
+  systemd-journald.service                                                                  loaded    active running Journal Service
+  systemd-logind.service                                                                    loaded    active running User Login Management
+  systemd-modules-load.service                                                              loaded    active exited  Load Kernel Modules
+  systemd-networkd.service                                                                  loaded    active running Network Configuration
+  systemd-random-seed.service                                                               loaded    active exited  Load/Save Random Seed
+  systemd-remount-fs.service                                                                loaded    active exited  Remount Root and Kernel File Systems
+  systemd-resolved.service                                                                  loaded    active running Network Name Resolution
+  systemd-sysctl.service                                                                    loaded    active exited  Apply Kernel Variables
+  systemd-timesyncd.service                                                                 loaded    active running Network Time Synchronization
+  systemd-tmpfiles-setup-dev.service                                                        loaded    active exited  Create Static Device Nodes in /dev
+  systemd-tmpfiles-setup.service                                                            loaded    active exited  Create Volatile Files and Directories
+  systemd-udev-trigger.service                                                              loaded    active exited  Coldplug All udev Devices
+  systemd-udevd.service                                                                     loaded    active running Rule-based Manager for Device Events and Files
+  systemd-update-utmp.service                                                               loaded    active exited  Record System Boot/Shutdown in UTMP
+  systemd-user-sessions.service                                                             loaded    active exited  Permit User Sessions
+  tmux@lie.service                                                                          loaded    active running Start tmux in detached session
+  udisks.service                                                                            loaded    active running Disk Manager (legacy version)
+  user-runtime-dir@0.service                                                                loaded    active exited  User Runtime Directory /run/user/0
+  user-runtime-dir@1000.service                                                             loaded    active exited  User Runtime Directory /run/user/1000
+● user@0.service                                                                            loaded    failed failed  User Manager for UID 0
+  user@1000.service                                                                         loaded    active running User Manager for UID 1000

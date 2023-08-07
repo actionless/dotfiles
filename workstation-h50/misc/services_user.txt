@@ -1,0 +1,3 @@
+  UNIT                 LOAD   ACTIVE SUB     DESCRIPTION
+  dbus.service         loaded active running D-Bus User Message Bus
+● modprobed-db.service loaded failed failed  Modprobed-db
