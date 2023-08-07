@@ -1,0 +1,39 @@
+#!/bin/bash
+set -ueo pipefail
+
+input_file="$1"
+shift
+
+if [[ -z "${64:-}" ]] ; then
+	echo "Not enough arguments"
+	exit 1
+fi
+
+if [[ -n "${65:-}" ]] ; then
+	echo "Too many arguments"
+	exit 1
+fi
+
+ffmpeg \
+	-i "$1" -i "$2" -i "$3" -i "$4" -i "$5" -i "$6" -i "$7" -i "$8" \
+	-i "$9" -i "${10}" -i "${11}" -i "${12}" -i "${13}" -i "${14}" -i "${15}" -i "${16}" \
+	-i "${17}" -i "${18}" -i "${19}" -i "${20}" -i "${21}" -i "${22}" -i "${23}" -i "${24}" \
+	-i "${25}" -i "${26}" -i "${27}" -i "${28}" -i "${29}" -i "${30}" -i "${31}" -i "${32}" \
+	-i "${33}" -i "${34}" -i "${35}" -i "${36}" -i "${37}" -i "${38}" -i "${39}" -i "${40}" \
+	-i "${41}" -i "${42}" -i "${43}" -i "${44}" -i "${45}" -i "${46}" -i "${47}" -i "${48}" \
+	-i "${49}" -i "${50}" -i "${51}" -i "${52}" -i "${53}" -i "${54}" -i "${55}" -i "${56}" \
+	-i "${57}" -i "${58}" -i "${59}" -i "${60}" -i "${61}" -i "${62}" -i "${63}" -i "${64}" \
+	-filter_complex \
+	"[0:v][1:v][2:v][3:v][4:v][5:v][6:v][7:v]hstack=inputs=8[line1]; \
+	 [8:v][9:v][10:v][11:v][12:v][13:v][14:v][15:v]hstack=inputs=8[line2]; \
+	 [16:v][17:v][18:v][19:v][20:v][21:v][22:v][23:v]hstack=inputs=8[line3]; \
+	 [24:v][25:v][26:v][27:v][28:v][29:v][30:v][31:v]hstack=inputs=8[line4]; \
+	 [32:v][33:v][34:v][35:v][36:v][37:v][38:v][39:v]hstack=inputs=8[line5]; \
+	 [40:v][41:v][42:v][43:v][44:v][45:v][46:v][47:v]hstack=inputs=8[line6]; \
+	 [48:v][49:v][50:v][51:v][52:v][53:v][54:v][55:v]hstack=inputs=8[line7]; \
+	 [56:v][57:v][58:v][59:v][60:v][61:v][62:v][63:v]hstack=inputs=8[line8]; \
+     [line1][line2][line3][line4][line5][line6][line7][line8]vstack=inputs=8[v]" \
+	-map "[v]" \
+	-c:v "$(ffmpeg_get_codec "$1")" \
+	-b:v "$(ffmpeg_get_bitrate "$1")" \
+	"$input_file"
