@@ -1,0 +1,3 @@
+#!/bin/bash
+set -x
+sudo systemctl restart bluetooth avahi-daemon ; systemctl --user restart pipewire pipewire-pulse  ; pipewire_server  ; systemctl --user restart wireplumber

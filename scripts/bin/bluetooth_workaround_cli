@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+
+INTERVAL=${INTERVAL:-3}
+USE_ALSA=${USE_ALSA:-0}
+
+#IGNORE=${IGNORE:-"Bose"}
+IGNORE=${IGNORE:-"Bos232123e"}
+
+start_bluetooth_stack() {
+	echo ":: Unblocking Bluetooth RF switches..."
+	set -x
+	# shellcheck disable=2046
+	sudo rfkill unblock $(rfkill list | grep -i bluetooth | cut -d: -f1)
+	set +x
+	sleep 1
+
+	if pgrep blueman-manager ; then
+		echo ":: Killing blueman-manager..."
+		killall blueman-manager
+	fi
+
+	echo ":: Stopping Blueman helper service..."
+	sudo systemctl stop blueman-mechanism
+
+	echo ":: Starting Bluetooth service..."
+	sudo systemctl restart bluetooth
+	sleep 1
+
+	if [[ "$USE_ALSA" -eq 1 ]] ; then
+		echo ":: Starting bluealsa..."
+		sudo bluealsa
+	else
+		echo "!! alsa support is disabled (USE_ALSA=0)"
+		echo
+		echo ":: running..."
+		while true ; do
+			one_connected=0
+			echo "Bluetooth status:"
+			old_ifs="$IFS"
+			export IFS=$'\n'
+			for device_string in $(bluetoothctl devices Paired); do
+				device=$(cut -d' ' -f2 <<< "$device_string")
+				device_string=${device_string//Device /}
+				if grep -q "$IGNORE" <<< "$device_string" ; then
+					echo "X $device_string"
+				elif bluetoothctl devices Connected | grep -q "$device" ; then
+					one_connected=1
+					echo "* $device_string"
+				else
+					echo "  $device_string"
+				fi
+			done
+			if [[ "$one_connected" -eq 0 ]] ; then
+				echo
+				echo "Connecting to device..."
+				for device_string in $(bluetoothctl devices Paired); do
+					device=$(cut -d' ' -f2 <<< "$device_string")
+					if grep -q "$IGNORE" <<< "$device_string" ; then
+						echo "X $device_string"
+					elif bluetoothctl devices Connected | grep -q "$device" ; then
+						break
+					else
+						bluetoothctl connect "$device" || true
+					fi
+				done
+			fi
+			export IFS="$old_ifs"
+			sleep "$INTERVAL"
+			clear
+		done
+	fi
+}
+
+stop_bluetooth_and_exit() {
+	exit_code=$?
+	set +e
+
+	if [[ "$USE_ALSA" -eq 1 ]] ; then
+		if sudo pgrep bluealsa ; then
+			echo ":: Killing bluealsa..."
+			sudo killall bluealsa
+		fi
+	else
+		echo "!! alsa support is disabled (USE_ALSA=0)"
+	fi
+
+	echo ":: Stopping Bluetooth service..."
+	sudo systemctl stop bluetooth
+
+	echo ":: Blocking Bluetooth RF switches..."
+	# shellcheck disable=2046
+	#rfkill block $(rfkill list | grep -i bluetooth | cut -d: -f1)
+
+	trap - EXIT
+	exit $exit_code
+}
+
+if [[ "${1:-}" = "-w" ]] ; then
+	trap stop_bluetooth_and_exit HUP INT TERM EXIT
+	start_bluetooth_stack
+else
+	if env | grep TMUX= ; then
+		exec bluetooth_workaround_cli -w
+	else
+		tmux new-session -d -s mySession -n myWindow
+		tmux send-keys -t mySession:myWindow "bluetooth_workaround_cli -w" Enter
+		tmux attach -t mySession:myWindow
+	fi
+fi
