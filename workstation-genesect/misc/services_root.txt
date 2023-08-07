@@ -1,0 +1,52 @@
+  UNIT                                                                                      LOAD   ACTIVE     SUB     JOB   DESCRIPTION
+  accounts-daemon.service                                                                   loaded active     running       Accounts Service
+  alsa-restore.service                                                                      loaded active     exited        Save/Restore Sound Card State
+● aooserver.service                                                                         loaded failed     failed        aooserver for SonoBus
+  avahi-daemon.service                                                                      loaded active     running       Avahi mDNS/DNS-SD Stack
+  cpupower.service                                                                          loaded active     exited        Apply cpupower configuration
+  dbus.service                                                                              loaded active     running       D-Bus System Message Bus
+  kmod-static-nodes.service                                                                 loaded active     exited        Create List of Static Device Nodes
+  ldconfig.service                                                                          loaded active     exited        Rebuild Dynamic Linker Cache
+  lightdm.service                                                                           loaded active     running       Light Display Manager
+  lm_sensors.service                                                                        loaded active     exited        Initialize hardware monitoring sensors
+  lvm2-monitor.service                                                                      loaded active     exited        Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling
+  ntpd.service                                                                              loaded active     running       Network Time Service
+  nut-driver@vultech.service                                                                loaded activating start   start Network UPS Tools - device driver for vultech
+● nut-monitor.service                                                                       loaded failed     failed        Network UPS Tools - power device monitor and shutdown controller
+  nut-server.service                                                                        loaded active     running       Network UPS Tools - power devices information server
+  polkit.service                                                                            loaded active     running       Authorization Manager
+  rtkit-daemon.service                                                                      loaded active     running       RealtimeKit Scheduling Policy Service
+  sshd.service                                                                              loaded active     running       OpenSSH Daemon
+  systemd-binfmt.service                                                                    loaded active     exited        Set Up Additional Binary Formats
+  systemd-fsck@dev-disk-by\x2duuid-3eb17195\x2d7b75\x2d4d01\x2db130\x2d56ae136f923b.service loaded active     exited        File System Check on /dev/disk/by-uuid/3eb17195-7b75-4d01-b130-56ae136f923b
+  systemd-fsck@dev-disk-by\x2duuid-63397d80\x2dd9a9\x2d46a9\x2d9cba\x2dd92dad2d6223.service loaded active     exited        File System Check on /dev/disk/by-uuid/63397d80-d9a9-46a9-9cba-d92dad2d6223
+  systemd-fsck@dev-disk-by\x2duuid-d2fe206e\x2d39ec\x2d419d\x2d8b62\x2d89df377daba7.service loaded active     exited        File System Check on /dev/disk/by-uuid/d2fe206e-39ec-419d-8b62-89df377daba7
+  systemd-fsck@dev-disk-by\x2duuid-D600\x2d5DFD.service                                     loaded active     exited        File System Check on /dev/disk/by-uuid/D600-5DFD
+  systemd-hwdb-update.service                                                               loaded active     exited        Rebuild Hardware Database
+  systemd-journal-catalog-update.service                                                    loaded active     exited        Rebuild Journal Catalog
+  systemd-journal-flush.service                                                             loaded active     exited        Flush Journal to Persistent Storage
+  systemd-journald.service                                                                  loaded active     running       Journal Service
+  systemd-logind.service                                                                    loaded active     running       User Login Management
+  systemd-modules-load.service                                                              loaded active     exited        Load Kernel Modules
+  systemd-networkd.service                                                                  loaded active     running       Network Configuration
+  systemd-random-seed.service                                                               loaded active     exited        Load/Save OS Random Seed
+  systemd-remount-fs.service                                                                loaded active     exited        Remount Root and Kernel File Systems
+  systemd-resolved.service                                                                  loaded active     running       Network Name Resolution
+  systemd-sysctl.service                                                                    loaded active     exited        Apply Kernel Variables
+  systemd-sysusers.service                                                                  loaded active     exited        Create System Users
+  systemd-timesyncd.service                                                                 loaded active     running       Network Time Synchronization
+  systemd-tmpfiles-setup-dev.service                                                        loaded active     exited        Create Static Device Nodes in /dev
+  systemd-tmpfiles-setup.service                                                            loaded active     exited        Create Volatile Files and Directories
+  systemd-udev-trigger.service                                                              loaded active     exited        Coldplug All udev Devices
+  systemd-udevd.service                                                                     loaded active     running       Rule-based Manager for Device Events and Files
+  systemd-update-done.service                                                               loaded active     exited        Update is Completed
+  systemd-update-utmp.service                                                               loaded active     exited        Record System Boot/Shutdown in UTMP
+  systemd-user-sessions.service                                                             loaded active     exited        Permit User Sessions
+  systemd-vconsole-setup.service                                                            loaded active     exited        Virtual Console Setup
+  tmux@lie.service                                                                          loaded active     running       Start tmux in detached session
+  udisks2.service                                                                           loaded active     running       Disk Manager
+  upower.service                                                                            loaded active     running       Daemon for power management
+  user-runtime-dir@1000.service                                                             loaded active     exited        User Runtime Directory /run/user/1000
+  user@1000.service                                                                         loaded active     running       User Manager for UID 1000
+
+LOAD   = Reflects whether the unit definition was properly loaded.

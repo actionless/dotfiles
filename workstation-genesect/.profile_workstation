@@ -1,0 +1,39 @@
+#export VDPAU_DRIVER=radeonsi
+#export MAGICK_OCL_DEVICE=OFF  # in case of ImageMagick gpu acceleration broken with the current driver
+export GOPATH=/media/ext/.go
+#export MAGICK_OCL_DEVICE=OFF
+export VDPAU_DRIVER=nvidia
+export LIBVA_DRIVER_NAME=vdpau
+
+
+## uncomment one when not in GNOME:
+#export XDG_CURRENT_DESKTOP=gnome
+##export XDG_CURRENT_DESKTOP=xfce
+
+##export QT_STYLE_OVERRIDE=gtk
+##export QT_QPA_PLATFORMTHEME='qgnomeplatform'
+##export QT_QPA_PLATFORMTHEME='gtk2'
+#export QT_QPA_PLATFORMTHEME='qt5ct'
+
+## HiDPI
+# GTK3
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+# Qt5.6+
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_SCALE_FACTOR=0  # disable force setting scaling
+# if auto-detection fails:
+#export QT_AUTO_SCREEN_SCALE_FACTOR=0
+#export QT_SCREEN_SCALE_FACTORS=2
+# if auto-detection still fails:
+#export QT_SCALE_FACTOR=2
+# Qt5 legacy
+#export QT_DEVICE_PIXEL_RATIO=2
+# other
+export CHROMIUM_USER_FLAGS=" --force-device-scale-factor=2 "
+
+# turn off touch screen support to workaround some mouse input bugs:
+export GDK_CORE_DEVICE_EVENTS=1
+export QT_XCB_NO_XI2_MOUSE=1
+
+setfont ter-v32n || true

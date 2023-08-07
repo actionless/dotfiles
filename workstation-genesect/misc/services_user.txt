@@ -1,0 +1,22 @@
+  UNIT                                  LOAD   ACTIVE SUB     DESCRIPTION
+  at-spi-dbus-bus.service               loaded active running Accessibility services bus
+  dbus.service                          loaded active running D-Bus User Message Bus
+  dconf.service                         loaded active running User preferences database
+  gnome-keyring-daemon.service          loaded active running GNOME Keyring daemon
+  gvfs-afc-volume-monitor.service       loaded active running Virtual filesystem service - Apple File Conduit monitor
+  gvfs-daemon.service                   loaded active running Virtual filesystem service
+  gvfs-goa-volume-monitor.service       loaded active running Virtual filesystem service - GNOME Online Accounts monitor
+  gvfs-gphoto2-volume-monitor.service   loaded active running Virtual filesystem service - digital camera monitor
+  gvfs-metadata.service                 loaded active running Virtual filesystem metadata service
+  gvfs-mtp-volume-monitor.service       loaded active running Virtual filesystem service - Media Transfer Protocol monitor
+  gvfs-udisks2-volume-monitor.service   loaded active running Virtual filesystem service - disk device monitor
+  pipewire-pulse.service                loaded active running PipeWire PulseAudio
+  pipewire.service                      loaded active running PipeWire Multimedia Service
+  plasma-kactivitymanagerd.service      loaded active running KActivityManager Activity manager Service
+  plasma-kglobalaccel.service           loaded active running KDE Global Shortcuts Server
+  plasma-xdg-desktop-portal-kde.service loaded active running Xdg Desktop Portal For KDE
+  wireplumber.service                   loaded active running Multimedia Service Session Manager
+  xdg-desktop-portal-gtk.service        loaded active running Portal service (GTK/GNOME implementation)
+  xdg-desktop-portal.service            loaded active running Portal service
+  xdg-document-portal.service           loaded active running flatpak document portal service
+  xdg-permission-store.service          loaded active running sandboxed app permission store
