@@ -1,6 +1,6 @@
 pkgname=actionless_dotfiles_meta
 pkgver=0.1
-pkgrel=17
+pkgrel=18
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
@@ -18,6 +18,7 @@ depends=(
 	'python-rope'
 	'bash-language-server'
 	'xsel'
+	'ctags'
 	# see more: `pikaur -Ssq language server | grep -i -e 'language[-]server' -e ls`
 
 	# theming:
@@ -52,6 +53,8 @@ depends=(
 
 	'wireplumber'  # pipewire
 	'realtime-privileges'  # pipewire
+	# theming:
+	'breeze'  # cursor themes
 )
 optdepends=(
 	#'gnome-settings-daemon: rc: alternative to xsettingsd'
@@ -59,6 +62,8 @@ optdepends=(
 
 	'noto-fonts-emoji: or'
 	'ttf-twemoji-color: or'
+
+	'pipewire-zeroconf'  # pipewire over network, but Sonobus seems to be better
 )
 
 #package() {
