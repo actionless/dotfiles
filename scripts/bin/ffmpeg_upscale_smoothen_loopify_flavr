@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+
+input_file="$(readlink -e "$1")"
+shift
+
+dirname=$(dirname -- "$input_file")
+filename=$(basename -- "$input_file")
+basename="${filename%.*}"
+extension="${filename##*.}"
+
+fps="${1:-30}"
+shift || true
+
+output_file_x4="${1:-${dirname}/${basename}.upscaled.x4f.${extension}}"
+shift || true
+
+output_file_x2="${1:-${dirname}/${basename}.upscaled.x2f.${extension}}"
+shift || true
+
+output_filename="${1:-${dirname}/${basename}.upscaled_loop.${extension}}"
+shift || true
+
+set -x
+
+upscaled_filename="${1:-${dirname}/${basename}.upscaled.${extension}}"
+if [[ ! -f "$upscaled_filename" ]] ; then
+	cd ~/ai/mmediting
+	./upscale.sh "$input_file" "$upscaled_filename"
+fi
+slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_filename" ; echo / ; ffmpeg_get_fps "$input_file") | bc)"
+
+if [[ ! -f "$output_filename" ]] ; then
+	cd ~/ai/mmediting
+	upscaled_refps_filename="${1:-${dirname}/${basename}.upscaled_refps.${extension}}"
+	./refps_WITH_reencoding.sh "$upscaled_filename" "$upscaled_refps_filename" "$slowdown" "$fps"
+	ffmpeg_loopify "$upscaled_refps_filename" "$output_filename"
+	rm "$upscaled_refps_filename"
+fi
+
+predicted_x2_fps=$(echo $(echo "scale=0;" ; ffmpeg_get_fps "$input_file" ; echo "*2") | bc)
+if [[ -f "$output_file_x2" && "${predicted_x2_fps%.*}" -ge "$fps" ]] ; then
+	echo
+	echo "::: Already exists: ${output_file_x2} :::"
+	exit 0
+fi
+if [[ -f "$output_file_x2" && -f "$output_file_x4" ]] ; then
+	echo
+	echo "::: Already exists: ${output_file_x4} :::"
+	exit 0
+fi
+
+ffmpeg_smoothen_loopify_flavr "$upscaled_filename" "$fps" "$output_file_x4" "$output_file_x2" "$slowdown"
