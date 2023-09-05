@@ -21,21 +21,23 @@ shift || true
 output_filename="${1:-${dirname}/${basename}.upscaled_loop.${extension}}"
 shift || true
 
+upscaled_refps_filename="${1:-${dirname}/${basename}.upscaled.${extension}}"
+shift || true
+
 set -x
 
-upscaled_filename="${1:-${dirname}/${basename}.upscaled.${extension}}"
+upscaled_filename="${1:-${dirname}/${basename}.upscaled_tmp.${extension}}"
 if [[ ! -f "$upscaled_filename" ]] ; then
 	cd ~/ai/mmediting
 	./upscale.sh "$input_file" "$upscaled_filename"
+	slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_filename" ; echo / ; ffmpeg_get_fps "$input_file") | bc)"
+	./refps_WITH_reencoding.sh "$upscaled_filename" "$upscaled_refps_filename" "$slowdown" "$fps"
 fi
 slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_filename" ; echo / ; ffmpeg_get_fps "$input_file") | bc)"
 
 if [[ ! -f "$output_filename" ]] ; then
 	cd ~/ai/mmediting
-	upscaled_refps_filename="${1:-${dirname}/${basename}.upscaled_refps.${extension}}"
-	./refps_WITH_reencoding.sh "$upscaled_filename" "$upscaled_refps_filename" "$slowdown" "$fps"
 	ffmpeg_loopify "$upscaled_refps_filename" "$output_filename"
-	rm "$upscaled_refps_filename"
 fi
 
 predicted_x2_fps=$(echo $(echo "scale=0;" ; ffmpeg_get_fps "$input_file" ; echo "*2") | bc)
@@ -51,3 +53,4 @@ if [[ -f "$output_file_x2" && -f "$output_file_x4" ]] ; then
 fi
 
 ffmpeg_smoothen_loopify "$upscaled_filename" "$fps" "$output_file_x4" "$output_file_x2" "$slowdown"
+rm "$upscaled_filename"
