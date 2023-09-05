@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+
+set -x
+
+input_file="$(readlink -e "$1")"
+shift
+
+dirname=$(dirname -- "$input_file")
+filename=$(basename -- "$input_file")
+basename="${filename%.*}"
+extension="${filename##*.}"
+
+fps="${1:-30}"
+shift || true
+
+output_file_x4="${1:-${dirname}/${basename}.x4.${extension}}"
+shift || true
+
+output_file_x2="${1:-${dirname}/${basename}.x2.${extension}}"
+shift || true
+
+slowdown="${SLOWDOWN:-1}"
+slowdown="${1:-$slowdown}"
+shift || true
+
+if [[ -f "$output_file_x2" && -f "$output_file_x4" ]] ; then
+	echo
+	echo "::: Already exists: ${output_file_x4} :::"
+	exit 2
+fi
+
+tmp_x2="${input_file}.x2_tmp.${extension}"
+cd ~/ai/mmediting
+./video_interpolation.sh "$input_file" "$tmp_x2"
+
+if [[ "$slowdown" != "1" ]] ; then
+	./refps_WITH_reencoding.sh "$tmp_x2" "$output_file_x2" "${slowdown}" "$fps"
+fi
+
+predicted_x2_fps=$(echo $(ffmpeg_get_fps "$tmp_x2" ; echo "/${slowdown}") | bc)
+if [[ "$predicted_x2_fps" -ge "$fps" ]] ; then
+	rm "$tmp_x2"
+else
+	tmp_x4="${input_file}.x4_tmp.${extension}"
+	./video_interpolation.sh "$tmp_x2" "$tmp_x4"
+	rm "$tmp_x2"
+
+	#./refps_without_reencoding.sh "$tmp_x4" "$output_file_x4" "$fps"
+	./refps_WITH_reencoding.sh "$tmp_x4" "$output_file_x4" "$slowdown" "$fps"
+	rm "$tmp_x4"
+fi

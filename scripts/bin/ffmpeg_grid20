@@ -1,0 +1,29 @@
+#!/bin/bash
+set -ueo pipefail
+
+input_file="$1"
+shift
+
+if [[ -z "${20:-}" ]] ; then
+	echo "Not enough arguments"
+	exit 1
+fi
+
+if [[ -n "${21:-}" ]] ; then
+	echo "Too many arguments"
+	exit 1
+fi
+
+ffmpeg \
+	-i "$1" -i "$2" -i "$3" -i "$4" -i "$5" -i "$6" -i "$7" -i "$8" \
+	-i "$9" -i "${10}" -i "${11}" -i "${12}" -i "${13}" -i "${14}" -i "${15}" -i "${16}" \
+	-i "${17}" -i "${18}" -i "${19}" -i "${20}" -i "${20}" \
+	-filter_complex \
+	"[0:v][1:v][2:v][3:v][4:v][5:v][6:v]hstack=inputs=7[line1]; \
+	 [7:v][8:v][9:v][10:v][11:v][12:v][13:v]hstack=inputs=7[line2]; \
+	 [15:v][16:v][17:v][18:v][19:v][20:v][21:v]hstack=inputs=7[line3]; \
+     [line1][line2][line3]vstack=inputs=3[v]" \
+	-map "[v]" \
+	-c:v "$(ffmpeg_get_codec "$1")" \
+	-b:v "$(ffmpeg_get_bitrate "$1")" \
+	"$input_file"
