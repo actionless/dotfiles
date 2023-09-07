@@ -40,7 +40,11 @@ fi
 
 predicted_x2_fps=$(echo $(ffmpeg_get_fps "$tmp_x2" ; echo "/${slowdown}") | bc)
 if [[ "$predicted_x2_fps" -ge "$fps" ]] ; then
-	rm "$tmp_x2"
+	if [[ ! -f "$output_file_x2" ]] ; then
+		mv "$tmp_x2" "$output_file_x2"
+	else
+		rm "$tmp_x2"
+	fi
 else
 	tmp_x4="${input_file}.x4_tmp.${extension}"
 	./video_interpolation.sh "$tmp_x2" "$tmp_x4"
