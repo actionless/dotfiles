@@ -48,9 +48,12 @@ if [[ "$predicted_x2_fps" -ge "$fps" ]] ; then
 else
 	tmp_x4="${input_file}.x4_tmp.${extension}"
 	./video_interpolation.sh "$tmp_x2" "$tmp_x4"
-	rm "$tmp_x2"
-
-	#./refps_without_reencoding.sh "$tmp_x4" "$output_file_x4" "$fps"
-	./refps_WITH_reencoding.sh "$tmp_x4" "$output_file_x4" "$slowdown" "$fps"
-	rm "$tmp_x4"
+	mv "$tmp_x2" "$output_file_x2"
+	if [[ "$(ffmpeg_get_fps "$tmp_x4")" -gt "$fps" ]] ; then
+		#./refps_without_reencoding.sh "$tmp_x4" "$output_file_x4" "$fps"
+		./refps_WITH_reencoding.sh "$tmp_x4" "$output_file_x4" "$slowdown" "$fps"
+		rm "$tmp_x4"
+	else
+		mv "$tmp_x4" "$output_file_x4"
+	fi
 fi
