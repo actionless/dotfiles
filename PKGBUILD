@@ -1,6 +1,6 @@
 pkgname=actionless_dotfiles_meta
 pkgver=0.1
-pkgrel=18
+pkgrel=19
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
@@ -46,7 +46,7 @@ depends=(
 
 	# shell aliases:
 	'ripgrep'
-	'exa'
+	'eza'
 	'broot'
 	# shell/script helpers:
 	'highlight'

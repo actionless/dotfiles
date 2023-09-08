@@ -48,31 +48,31 @@ end
 # LS crazyness:
 ########################################
 
-function exa --wraps='exa'
-	command exa --color=always $argv
+function eza --wraps='eza'
+	command eza --color=always $argv
 end
 
 #alias l 'ls --color=auto -lh'
 complete -e -c l
-function l --wraps='exa'
-	exa $argv
+function l --wraps='eza'
+	eza $argv
 end
 
 #alias ll='ls --color=auto -lah'
 complete -e -c ll
-function ll --wraps='exa'
-	exa -la $argv
+function ll --wraps='eza'
+	eza -la $argv
 end
 
-function llg --wraps='exa'
+function llg --wraps='eza'
 	ll --git $argv
 end
 
-function lt --wraps='exa'
+function lt --wraps='eza'
 	ll --sort modified $argv
 end
 
-function lrt --wraps='exa'
+function lrt --wraps='eza'
 	ll --reverse --sort modified $argv
 end
 
