@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+
+input_file="$(readlink -e "$1")"
+shift
+
+dirname=$(dirname -- "$input_file")
+filename=$(basename -- "$input_file")
+basename="${filename%.*}"
+extension="${filename##*.}"
+
+input_file_fps=$(ffmpeg_get_fps "$input_file")
+output_file_fps=$(echo "${input_file_fps} * 2" | bc)
+
+fps="${1:-$output_file_fps}"
+shift || true
+
+output_filename="${1:-${dirname}/${basename}.${fps}fps.${extension}}"
+shift || true
+
+set -x
+
+ffmpeg -i "$input_file"\
+   	-filter:v fps=$fps \
+	-b:v $(echo $(ffmpeg_get_bitrate "$input_file") "* 1.1" | bc) \
+	-c:a copy \
+	-r $fps \
+	"$output_filename"
