@@ -57,7 +57,8 @@ else
 	else
 		rm "$tmp_x2"
 	fi
-	if [[ "$(ffmpeg_get_fps "$tmp_x4")" -gt "$fps" ]] ; then
+	predicted_x4_fps=$(echo $(ffmpeg_get_fps "$tmp_x4" ; echo "/1") | bc)
+	if [[ "$predicted_x4_fps" -gt "$fps" ]] ; then
 		#./refps_without_reencoding.sh "$tmp_x4" "$output_file_x4" "$fps"
 		./refps_WITH_reencoding.sh "$tmp_x4" "$output_file_x4" "$slowdown" "$fps"
 		rm "$tmp_x4"

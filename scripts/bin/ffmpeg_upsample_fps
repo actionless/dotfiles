@@ -20,8 +20,17 @@ shift || true
 
 set -x
 
-ffmpeg -i "$input_file"\
+ffmpeg \
+			\
+			-hwaccel_device 0 \
+			-hwaccel cuda \
+			\
+	-i "$input_file"\
    	-filter:v fps=$fps \
+			\
+			-c:v h264_nvenc \
+			-preset slow \
+			\
 	-b:v $(echo $(ffmpeg_get_bitrate "$input_file") "* 1.1" | bc) \
 	-c:a copy \
 	-r $fps \

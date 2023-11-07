@@ -31,6 +31,27 @@ else
 		ffmpeg -f image2 -framerate "$FPS" -i "$INPUT_DIR"/%d.png -i "$TMP_AUDIO" -r "$FPS" -vcodec libx264 -crf 16 -b:v "$BITRATE" "$VIDEO_OUTPUT_UPSCALED"
 	else
 		#ffmpeg -f image2 -framerate "$FPS" -i "$INPUT_DIR"/%d.png -r "$FPS" -vcodec libx264 -crf 16 "$VIDEO_OUTPUT_UPSCALED"
-		ffmpeg -f image2 -framerate "$FPS" -i "$INPUT_DIR"/"$TEMPLATE" -r "$FPS" -vcodec libx264 -crf 16 -b:v "$BITRATE" "$VIDEO_OUTPUT_UPSCALED"
+		#ffmpeg \
+		#    -f image2 \
+		#    -framerate "$FPS" \
+		#    -i "$INPUT_DIR"/"$TEMPLATE" \
+		#    -r "$FPS" \
+		#    -vcodec libx264 \
+		#    -crf 16 \
+		#    -b:v "$BITRATE" \
+		#    "$VIDEO_OUTPUT_UPSCALED"
+		ffmpeg \
+			-hwaccel_device 0 \
+			-hwaccel cuda \
+			\
+			-f image2 \
+			-framerate "$FPS" \
+			-i "$INPUT_DIR"/"$TEMPLATE" \
+			-r "$FPS" \
+			-c:v h264_nvenc \
+			-preset slow \
+			-crf 16 \
+			-b:v "$BITRATE" \
+			"$VIDEO_OUTPUT_UPSCALED"
 	fi
 fi
