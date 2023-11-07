@@ -1,0 +1,26 @@
+#!/bin/bash
+set -euo pipefail
+
+set -x
+
+
+VIDEO_INPUT="${VIDEO_INPUT:-$1}"
+FPS="${FPS:-24}"
+FPS="${2:-$FPS}"
+
+FRAMES_DIR="${FRAMES_DIR:-${VIDEO_INPUT}.frames.${FPS}fps}"
+TMP_AUDIO="${TMP_AUDIO:-./${VIDEO_INPUT}.audio.wav}"
+
+
+if [[ ! -f "$TMP_AUDIO" ]] ; then
+	ffmpeg -i "$VIDEO_INPUT" "$TMP_AUDIO" || true
+fi
+
+if [[ ! -d "$FRAMES_DIR" ]] ; then
+	mkdir "$FRAMES_DIR"
+	#-ss 00:09:00 -t 00:03:00
+	#-ss 00:09:00 -t 00:03:00
+	ffmpeg -i "$VIDEO_INPUT" -r "$FPS" -f image2 "$FRAMES_DIR"/%06d.png
+fi
+
+# vim: set ft=bash:

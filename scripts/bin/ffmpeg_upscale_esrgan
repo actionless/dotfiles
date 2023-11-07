@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+set -x
+
+input_file="$(readlink -e "$1")"
+shift
+
+dirname=$(dirname -- "$input_file")
+filename=$(basename -- "$input_file")
+basename="${filename%.*}"
+extension="${filename##*.}"
+
+
+output_filename="${1:-${dirname}/${basename}.upscaled.${extension}}"
+shift || true
+
+
+#MODEL="${MODEL:-./models/4x_NMKD-Superscale-Artisoftject_210000_G.pth}"
+#MODEL="${MODEL:-./models/4x_NMKDSuperscale_Artisoft_120000_G.pth}"
+MODEL="${MODEL:-./models/4x_NMKD-Superscale-SP_178000_G.pth}"
+#MODEL="${MODEL:-./models/8x_NMKD-Superscale_150000_G.pth}"
+
+
+if [[ ! -f "$output_filename" ]] ; then
+	fps="$(ffmpeg_get_fps "$input_file")"
+	FRAMES_DIR="${input_file}.frames.${fps}fps"
+	TMP_AUDIO="${TMP_AUDIO:-./${input_file}.audio.wav}"
+	FRAMES_DIR="$FRAMES_DIR" \
+		TMP_AUDIO="$TMP_AUDIO" \
+		ffmpeg_video_to_imgdir \
+		"$input_file" \
+		"$fps"
+
+	UPSCALED_FRAMES_DIR="${input_file}.upscaled_frames.${fps}fps"
+	cd ~/ai/ESRGAN/
+	source ./env/bin/activate
+	python \
+		upscale.py \
+		--skip-existing \
+		"$MODEL" \
+		--input "$FRAMES_DIR" \
+		--output "$UPSCALED_FRAMES_DIR"
+	deactivate
+
+	TEMPLATE="%06d.png" \
+		ffmpeg_imgdir_to_video \
+		"$UPSCALED_FRAMES_DIR" \
+		"$output_filename" \
+		"$fps" \
+		"$TMP_AUDIO"
+
+	echo rm -fr "$FRAMES_DIR" "$UPSCALED_FRAMES_DIR"
+fi
