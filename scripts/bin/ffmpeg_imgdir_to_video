@@ -15,12 +15,6 @@ TMP_AUDIO="${4:-./audio.wav}"
 TEMPLATE=${TEMPLATE:-%03d.png}
 BITRATE=${BITRATE:-16167000}
 
-clean_up() {
-	exit 33
-}
-
-trap clean_up EXIT SIGHUP SIGINT SIGTERM
-
 #ffmpeg -i "$VIDEO_INPUT" -r "$FPS" -f image2 "$NEW_FRAMES_DIR"/%06d.png
 
 

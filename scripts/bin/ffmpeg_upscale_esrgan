@@ -11,17 +11,21 @@ basename="${filename%.*}"
 extension="${filename##*.}"
 
 
-output_filename="${1:-${dirname}/${basename}.upscaled.${extension}}"
+MODEL="${MODEL:-./models/4x_NMKD-Superscale-Artisoftject_210000_G.pth}"
+#MODEL="${MODEL:-./models/4x_NMKDSuperscale_Artisoft_120000_G.pth}"
+#MODEL="${MODEL:-./models/4x_NMKD-Superscale-SP_178000_G.pth}"
+#MODEL="${MODEL:-./models/8x_NMKD-Superscale_150000_G.pth}"
+
+model_id="${MODEL//\//}"
+
+
+output_filename="${1:-${dirname}/${basename}.upscaled_${model_id}.${extension}}"
 shift || true
 
 
-#MODEL="${MODEL:-./models/4x_NMKD-Superscale-Artisoftject_210000_G.pth}"
-#MODEL="${MODEL:-./models/4x_NMKDSuperscale_Artisoft_120000_G.pth}"
-MODEL="${MODEL:-./models/4x_NMKD-Superscale-SP_178000_G.pth}"
-#MODEL="${MODEL:-./models/8x_NMKD-Superscale_150000_G.pth}"
-
-
-if [[ ! -f "$output_filename" ]] ; then
+if [[ -f "$output_filename" ]] ; then
+	echo ":: Already exists 👌😸"
+else
 	fps="$(ffmpeg_get_fps "$input_file")"
 	FRAMES_DIR="${input_file}.frames.${fps}fps"
 	TMP_AUDIO="${TMP_AUDIO:-./${input_file}.audio.wav}"
@@ -42,12 +46,12 @@ if [[ ! -f "$output_filename" ]] ; then
 		--output "$UPSCALED_FRAMES_DIR"
 	deactivate
 
-	TEMPLATE="%06d.png" \
+	TEMPLATE="%06d_${model_id}.png" \
 		ffmpeg_imgdir_to_video \
 		"$UPSCALED_FRAMES_DIR" \
 		"$output_filename" \
 		"$fps" \
 		"$TMP_AUDIO"
 
-	echo rm -fr "$FRAMES_DIR" "$UPSCALED_FRAMES_DIR"
+	rm -fr "$FRAMES_DIR" "$UPSCALED_FRAMES_DIR"
 fi
