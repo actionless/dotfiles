@@ -1,8 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
-set -x
+#set -x
 
+echo
+echo ":::::::::::FFMPEG_IMGDIR_TO_VIDEO"
 #ORIG_PWD="$PWD"
 
 
@@ -34,18 +36,23 @@ else
 		#    -crf 16 \
 		#    -b:v "$BITRATE" \
 		#    "$VIDEO_OUTPUT_UPSCALED"
+		#
+			#-hwaccel_device 0 \
+			#-hwaccel cuda \
+			#-c:v h264_nvenc \
 		ffmpeg \
-			-hwaccel_device 0 \
-			-hwaccel cuda \
 			\
 			-f image2 \
 			-framerate "$FPS" \
 			-i "$INPUT_DIR"/"$TEMPLATE" \
 			-r "$FPS" \
-			-c:v h264_nvenc \
+			-c:v h264 \
 			-preset slow \
 			-crf 16 \
 			-b:v "$BITRATE" \
 			"$VIDEO_OUTPUT_UPSCALED"
 	fi
 fi
+
+echo ">>>>>>>>>>>>>>FFMPEG_IMGDIR_TO_VIDEO"
+echo

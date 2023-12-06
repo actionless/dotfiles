@@ -28,11 +28,14 @@ if [[ ! -f "$upscaled_filename" ]] ; then
 	cd ~/ai/mmediting
 	./upscale.sh "$input_file" "$upscaled_filename"
 fi
-slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_filename" ; echo / ; ffmpeg_get_fps "$input_file") | bc)"
+input_file_fps=$(ffmpeg_get_fps "$input_file")
+slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_filename" ; echo "/${input_file_fps}") | bc)"
 
 if [[ ! -f "$output_filename" ]] ; then
 	cd ~/ai/mmediting
-	./refps_WITH_reencoding.sh "$upscaled_filename" "$output_filename" "$slowdown" "$fps"
+	./refps_WITH_reencoding.sh "$upscaled_filename" "$output_filename" "$slowdown" "$input_file_fps"
+else
+	echo "${output_filename} already exists"
 fi
 
 predicted_x2_fps=$(echo $(echo "scale=0;" ; ffmpeg_get_fps "$input_file" ; echo "*2") | bc)

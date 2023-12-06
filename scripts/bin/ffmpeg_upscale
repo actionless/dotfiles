@@ -17,7 +17,7 @@ shift || true
 
 set -x
 
-upscaled_filename="${1:-${dirname}/${basename}.upscaled.${extension}}"
+upscaled_filename="${1:-${dirname}/${basename}.upscaled_tmp.${extension}}"
 if [[ ! -f "$upscaled_filename" ]] ; then
 	cd ~/ai/mmediting
 	./upscale.sh "$input_file" "$upscaled_filename"

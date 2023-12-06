@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -ueo pipefail
 
+echo
+echo ":::::: $0 started"
+
 input_file="$(readlink -e "$1")"
 shift
 
@@ -24,16 +27,16 @@ shift || true
 upscaled_refps_filename="${1:-${dirname}/${basename}.upscaled.${extension}}"
 shift || true
 
-set -x
+#set -x
 
-upscaled_filename="${1:-${dirname}/${basename}.upscaled_tmp.${extension}}"
-if [[ ! -f "$upscaled_filename" ]] ; then
+upscaled_tmp_filename="${1:-${dirname}/${basename}.upscaled_tmp.${extension}}"
+if [[ ! -f "$upscaled_tmp_filename" ]] ; then
 	cd ~/ai/mmediting
-	./upscale.sh "$input_file" "$upscaled_filename"
-	slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_filename" ; echo / ; ffmpeg_get_fps "$input_file") | bc)"
-	./refps_WITH_reencoding.sh "$upscaled_filename" "$upscaled_refps_filename" "$slowdown" "$fps"
+	./upscale.sh "$input_file" "$upscaled_tmp_filename"
+	slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_tmp_filename" ; echo / ; ffmpeg_get_fps "$input_file") | bc)"
+	./refps_WITH_reencoding.sh "$upscaled_tmp_filename" "$upscaled_refps_filename" "$slowdown" "$fps"
 fi
-slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_filename" ; echo / ; ffmpeg_get_fps "$input_file") | bc)"
+slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_tmp_filename" ; echo / ; ffmpeg_get_fps "$input_file") | bc)"
 
 if [[ ! -f "$output_filename" ]] ; then
 	cd ~/ai/mmediting
@@ -52,5 +55,8 @@ if [[ -f "$output_file_x2" && -f "$output_file_x4" ]] ; then
 	exit 0
 fi
 
-ffmpeg_smoothen_loopify "$upscaled_filename" "$fps" "$output_file_x4" "$output_file_x2" "$slowdown"
-rm "$upscaled_filename"
+ffmpeg_smoothen_loopify "$upscaled_tmp_filename" "$fps" "$output_file_x4" "$output_file_x2" "$slowdown"
+rm "$upscaled_tmp_filename"
+
+echo ">>>>>> $0 done"
+echo

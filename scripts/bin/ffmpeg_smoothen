@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -ueo pipefail
 
-set -x
+echo
+echo ":::::: $0 started"
+#set -x
 
 input_file="$(readlink -e "$1")"
 shift
@@ -66,3 +68,6 @@ else
 		mv "$tmp_x4" "$output_file_x4"
 	fi
 fi
+
+echo ">>>>>> $0 done"
+echo

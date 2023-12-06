@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -ueo pipefail
 
-set -x
+echo
+echo ":::::: $0 started"
 
 input_file="$(readlink -e "$1")"
 shift
@@ -24,6 +25,8 @@ slowdown="${SLOWDOWN:-1}"
 slowdown="${1:-1}"
 shift || true
 
+#set -x
+
 if [[ -f "$output_file_x2" && -f "$output_file_x4" ]] ; then
 	echo
 	echo "::: Already exists: ${output_file_x4} :::"
@@ -44,7 +47,7 @@ else
 fi
 
 predicted_x2_fps=$(echo $(ffmpeg_get_fps "$tmp_x2" ; echo "/${slowdown}") | bc)
-if [[ "$predicted_x2_fps" -ge "$fps" ]] ; then
+if [[ "$predicted_x2_fps" -ge "$fps" ]] || [[ -n "${SKIP_X4:-}" ]] ; then
 	rm "$tmp_x2"
 else
 	tmp_x4="${input_file}.x4_tmp.${extension}"
@@ -59,3 +62,6 @@ else
 	ffmpeg_loopify "$tmp_refps" "$output_file_x4"
 	rm "$tmp_refps"
 fi
+
+echo ">>>>>> $0 done"
+echo

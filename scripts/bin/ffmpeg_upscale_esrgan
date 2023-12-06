@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -ueo pipefail
-set -x
+echo
+echo ":::::: $0 started"
 
 input_file="$(readlink -e "$1")"
 shift
@@ -13,7 +14,7 @@ extension="${filename##*.}"
 
 MODEL="${MODEL:-./models/4x_NMKD-Superscale-Artisoftject_210000_G.pth}"
 #MODEL="${MODEL:-./models/4x_NMKDSuperscale_Artisoft_120000_G.pth}"
-#MODEL="${MODEL:-./models/4x_NMKD-Superscale-SP_178000_G.pth}"
+##MODEL="${MODEL:-./models/4x_NMKD-Superscale-SP_178000_G.pth}"
 #MODEL="${MODEL:-./models/8x_NMKD-Superscale_150000_G.pth}"
 
 model_id="${MODEL//\//}"
@@ -22,11 +23,13 @@ model_id="${MODEL//\//}"
 output_filename="${1:-${dirname}/${basename}.upscaled_${model_id}.${extension}}"
 shift || true
 
+#set -x
 
 if [[ -f "$output_filename" ]] ; then
 	echo ":: Already exists 👌😸"
 else
 	fps="$(ffmpeg_get_fps "$input_file")"
+	fps="$(echo 'scale=2; '$fps' / 1' | bc)"
 	FRAMES_DIR="${input_file}.frames.${fps}fps"
 	TMP_AUDIO="${TMP_AUDIO:-./${input_file}.audio.wav}"
 	FRAMES_DIR="$FRAMES_DIR" \
@@ -35,7 +38,9 @@ else
 		"$input_file" \
 		"$fps"
 
-	UPSCALED_FRAMES_DIR="${input_file}.upscaled_frames.${fps}fps"
+	UPSCALED_FRAMES_DIR="${input_file}.upscaled_frames_${model_id}.${fps}fps"
+	UPSCALED_FRAMES_DIR="$(python -c "from pathlib import Path ; p = Path('${UPSCALED_FRAMES_DIR}') ; print('/'.join([p.parent.as_posix(), ''.join(list(p.stem)[-254:])]) )")"
+
 	cd ~/ai/ESRGAN/
 	source ./env/bin/activate
 	python \
@@ -46,12 +51,25 @@ else
 		--output "$UPSCALED_FRAMES_DIR"
 	deactivate
 
-	TEMPLATE="%06d_${model_id}.png" \
-		ffmpeg_imgdir_to_video \
-		"$UPSCALED_FRAMES_DIR" \
-		"$output_filename" \
-		"$fps" \
-		"$TMP_AUDIO"
+	if [[ -f "$TMP_AUDIO" ]] ; then
+		TEMPLATE="%06d_${model_id}.png" \
+			ffmpeg_imgdir_to_video \
+			"$UPSCALED_FRAMES_DIR" \
+			"$output_filename" \
+			"$fps" \
+			"$TMP_AUDIO"
+	else
+		TEMPLATE="%06d_${model_id}.png" \
+			ffmpeg_imgdir_to_video \
+			"$UPSCALED_FRAMES_DIR" \
+			"$output_filename" \
+			"$fps"
+	fi
 
-	rm -fr "$FRAMES_DIR" "$UPSCALED_FRAMES_DIR"
+	sync
+	rm -fr "$FRAMES_DIR" "$UPSCALED_FRAMES_DIR" || sleep 3
+	rm -fr "$FRAMES_DIR" "$UPSCALED_FRAMES_DIR" || true
 fi
+
+echo ">>>>>> $0 done"
+echo
