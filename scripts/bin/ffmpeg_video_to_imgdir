@@ -7,7 +7,8 @@ echo ":::::::::::FFMPEG_VIDEO_TO_IMGDIR"
 
 
 VIDEO_INPUT="${VIDEO_INPUT:-$1}"
-FPS="${FPS:-24}"
+fps="$(ffmpeg_get_fps "$VIDEO_INPUT")"
+FPS="${FPS:-$fps}"
 FPS="${2:-$FPS}"
 
 FRAMES_DIR="${FRAMES_DIR:-${VIDEO_INPUT}.frames.${FPS}fps}"
