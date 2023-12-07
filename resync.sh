@@ -6,7 +6,7 @@ blue() {
 	echo "[34m$*[30m[m"
 }
 
-SCRIPT_DIR=$(cd $(dirname "$0") && pwd)
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 THEME_NAME="${2-}"
 if [[ -z ${THEME_NAME} ]] ; then
 	THEME_NAME=$("$SCRIPT_DIR"/current-theme.sh)

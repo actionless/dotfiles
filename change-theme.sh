@@ -21,7 +21,14 @@ CURRENT_THEME=$(./current-theme.sh) || CURRENT_THEME=''
 
 if [[ -n ${CURRENT_THEME} ]] ; then
 	warn "== Unstowing the current theme..."
-	stow -D "$(./current-theme.sh)"
+	exit_code=0
+	result=$(stow -D "$(./current-theme.sh)" 2>&1) || exit_code=$?
+	if [[ $exit_code -gt 0 ]] ; then
+		echo "$result"
+		exit $exit_code
+	else
+		echo "$result" | grep -v -e "Absolute/relative mismatch between Stow dir dotfiles and path" || true
+	fi
 fi
 
 warn "== Stowing the new theme..."
@@ -51,7 +58,7 @@ else
 	fi
 fi
 
-if ! which tmux ; then
+if ! which tmux > /dev/null ; then
 	warn "!! tmux is not installed"
 else
 	warn "-- Applying env inside tmux sessions..."
