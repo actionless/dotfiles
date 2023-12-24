@@ -7,7 +7,7 @@ echo ":::::: $0 started"
 input_file="$(readlink -e "$1")"
 shift
 
-dirname=$(dirname -- "$input_file")
+dirname=$(dirname -- "$input_file")/upscaled_mm
 filename=$(basename -- "$input_file")
 basename="${filename%.*}"
 extension="${filename##*.}"
@@ -28,9 +28,10 @@ upscaled_refps_filename="${1:-${dirname}/${basename}.upscaled.${extension}}"
 shift || true
 
 #set -x
+mkdir -p "$dirname"
 
 upscaled_tmp_filename="${1:-${dirname}/${basename}.upscaled_tmp.${extension}}"
-if [[ ! -f "$upscaled_tmp_filename" ]] ; then
+if [[ ! ( -f "$upscaled_tmp_filename" || -f "$upscaled_refps_filename") ]] ; then
 	cd ~/ai/mmediting
 	./upscale.sh "$input_file" "$upscaled_tmp_filename"
 	slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_tmp_filename" ; echo / ; ffmpeg_get_fps "$input_file") | bc)"
