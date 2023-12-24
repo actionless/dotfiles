@@ -6,7 +6,7 @@ blue() {
 	echo "[34m$*[30m[m"
 }
 
-SCRIPT_DIR=$(cd $(dirname "$0") && pwd)
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 THEME_NAME="${2-}"
 if [[ -z ${THEME_NAME} ]] ; then
 	THEME_NAME=$("$SCRIPT_DIR"/current-theme.sh)
@@ -19,16 +19,27 @@ if [ -z "$PC_NAME" ] ; then
 fi
 PC_NAME=$(basename "$PC_NAME")
 
+migrate_symlink_paths() {
+	for path in "${SYM_PATHS[@]}" ; do
+		if [[ -f ~/"$path" && ! -L ~/"$path" ]] ; then
+			mv ~/"$path" "$SYM_PATH_DEST"/"$path" || true
+		fi
+	done
+}
+
 SYM_PATHS=(
-	'.config/user-dirs.dirs'
 	'.gtkrc-2.0'
 	'.config/gtk-3.0/settings.ini'
 )
-for path in "${SYM_PATHS[@]}" ; do
-	if [[ -f ~/"$path" && ! -L ~/"$path" ]] ; then
-		mv ~/"$path" "$THEME_DIR"/"$path" || true
-	fi
-done
+SYM_PATH_DEST="$THEME_DIR"
+migrate_symlink_paths
+SYM_PATHS=(
+	'.config/user-dirs.dirs'
+)
+SYM_PATH_DEST="env"
+migrate_symlink_paths
+
+
 if which pacman > /dev/null ; then
 	pacman -Qqe | grep -v -f <(\
 		grep '^IgnorePkg' /etc/pacman.conf \
