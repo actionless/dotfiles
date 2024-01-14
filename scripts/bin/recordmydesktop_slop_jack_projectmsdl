@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -x
+geo=$(slop -f '%w+%h+%x+%y' --nodecorations)
+w=$(cut -d+ -f1 <<< "$geo")
+h=$(cut -d+ -f2 <<< "$geo")
+x=$(cut -d+ -f3 <<< "$geo")
+y=$(cut -d+ -f4 <<< "$geo")
+read -r
+exec recordmydesktop --use-jack='projectMSDL:monitor_FL' --v_bitrate 2000000 --width="$w" --height="$h" --x="$x" --y="$y" "$@"
