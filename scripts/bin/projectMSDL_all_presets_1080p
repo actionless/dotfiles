@@ -1,0 +1,15 @@
+#!/bin/sh
+	#--beatSensitivity=0.62 \
+	#--vsync=1 \
+	#--exclusive=0 \
+exec projectMSDL \
+	-p/usr/share/projectM/presets/ \
+	--shuffleEnabled=0 \
+	--enableSplash=0 \
+	--width=1920 \
+	--height=1080 \
+	--fps=30 \
+	--beatSensitivity=0.72 \
+	--fullscreenWidth=1920 \
+	--fullscreenHeight=1080 \
+	"$@"
