@@ -1,0 +1,35 @@
+#!/bin/bash
+set -ueo pipefail
+
+
+if [[ -z "${1:-}" || "$1" = "-h" ]] ; then
+	echo "$0 FILEPATH [LIMIT]	- upload to 0x0.st for LIMIT hours"
+	echo "$0 FILEPATH -k	- upload to keep.sh for 24 hours"
+	exit 0
+fi
+
+FILEPATH="$1"
+shift
+
+LIMIT="${1:-}"  # hours
+
+
+if [[ "$LIMIT" = "-k" ]] ; then
+	echo ":: Limit is 500 MB and 24 hours"
+	curl \
+		--upload-file "$FILEPATH" \
+		https://free.keep.sh
+elif [[ -n "$LIMIT" ]] ; then
+	echo ":: Limit is 512 MB and ${LIMIT} hours"
+	curl \
+		-F'file=@'"$FILEPATH" \
+		-Fexpires="$LIMIT" \
+		https://0x0.st
+else
+	echo ":: Limit is 512 MB and 30+ days"
+	curl \
+		-F'file=@'"$FILEPATH" \
+		https://0x0.st
+fi
+
+echo ":: DONE"
