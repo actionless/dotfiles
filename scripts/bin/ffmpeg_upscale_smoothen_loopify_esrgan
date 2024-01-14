@@ -44,22 +44,30 @@ if [[ -f "$output_file_x2" || -f "$output_file_x4" ]] ; then
 	exit 0
 fi
 
+input_fps=$(ffmpeg_get_fps "$input_file")
 if [[ ! -f "$upscaled_tmp_filename" ]] ; then
 	ffmpeg_upscale_esrgan "$input_file" "$upscaled_tmp_filename"
 fi
 if [[ ! -f "$upscaled_refps_filename" ]] ; then
 	slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_tmp_filename" ; echo / ; ffmpeg_get_fps "$input_file") | bc)"
 	cd ~/ai/mmediting
-	./refps_WITH_reencoding.sh "$upscaled_tmp_filename" "$upscaled_refps_filename" "$slowdown" "$fps"
+	./refps_WITH_reencoding.sh "$upscaled_tmp_filename" "$upscaled_refps_filename" "$slowdown" "$input_fps"
 	cd -
 fi
-slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_tmp_filename" ; echo / ; ffmpeg_get_fps "$input_file") | bc)"
+echo "Input FPS: ${input_fps}"
+echo "Upscaled FPS:"
+ffmpeg_get_fps "$upscaled_tmp_filename"
+echo "Upscaled refps FPS:"
+ffmpeg_get_fps "$upscaled_refps_filename"
+slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_tmp_filename" ; echo / ; ffmpeg_get_fps "$input_file") | bc | sed -e 's/\.0\+$//g')"
+echo "Slowdown=${slowdown}"
 
 if [[ ! -f "$output_filename" ]] ; then
 	ffmpeg_loopify "$upscaled_refps_filename" "$output_filename"
 fi
 
 predicted_x2_fps=$(echo $(echo "scale=0;" ; ffmpeg_get_fps "$input_file" ; echo "*2") | bc)
+echo "Predicted x2 FPS: ${predicted_x2_fps}"
 if [[ -f "$output_file_x2" && "${predicted_x2_fps%.*}" -ge "$fps" ]] ; then
 	echo
 	echo "::: Already exists: ${output_file_x2} :::"

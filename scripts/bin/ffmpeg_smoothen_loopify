@@ -36,7 +36,12 @@ fi
 tmp_x2="${input_file}.x2_tmp.${extension}"
 cd ~/ai/mmediting
 ./video_interpolation.sh "$input_file" "$tmp_x2"
+echo ":: Input FPS:"
+ffmpeg_get_fps "$input_file"
+echo ":: Interpolated x2 FPS:"
+ffmpeg_get_fps "$tmp_x2"
 
+echo ":: Slowdown=${slowdown}"
 if [[ "$slowdown" != "1" ]] ; then
 	tmp_x2_refps="${input_file}.x2_tmp_refps.${extension}"
 	./refps_WITH_reencoding.sh "$tmp_x2" "$tmp_x2_refps" "${slowdown}" "$fps"
@@ -45,8 +50,11 @@ if [[ "$slowdown" != "1" ]] ; then
 else
 	ffmpeg_loopify "$tmp_x2" "$output_file_x2"
 fi
+echo ":: Final x2 FPS:"
+ffmpeg_get_fps "$output_file_x2"
 
 predicted_x2_fps=$(echo $(ffmpeg_get_fps "$tmp_x2" ; echo "/${slowdown}") | bc)
+echo ":: target_fps=${fps} predicted_x2_fps=${predicted_x2_fps}"
 if [[ "$predicted_x2_fps" -ge "$fps" ]] || [[ -n "${SKIP_X4:-}" ]] ; then
 	rm "$tmp_x2"
 else
@@ -55,9 +63,13 @@ else
 	rm "$tmp_x2"
 
 	tmp_refps="${input_file}.refps_tmp.${extension}"
-	#./refps_without_reencoding.sh "$tmp_x4" "$tmp_refps" "$fps"
-	./refps_WITH_reencoding.sh "$tmp_x4" "$tmp_refps" "$slowdown" "$fps"
-	rm "$tmp_x4"
+	if [[ "$slowdown" != "1" ]] ; then
+		#./refps_without_reencoding.sh "$tmp_x4" "$tmp_refps" "$fps"
+		./refps_WITH_reencoding.sh "$tmp_x4" "$tmp_refps" "$slowdown" "$fps"
+		rm "$tmp_x4"
+	else
+		mv "$tmp_x4" "$tmp_refps"
+	fi
 
 	ffmpeg_loopify "$tmp_refps" "$output_file_x4"
 	rm "$tmp_refps"
