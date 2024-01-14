@@ -1,6 +1,6 @@
 pkgname=actionless_dotfiles_meta
 pkgver=0.1
-pkgrel=19
+pkgrel=20
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
@@ -51,7 +51,6 @@ depends=(
 	# shell/script helpers:
 	'highlight'
 
-	'wireplumber'  # pipewire
 	'realtime-privileges'  # pipewire
 	# theming:
 	'breeze'  # cursor themes
@@ -63,6 +62,7 @@ optdepends=(
 	'noto-fonts-emoji: or'
 	'ttf-twemoji-color: or'
 
+	'wireplumber'  # pipewire manager, if pipewire is needed
 	'pipewire-zeroconf'  # pipewire over network, but Sonobus seems to be better
 )
 
