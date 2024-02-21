@@ -1,0 +1,16 @@
+#!/bin/bash
+set -ueo pipefail
+#set -x
+
+arg="${1:-}"
+disconnect=""
+if [[ "$arg" = "-d" ]] ; then
+	disconnect="--disconnect"
+elif [[ "$arg" = "-h" ]] ; then
+	echo "$0 [-d/--disconnect]"
+	exit 0
+fi
+
+for P in L R ; do
+	pw-link "$disconnect" alsa_input.usb-Loud_Technologies_Inc._Onyx_Blackjack-00.analog-stereo:capture_F$P easyeffects_sink:playback_F$P
+done
