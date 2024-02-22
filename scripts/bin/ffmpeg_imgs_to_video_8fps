@@ -1,0 +1,40 @@
+#!/bin/bash
+set -euo pipefail
+#set -x
+
+FPS=7.5
+
+
+workdir="$(dirname "$1")"
+
+common="$(echo "$1" | rev)"
+for i in "$@"; do
+	common=$(echo -e "$(echo "${i}" | rev)\n${common}" | grep -zPo '(.*).*\n\K\1')
+done
+common="$(rev <<< "$common" | sed -e 's/^[-_]*//g' -e 's/.png$//g')"
+
+echo "$common"
+
+INPUT_DIR="${workdir}/${common}"
+VIDEO_OUTPUT_UPSCALED="${INPUT_DIR}.${FPS}fps.mp4"
+c=1
+while [[ -f "$VIDEO_OUTPUT_UPSCALED" ]]; do
+	INPUT_DIR="${workdir}/${common}_${c}"
+	VIDEO_OUTPUT_UPSCALED="${INPUT_DIR}.${FPS}fps.mp4"
+	let c=c+1
+done
+
+mkdir -p "$INPUT_DIR"
+cp "$@" "$INPUT_DIR"
+
+ls -a "$INPUT_DIR"
+a=1
+for i in "$INPUT_DIR"/*; do
+	new=$(printf "%03d.png" "$a")
+	mv -i -- "$i" "${INPUT_DIR}/${new}"
+	let a=a+1
+done
+
+set -x
+FPS="$FPS" ffmpeg_imgdir_to_video "$INPUT_DIR" "$VIDEO_OUTPUT_UPSCALED"
+rm -fr "$INPUT_DIR"
