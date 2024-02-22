@@ -1,2 +1,0 @@
-#!/bin/sh
-exec env GDK_SCALE=1 /usr/bin/easyeffects
