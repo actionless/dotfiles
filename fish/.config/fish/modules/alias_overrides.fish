@@ -3,8 +3,13 @@ alias gr='grep --color -iER'
 
 abbr -a ':q' exit
 abbr -a v viewnior
+abbr -a g gliv
+abbr -a o ocenaudio
 abbr -a vmi vim
 abbr -a ptp ptpython
+abbr -a fdn fd --no-ignore --hidden
+abbr -a fdh fd --no-ignore --hidden
+abbr -a fdu fd --no-ignore --hidden
 
 
 function mdcd --description='mkdir and cd to'
