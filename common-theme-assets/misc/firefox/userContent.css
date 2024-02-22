@@ -119,6 +119,59 @@ body:empty {
 
 }
 
+html, body, page, hbox, label, h1 {
+  color: WindowText !important;
+}
+html, body, page {
+  background: Window !important;
+}
+hbox, label {
+  background: #00000000 !important;
+}
+
+tree label {
+  color: black !important;
+	background: #00000000;
+}
+treechildren {
+		background: white !important;
+}
+
+.icon{
+  filter: invert(100%);
+}
+.icon, .category-icon {
+  color: WindowText !important;
+  fill: currentColor !important;
+}
+
+button, .button-box {
+	background-color: #00000000 !important;
+	color: ButtonText !important;
+}
+button {
+	background-color: ButtonFace !important;
+	border-radius: 5px !important;
+	border-color: InactiveBorder !important;
+	filter: brightness(95%) !important;
+	/*-moz-appearance: button !important;*/
+}
+button:hover {
+	background-color: ThreeDShadow !important;
+	color: ButtonText !important;
+	filter: brightness(122%) !important;
+}
+
+richlistitem {
+  border-color: Window !important;
+  background: #00000000 !important;
+}
+richlistitem[selected="true"],
+richlistitem[selected="true"] image,
+richlistitem[selected="true"] label{
+	color: HighlightText !important;
+	background-color: Highlight !important;
+}
 
 @-moz-document url-prefix("about:"){
 
@@ -255,6 +308,20 @@ body:empty {
 		}
 	  }
 	}
+
+	.checkbox-check, .radio-check, textbox, menulist, toolbarbutton {
+	  background-color: Window !important;
+	  color: WindowText !important;
+		filter: brightness(133%) !important;
+		box-shadow: none !important;
+		border-color: InactiveBorder !important;
+	}
+	.checkbox-check[checked], .radio-check[selected] {
+	  background-color: Highlight !important;
+	  color: Window !important;
+		filter: brightness(100%) !important;
+	}
+
 }
 
 /* AGENT_SHEET */
