@@ -2,15 +2,21 @@
 set -ueo pipefail
 #set -x
 
+listen_on_interface=easyeffects_sink:playback
+record_from_interface=alsa_input.usb-Loud_Technologies_Inc._Onyx_Blackjack-00.analog-stereo:capture
+
 arg="${1:-}"
-disconnect=""
-if [[ "$arg" = "-d" ]] ; then
-	disconnect="--disconnect"
-elif [[ "$arg" = "-h" ]] ; then
+if [[ "$arg" = "-h" ]] ; then
 	echo "$0 [-d/--disconnect]"
 	exit 0
 fi
 
-for P in L R ; do
-	pw-link "$disconnect" alsa_input.usb-Loud_Technologies_Inc._Onyx_Blackjack-00.analog-stereo:capture_F$P easyeffects_sink:playback_F$P
+for channel in FL FR ; do
+	output_channel="${record_from_interface}_${channel}"
+	input_channel="${listen_on_interface}_${channel}"
+	if [[ "$arg" = "-d" ]] ; then
+		pw-link --disconnect "$output_channel" "$input_channel"
+	else
+		pw-link "$output_channel" "$input_channel"
+	fi
 done
