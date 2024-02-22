@@ -54,6 +54,16 @@
   height: 0 !important;
 }
 
+/*hide icon*/
+#editBookmarkPanelFaviconContainer,
+#editBookmarkPanelFavicon {
+  display: none !important;
+}
+/*hide page preview*/
+#editBookmarkPanelImage {
+  display: none;
+}
+
 /*hide all labels*/
 #editBookmarkPanelRows > vbox > label {
   display: none;
@@ -64,6 +74,8 @@
   /*height: 700px !important;*/
   /*height: 435px !important;*/
   height: 450px !important;
+  height: 666px !important;
+  /*height: 435px !important;*/
 }
 /*hide "Show for new bookmarks" checkbox*/
 #editBookmarkPanel_showForNewBookmarks {
