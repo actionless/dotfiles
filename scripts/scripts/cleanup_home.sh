@@ -26,11 +26,12 @@ dfc | grep /home
 
 
 # pkg cache: ##################################################################
-pikaur -Scc --aur --noconfirm
+######pikaur -Scc --aur --noconfirm
 ##rm -fr ~/aur/
 
 # cache: ######################################################################
 rm -fr ~/.cache/chromium/
+rm -fr ~/.cache/debuginfod_client/
 rm -fr ~/.cache/electron/
 rm -fr ~/.cache/flatpak/
 rm -fr ~/.cache/go-build/
@@ -38,8 +39,9 @@ rm -fr ~/.cache/google-chrome/
 rm -fr ~/.cache/jedi/
 rm -fr ~/.cache/*.kcache
 rm -fr ~/.cache/mesa/
-rmfiles ~/.cache/mozilla/
+#rmfiles ~/.cache/mozilla/
 rm -fr ~/.cache/netsurf/
+rm -fr ~/.cache/ocenaudio/*.{log,crash}
 rm -fr ~/.cache/Otter/
 rm -fr ~/.cache/parso/
 rm -fr ~/.cache/pip/
@@ -54,7 +56,7 @@ rm -fr ~/.cache/yarn/
 
 # firefox:
 rm -fr ~/.mozilla/firefox/"Crash Reports"
-rm -fr ~/.mozilla/firefox/*/storage/default/*/cache/
+#rm -fr ~/.mozilla/firefox/*/storage/default/*/cache/
 
 # mesa shader cache:
 set +x
@@ -72,11 +74,13 @@ rm -fr ~/.qmc2/*cache*
 rm -fr ~/.rigsofrods/cache/
 rm -fr ~/.surf/cache/
 # remove cache files older than 6 months: #####################################
-find ~/.cache -type f -mtime +180 -delete;
+#####find ~/.cache -type f -mtime +180 -delete;
 
 # programming languages: ######################################################
+rm -fr ~/.cache/bazel/
 rm -fr ~/.cache/yarn/
-rm -fr ~/.cargo/
+rm -fr ~/.cargo/*
+rm -fr ~/.rustup/*
 rm -fr ~/.dub/
 rm -fr ~/.electron/
 rm -fr ~/.gem/
@@ -94,7 +98,7 @@ rm -fr ~/.local/share/NuGet/
 # misc: #######################################################################
 flush_files ~/.cache/awesome_std*
 flush_files ~/wireplumber.log
-rm -fr ~/btfs/
+#rm -fr ~/btfs/
 rm -fr ~/.local/share/Trash/
 rm -fr ~/.local/tmp/
 rm -fr ~/.log/
