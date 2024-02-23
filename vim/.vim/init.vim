@@ -43,6 +43,7 @@ set wrap
 set colorcolumn=80
 set smarttab
 "set expandtab
+set noshowmode
 
 if has('nvim')
    source ~/.vim/neovim.vim
