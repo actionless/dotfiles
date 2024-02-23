@@ -113,4 +113,16 @@ if stridx(expand('%:p:h'), '/home/'.$USER.'/projects/') == 0 && filereadable('./
 	set exrc
 endif
 
+if stridx(expand('%:p:h'), '/media/ext/') == 0
+	set exrc
+endif
+
+if stridx(expand('%:p:h'), '/home/'.$USER.'/ai/') == 0
+	set exrc
+endif
+
+if stridx(expand('%:p:h'), '/home/'.$USER.'/coding/') == 0
+	set exrc
+endif
+
 "END
