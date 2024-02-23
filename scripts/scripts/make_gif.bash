@@ -4,9 +4,9 @@ set -uex
 
 #export MAGICK_OCL_DEVICE=OFF
 
-target=${1-./*.jpg}
+target=${1-.png}
 delay=${2-11}
-resize=${3-500}
+resize=${3-512}
 output_format=${4:-gif}
 
 workdir=$(mktemp -d)
@@ -19,7 +19,7 @@ trap cleanup EXIT
 current_dir=${PWD}
 
 echo "copying files..."
-cp "$target" "${workdir}/"
+cp ./*"$target" "${workdir}/"
 cd "$workdir"
 
 if [[ "$resize" != 0 ]] ; then
