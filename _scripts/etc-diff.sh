@@ -2,6 +2,11 @@
 
 # Inspired by PACDIFF(8) from pacman-contrib
 
+if [[ "${1:-}" = "--help" ]] ; then
+	echo "$0 [--names-only|--interactive] [FILTER]"
+	exit 0
+fi
+
 names_only=0
 interactive=0
 if [[ "${1:-}" = "--names-only" ]] ; then
