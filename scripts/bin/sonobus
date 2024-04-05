@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo systemctl start aooserver
+/usr/bin/sonobus
+sudo systemctl stop aooserver
