@@ -7,9 +7,10 @@ abbr -a g gliv
 abbr -a o ocenaudio
 abbr -a vmi vim
 abbr -a ptp ptpython
-abbr -a fdn fd --no-ignore --hidden
-abbr -a fdh fd --no-ignore --hidden
-abbr -a fdu fd --no-ignore --hidden
+abbr -a fdn fd --no-ignore --hidden --follow
+abbr -a fdu fd --no-ignore --hidden --follow
+abbr -a fdh fd --no-ignore --hidden --follow
+abbr -a rgh rg --no-ignore --hidden --follow
 
 
 function mdcd --description='mkdir and cd to'
