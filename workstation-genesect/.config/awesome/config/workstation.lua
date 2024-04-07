@@ -1,3 +1,4 @@
+local awful = require("awful")
 local run_once = require("actionless.util.spawn").run_once
 
 local local_config = {}
@@ -145,6 +146,12 @@ function local_config.init(awesome_context)
     --run_once{"pipewire_server"}
   end
 
+  local modkey = awesome_context.modkey
+  awesome_context.extra_global_keys[
+    #(awesome_context.extra_global_keys)+1
+  ] = awful.key({modkey, "Shift"}, "Return", function ()
+    awful.spawn{"xst", "-e", "ssh", "cloyster", "-t", "fish", "-c", "tmux"}
+  end)
 
   return awesome_context
 end
