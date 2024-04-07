@@ -1,0 +1,23 @@
+#!/bin/bash
+set -ueo pipefail
+#set -x
+
+#listen_on_interface=easyeffects_sink:playback
+listen_on_interface=alsa_output.usb-0a12_Avantree_C81-00.analog-stereo:playback
+record_from_interface=alsa_input.usb-Loud_Technologies_Inc._Onyx_Blackjack-00.analog-stereo:capture
+
+arg="${1:-}"
+if [[ "$arg" = "-h" ]] ; then
+	echo "$0 [-d/--disconnect]"
+	exit 0
+fi
+
+for channel in FL FR ; do
+	output_channel="${record_from_interface}_${channel}"
+	input_channel="${listen_on_interface}_${channel}"
+	if [[ "$arg" = "-d" ]] ; then
+		pw-link --disconnect "$output_channel" "$input_channel"
+	else
+		pw-link "$output_channel" "$input_channel"
+	fi
+done
