@@ -10,7 +10,12 @@ function local_config.init(awesome_context)
   conf.net_preset = 'systemd'
   conf.high_swap_ratio = 0.8
   conf.critical_swap_ratio = 0.9
-
+  conf.disk_warnings = {
+    ['*'] = {
+      pcent=90,
+      avail=10485760,  -- 10GiB
+    },
+  }
 
   awesome_context.have_battery = false
   awesome_context.apw_on_the_left = true
