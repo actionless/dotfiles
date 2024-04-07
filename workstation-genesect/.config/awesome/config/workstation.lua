@@ -101,10 +101,11 @@ function local_config.init(awesome_context)
       }
   end
 
-  au[#au+1] = {
-    'xinput', 'set-button-map', 'KYE OPTICAL MOUSE',
-    '1', '2', '3', '4', '5', '6', '7', '7', '6',
-  }
+  --au[#au+1] = {
+  --  'xinput', 'set-button-map', 'KYE OPTICAL MOUSE',
+  --  '1', '2', '3', '4', '5', '6', '7', '7', '6',
+  --}
+  -- moved to /etc/X11/xorg.conf.d/91-sanwa-trackball.conf
 
   au[#au+1] = {
     'sudo', 'nvidia-smi', '-pm', '1'
