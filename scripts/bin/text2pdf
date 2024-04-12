@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#$ pikaur -Qo /usr/share/cups/model/CUPS-PDF_noopt.ppd
+#/usr/share/cups/model/CUPS-PDF_noopt.ppd is owned by cups-pdf 3.0.1-7
+#$ pikaur -Qo (which cupsfilter )
+#/usr/bin/cupsfilter is owned by cups 1:2.4.7-2
+
+input="$1"
+
+if [[ -z "$2" ]] ; then
+	output="${input/.txt/.pdf}"
+else
+	output="$2"
+fi
+
+cupsfilter \
+	"$input" \
+	-P /usr/share/cups/model/CUPS-PDF_noopt.ppd \
+> "$output"
+
+echo
+echo "$output"
