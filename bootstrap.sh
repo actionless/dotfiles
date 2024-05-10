@@ -30,7 +30,7 @@ THEME_NAME="${2:-}"
 
 echo
 purp ":: Bootstrapping the config:"
-
+#set -x
 
 unstow_old_config=""
 current_workstation=$(./current-workstation.sh) || unstow_old_config=1
@@ -54,7 +54,7 @@ for CONFIG in $(
 	echo "$PC_NAME"
 ); do
 	echo -n "${CONFIG}: " ;
-	if stow "$CONFIG"; then
+	if stow -R "$CONFIG"; then
 		green "ok"
 	else
 		red "FAILED"
