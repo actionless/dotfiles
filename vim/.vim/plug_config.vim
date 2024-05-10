@@ -95,7 +95,17 @@ Plug 'groenewege/vim-less', {'for': 'less'}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ale_completion_enabled = 1
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'rhysd/vim-lsp-ale'
+if executable('pylsp')
+    " pip install python-lsp-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pylsp',
+        \ 'cmd': {server_info->['pylsp']},
+        \ 'allowlist': ['python'],
+        \ })
+endif
 let g:ale_completion_autoimport = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_echo_msg_format = '[%linter%] %code%: %s'
@@ -125,20 +135,20 @@ inoremap <expr><S-TAB>
 "\	 'python': ['flake8', 'mypy', 'pylint', 'pylsp', 'vulture'],
 "\	 'python': ['ruff', 'pylsp'],
 let g:ale_linters = {
-\	 'python': ['mypy', 'pylint', 'pylsp'],
+\	 'python': ['mypy', 'pylint', 'pylsp', 'vim-lsp'],
 \	 'javascript': ['eslint', 'fecs', 'flow', 'flow-language-server', 'jscs', 'standard', 'tsserver', 'xo'],
 \}
-let g:ale_linters_ignore = {
-\	 'python': ['pylsp']
-\}
+"let g:ale_linters_ignore = {
+"\	 'python': ['pylsp']
+"\}
 "set completeopt=menu,menuone,popup,noselect,noinsert
 
-"let g:ale_python_pylsp_executable = 'pyls'
+let g:ale_python_pylsp_executable = 'pylsp'
 let g:ale_python_pylint_change_directory = 0
 "let g:ale_python_mypy_options = ' --ignore-missing-imports '
 "let g:ale_python_vulture_options = ' ./maintenance_scripts/vulture_whitelist.py '
 "let g:ale_python_ruff_options = ' --config pyproject.toml '
-"set omnifunc=ale#completion#OmniFunc
+set omnifunc=ale#completion#OmniFunc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
