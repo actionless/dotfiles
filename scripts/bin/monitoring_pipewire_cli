@@ -1,0 +1,33 @@
+#!/bin/bash
+set -ueo pipefail
+#set -x
+
+listen_on_interface="$1"  # easyeffects_sink:playback
+record_from_interface="$2"  # alsa_input.usb-Loud_Technologies_Inc._Onyx_Blackjack-00.analog-stereo:capture
+force_quantum="${3:-1024}"
+arg="${4:-}"
+
+if [[ "$arg" = "-h" ]] ; then
+	echo "$0 [-d/--disconnect]"
+	exit 0
+fi
+
+if [[ "$arg" != "-d" ]] ; then
+	pw-metadata -n settings 0 clock.force-quantum "$force_quantum"
+fi
+
+for channel in FL FR ; do
+	output_channel="${record_from_interface}_${channel}"
+	input_channel="${listen_on_interface}_${channel}"
+	if [[ "$arg" = "-d" ]] ; then
+		echo pw-link --disconnect "$output_channel" "$input_channel"
+		pw-link --disconnect "$output_channel" "$input_channel"
+	else
+		echo pw-link "$output_channel" "$input_channel"
+		pw-link "$output_channel" "$input_channel"
+	fi
+done
+
+if [[ "$arg" = "-d" ]] ; then
+	pw-metadata -n settings 0 clock.force-quantum 0
+fi

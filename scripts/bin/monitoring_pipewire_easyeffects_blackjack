@@ -1,22 +1,13 @@
 #!/bin/bash
 set -ueo pipefail
-#set -x
 
 listen_on_interface=easyeffects_sink:playback
 record_from_interface=alsa_input.usb-Loud_Technologies_Inc._Onyx_Blackjack-00.analog-stereo:capture
-
+force_quantum=1024
 arg="${1:-}"
-if [[ "$arg" = "-h" ]] ; then
-	echo "$0 [-d/--disconnect]"
-	exit 0
-fi
 
-for channel in FL FR ; do
-	output_channel="${record_from_interface}_${channel}"
-	input_channel="${listen_on_interface}_${channel}"
-	if [[ "$arg" = "-d" ]] ; then
-		pw-link --disconnect "$output_channel" "$input_channel"
-	else
-		pw-link "$output_channel" "$input_channel"
-	fi
-done
+monitoring_pipewire_cli \
+	"$listen_on_interface" \
+	"$record_from_interface" \
+	"$force_quantum" \
+	"$arg"
