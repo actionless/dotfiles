@@ -1,4 +1,4 @@
-function dialog_menu
+function dialog_menu -d "fallback menu implementation based on `dialog` in case if `fzf is not installed"
 	set -l choices_file (mktemp)
 	cat | sed -E 's/(.*)/\1\n/g' > $choices_file
 	set -l dialog_args (cat $choices_file)
@@ -8,7 +8,7 @@ function dialog_menu
 	echo $result
 end
 
-function my_fish_menu
+function my_fish_menu -d "wrapper for a menu: use `fzf` or `dialog`-based one"
 	if which fzf > /dev/null
 		fzf --height=10 $argv
 	else if which dialog > /dev/null
