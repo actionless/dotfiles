@@ -9,7 +9,7 @@ function dialog_menu -d "fallback menu implementation based on `dialog` in case 
 end
 
 function my_fish_menu -d "wrapper for a menu: use `fzf` or `dialog`-based one"
-	if command which fzf2 > /dev/null
+	if command which fzf > /dev/null
 		fzf --height=10 $argv
 	else if command which dialog > /dev/null
 		dialog_menu $argv
