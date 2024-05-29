@@ -30,3 +30,11 @@ function tmr -d "menu: tmux: switch to session (and close current)"
 		tmux switch -t $target_session \; kill-session -t $current_session
 	end
 end
+
+
+function bluetooth_connect_menu -d "menu: connect to paired bluetooth device"
+	set -l device (bluetoothctl devices | my_fish_menu | cut -d' ' -f2)
+	if test ! -z "$device"
+		echo bluetoothctl connect $device
+	end
+end
