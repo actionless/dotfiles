@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/bin/bash
 #exec env QT_SCREEN_SCALE_FACTORS=1.6 /opt/ocenaudio/bin/ocenaudio "$@"
-exec env QT_ENABLE_HIGHDPI_SCALING=0 QT_FONT_DPI=180 /opt/ocenaudio/bin/ocenaudio "$@"
+rm -fr /home/lie/.cache/ocenaudio/*.{log,crash}
+env QT_ENABLE_HIGHDPI_SCALING=0 QT_FONT_DPI=180 /opt/ocenaudio/bin/ocenaudio "$@"
+rm -fr /home/lie/.cache/ocenaudio/*.{log,crash}
