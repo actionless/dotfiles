@@ -11,7 +11,7 @@ if [[ -z "$font" ]] ; then
 	elif [[ -f /usr/share/soundfonts/Arachno.sf2 ]] ; then
 		font=/usr/share/soundfonts/Arachno.sf2
 	else
-		font=/usr/share/tuxguitar/share/soundfont/MagicSFver2.sf2
+		font=/opt/tuxguitar/share/soundfont/MagicSFver2.sf2
 	fi
 fi
 fluidsynth "$font" "$input" -F "$output"
