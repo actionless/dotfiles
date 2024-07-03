@@ -35,6 +35,6 @@ end
 function bluetooth_connect_menu -d "menu: connect to paired bluetooth device"
 	set -l device (bluetoothctl devices | my_fish_menu | cut -d' ' -f2)
 	if test ! -z "$device"
-		echo bluetoothctl connect $device
+		bluetoothctl connect $device
 	end
 end
