@@ -1,14 +1,11 @@
 /* AGENT_SHEET */
 :host, :root {
-/*	--theme-body-background: -moz-Dialog !important;*/
-/*	--theme-body-color: -moz-DialogText !important;*/
+/*	--theme-body-background: Window !important;*/
+/*	--theme-body-color: WindowText !important;*/
 
-	--link-color: Highlight !important;
-	--focus-outline-color: Highlight !important;
-
-	--in-content-page-background: -moz--moz-EvenTreeRow !important;
-	--in-content-page-color: -moz--moz-CellHighlightText !important;
-	--in-content-table-background: -moz--moz-EvenTreeRow !important;
+	--in-content-page-background: -moz-Field !important;
+	--in-content-page-color: -moz-FieldText !important;
+	--in-content-table-background: -moz-Field !important;
 
 	--in-content-link-color: Highlight !important;
 	--in-content-link-color-hover: -moz-MenuHover !important;
@@ -18,14 +15,9 @@
 	--in-content-primary-button-background: Highlight !important;
 	--in-content-primary-button-background-hover: -moz-MenuHover !important;
 	--in-content-primary-button-background-active: Highlight !important;
-	/*--in-content-button-background: ButtonFace !important;*/
-	/*--in-content-button-text-color: ButtonText !important;*/
-	/*--in-content-button-border-color: ButtonBorder !important;*/
-	/*--in-content-button-background-mixed: ButtonFace !important;*/
-	--in-content-button-background: -moz-Dialog !important;
-	--in-content-button-text-color: -moz-DialogText !important;
-	--in-content-button-border-color: -moz-DialogText !important;
-	--in-content-button-background-mixed: -moz-Dialog !important;
+	--in-content-button-background: ButtonFace !important;
+	--in-content-button-text-color: ButtonText !important;
+	--in-content-button-border-color: ButtonBorder !important;
 
 	--panel-disabled-color: InactiveCaption !important;
 	--in-content-deemphasized-text: InactiveCaptionText !important;
@@ -51,7 +43,7 @@
 	--blue-80: Highlight !important;
 
 	--in-content-box-border-color: InactiveBorder !important;
-	--in-content-box-background: -moz--moz-EvenTreeRow !important;
+	--in-content-box-background: -moz-Field !important;
 	/*table header bg:*/
 	--in-content-box-background-hover: ButtonHighlight !important;
 
@@ -64,70 +56,50 @@
 	--in-content-category-background-active: Highlight !important;
 	--in-content-category-text-hover: HighlightText !important;
 
-	--in-content-dialog-header-background: -moz-Dialog !important;
-
-	--newtab-background-color: -moz-EvenTreeRow !important;
-	--newtab-text-primary-color: -moz-CellHighlightText !important;
+	--in-content-dialog-header-background: ButtonFace !important;
 }
 
 
 body:empty {
-	background: -moz-Dialog !important;
-	background: -moz-EvenTreeRow; !important;
-}
-@media (prefers-color-scheme: dark) {
-	body:empty {
-		background: -moz-Dialog !important;
-		background: -moz-EvenTreeRow; !important;
-	}
+	background: Window !important;
 }
 
 
 @-moz-document url("about:blank") {
 	* {
-		background: -moz-EvenTreeRow; !important;
-		color: -moz-CellHighlightText !important;
-	}
-	@media (prefers-color-scheme: dark) {
-		* {
-			background: -moz-EvenTreeRow; !important;
-			color: -moz-CellHighlightText !important;
-		}
+		background: Window !important;
+		color: WindowText !important;
 	}
 }
 
 @-moz-document url("about:newtab"), url("about:home") {
-	:host, :root, :root[lwt-newtab-brighttext] {
-		--newtab-background-color: -moz-EvenTreeRow !important;
-		--newtab-text-primary-color: -moz-CellHighlightText !important;
-		--newtab-topsites-label-color: -moz-CellHighlightText !important;
-		--newtab-icon-tertiary-color: -moz-CellHighlightText !important;
-		--newtab-background-color-secondary: -moz-Dialog !important;
-		--newtab-text-secondary-color: -moz-CellHighlightText !important;
-		--newtab-wordmark-color: -moz-CellHighlightText !important;
 
-		--newtab-snippets-background-color: -moz-Dialog !important;
+	body {
+		box-shadow: none !important;
+		--newtab-background-color: Field !important;
+		--newtab-text-primary-color: FieldText !important;
+		--newtab-topsites-label-color: FieldText !important;
+		--newtab-icon-tertiary-color: FieldText !important;
+		--newtab-background-color-secondary: Window !important;
+		--newtab-text-secondary-color: WindowText !important;
+		--newtab-wordmark-color: FieldText !important;
+
+		--newtab-snippets-background-color: Window !important;
 		--newtab-textbox-focus-color: Highlight !important;
-		--newtab-topsites-background-color: -moz-Dialog !important;
+		--newtab-topsites-background-color: Window !important;
 		--newtab-border-secondary-color: InactiveBorder !important;
-		--newtab-search-icon: -moz-Dialog !important;
 
 		/*--newtab-element-hover-color: -moz-buttonhoverface !important;*/
 		--newtab-element-hover-color: Highlight !important;
-		--newtab-contextmenu-background-color: -moz-Dialog !important; /*should be contrast to --newtab-text-primary-color*/
-		--newtab-icon-primary-color: -moz-DialogText !important;
+		--newtab-contextmenu-background-color: ButtonFace !important; /*should be contrast to --newtab-text-primary-color*/
+		--newtab-icon-primary-color: ButtonText !important;
 		--newtab-link-primary-color: Highlight !important;
-		--newtab-section-header-text-color: -moz-DialogText !important;
-	}
-
-	body, #root {
-		box-shadow: none !important;
-		background: -moz-EvenTreeRow !important;
+		--newtab-section-header-text-color: WindowText !important;
 	}
 
 	input {
-		color: -moz-DialogText !important;
-		background-color: -moz-Dialog !important;
+		color: WindowText !important;;
+		background-color: Window !important;;
 	}
 
 	/*new tab "Top Sites" dropdown*/
@@ -145,42 +117,61 @@ body:empty {
 	/*		background-size: 97px;*/
 	/*}*/
 
-	@media (prefers-color-scheme: dark) {
-		:host, :root, :root[lwt-newtab-brighttext] {
-			--newtab-background-color: -moz-EvenTreeRow !important;
-			--newtab-text-primary-color: -moz-CellHighlightText !important;
-			--newtab-topsites-label-color: -moz-CellHighlightText !important;
-			--newtab-icon-tertiary-color: -moz-CellHighlightText !important;
-			--newtab-background-color-secondary: -moz-Dialog !important;
-			--newtab-text-secondary-color: -moz-CellHighlightText !important;
-			--newtab-wordmark-color: -moz-CellHighlightText !important;
-
-			--newtab-snippets-background-color: -moz-Dialog !important;
-			--newtab-textbox-focus-color: Highlight !important;
-			--newtab-topsites-background-color: -moz-Dialog !important;
-			--newtab-border-secondary-color: InactiveBorder !important;
-
-			/*--newtab-element-hover-color: -moz-buttonhoverface !important;*/
-			--newtab-element-hover-color: Highlight !important;
-			--newtab-contextmenu-background-color: -moz-Dialog !important; /*should be contrast to --newtab-text-primary-color*/
-			--newtab-icon-primary-color: -moz-DialogText !important;
-			--newtab-link-primary-color: Highlight !important;
-			--newtab-section-header-text-color: -moz-DialogText !important;
-		}
-	}
 }
 
-/*hbox, label {*/
-/*  background: #00000000 !important;*/
-/*}*/
+html, body, page, hbox, label, h1 {
+  color: WindowText !important;
+}
+html, body, page {
+  background: Window !important;
+}
+hbox, label {
+  background: #00000000 !important;
+}
 
-/*tree label {*/
-/*  color: black !important;*/
-/*    background: #00000000;*/
-/*}*/
-/*treechildren {*/
-/*        background: white !important;*/
-/*}*/
+tree label {
+  color: black !important;
+	background: #00000000;
+}
+treechildren {
+		background: white !important;
+}
+
+.icon{
+  filter: invert(100%);
+}
+.icon, .category-icon {
+  color: WindowText !important;
+  fill: currentColor !important;
+}
+
+button, .button-box {
+	background-color: #00000000 !important;
+	color: ButtonText !important;
+}
+button {
+	background-color: ButtonFace !important;
+	border-radius: 5px !important;
+	border-color: InactiveBorder !important;
+	filter: brightness(95%) !important;
+	/*-moz-appearance: button !important;*/
+}
+button:hover {
+	background-color: ThreeDShadow !important;
+	color: ButtonText !important;
+	filter: brightness(122%) !important;
+}
+
+richlistitem {
+  border-color: Window !important;
+  background: #00000000 !important;
+}
+richlistitem[selected="true"],
+richlistitem[selected="true"] image,
+richlistitem[selected="true"] label{
+	color: HighlightText !important;
+	background-color: Highlight !important;
+}
 
 @-moz-document url-prefix("about:"){
 
@@ -188,72 +179,9 @@ body:empty {
 		box-shadow: none !important;
 	}
 
-	html, body, page, hbox, label, h1 {
-	  color: -moz-DialogText !important;
-	  /*color: -moz-DialogText;*/
-	}
-	html, body, page {
-	  background: -moz-Dialog !important;
-	  /*background: -moz-Dialog;*/
-	}
-
-	.icon{
-	  filter: invert(100%);
-	}
-	.icon, .category-icon {
-	  color: -moz-DialogText !important;
-	  fill: currentColor !important;
-	}
-
-	/*button, .button-box {*/
-	/*    background-color: #00000000 !important;*/
-	/*    color: ButtonText !important;*/
-	/*}*/
-	/*button {*/
-	/*    background-color: ButtonFace !important;*/
-	/*    border-radius: 5px !important;*/
-	/*    border-color: InactiveBorder !important;*/
-	/*    filter: brightness(95%) !important;*/
-	/*    [>-moz-appearance: button !important;<]*/
-	/*}*/
-	/*button:hover {*/
-	/*    background-color: ThreeDShadow !important;*/
-	/*    color: ButtonText !important;*/
-	/*    filter: brightness(122%) !important;*/
-	/*}*/
-	button, .button-box {
-		background-color: #00000000 !important;
-		color: -moz-DialogText !important;
-	}
-	button {
-		background-color: -moz-Dialog !important;
-		border-radius: 5px !important;
-		border-color: InactiveBorder !important;
-		filter: brightness(95%) !important;
-		/*-moz-appearance: button !important;*/
-	}
-	button:hover {
-		background-color: ThreeDShadow !important;
-		color: -moz-DialogText !important;
-		filter: brightness(122%) !important;
-	}
-
-	richlistitem {
-	  border-color: -moz-Dialog !important;
-	  background: #00000000 !important;
-	}
-	richlistitem[selected="true"],
-	richlistitem[selected="true"] image,
-	richlistitem[selected="true"] label{
-		color: HighlightText !important;
-		background-color: Highlight !important;
-	}
-
-
 	/*table header fg*/
 	treecol:not([hideheader="true"]) {
 		color: ButtonText !important;
-		color: -moz-DialogText !important;
 	}
 
 
@@ -286,7 +214,7 @@ body:empty {
 	}
 
 	.filter[type="text"] {
-		background: -moz-EvenTreeRow !important;
+		background: Field !important;
 	}
 
 	/*button:hover {*/
@@ -312,9 +240,9 @@ body:empty {
 		 * just replace most of these for system colors and remove all this
 		 * duplication (assuming we honor the preferred color scheme for
 		 * in-content privileged pages and plain-text documents). */
-		--in-content-page-background: -moz--moz-EvenTreeRow !important;
-		--in-content-page-color: -moz--moz-CellHighlightText !important;
-		--in-content-table-background: -moz--moz-EvenTreeRow !important;
+		--in-content-page-background: -moz-Field !important;
+		--in-content-page-color: -moz-FieldText !important;
+		--in-content-table-background: -moz-Field !important;
 
 		--in-content-link-color: Highlight !important;
 		--in-content-link-color-hover: -moz-MenuHover !important;
@@ -324,13 +252,9 @@ body:empty {
 		--in-content-primary-button-background: Highlight !important;
 		--in-content-primary-button-background-hover: -moz-MenuHover !important;
 		--in-content-primary-button-background-active: Highlight !important;
-		/*--in-content-button-background: ButtonFace !important;*/
-		/*--in-content-button-text-color: ButtonText !important;*/
-		/*--in-content-button-border-color: ButtonBorder !important;*/
-		--in-content-button-background: -moz-Dialog !important;
-		--in-content-button-text-color: -moz-DialogText !important;
-		--in-content-button-border-color: -moz-DialogText !important;
-		--in-content-button-background-mixed: -moz-Dialog !important;
+		--in-content-button-background: ButtonFace !important;
+		--in-content-button-text-color: ButtonText !important;
+		--in-content-button-border-color: ButtonBorder !important;
 
 		--panel-disabled-color: InactiveCaption !important;
 		--in-content-deemphasized-text: InactiveCaptionText !important;
@@ -356,7 +280,7 @@ body:empty {
 		--blue-80: Highlight !important;
 
 		--in-content-box-border-color: InactiveBorder !important;
-		--in-content-box-background: -moz--moz-EvenTreeRow !important;
+		--in-content-box-background: -moz-Field !important;
 		/*table header bg:*/
 		--in-content-box-background-hover: ButtonHighlight !important;
 
@@ -369,7 +293,7 @@ body:empty {
 		--in-content-category-background-active: Highlight !important;
 		--in-content-category-text-hover: HighlightText !important;
 
-		--in-content-dialog-header-background: -moz-Dialog !important;
+		--in-content-dialog-header-background: ButtonFace !important;
 	  }
 
 	  /* For dialogs, use a different background colour. We don't do
@@ -380,21 +304,21 @@ body:empty {
 		/* Also need this on dialog :hosts, or the rule above will override the
 		 * value for this custom property again in the shadow DOM. */
 		:host(dialog) {
-			--in-content-page-background: -moz--moz-EvenTreeRow !important;
+			--in-content-page-background: -moz-Field !important;
 		}
 	  }
 	}
 
 	.checkbox-check, .radio-check, textbox, menulist, toolbarbutton {
-	  background-color: -moz-Dialog !important;
-	  color: -moz-DialogText !important;
+	  background-color: Window !important;
+	  color: WindowText !important;
 		filter: brightness(133%) !important;
 		box-shadow: none !important;
 		border-color: InactiveBorder !important;
 	}
 	.checkbox-check[checked], .radio-check[selected] {
 	  background-color: Highlight !important;
-	  color: -moz-Dialog !important;
+	  color: Window !important;
 		filter: brightness(100%) !important;
 	}
 

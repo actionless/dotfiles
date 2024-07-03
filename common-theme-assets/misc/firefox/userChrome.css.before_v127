@@ -1,0 +1,93 @@
+* {
+  font-family: sans;
+  --toolbarbutton-icon-fill-attention: Highlight !important;
+}
+
+
+/* Hide tabs at the top */
+#TabsToolbar {
+    visibility: collapse !important;
+}
+
+/* Reduce the size of the sidebar header */
+#sidebar-header {
+  /*background-color: WindowFrame !important;*/
+  /*background-color: InactiveBorder !important;*/
+  background-color: ThreeDHighlight  !important;
+    border: none !important;
+    height: 10px !important;
+  padding: 1px !important;
+  margin: 0 !important;
+  font-size: 10px !important;
+  font-weight: normal !important;
+    /*visibility: collapse !important;*/
+}
+
+/*fix color of top panel*/
+#nav-bar {
+  background: Window !important;
+}
+
+/* favorite star in address bar */
+#star-button[starred], #star-button-animatable-image {
+	fill: Highlight !important;
+	stroke: Highlight !important;
+}
+
+/*Minimize style of bookmarks panel:*/
+
+/*hide header*/
+#editBookmarkPanel .panel-header {
+  display: none !important;
+}
+#editBookmarkPanel #editBookmarkPanelImage{
+  display: none !important;
+}
+/*hide page preview*/
+/*hide icon*/
+#editBookmarkPanelInfoArea,
+#editBookmarkPanelFaviconContainer,
+#editBookmarkPanelFavicon,
+#editBookmarkPanelRecommendation {
+  display: none !important;
+  max-height: 0 !important;
+  height: 0 !important;
+}
+
+/*hide icon*/
+#editBookmarkPanelFaviconContainer,
+#editBookmarkPanelFavicon {
+  display: none !important;
+}
+/*hide page preview*/
+#editBookmarkPanelImage {
+  display: none;
+}
+
+/*hide all labels*/
+#editBookmarkPanelRows > vbox > label {
+  display: none;
+}
+/*Bookmark's bar height:*/
+#editBMPanel_folderTreeRow {
+  /*height: 500px !important;*/
+  /*height: 700px !important;*/
+  /*height: 435px !important;*/
+  height: 450px !important;
+  height: 666px !important;
+  /*height: 435px !important;*/
+}
+/*hide "Show for new bookmarks" checkbox*/
+#editBookmarkPanel_showForNewBookmarks {
+  display: none;
+}
+/*fix "Done" button color*/
+#editBookmarkPanelDoneButton {
+  background-color: Highlight !important;
+  color: HighlightText !important;
+}
+#editBookmarkPanelBottomButtons button:hover {
+  filter: brightness(122%) !important;
+}
+
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/color_value*/
