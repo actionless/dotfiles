@@ -2,7 +2,7 @@
 set -ueo pipefail
 
 input="$1"
-output="$2"
+output="${2:-$(basename -s .mid "$input").wav}"
 font="${3:-}"
 
 if [[ -z "$font" ]] ; then
