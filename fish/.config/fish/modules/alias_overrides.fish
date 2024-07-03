@@ -37,15 +37,15 @@ function ncdu --wraps='ncdu'
 end
 
 function which --wraps='which'
-	command which $argv ;
-	or begin
-		set -l abbr_result (abbr --show | grep " $argv[1] .*")
-		if test -n "$abbr_result"
-			echo -e "\nFish abbreviation:\n\n$abbr_result"
-		else
-			echo -e '\nFish function:\n'
-			command fish -c "set EDITOR cat ; funced $argv[1]" | head -n -1
-		end
+	set -l abbr_result (abbr --show | grep " $argv[1] .*")
+	if test -n "$abbr_result"
+		echo -e "\nFish abbreviation:\n\n"(echo $abbr_result | grep $argv[1])
+	else if functions -q $argv[1]
+		echo -e '\nFish function:\n'
+		command fish -c "set EDITOR cat ; funced $argv[1]" | head -n -1 | grep "function "$argv[1] -A 3
+		echo "..."
+	else
+		command which $argv
 	end
 end
 
