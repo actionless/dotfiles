@@ -14,4 +14,8 @@ if [[ -z "$font" ]] ; then
 		font=/opt/tuxguitar/share/soundfont/MagicSFver2.sf2
 	fi
 fi
-fluidsynth "$font" "$input" -F "$output"
+
+#fluidsynth "$font" "$input" -F "$output"
+final_output_name="$(basename -s .wav "$output")_$(basename -s .sf2 "$font").$(basename "$(echo "$output" | tr . /)")"
+echo "$final_output_name"
+fluidsynth "$font" "$input" -F "$final_output_name"
