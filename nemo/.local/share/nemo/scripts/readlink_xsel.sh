@@ -19,4 +19,8 @@ set -euo pipefail
 #- NEMO_SCRIPT_NEXT_PANE_SELECTED_URIS: newline-delimited URIs for selected files in the inactive pane of a split-view window
 #- NEMO_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window
 
-readlink -e "$@" | xsel -b
+if [[ "$#" -eq 1 ]] ; then
+	readlink -e "$@" | tr -d "\n" | xsel -b
+else
+	readlink -e "$@" | xsel -b
+fi
