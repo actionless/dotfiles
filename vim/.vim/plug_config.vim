@@ -4,7 +4,6 @@ call plug#begin('~/.vim/plugged')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 Plug 'actionless/simple-menu.vim'
 "Plug 'editorconfig/editorconfig-vim'
 Plug 'sgur/vim-editorconfig'
@@ -20,10 +19,11 @@ Plug 'tpope/vim-speeddating', {'for': 'org'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 
 Plug 'vim/killersheep', {'on': 'KillKillKill'}
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Style:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 Plug 'gorodinskiy/vim-coloresque', {'for': ['css', 'less', 'sass', 'scss', 'vim', 'stylus', 'xdefaults']}
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'vim-airline/vim-airline'
@@ -39,7 +39,6 @@ Plug 'kshenoy/vim-signature'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Navigation:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 Plug 'kien/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer'] }
 	let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\v[\/](\.git|env|node_modules|bower_components)$',
@@ -84,6 +83,7 @@ Plug 'othree/html5.vim', {'for': 'html'}
 "Plug 'pangloss/vim-javascript', {'for': ['javascript', 'html', 'jsx']}
 "Plug 'maxmellon/vim-jsx-pretty', {'for': ['javascript', 'html', 'jsx']}
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CSS:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -91,51 +91,103 @@ Plug 'groenewege/vim-less', {'for': 'less'}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Asynchronous Lint Engine:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Asynchronous Lint Engine & Code-Completion:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" (last config block)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ale_completion_enabled = 1
 Plug 'dense-analysis/ale'
-"Plug 'prabirshrestha/vim-lsp'
-"Plug 'rhysd/vim-lsp-ale'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'rhysd/vim-lsp-ale'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+""""""Plug 'andreypopp/asyncomplete-ale.vim'  " it seems to add the second
+" completion instead
+
 if executable('pylsp')
     " pip install python-lsp-server
+		"\ 'workspace_config': { 'pylsp': {'plugins': {'mccabe': {'threshold': 16 }}}},
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pylsp',
         \ 'cmd': {server_info->['pylsp']},
         \ 'allowlist': ['python'],
+		\ 'workspace_config': { 'pylsp': {'plugins': {'mccabe': {'enabled': 0 }}}},
         \ })
 endif
+
+" it seems to add the second
+" completion instead:
+"au User asyncomplete_setup call asyncomplete#ale#register_source({
+"    \ 'name': 'reason',
+"    \ 'linter': 'pylsp',
+"    \ })
+
 let g:ale_completion_autoimport = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_echo_msg_format = '[%linter%] %code%: %s'
 "let g:ale_sign_column_always = 1
 "let g:ale_open_list = 1
 
-function! MyAleCompletion()
-	call ale#completion#GetCompletions()
-	return "\<C-x>\<C-o>"
-endfunction
-
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ "\<C-R>=MyAleCompletion()\<CR>"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
+" ALE completion helper:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
+"function! MyAleCompletion()
+"    call ale#completion#GetCompletions()
+"    return "\<C-x>\<C-o>"
+"endfunction
 
-inoremap <expr><S-TAB>
-	\ pumvisible() ? "\<C-p>" :
-	\ "\<C-h>"
+"inoremap <silent><expr> <TAB>
+"    \ pumvisible() ? "\<C-n>" :
+"    \ <SID>check_back_space() ? "\<TAB>" :
+"    \ "\<C-R>=MyAleCompletion()\<CR>"
+
+"inoremap <expr><S-TAB>
+"    \ pumvisible() ? "\<C-p>" :
+"    \ "\<C-h>"
+
+"set omnifunc=ale#completion#OmniFunc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
+" AsyncComplete completion helper:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
+"let g:asyncomplete_auto_popup = 0
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ asyncomplete#force_refresh()
+
+
+"inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ asyncomplete#force_refresh()
+
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+" allow modifying the completeopt variable, or it will
+" be overridden all the time
+let g:asyncomplete_auto_completeopt = 0
+
+set completeopt=menuone,noinsert,noselect,preview
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
 
 
 "\	 'python': ['flake8', 'mypy', 'pylint', 'pylsp', 'vulture'],
 "\	 'python': ['ruff', 'pylsp'],
-let g:ale_linters = {
 \	 'python': ['mypy', 'pylint', 'pylsp', 'vim-lsp'],
+let g:ale_linters = {
+\	 'python': ['mypy', 'pylint'],
 \	 'javascript': ['eslint', 'fecs', 'flow', 'flow-language-server', 'jscs', 'standard', 'tsserver', 'xo'],
 \}
 "let g:ale_linters_ignore = {
@@ -148,7 +200,6 @@ let g:ale_python_pylint_change_directory = 0
 "let g:ale_python_mypy_options = ' --ignore-missing-imports '
 "let g:ale_python_vulture_options = ' ./maintenance_scripts/vulture_whitelist.py '
 "let g:ale_python_ruff_options = ' --config pyproject.toml '
-set omnifunc=ale#completion#OmniFunc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
