@@ -143,8 +143,9 @@ function local_config.init(awesome_context)
     --  "-c", os.getenv('HOME').."/.config/barrier.conf",
     --  "--address", ":24800"
     --}
-    run_once{"bash", "-c", "sleep 5 && sudo systemctl start nut-monitor && nut-monitor --start-hidden"}
-    --run_once{"pipewire_server"}
+    --run_once{"bash", "-c", "sleep 5 && sudo systemctl start nut-monitor && nut-monitor --start-hidden"}
+    run_once{"pipewire_server"}
+    run_once{"easyeffects"}
   end
 
   local modkey = awesome_context.modkey
