@@ -1,0 +1,8 @@
+#!/bin/sh
+NAME=easyeffects
+APP_PATH=/usr/bin/"$NAME"
+pkill -f "$APP_PATH"
+sleep 1
+pkill -f -9 "$APP_PATH"
+sleep 1
+exec "$APP_PATH"
