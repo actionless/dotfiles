@@ -1,6 +1,6 @@
 pkgname=actionless_dotfiles_meta
-pkgver=0.1
-pkgrel=20
+pkgver=0.2
+pkgrel=1
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
