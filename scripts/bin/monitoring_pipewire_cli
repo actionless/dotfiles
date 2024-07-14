@@ -21,7 +21,7 @@ for channel in FL FR ; do
 	input_channel="${listen_on_interface}_${channel}"
 	if [[ "$arg" = "-d" ]] ; then
 		echo pw-link --disconnect "$output_channel" "$input_channel"
-		pw-link --disconnect "$output_channel" "$input_channel"
+		pw-link --disconnect "$output_channel" "$input_channel" || true
 	else
 		echo pw-link "$output_channel" "$input_channel"
 		pw-link "$output_channel" "$input_channel"
