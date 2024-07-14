@@ -1,0 +1,12 @@
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = *
+
+[Action]
+Description = Remove unused package files cached by pikaur in user's home directory
+Depends = bash
+Depends = pacman-contrib
+When = PostTransaction
+Exec = /usr/bin/bash -c '/usr/bin/paccache --cachedir /home/lie/.cache/pikaur/pkg --verbose --remove --keep 2;'
