@@ -1,4 +1,5 @@
 #!/bin/bash
 source $HOME/.profile
-export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/"$(id -u)"/bus"
-exec tmux $@
+user_id="$(id -u)"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${user_id}/bus"
+exec tmux "$@"
