@@ -54,6 +54,7 @@ export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 # uncomment one when not in GNOME:
 export XDG_CURRENT_DESKTOP=gnome
 #export XDG_CURRENT_DESKTOP=xfce
+export GTK_USE_PORTAL=0
 
 #export GTK3_MODULES="${GTK3_MODULES:+$GTK3_MODULES:}/usr/lib/libplotinus.so"
 
