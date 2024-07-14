@@ -1,9 +1,10 @@
 # must for CSS system colors to work,
 # before also privacy.trackingprotection.fingerprinting.enabled was needed
 # to be turned off but not anymore, now it's totally safe :3
-widget.non-native-theme.enabled = false
-widget.content.allow-gtk-dark-theme = true
+# widget.non-native-theme.enabled = false  # not exists in 127+ anymore
+# widget.content.allow-gtk-dark-theme = true  # not exists in 127+ anymore, now same effect (using CSS system colors from system gtk theme while using dark css media) could be achieved by forcing GTK_THEME to the current theme
 toolkit.legacyUserProfileCustomizations.stylesheets = true
+widget.gtk.libadwaita-colors.enabled = false  # introduced in 127
 
 # small behavior defaults:
 browser.uidensity = 1

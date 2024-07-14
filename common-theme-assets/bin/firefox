@@ -1,0 +1,3 @@
+#!/bin/bash
+GTK_THEME="${GTK_THEME:-$(grep '^Net/ThemeName' ~/.xsettingsd | cut -d '"' -f2)}"
+env GTK_THEME="$GTK_THEME" /usr/bin/firefox "$@"
