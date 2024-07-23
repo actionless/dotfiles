@@ -68,7 +68,11 @@ end
 ###
 
 function activate
-	source env/bin/activate.fish
+	set -f env_path env
+	if test -n "$argv[1]" ;
+		set -f env_path $argv[1]
+	end
+	source $env_path"/bin/activate.fish"
 end
 
 function poetry_shell
