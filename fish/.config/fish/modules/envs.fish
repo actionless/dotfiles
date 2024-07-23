@@ -1,17 +1,17 @@
 function ru -d 'use ru locale environment variables'
-	set -l new_locale "ru_RU.utf8"
-	set -l prev_locale $LC_ALL
-	set -x LC_ALL $new_locale
-	set -x LANG $new_locale
-	set -x LANGUAGE $new_locale
+	set -f new_locale "ru_RU.utf8"
+	set -f prev_locale $LC_ALL
+	set -fx LC_ALL $new_locale
+	set -fx LANG $new_locale
+	set -fx LANGUAGE $new_locale
 	eval $argv
-	set -x LC_ALL $prev_locale
-	set -x LANG $prev_locale
-	set -x LANGUAGE $prev_locale
+	set -fx LC_ALL $prev_locale
+	set -fx LANG $prev_locale
+	set -fx LANGUAGE $prev_locale
 end
 
-function alt_gtk -d "run app with fallback GTK theme"
-	set -lx GTK2_RC_FILES ~/.gtkrc-2.0.browsers
+function alt_gtk2 -d "run app with fallback GTK theme"
+	set -fx GTK2_RC_FILES ~/.gtkrc-2.0.browsers
 	eval $argv
 end
 

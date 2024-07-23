@@ -1,23 +1,23 @@
 function _fish_git_prompt
-	set git_branch_name (
+	set -f git_branch_name (
 		command git symbolic-ref HEAD 2>/dev/null \
 		| sed -e 's|^refs/heads/||'
 	)
 	if [ -z $git_branch_name ]
 		return 1
 	else
-		set -l git_status (
+		set -f git_status (
 			command git status --porcelain --ignore-submodules=dirty 2>/dev/null \
 			| string collect
 		)
 		if [ -n "$git_status" ]
 			set_color red -o
-			set git_branch_name_uncommited (echo $git_status | grep "^ [MD]" | wc -l | tr -d '[:space:]')
-			set git_branch_name_unstaged (echo $git_status | grep "^??" | wc -l | tr -d '[:space:]')
-			set git_branch_addition " ($git_branch_name_uncommited/$git_branch_name_unstaged)"
+			set -f git_branch_name_uncommited (echo $git_status | grep "^ [MD]" | wc -l | tr -d '[:space:]')
+			set -f git_branch_name_unstaged (echo $git_status | grep "^??" | wc -l | tr -d '[:space:]')
+			set -f git_branch_addition " ($git_branch_name_uncommited/$git_branch_name_unstaged)"
 		end
 
-		set git_ahead_count (
+		set -f git_ahead_count (
 			command git log origin/$git_branch_name..HEAD 2>/dev/null \
 			| grep '^commit' \
 			| wc -l | tr -d '[:space:]'
@@ -43,32 +43,32 @@ end
 
 
 function fish_prompt --description 'Write out the prompt'
-	set -l last_status $status
+	set -f last_status $status
 
 	switch $USER
 	case root
-		set user_color red
-		set user_prompt '#'
+		set -f user_color red
+		set -f user_prompt '#'
 	case '*'
-		set user_color blue
-		set user_prompt '$'
+		set -f user_color blue
+		set -f user_prompt '$'
 	end
 
 	if test -z $SSH_TTY
 		# hide hostname
-		set -e __fish_prompt_hostname
+		set -ge __fish_prompt_hostname
 	else
-		if not set -q __fish_prompt_hostname
+		if not set -gq __fish_prompt_hostname
 			set -g __fish_prompt_hostname "@"(hostname|cut -d . -f 1)
 		end
-		set fish_color_cwd cyan
-		set user_color green
+		set -f fish_color_cwd cyan
+		set -f user_color green
 	end
 
-	set -l inverse "\e[7m"
+	set -f inverse "\e[7m"
 
 	if [ $last_status -ne 0 ]
-		set prompt_status (set_color yellow -o) $inverse " ""$last_status"" " (set_color -b normal) $fish_prompt_mid_separator
+		set -f prompt_status (set_color yellow -o) $inverse " ""$last_status"" " (set_color -b normal) $fish_prompt_mid_separator
 	end
 
 	echo -e -n -s \

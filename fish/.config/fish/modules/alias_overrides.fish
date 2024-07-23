@@ -14,7 +14,7 @@ abbr -a rgh rg --no-ignore --hidden --follow
 
 
 function mdcd --description='mkdir and cd to'
-	set -l path $argv[1]
+	set -f path $argv[1]
 	command mkdir -p $path
 	and cd $path
 end
@@ -37,12 +37,12 @@ function ncdu --wraps='ncdu'
 end
 
 function which --wraps='which'
-	set -l abbr_result (abbr --show | grep " $argv[1] .*")
+	set -f abbr_result (abbr --show | grep " $argv[1] .*")
 	if test -n "$abbr_result"
 		echo -e "\nFish abbreviation:\n\n"(echo $abbr_result | grep $argv[1])
 	else if functions -q $argv[1]
 		echo -e '\nFish function:\n'
-		command fish -c "set EDITOR cat ; funced $argv[1]" | head -n -1 | grep "function "$argv[1] -A 3
+		command fish -c "set -x EDITOR cat ; funced $argv[1]" | head -n -1 | grep "function "$argv[1] -A 3
 		echo "..."
 	else
 		command which $argv

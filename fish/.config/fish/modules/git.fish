@@ -14,8 +14,8 @@ function git_status_pwd
 end
 
 function git_pr_to_branch
-	set -l pr_number "$argv[1]"
-	set -l branch_name "$argv[2]"
+	set -f pr_number "$argv[1]"
+	set -f branch_name "$argv[2]"
 	if test -z $branch_name ;
 		return 2
 	end
@@ -24,14 +24,14 @@ function git_pr_to_branch
 end
 
 function git_checkout_menu
-	set -l file (command git ls-files -m | my_fish_menu)
+	set -f file (command git ls-files -m | my_fish_menu)
 	if test ! -z "$file"
 		git checkout -- $file
 	end
 end
 
 function git_add_menu
-	set -l file (command git ls-files -m | my_fish_menu)
+	set -f file (command git ls-files -m | my_fish_menu)
 	if test ! -z "$file"
 		git add -- $file
 	end

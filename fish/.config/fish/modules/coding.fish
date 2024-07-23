@@ -11,9 +11,9 @@ function sprunge_file
 end
 
 function rgr -a original_value replace_value -d "replace stuff using rg and sed"
-	set -l rest_argv
+	set -f rest_argv
 	if test (count $argv) -gt 2;
-		set rest_argv (_cdr (_cdr $argv))
+		set -f rest_argv (_cdr (_cdr $argv))
 	end
 	rg "$original_value" -l --null $rest_argv \
 	| xargs -0 -n 1 sed -i -e 's/'(echo $original_value | sed -e 's/\\\//g')'/'$replace_value'/g'
@@ -37,28 +37,28 @@ end
 
 
 function co -d "Print specific column numbers"
-	set -l argn (count $argv)
-	set -l cmd "{ print "
+	set -f argn (count $argv)
+	set -f cmd "{ print "
 	for i in (seq $argn)
-		set cmd "$cmd \$$argv[$i]"
+		set -f cmd "$cmd \$$argv[$i]"
 		if test $i -ne $argn ;
-			set cmd "$cmd \" \""
+			set -f cmd "$cmd \" \""
 		end
 	end
-	set -l cmd "$cmd };"
+	set -f cmd "$cmd };"
 	command awk $cmd
 end
 
 function line -d "Print specific line numbers"
-	set -l argn (count $argv)
-	set -l cmd "{ if("
+	set -f argn (count $argv)
+	set -f cmd "{ if("
 	for i in (seq $argn)
-		set cmd $cmd"NR==$argv[$i]"
+		set -f cmd $cmd"NR==$argv[$i]"
 		if test $i -ne $argn ;
-			set cmd "$cmd || "
+			set -f cmd "$cmd || "
 		end
 	end
-	set -l cmd "$cmd) print \$0; };"
+	set -f cmd "$cmd) print \$0; };"
 	command awk $cmd
 end
 
@@ -76,7 +76,7 @@ function activate
 end
 
 function poetry_shell
-	set -l project_name (basename $PWD | sed 's/_/-/g')
-	set -l python_version (python --version | grep -o '[0-9].[0-9]')
+	set -f project_name (basename $PWD | sed 's/_/-/g')
+	set -f python_version (python --version | grep -o '[0-9].[0-9]')
 	source $HOME/.cache/pypoetry/virtualenvs/$project_name-py$python_version/bin/activate.fish
 end
