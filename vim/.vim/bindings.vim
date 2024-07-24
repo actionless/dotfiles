@@ -1,19 +1,45 @@
-"" Free:
+"<BEGIN>=======================================================================
+
+"" Free: ----------------------------------------------------------------------
 " Ctrl+K
 " Ctrl+S -- now busy with UltiSnips: insert <S>nippet
 " Ctrl+L (redraw) -- now busy with UltiSnips: <L>ist snippets
 " Ctrl+N (emacs)
 " Ctrl+Q (Ctrl+V dup)
 " Ctrl+J (return)
-"
 
+map <C-P> :CtrlP<CR>
+
+"==============================================================================
+"
+" \ - seems to be unbound
+" ; - repeat T/t/F/f
+" , - reverse T/t/F/f
+
+"let mapleader = ","
+"let maplocalleader = "\\"
+"noremap <leader> :call MyMainMenu()<CR>
+"noremap <C-K> :call MyMainMenu()<CR>
+
+let mapleader = "\\"
+let maplocalleader = ";"
+noremap , :call MyMainMenu()<CR>
+vnoremap , :<C-U>call MyMainMenu(1)<CR>
+
+
+"==============================================================================
+" Override&extend default VIM keybindings: ------------------------------------
+"==============================================================================
 
 vnoremap < <gv
 vnoremap > >gv
 
 "noremap n nzz
 
+
+"==============================================================================
 " Fix Ctrl+Left/Right Arrows
+"==============================================================================
 " it was like that til november 2020 (but wasn't even needed):
 "map <ESC>[5D <C-Left>
 "map <ESC>[5C <C-Right>
@@ -26,58 +52,126 @@ map! <ESC>[1;5D <C-Left>
 map! <ESC>[1;5C <C-Right>
 
 
-let mapleader = ","
-let maplocalleader = "\\"
-
+"==============================================================================
+" OLD leader-bindings which are moved to the menu now: ------------------------
+"==============================================================================
 
 " sudo write
-noremap <leader>W :w !sudo tee %<CR>
+"noremap <leader>W :w !sudo tee %<CR>
 
-map <C-P> :CtrlP<CR>
-map <leader>bb :CtrlPBuffer<CR>
-"map <C-M><C-N> :bnext!<CR>
-"map <C-M><C-P> :bprevious!<CR>
-"map <C-M><C-C> :Bclose<CR>
+"map <leader>bb :CtrlPBuffer<CR>
 
-"noremap <leader>fl :FormatLines<CR>
-"noremap <leader>fc :FormatCode<CR>
-"noremap <leader>af :Autoformat<CR>
-"autocmd FileType python noremap <leader>r :0,$!reindent<Cr>
-"autocmd FileType python noremap <leader>f :0,$!format_code.py<Cr>
+""noremap <leader>fl :FormatLines<CR>
+""noremap <leader>fc :FormatCode<CR>
+""noremap <leader>af :Autoformat<CR>
+""autocmd FileType python noremap <leader>r :0,$!reindent<Cr>
+""autocmd FileType python noremap <leader>f :0,$!format_code.py<Cr>
 
-noremap <leader>ig :IndentGuidesToggle<CR>
+"noremap <leader>ig :IndentGuidesToggle<CR>
 
-noremap <leader>tt :TagbarToggle<CR>
-noremap <leader>ft :Lex<CR>
-noremap <leader>nn :set invnumber<CR>
+"noremap <leader>tt :TagbarToggle<CR>
+"noremap <leader>ft :Lex<CR>
+"noremap <leader>nn :set invnumber<CR>
 
-noremap <leader>p pgvyk<CR>
-noremap <leader>P Vpgvyk<CR>
+"noremap <leader>p pgvyk<CR>
+"noremap <leader>P Vpgvyk<CR>
 
 
-function! MyMainMenu()
+"==============================================================================
+" MAIN MENU: ------------------------------------------------------------------
+"==============================================================================
+
+function! MyMainMenu(...)
+	let l:visual = get(a:, 1, 0)
 	let l:main_menu = []
 	let l:main_menu += [
 		\	[']', 'tab next', ':tabnext'],
 		\	['[', 'tab previous', ':tabprevious'],
-		\	['t', 'tab menu', 'MyTabMenu'],
-		\	['w', 'window menu', 'MyWindowMenu'],
+		\	['b', 'buffer menu', 'MyBufferMenu'],
+		\	['c', ':call MyCommentsMenu('.l:visual.')'],
+		\	['f', 'file browser', ':Lex'],
+		\	['i', 'indentation', 'MyIndentMenu'],
 		\	['l', 'ALE menu', 'MyAleMenu'],
+		\	['n', 'lineNumbers menu', 'MyNumbersMenu'],
+		\	['p', 'paste overwrite', 'normal! gvpgvy'],
+		\	['P', 'paste overwrite line', 'normal! Vpgvy'],
+		\	['t', 'tabs and tags menu', 'MyTabsAndTagsMenu'],
+		\	['W', 'save as root', ':w !sudo tee %'],
+		\	['w', 'window menu', 'MyWindowMenu'],
 	\ ]
-	if &filetype == 'python'
+	if &diff
 		let l:main_menu += [
-			\	['d', 'pylint disable', 'normal! A  # pylint: disable='],
+		\	['d', 'diff menu', 'MyDiffMenu'],
+		\ ]
+	elseif &filetype == 'python'
+		let l:main_menu += [
+		\	['d', 'pylint disable', 'normal! A  # pylint: disable='],
 		\ ]
 	endif
 	call SimpleMenu(l:main_menu)
 endfunction
-"execute "noremap " . menu_key . " :call MyMainMenu()<CR>"
-noremap <leader> :call MyMainMenu()<CR>
 
-function! MyTabMenu()
+"==============================================================================
+" Sub-menus: ------------------------------------------------------------------
+"==============================================================================
+
+function! MyBufferMenu()
 	call SimpleMenu([
-		\	['n', 'tab next', ':tabnew'],
-		\	['d', 'tab previous', ':tabclose'],
+		\	['b', 'choose buffer', ':CtrlPBuffer'],
+		\	['c', 'close buffer', ':Bclose'],
+		\	['n', 'next buffer', ':bnext!'],
+		\	['p', 'next buffer', ':bprevious!'],
+	\ ])
+endfunction
+
+function! MyCommentsMenu(...)
+	let l:visual = get(a:, 1, 0)
+	" plugin/nerdcommenter.vim +82
+	let l:main_menu = []
+	if l:visual
+		let l:main_menu += [
+		\	[' ', 'toggle comment selection', ":'<,'>call nerdcommenter#Comment('n', 'Toggle')"],
+		\ ]
+	else
+		let l:main_menu += [
+		\	[' ', 'toggle comment line', ":call nerdcommenter#Comment('n', 'Toggle')"],
+		\ ]
+	endif
+	let l:main_menu += [
+		\	['a', 'switch to alternate delimiters', ":call nerdcommenter#SwitchToAlternativeDelimiters(1)"],
+		\	['c', 'toggle comment', ":call nerdcommenter#Comment('n', 'Comment')"],
+	\ ]
+	call SimpleMenu(l:main_menu)
+endfunction
+
+function! MyDiffMenu()
+	call SimpleMenu([
+		\   ['g', ':diffget'],
+		\   ['p', ':diffput'],
+		\	['u', ':diffupdate'],
+		\	['r', ':diffget RE'],
+		\	['b', ':diffget BA'],
+		\	['l', ':diffget LO'],
+	\ ])
+endfunction
+
+function! MyIndentMenu()
+	call SimpleMenu([
+		\	['g', ':IndentGuidesToggle'],
+	\ ])
+endfunction
+
+function! MyNumbersMenu()
+	call SimpleMenu([
+		\	['n', ':set invnumber'],
+	\ ])
+endfunction
+
+function! MyTabsAndTagsMenu()
+	call SimpleMenu([
+		\	['n', 'tab new', ':tabnew'],
+		\	['d', 'tab close', ':tabclose'],
+		\	['t', ':TagbarToggle'],
 	\ ])
 endfunction
 
@@ -87,7 +181,10 @@ function! MyWindowMenu()
 		\	['j', 'close below', ':wincmd j | wincmd c'],
 	\ ])
 endfunction
-noremap <leader>w :call MyWindowMenu()<CR>
+
+"==============================================================================
+" ALE-specific menu: ----------------------------------------------------------
+"==============================================================================
 
 function! MyAleFixMenu()
 	let l:fix_menu = []
@@ -100,14 +197,15 @@ function! MyAleFixMenu()
 	\ ]
 	if &filetype == 'python'
 		let l:fix_menu += [
-			\	['a', ':ALEFix autopep8'],
-			\	['b', ':ALEFix black'],
-			\	['i', ':ALEFix isort'],
-			\	['y', ':ALEFix yapf'],
+		\	['a', ':ALEFix autopep8'],
+		\	['b', ':ALEFix black'],
+		\	['i', ':ALEFix isort'],
+		\	['y', ':ALEFix yapf'],
 		\ ]
 	endif
 	call SimpleMenu(l:fix_menu)
 endfunction
+
 function! MyAleMenu()
 	let l:root_menu = [
 		\	['o', ':ALEToggle'],
@@ -121,14 +219,6 @@ function! MyAleMenu()
 		\	['t', ':ALEGoToDefinitionInTab'],
 		\	['f', 'Fix...', ':call MyAleFixMenu()'],
 	\ ]
-	if &diff
-		let l:root_menu += [
-			\	['u', ':diffupdate'],
-			\	['r', ':diffget RE'],
-			\	['b', ':diffget BA'],
-			\	['l', ':diffget LO'],
-		\ ]
-	endif
 	call SimpleMenu(l:root_menu)
 endfunction
-noremap <leader>l :call MyAleMenu()<CR>
+"<END>=========================================================================
