@@ -8,5 +8,14 @@
 	compactionHeuristic = true
 [diff "image"]
 	command = ~/bin/git-imgdiff
+[cola]
+	spellcheck = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+	pullall = "!f(){ git pull \"$@\" && git submodule update --init --recursive; }; f"
 
 ; vim: set ft=gitconfig :
