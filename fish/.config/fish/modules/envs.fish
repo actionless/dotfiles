@@ -1,3 +1,27 @@
+function be -d 'use be locale environment variables'
+	set -f new_locale "be_BY.utf8"
+	set -f prev_locale $LC_ALL
+	set -fx LC_ALL $new_locale
+	set -fx LANG $new_locale
+	set -fx LANGUAGE $new_locale
+	eval $argv
+	set -fx LC_ALL $prev_locale
+	set -fx LANG $prev_locale
+	set -fx LANGUAGE $prev_locale
+end
+
+function uk -d 'use uk locale environment variables'
+	set -f new_locale "uk_UA.UTF-8"
+	set -f prev_locale $LC_ALL
+	set -fx LC_ALL $new_locale
+	set -fx LANG $new_locale
+	set -fx LANGUAGE $new_locale
+	eval $argv
+	set -fx LC_ALL $prev_locale
+	set -fx LANG $prev_locale
+	set -fx LANGUAGE $prev_locale
+end
+
 function ru -d 'use ru locale environment variables'
 	set -f new_locale "ru_RU.utf8"
 	set -f prev_locale $LC_ALL
@@ -9,6 +33,7 @@ function ru -d 'use ru locale environment variables'
 	set -fx LANG $prev_locale
 	set -fx LANGUAGE $prev_locale
 end
+
 
 function alt_gtk2 -d "run app with fallback GTK theme"
 	set -fx GTK2_RC_FILES ~/.gtkrc-2.0.browsers
