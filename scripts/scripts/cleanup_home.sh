@@ -33,12 +33,12 @@ dfc | grep /home
 rm -fr ~/.cache/chromium/
 rm -fr ~/.cache/debuginfod_client/
 rm -fr ~/.cache/electron/
+rm -fr ~/.cache/epiphany
 rm -fr ~/.cache/flatpak/
 rm -fr ~/.cache/go-build/
 rm -fr ~/.cache/google-chrome/
 rm -fr ~/.cache/jedi/
 rm -fr ~/.cache/*.kcache
-rm -fr ~/.cache/mesa/
 #rmfiles ~/.cache/mozilla/
 rm -fr ~/.cache/netsurf/
 rm -fr ~/.cache/ocenaudio/*.{log,crash}
@@ -53,6 +53,7 @@ rm -fr ~/.cache/wine/
 rm -fr ~/.cache/winetricks/
 rm -fr ~/.cache/winewizard/
 rm -fr ~/.cache/yarn/
+rm -fr ~/.local/share/webkitgtk
 
 # firefox:
 rm -fr ~/.mozilla/firefox/"Crash Reports"
@@ -61,7 +62,10 @@ rm -fr ~/.mozilla/firefox/"Crash Reports"
 # mesa shader cache:
 set +x
 echo 'rm -fr ~/.cache/mesa_shader_cache/*'
+rm -fr ~/.cache/mesa/
 rm -fr ~/.cache/mesa_shader_cache/*
+rm -fr ~/.cache/mesa_shader_cache_db/*
+rm -fr ~/.cache/nvidia/GLCache/*
 set -x
 # more cache:
 rm -fr ~/.atom/compile-cache/
@@ -86,14 +90,26 @@ rm -fr ~/.electron/
 rm -fr ~/.gem/
 rm -fr ~/.go/* || sudo rm -fr ~/.go/*
 rm -fr ~/.*-gyp/
+rm -fr ~/.atom/.node-gyp
+rm -fr ~/.cache/node-gyp/
 rm -fr ~/.gradle/
 rm -fr ~/.lazarus/
 rm -fr ~/.luarocks/
 rm -fr ~/.npm/
+rm -fr ~/.local/share/pnpm/store
 rm -fr ~/.opam/
 rm -fr ~/.nuget/
 rm -fr ~/.local/share/NuGet/
-#find ~ -type d -name .mypy_cache -exec rm -r {} \;
+rm -fr ~/.cache/pre-commit
+find ~ -type d -name .mypy_cache -exec rm -r {} \;
+find ~ -type d -name .ruff_cache -exec rm -r {} \;
+find ~/.cache -type d -name qmlcache -exec rm -r {} \;
+rm -fr ~/.cache/pylint/
+rm -fr ~/.cache/YAPF
+rm -fr ~/.cache/black
+rm -fr ~/.cache/Nuitka
+rm -fr ~/.cache/pypoetry
+rm -fr ~/.local/share/virtualenv
 
 # misc: #######################################################################
 flush_files ~/.cache/awesome_std*
@@ -103,6 +119,8 @@ rm -fr ~/.local/share/Trash/
 rm -fr ~/.local/tmp/
 rm -fr ~/.log/
 rm -fr ~/.thumbnails/
+
+rm -fr ~/.cache/kdenlive/
 
 # spotify: ####################################################################
 #move_cache_dir ~/.cache/spotify spotify
