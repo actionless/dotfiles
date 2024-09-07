@@ -49,6 +49,13 @@ function which --wraps='which'
 	end
 end
 
+function say-v
+	echo $argv | figlet | pikasay --orientation vertical | lolcat -r
+end
+
+function say
+	echo $argv | figlet | pikasay | lolcat -r
+end
 
 ########################################
 # LS crazyness:
