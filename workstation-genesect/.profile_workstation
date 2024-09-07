@@ -22,10 +22,13 @@ export NVD_BACKEND=direct
 ##export QT_QPA_PLATFORMTHEME='gtk2'
 #export QT_QPA_PLATFORMTHEME='qt5ct'
 
+
 ## HiDPI
 # GTK3
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
+export GSK_RENDERER=ngl
+
 # Qt5.6+
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 #export QT_SCALE_FACTOR=0  # disable force setting scaling in qt5. commented out as it freezing qt6
