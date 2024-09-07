@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+
+INPUT_FILE="$1"
+BASENAME="$(basename "$INPUT_FILE" .md)"
+OUTPUT_FILE="${2:-$BASENAME.html}"
+
+test which md2html || echo "/usr/bin/md2html is owned by md4c"
+md2html \
+	README.md \
+	--output="$OUTPUT_FILE" \
+	--html-title="${BASENAME//_/ }" \
+	--full-html \
+	--fstrikethrough \
+	--ftables \
+	--ftasklists \
+	--funderline \
+	--fwiki-links \
+	--github
