@@ -1,0 +1,3 @@
+#!/bin/sh
+set -x
+pacman -Qqnd | sudo pacman -S --asdeps - && pacman -Qqne | sudo pacman -S - && pacman -Qqmd | pikaur -S --asdeps - && pacman -Qqme | pikaur -S -
