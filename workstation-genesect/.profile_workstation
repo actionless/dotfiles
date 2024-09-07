@@ -40,6 +40,7 @@ export QT_SCALE_FACTOR=
 #export QT_SCALE_FACTOR=2
 # Qt5 legacy
 #export QT_DEVICE_PIXEL_RATIO=2
+
 # other
 export CHROMIUM_USER_FLAGS=" --force-device-scale-factor=2 "
 
@@ -47,4 +48,4 @@ export CHROMIUM_USER_FLAGS=" --force-device-scale-factor=2 "
 export GDK_CORE_DEVICE_EVENTS=1
 export QT_XCB_NO_XI2_MOUSE=1
 
-setfont ter-v32n || true
+setfont ter-v32n 2>/dev/null || true
