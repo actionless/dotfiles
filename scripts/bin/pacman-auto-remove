@@ -1,8 +1,26 @@
 #!/usr/bin/env bash
 
-mapfile -t not_needed_deps < <(pacman -Qtdq)
+#set -x
+
+declare -a ignore_pkgs
+for arg in "$@" ; do
+	ignore_pkgs+=('-e' "$arg")
+done
+
+filter() {
+	if [[ ${#ignore_pkgs[@]} -gt 0 ]] ; then
+		grep -v "${ignore_pkgs[@]}"
+	else
+		cat
+	fi
+}
+
+mapfile -t not_needed_deps < <(pacman -Qtdq | filter)
 if [ -z "${not_needed_deps[*]}" ] ; then
 	echo "Nothing to do."
 else
+	echo
+	pacman -Qs "${not_needed_deps[@]}"
+	echo
 	exec sudo pacman -Rs "${not_needed_deps[@]}"
 fi
