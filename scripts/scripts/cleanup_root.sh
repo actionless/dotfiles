@@ -57,8 +57,11 @@ fi
 echo
 echo
 
+set -x
+rm -fr /var/lib/systemd/coredump/* || true
 
-games_dest_dir="/opt/games"
+
+#games_dest_dir="/opt/games"
 
 #opt_games_dir="/opt"
 #opt_games_list=(
@@ -89,6 +92,8 @@ games_dest_dir="/opt/games"
 #relocate_games "${games_dest_dir}" "${usr_share_games_dir}" "${usr_share_games_list[@]}"
 
 #rm -fr /opt/user_cache/spotify/Data/*
+
+set +x
 
 echo
 echo
