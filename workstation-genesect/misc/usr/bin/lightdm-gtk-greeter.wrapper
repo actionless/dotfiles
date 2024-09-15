@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
-export GDK_CORE_DEVICE_EVENTS=1
-export QT_XCB_NO_XI2_MOUSE=1
-
-exec /usr/sbin/lightdm-gtk-greeter.bin
