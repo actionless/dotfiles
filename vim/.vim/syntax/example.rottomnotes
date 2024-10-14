@@ -1,0 +1,66 @@
+Version 0.1:
+
+
+~ Header First Level
+
+
+- list item
+-list item
+  - another list item
+
+  D- done item
+  X- another done item
+  x- one more done item
+  D - it could be with space...
+  X - ...as well...
+  x - ...yup
+
+  w- wip item
+  W- another wip item
+  w - also could be...
+  W - ...with space
+  W-or not
+  w-or not
+
+  !- important item
+  ! - important item
+  !!- very important item
+  !! - very important item
+  !!!- very-very-very important item
+  !!! - very-very-very important item
+
+  ?- questionable item
+  -? another questionable item
+  ? - questionable item
+  - ? another questionable item
+
+
+Decoration:  
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+# Comment
+some text # and inline comment
+
+
+-------------------------------------------------------------------------------
+
+Added in Version 0.2:
+
+
+Decorations:
+______________________
+----------------------
+
+~~ Header Second Level
+ ~ Header Second Level
+
+ * bold list bullet
+ + plus list bullet
+
+@TODO: todo-item
+some text @TODO: inline todo item
+
+
+-------------------------------------------------------------------------------
+# vim: set ft=lovelist :
