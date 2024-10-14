@@ -1,5 +1,5 @@
 " Vim syntax file
-" Language: Rottom Notes (TBD)
+" Language: Actionlist/Lovelist
 " Maintainer: Actionless/Loveless
 " Latest Revision: 2024
 
