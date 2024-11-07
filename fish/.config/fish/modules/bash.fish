@@ -23,3 +23,14 @@ function _last_history_item_nth_word;
 	echo $cmd[$idx]
 end
 abbr -a last_history_item_nth_word_abbr --position anywhere --regex "!![0-9]+" --function _last_history_item_nth_word
+
+function forshtune
+	for i in (seq (random 3 12))
+		if test $i -eq 1
+			echo -ne (_capitalize (_random_word))
+		else
+			echo -ne ' '(_random_word)
+		end
+	end
+	echo '.'
+end
