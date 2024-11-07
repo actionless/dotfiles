@@ -57,6 +57,10 @@ function say
 	echo $argv | figlet | pikasay | lolcat -r
 end
 
+function parafish
+	~/.config/fish/tools/mp_lib.fish _parallel $argv
+end
+
 ########################################
 # LS crazyness:
 ########################################
