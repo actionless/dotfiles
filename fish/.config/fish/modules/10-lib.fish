@@ -14,3 +14,7 @@ function _cdr -d "CDR, CAR's friend"
 		end
 	end
 end
+
+function _capitalize
+	string replace -r -a '\b([\w])' '\U$0' $argv
+end
