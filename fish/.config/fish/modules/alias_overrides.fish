@@ -11,6 +11,7 @@ abbr -a fdn fd --no-ignore --hidden --follow
 abbr -a fdu fd --no-ignore --hidden --follow
 abbr -a fdh fd --no-ignore --hidden --follow
 abbr -a rgh rg --no-ignore --hidden --follow
+abbr -a slpc sleepcount -c 
 
 
 function mdcd --description='mkdir and cd to'
