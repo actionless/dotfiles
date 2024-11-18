@@ -47,6 +47,9 @@ endif
 "autocmd VimEnter,Colorscheme * :hi SpellBad         term=reverse ctermbg=10 ctermfg=0 guibg=Red
 "autocmd VimEnter,Colorscheme * :hi Visual         term=reverse ctermbg=5 guibg=Yellow
 "autocmd VimEnter,Colorscheme * :hi ColorColumn term=reverse ctermbg=0 guibg=Black
+"autocmd VimEnter,Colorscheme * :hi ColorColumn term=reverse ctermbg=0 guibg=Black
+"autocmd VimEnter,Colorscheme * :hi Todo term=standout ctermfg=0 ctermbg=11 guifg=Blue guibg=Yellow
+autocmd VimEnter,Colorscheme * :hi Todo cterm=reverse ctermfg=11 ctermbg=0 guifg=Yellow guibg=Blue gui=standout
 
 "" indent guides:
 let g:indent_guides_auto_colors = 0
