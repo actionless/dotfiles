@@ -1,0 +1,24 @@
+# Custom action for Nemo File Manager for Cinnamon.
+# Adds right-click open file/files or directory with Atom.
+# Place it under: ~/.local/share/nemo/actions/atom.nemo_action
+# For more info: https://github.com/linuxmint/nemo/blob/master/files/usr/share/nemo/actions/sample.nemo_action
+# dconf:
+# /org/cinnamon/desktop/keybindings/custom-keybindings/custom0/name
+#   'Open Atom'
+#   /org/cinnamon/desktop/keybindings/custom-keybindings/custom0/command
+#     'atom'
+#     /org/cinnamon/desktop/keybindings/custom-keybindings/custom0/binding
+#       ['<Shift><Alt>a']
+#       /org/cinnamon/desktop/keybindings/custom-list
+#         ['custom0']
+
+[Nemo Action]
+Active=true
+Name=Open in _Ocenaudio
+Comment=Open %F in Ocenaudio
+Exec=ocenaudio %F
+Icon-Name=ocenaudio
+Selection=any
+Extensions=any;
+Dependencies=ocenaudio;
+Quote=double
