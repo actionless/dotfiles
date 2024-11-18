@@ -63,4 +63,4 @@ some text @TODO: inline todo item
 
 
 -------------------------------------------------------------------------------
-# vim: set ft=lovelist :
+# vim: set ft=actionlist.lovelist :
