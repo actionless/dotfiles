@@ -107,26 +107,18 @@ au Syntax * RainbowParenthesesLoadBraces
 "https://github.com/awesomeWM/awesome/issues/2291#issuecomment-398610795
 "au VimEnter * redraw!
 
-if stridx(expand('%:p:h'), '/home/'.$USER.'/Dropbox/notes') == 0
-	" this will source local .vimrc:
-	set exrc
-endif
-
-if stridx(expand('%:p:h'), '/home/'.$USER.'/projects/') == 0 && filereadable('./.vimrc')
-	" this will source local .vimrc:
-	set exrc
-endif
-
-if stridx(expand('%:p:h'), '/media/ext/') == 0
-	set exrc
-endif
-
-if stridx(expand('%:p:h'), '/home/'.$USER.'/ai/') == 0
-	set exrc
-endif
-
-if stridx(expand('%:p:h'), '/home/'.$USER.'/coding/') == 0
-	set exrc
-endif
+" this will source local .vimrc:
+for p in [
+        \ '/home/'.$USER.'/ai/',
+        \ '/home/'.$USER.'/coding/',
+        \ '/home/'.$USER.'/Dropbox/notes',
+        \ '/home/'.$USER.'/projects/',
+        \ '/media/ext/',
+\ ]
+    if stridx(expand('%:p:h'), p) == 0
+        autocmd VimEnter * echo " :: loaded local .vimrc ! 🖖😼"
+        set exrc
+    endif
+endfor
 
 "END
