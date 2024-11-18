@@ -1,6 +1,6 @@
 pkgname=actionless_dotfiles_meta
 pkgver=0.2
-pkgrel=2
+pkgrel=3
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
@@ -66,7 +66,9 @@ optdepends=(
 	'noto-fonts-emoji: or'
 	'ttf-twemoji-color: or'
 
-	'pipewire-zeroconf'  # pipewire over network, but Sonobus seems to be better
+	'pipewire-zeroconf: pipewire over network, but Sonobus seems to be better'
+
+	'dbus-daemon-units: default dbus-broker may cause freezes, at least on certain hw'
 )
 
 #package() {

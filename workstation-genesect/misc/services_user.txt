@@ -1,22 +1,20 @@
-  UNIT                                         LOAD   ACTIVE SUB     DESCRIPTION
-  at-spi-dbus-bus.service                      loaded active running Accessibility services bus
-  dbus-:1.15-org.a11y.atspi.Registry@0.service loaded active running dbus-:1.15-org.a11y.atspi.Registry@0.service
-  dbus-:1.4-org.gnome.Identity@0.service       loaded active running dbus-:1.4-org.gnome.Identity@0.service
-  dbus-:1.4-org.gnome.OnlineAccounts@0.service loaded active running dbus-:1.4-org.gnome.OnlineAccounts@0.service
-  dbus-broker.service                          loaded active running D-Bus User Message Bus
-  dconf.service                                loaded active running User preferences database
-  gnome-keyring-daemon.service                 loaded active running GNOME Keyring daemon
-  gvfs-afc-volume-monitor.service              loaded active running Virtual filesystem service - Apple File Conduit monitor
-  gvfs-daemon.service                          loaded active running Virtual filesystem service
-  gvfs-goa-volume-monitor.service              loaded active running Virtual filesystem service - GNOME Online Accounts monitor
-  gvfs-gphoto2-volume-monitor.service          loaded active running Virtual filesystem service - digital camera monitor
-  gvfs-metadata.service                        loaded active running Virtual filesystem metadata service
-  gvfs-mtp-volume-monitor.service              loaded active running Virtual filesystem service - Media Transfer Protocol monitor
-  gvfs-udisks2-volume-monitor.service          loaded active running Virtual filesystem service - disk device monitor
-  pipewire-pulse.service                       loaded active running PipeWire PulseAudio
-  pipewire.service                             loaded active running PipeWire Multimedia Service
-  wireplumber.service                          loaded active running Multimedia Service Session Manager
-  xdg-desktop-portal.service                   loaded active running Portal service
-  xdg-document-portal.service                  loaded active running flatpak document portal service
-  xdg-permission-store.service                 loaded active running sandboxed app permission store
+  UNIT                                LOAD   ACTIVE SUB     DESCRIPTION
+  at-spi-dbus-bus.service             loaded active running Accessibility services bus
+  dbus.service                        loaded active running D-Bus User Message Bus
+  dconf.service                       loaded active running User preferences database
+  gnome-keyring-daemon.service        loaded active running GNOME Keyring daemon
+  gvfs-afc-volume-monitor.service     loaded active running Virtual filesystem service - Apple File Conduit monitor
+  gvfs-daemon.service                 loaded active running Virtual filesystem service
+  gvfs-goa-volume-monitor.service     loaded active running Virtual filesystem service - GNOME Online Accounts monitor
+  gvfs-gphoto2-volume-monitor.service loaded active running Virtual filesystem service - digital camera monitor
+  gvfs-metadata.service               loaded active running Virtual filesystem metadata service
+  gvfs-mtp-volume-monitor.service     loaded active running Virtual filesystem service - Media Transfer Protocol monitor
+  gvfs-udisks2-volume-monitor.service loaded active running Virtual filesystem service - disk device monitor
+  pipewire-pulse.service              loaded active running PipeWire PulseAudio
+  pipewire.service                    loaded active running PipeWire Multimedia Service
+  wireplumber.service                 loaded active running Multimedia Service Session Manager
+  xdg-desktop-portal-gtk.service      loaded active running Portal service (GTK/GNOME implementation)
+  xdg-desktop-portal.service          loaded active running Portal service
+  xdg-document-portal.service         loaded active running flatpak document portal service
+  xdg-permission-store.service        loaded active running sandboxed app permission store
 

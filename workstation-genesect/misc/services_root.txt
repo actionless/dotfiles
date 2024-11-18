@@ -2,11 +2,8 @@
   accounts-daemon.service                                                                   loaded active running Accounts Service
   alsa-restore.service                                                                      loaded active exited  Save/Restore Sound Card State
   avahi-daemon.service                                                                      loaded active running Avahi mDNS/DNS-SD Stack
-  bluetooth.service                                                                         loaded active running Bluetooth service
   cpupower.service                                                                          loaded active exited  Apply cpupower configuration
-  dbus-broker.service                                                                       loaded active running D-Bus System Message Bus
-  dirmngr@etc-pacman.d-gnupg.service                                                        loaded active running GnuPG network certificate management daemon for /etc/pacman.d/gnupg
-  getty@tty5.service                                                                        loaded active running Getty on tty5
+  dbus.service                                                                              loaded active running D-Bus System Message Bus
   gssproxy.service                                                                          loaded active running GSSAPI Proxy Daemon
   kmod-static-nodes.service                                                                 loaded active exited  Create List of Static Device Nodes
   ldconfig.service                                                                          loaded active exited  Rebuild Dynamic Linker Cache
@@ -20,6 +17,7 @@
   nfsdcld.service                                                                           loaded active running NFSv4 Client Tracking Daemon
   nfsv4-exportd.service                                                                     loaded active running NFSv4 Mount Daemon
   nfsv4-server.service                                                                      loaded active exited  NFSv4 server and services
+  nohang-desktop.service                                                                    loaded active running Sophisticated low memory handler
   polkit.service                                                                            loaded active running Authorization Manager
   rpc-statd-notify.service                                                                  loaded active exited  Notify NFS peers of a restart
   rpc-statd.service                                                                         loaded active running NFS status monitor for NFSv2/3 locking.
@@ -38,6 +36,7 @@
   systemd-journald.service                                                                  loaded active running Journal Service
   systemd-logind.service                                                                    loaded active running User Login Management
   systemd-modules-load.service                                                              loaded active exited  Load Kernel Modules
+  systemd-networkd-persistent-storage.service                                               loaded active exited  Enable Persistent Storage in systemd-networkd
   systemd-networkd.service                                                                  loaded active running Network Configuration
   systemd-random-seed.service                                                               loaded active exited  Load/Save OS Random Seed
   systemd-remount-fs.service                                                                loaded active exited  Remount Root and Kernel File Systems
@@ -47,7 +46,8 @@
   systemd-timesyncd.service                                                                 loaded active running Network Time Synchronization
   systemd-tmpfiles-setup-dev-early.service                                                  loaded active exited  Create Static Device Nodes in /dev gracefully
   systemd-tmpfiles-setup-dev.service                                                        loaded active exited  Create Static Device Nodes in /dev
-  systemd-tmpfiles-setup.service                                                            loaded active exited  Create Volatile Files and Directories
+  systemd-tmpfiles-setup.service                                                            loaded active exited  Create System Files and Directories
+  systemd-udev-load-credentials.service                                                     loaded active exited  Load udev Rules from Credentials
   systemd-udev-trigger.service                                                              loaded active exited  Coldplug All udev Devices
   systemd-udevd.service                                                                     loaded active running Rule-based Manager for Device Events and Files
   systemd-update-done.service                                                               loaded active exited  Update is Completed
