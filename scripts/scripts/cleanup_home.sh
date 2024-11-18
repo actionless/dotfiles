@@ -101,8 +101,8 @@ rm -fr ~/.opam/
 rm -fr ~/.nuget/
 rm -fr ~/.local/share/NuGet/
 rm -fr ~/.cache/pre-commit
-find ~ -type d -name .mypy_cache -exec rm -r {} \;
-find ~ -type d -name .ruff_cache -exec rm -r {} \;
+#find ~ -type d -name .mypy_cache -exec rm -r {} \;
+#find ~ -type d -name .ruff_cache -exec rm -r {} \;
 find ~/.cache -type d -name qmlcache -exec rm -r {} \;
 rm -fr ~/.cache/pylint/
 rm -fr ~/.cache/YAPF
