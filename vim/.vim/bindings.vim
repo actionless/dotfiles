@@ -200,6 +200,8 @@ function! MyAleFixMenu()
 		\	['a', ':ALEFix autopep8'],
 		\	['b', ':ALEFix black'],
 		\	['i', ':ALEFix isort'],
+		\	['f', ':ALEFix ruff_format'],
+		\	['r', ':ALEFix ruff'],
 		\	['y', ':ALEFix yapf'],
 		\ ]
 	endif
