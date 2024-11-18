@@ -1,2 +1,4 @@
 #!/bin/sh
-exec env WINEARCH=win32 WINEPREFIX=$(readlink -e ~/.wine32/) $@
+_relpath=~/.wine32/
+mkdir -p $_relpath
+exec env WINEARCH=win32 WINEPREFIX="$(readlink -e $_relpath)" "$@"
