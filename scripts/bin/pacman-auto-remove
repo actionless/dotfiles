@@ -15,13 +15,18 @@ filter() {
 	fi
 }
 
+#set -x
+
 mapfile -t not_needed_deps < <(pacman -Qtdq | filter)
 if [ -z "${not_needed_deps[*]}" ] ; then
 	echo "Nothing to do."
 else
 	echo
-	for dep in "${not_needed_deps[@]}"; do
-		pacman -Qs "$dep"
+	echo :: Packages to be removed:
+	echo
+	mapfile -t deps_to_be_removed < <(pacman -Rs --print "${not_needed_deps[@]}" | sed -e 's/-[^-]*-[^-]*$//g')
+	for dep in "${deps_to_be_removed[@]}"; do
+		pacman -Qs "^$dep\$"
 	done
 	echo
 	exec sudo pacman -Rs "${not_needed_deps[@]}"
