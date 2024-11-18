@@ -114,7 +114,7 @@ if executable('pylsp')
         \ 'name': 'pylsp',
         \ 'cmd': {server_info->['pylsp']},
         \ 'allowlist': ['python'],
-		\ 'workspace_config': { 'pylsp': {'plugins': {'mccabe': {'enabled': 0 }}}},
+		\ 'workspace_config': { 'pylsp': {'plugins': {'mccabe': {'enabled': 0 },  'pycodestyle': {'enabled': 0}}}},
         \ })
 endif
 
