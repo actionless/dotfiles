@@ -11,35 +11,8 @@ set cursorline
 "set t_Co=256
 set t_Co=16
 
-"colorscheme default
 "set bg=dark
 
-"colorscheme actionless
-"colorscheme fixed-dark-actionless_monokai
-"colorscheme term-wargrey
-"colorscheme term-dark-noctu
-"colorscheme term-actionless3
-if has("gui_running")
-	colorscheme fixed-dark-monokai-0e0021
-	let g:airline_theme='molokai'
-else
-	"set bg=light
-	if &diff
-		colorscheme blue
-	else
-		colorscheme term-dark-actionless2
-		"colorscheme term-actionless3
-		"colorscheme term-wargrey
-	endif
-	let g:airline_theme='term'
-endif
-"colorscheme miromiro
-"colorscheme delek
-"colorscheme noctu
-""colorscheme desert
-"colorscheme zellner
-
-""""""""""""""""""""""""""
 
 " defaults:
 "autocmd VimEnter,Colorscheme * :hi Normal ctermfg=none
@@ -68,6 +41,35 @@ autocmd VimEnter,Colorscheme * :hi link ALEVirtualTextWarning SpellBad
 
 " TagBar:
 autocmd VimEnter,Colorscheme * :hi link TagbarHighlight IncSearch
+
+
+"colorscheme default
+"colorscheme actionless
+"colorscheme fixed-dark-actionless_monokai
+"colorscheme term-wargrey
+"colorscheme term-dark-noctu
+"colorscheme term-actionless3
+if has("gui_running")
+	colorscheme fixed-dark-monokai-0e0021
+	let g:airline_theme='molokai'
+else
+	"set bg=light
+	if &diff
+		colorscheme blue
+	else
+		colorscheme term-dark-actionless2
+		"colorscheme term-actionless3
+		"colorscheme term-wargrey
+	endif
+	let g:airline_theme='term'
+endif
+"colorscheme miromiro
+"colorscheme delek
+"colorscheme noctu
+""colorscheme desert
+"colorscheme zellner
+
+""""""""""""""""""""""""""
 
 " Rainbow Parentheses:
 let g:rbpt_colorpairs = [
