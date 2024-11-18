@@ -1,0 +1,43 @@
+#!/bin/bash
+set -ueo pipefail
+
+listen_on_interface=easyeffects_sink:playback
+app_name="carla ~/switch_multicomp.carxp"
+zam_in="ZaMultiCompX2:Audio Input"
+zam_out="ZaMultiCompX2:Audio Output"
+record_from_interface=alsa_input.usb-Loud_Technologies_Inc._Onyx_Blackjack-00.analog-stereo:capture
+force_quantum=1024
+arg="${1:-}"
+
+if [[ "$arg" = "-h" ]] ; then
+	echo "$0 [-d/--disconnect]"
+	exit 0
+fi
+
+
+if [[ "$arg" != "-d" ]] ; then
+	pw-metadata -n settings 0 clock.force-quantum "$force_quantum"
+	pgrep -f "$app_name" || ( ($app_name & echo $! > /tmp/monitoring_pipewire_easyeffects_blackjack_carla.pid) && sleep 5)
+fi
+
+for channel in FL/1 FR/2 ; do
+	channel_card=$(cut -d/ -f1 <<< "$channel")
+	channel_zam=$(cut -d/ -f2 <<< "$channel")
+	record_from_channel="${record_from_interface}_${channel_card}"
+	fx_in_channel="${zam_in} ${channel_zam}"
+	fx_out_channel="${zam_out} ${channel_zam}"
+	listen_on_channel="${listen_on_interface}_${channel_card}"
+	if [[ "$arg" = "-d" ]] ; then
+		pw-link --disconnect "$record_from_channel" "$fx_in_channel" || true
+		pw-link --disconnect "$fx_out_channel" "$listen_on_channel" || true
+	else
+		pw-link "$record_from_channel" "$fx_in_channel"
+		pw-link "$fx_out_channel" "$listen_on_channel"
+	fi
+done
+
+if [[ "$arg" = "-d" ]] ; then
+	kill "$(cat /tmp/monitoring_pipewire_easyeffects_blackjack_carla.pid)"
+	rm /tmp/monitoring_pipewire_easyeffects_blackjack_carla.pid
+	pw-metadata -n settings 0 clock.force-quantum 0
+fi
