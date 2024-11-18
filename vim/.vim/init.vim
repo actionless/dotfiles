@@ -56,6 +56,10 @@ if &term =~ '^screen'
     execute "set <xDown>=\e[1;*B"
     execute "set <xRight>=\e[1;*C"
     execute "set <xLeft>=\e[1;*D"
+    "set t_ts=]0;
+    "set t_fs=0
+    execute "set t_ts=\e]0;"
+    execute "set t_fs=\e0"
 endif
 " fish shell workaround
 if &shell =~# 'fish$'

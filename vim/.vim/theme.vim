@@ -1,5 +1,12 @@
 " |||| THEME ||||
 
+"set title
+"auto BufEnter * let &titlestring = hostname() .. "/" .. expand("%:p")
+"set title titlestring=FUBAR%<%F%=%l/%L-%P titlelen=70
+"set title titlestring=🐸%<%f
+"set title titlestring=😻%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
+set title titlestring=🐸%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
+
 set cursorline
 "set t_Co=256
 set t_Co=16
