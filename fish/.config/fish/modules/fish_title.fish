@@ -11,7 +11,9 @@ function fish_title
         if set -q argv[1]
             echo -- $ssh (string sub -l 20 -- $argv[1]) (prompt_pwd -d 1 -D 1)
         else
-            set -l command (status current-command)
+            set -l command (status current-command \
+				| sed -e 's/fish/🐟️/g' \
+			)
             # # Don't print "fish" because it's redundant
             #if test "$command" = fish
             #    set command
