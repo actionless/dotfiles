@@ -18,7 +18,7 @@ if hash awesome-client >/dev/null; then
         local r = ""
         for _,p in pairs({
 			"border_width", "type", "border_color", "urgent",
-			"window", "floating", "class", "instance", "role", "name", "width"
+			"window", "floating", "class", "instance", "role", "name", "width", "height",
 		}) do
           r = r .. p .. ": " .. inspect(c[p]) .. "\n"
         end
