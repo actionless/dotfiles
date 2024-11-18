@@ -1,5 +1,9 @@
 Xft.dpi: 192
 st.font: Monospace:pixelsize=25:antialias=true:autohint=true;
+st.font_fallback: Noto Color Emoji:pixelsize=20:color=true:antialias=true:autohint=true,Meslo LG S for Lcarsline:pixelsize=22:antialias=true:autohint=true,DejaVu Sans Mono:pixelsize=25:antialias=true:autohint=true
+!st.font_fallback: Emoji One Color:pixelsize=25:color=true,Meslo LG S for Lcarsline:pixelsize=22,DejaVu Sans Mono:pixelsize=25
 
 st.opacity: 255
 st.cursorshape: 0
+
+! vim: set ft=xdefaults:
