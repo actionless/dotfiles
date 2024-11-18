@@ -1,9 +1,12 @@
 [submodule]
 	fetchJobs = 4
 [core]
-	pager = diff-highlight | less
+	;pager = less
+	;pager = diff-highlight | less
+	pager = /usr/share/git/diff-highlight/diff-highlight | less
 [interactive]
-	diffFilter = diff-highlight
+	;diffFilter = diff-highlight
+	diffFilter = /usr/share/git/diff-highlight/diff-highlight
 [diff]
 	compactionHeuristic = true
 [diff "image"]
