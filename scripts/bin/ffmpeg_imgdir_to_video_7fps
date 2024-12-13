@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+
+set -x
+
+INPUT_DIR=$1
+shift
+FPS=7
+VIDEO_OUTPUT_UPSCALED="${1:-$INPUT_DIR.${FPS}fps.mp4}"
+shift || true
+FPS=$FPS ffmpeg_imgdir_to_video "$INPUT_DIR" "$VIDEO_OUTPUT_UPSCALED" "$@"

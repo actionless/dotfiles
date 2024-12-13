@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+echo
+echo ":::::: $0 started"
+
+KEEP_DIRS=1 ffmpeg_upscale_esrgan_anime "$@"

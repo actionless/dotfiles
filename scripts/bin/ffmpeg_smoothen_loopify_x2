@@ -1,0 +1,2 @@
+#!/bin/sh
+SKIP_X4=1 ffmpeg_smoothen_loopify "$@"

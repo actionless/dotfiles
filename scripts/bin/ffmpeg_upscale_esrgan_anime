@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+echo
+echo ":::::: $0 started"
+
+#MODEL="${MODEL:-./models/4x_NMKD-Superscale-Artisoftject_210000_G.pth}"
+MODEL="${MODEL:-./models/RealESRGAN_x4plus_anime_6B.pth}"
+#MODEL="${MODEL:-./models/4x_NMKD-Superscale-SP_178000_G.pth}"
+###MODEL="${MODEL:-./models/4x_NMKDSuperscale_Artisoft_120000_G.pth}"
+##MODEL="${MODEL:-./models/8x_NMKD-Superscale_150000_G.pth}"
+
+MODEL="$MODEL" ffmpeg_upscale_esrgan "$@"
