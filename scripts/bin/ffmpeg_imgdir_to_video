@@ -14,7 +14,8 @@ FPS="${FPS:-30}"
 FPS="${3:-$FPS}"
 TMP_AUDIO="${4:-./audio.wav}"
 
-TEMPLATE=${TEMPLATE:-%03d.png}
+#TEMPLATE=${TEMPLATE:-%03d.png}
+TEMPLATE=${TEMPLATE:-%06d.png}
 BITRATE=${BITRATE:-16167000}
 
 #ffmpeg -i "$VIDEO_INPUT" -r "$FPS" -f image2 "$NEW_FRAMES_DIR"/%06d.png

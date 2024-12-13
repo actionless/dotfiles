@@ -6,16 +6,24 @@ echo ":::::: $0 started"
 input_file="$(readlink -e "$1")"
 shift
 
+input_is_dir=0
+if [[ -d "$input_file" ]] ; then
+	input_is_dir=1
+fi
+
 dirname=$(dirname -- "$input_file")
 filename=$(basename -- "$input_file")
 basename="${filename%.*}"
 extension="${filename##*.}"
 
+if [[ $input_is_dir -eq 1 ]] ; then
+	extension=.mp4
+fi
 
 MODEL="${MODEL:-./models/4x_NMKD-Superscale-Artisoftject_210000_G.pth}"
-#MODEL="${MODEL:-./models/4x_NMKDSuperscale_Artisoft_120000_G.pth}"
-##MODEL="${MODEL:-./models/4x_NMKD-Superscale-SP_178000_G.pth}"
-#MODEL="${MODEL:-./models/8x_NMKD-Superscale_150000_G.pth}"
+#MODEL="${MODEL:-./models/4x_NMKD-Superscale-SP_178000_G.pth}"
+###MODEL="${MODEL:-./models/4x_NMKDSuperscale_Artisoft_120000_G.pth}"
+##MODEL="${MODEL:-./models/8x_NMKD-Superscale_150000_G.pth}"
 
 model_id="${MODEL//\//}"
 
@@ -28,28 +36,34 @@ shift || true
 if [[ -f "$output_filename" ]] ; then
 	echo ":: Already exists 👌😸"
 else
-	fps="$(ffmpeg_get_fps "$input_file")"
-	fps="$(echo 'scale=2; '$fps' / 1' | bc)"
-	FRAMES_DIR="${input_file}.frames.${fps}fps"
 	TMP_AUDIO="${TMP_AUDIO:-./${input_file}.audio.wav}"
-	FRAMES_DIR="$FRAMES_DIR" \
-		TMP_AUDIO="$TMP_AUDIO" \
-		ffmpeg_video_to_imgdir \
-		"$input_file" \
-		"$fps"
+
+	if [[ $input_is_dir -eq 1 ]] ; then
+		fps="${FPS:-7.5}"
+		FRAMES_DIR="${input_file}"
+	else
+		fps="$(ffmpeg_get_fps "$input_file")"
+		fps="$(echo 'scale=2; '"$fps"' / 1' | bc)"
+		FRAMES_DIR="${input_file}.frames.${fps}fps"
+		FRAMES_DIR="$FRAMES_DIR" \
+			TMP_AUDIO="$TMP_AUDIO" \
+			ffmpeg_video_to_imgdir \
+			"$input_file" \
+			"$fps"
+		fi
 
 	UPSCALED_FRAMES_DIR="${input_file}.upscaled_frames_${model_id}.${fps}fps"
 	UPSCALED_FRAMES_DIR="$(python -c "from pathlib import Path ; p = Path('${UPSCALED_FRAMES_DIR}') ; print('/'.join([p.parent.as_posix(), ''.join(list(p.stem)[-254:])]) )")"
 
 	cd ~/ai/ESRGAN/
-	source ./env/bin/activate
+	#source ./env/bin/activate
 	python \
 		upscale.py \
 		--skip-existing \
 		"$MODEL" \
 		--input "$FRAMES_DIR" \
 		--output "$UPSCALED_FRAMES_DIR"
-	deactivate
+	#deactivate
 
 	if [[ -f "$TMP_AUDIO" ]] ; then
 		TEMPLATE="%06d_${model_id}.png" \
@@ -67,8 +81,15 @@ else
 	fi
 
 	sync
-	rm -fr "$FRAMES_DIR" "$UPSCALED_FRAMES_DIR" || sleep 3
-	rm -fr "$FRAMES_DIR" "$UPSCALED_FRAMES_DIR" || true
+	if [[ -z "${KEEP_DIRS:-}" ]] ; then
+		if [[ $input_is_dir -eq 1 ]] ; then
+			rm -fr "$UPSCALED_FRAMES_DIR" || sleep 3
+			rm -fr "$UPSCALED_FRAMES_DIR" || true
+		else
+			rm -fr "$FRAMES_DIR" "$UPSCALED_FRAMES_DIR" || sleep 3
+			rm -fr "$FRAMES_DIR" "$UPSCALED_FRAMES_DIR" || true
+		fi
+	fi
 fi
 
 echo ">>>>>> $0 done"

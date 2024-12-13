@@ -4,6 +4,11 @@ set -ueo pipefail
 input_file="$(readlink -e "$1")"
 shift
 
+input_is_dir=0
+if [[ -d "$input_file" ]] ; then
+	input_is_dir=1
+fi
+
 dirname=$(dirname -- "$input_file")
 filename=$(basename -- "$input_file")
 basename="${filename%.*}"
@@ -22,10 +27,15 @@ if [[ ! -f "$upscaled_filename" ]] ; then
 	cd ~/ai/mmediting
 	./upscale.sh "$input_file" "$upscaled_filename"
 fi
-slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_filename" ; echo / ; ffmpeg_get_fps "$input_file") | bc)"
 
-if [[ ! -f "$output_filename" ]] ; then
-	cd ~/ai/mmediting
-	./refps_WITH_reencoding.sh "$upscaled_filename" "$output_filename" "$slowdown" "$fps"
-	rm "$upscaled_filename"
+if [[ $input_is_dir -eq 1 ]] ; then
+	mv "$upscaled_filename" "$output_filename"
+else
+	slowdown="$(echo $(echo "scale=64;"; ffmpeg_get_fps "$upscaled_filename" ; echo / ; ffmpeg_get_fps "$input_file") | bc)"
+
+	if [[ ! -f "$output_filename" ]] ; then
+		cd ~/ai/mmediting
+		./refps_WITH_reencoding.sh "$upscaled_filename" "$output_filename" "$slowdown" "$fps"
+		rm "$upscaled_filename"
+	fi
 fi

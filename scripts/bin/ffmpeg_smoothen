@@ -42,30 +42,38 @@ if [[ "$slowdown" != "1" ]] ; then
 	./refps_WITH_reencoding.sh "$tmp_x2" "$output_file_x2" "${slowdown}" "$fps"
 fi
 
-predicted_x2_fps=$(echo $(ffmpeg_get_fps "$tmp_x2" ; echo "/${slowdown}") | bc)
-if [[ "$predicted_x2_fps" -ge "$fps" ]] ; then
+if [[ "${SKIP_X4:-0}" -eq 1 ]] ; then
 	if [[ ! -f "$output_file_x2" ]] ; then
 		mv "$tmp_x2" "$output_file_x2"
 	else
 		rm "$tmp_x2"
 	fi
 else
-	filename=$(basename -- "$output_file_x4")
-	output_x4_extension="${filename##*.}"
-	tmp_x4="${input_file}.x4_tmp.${output_x4_extension}"
-	./video_interpolation.sh "$tmp_x2" "$tmp_x4"
-	if [[ ! -f "$output_file_x2" ]] ; then
-		mv "$tmp_x2" "$output_file_x2"
+	predicted_x2_fps=$(echo $(ffmpeg_get_fps "$tmp_x2" ; echo "/${slowdown}") | bc)
+	if [[ "$predicted_x2_fps" -ge "$fps" ]] ; then
+		if [[ ! -f "$output_file_x2" ]] ; then
+			mv "$tmp_x2" "$output_file_x2"
+		else
+			rm "$tmp_x2"
+		fi
 	else
-		rm "$tmp_x2"
-	fi
-	predicted_x4_fps=$(echo $(ffmpeg_get_fps "$tmp_x4" ; echo "/1") | bc)
-	if [[ "$predicted_x4_fps" -gt "$fps" ]] ; then
-		#./refps_without_reencoding.sh "$tmp_x4" "$output_file_x4" "$fps"
-		./refps_WITH_reencoding.sh "$tmp_x4" "$output_file_x4" "$slowdown" "$fps"
-		rm "$tmp_x4"
-	else
-		mv "$tmp_x4" "$output_file_x4"
+		filename=$(basename -- "$output_file_x4")
+		output_x4_extension="${filename##*.}"
+		tmp_x4="${input_file}.x4_tmp.${output_x4_extension}"
+		./video_interpolation.sh "$tmp_x2" "$tmp_x4"
+		if [[ ! -f "$output_file_x2" ]] ; then
+			mv "$tmp_x2" "$output_file_x2"
+		else
+			rm "$tmp_x2"
+		fi
+		predicted_x4_fps=$(echo $(ffmpeg_get_fps "$tmp_x4" ; echo "/1") | bc)
+		if [[ "$predicted_x4_fps" -gt "$fps" ]] ; then
+			#./refps_without_reencoding.sh "$tmp_x4" "$output_file_x4" "$fps"
+			./refps_WITH_reencoding.sh "$tmp_x4" "$output_file_x4" "$slowdown" "$fps"
+			rm "$tmp_x4"
+		else
+			mv "$tmp_x4" "$output_file_x4"
+		fi
 	fi
 fi
 
