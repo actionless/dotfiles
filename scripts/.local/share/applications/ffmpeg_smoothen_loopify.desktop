@@ -1,0 +1,9 @@
+[Desktop Entry]
+#Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=true
+Exec=ffmpeg_smoothen_loopify %f
+Name=ffmpeg_smoothen_loopify
+Comment=Custom definition for ffmpeg_smoothen_loopify
+Terminal=true

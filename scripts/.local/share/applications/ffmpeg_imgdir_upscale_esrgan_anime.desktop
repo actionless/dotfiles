@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+NoDisplay=false
+Exec=ffmpeg_imgdir_upscale_esrgan_anime %f
+Name=ffmpeg_imgdir_upscale_esrgan_anime
+Comment=Custom definition for ffmpeg_imgdir_upscale_esrgan_anime
+Terminal=true

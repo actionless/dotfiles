@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+NoDisplay=true
+Exec=ffmpeg_upscale_smoothen_loopify %f
+Name=ffmpeg_upscale_smoothen_loopify
+Comment=Custom definition for ffmpeg_upscale_smoothen_loopify
+Terminal=true

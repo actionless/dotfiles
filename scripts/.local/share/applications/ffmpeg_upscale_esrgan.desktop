@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=false
+Exec=ffmpeg_upscale_esrgan %f
+Name=ffmpeg_upscale_esrgan
+Comment=Custom definition for ffmpeg_upscale_esrgan
+Terminal=true

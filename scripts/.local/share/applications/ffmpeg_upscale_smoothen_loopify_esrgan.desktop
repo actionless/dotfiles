@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=true
+Exec=ffmpeg_upscale_smoothen_loopify_esrgan %f
+Name=ffmpeg_upscale_smoothen_loopify_esrgan
+Comment=Custom definition for ffmpeg_upscale_smoothen_loopify_esrgan

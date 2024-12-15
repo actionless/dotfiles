@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=true
+Exec=ffmpeg_imgdir_to_video_7.5fps %f
+Name=ffmpeg_imgdir_to_video_7.5fps
+Comment=Custom definition for ffmpeg_imgdir_to_video_7.5fps

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=true
+Exec=ffmpeg_imgs_to_video_8fps %F
+Name=ffmpeg_imgs_to_video_8fps
+Comment=Custom definition for ffmpeg_imgs_to_video_8fps

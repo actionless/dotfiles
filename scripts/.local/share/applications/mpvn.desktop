@@ -1,0 +1,9 @@
+[Desktop Entry]
+#Encoding=UTF-8
+Version=1.0
+Type=Application
+#NoDisplay=true
+#Terminal=true
+Exec=mpvn %F
+Name=mpvn
+Comment=Custom definition for mpvn
