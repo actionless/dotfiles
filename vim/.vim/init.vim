@@ -113,6 +113,7 @@ for p in [
         \ '/home/'.$USER.'/coding/',
         \ '/home/'.$USER.'/Dropbox/notes',
         \ '/home/'.$USER.'/projects/',
+        \ '/home/'.$USER.'/work/',
         \ '/media/ext/',
 \ ]
     if stridx(expand('%:p:h'), p) == 0
