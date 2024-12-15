@@ -1,0 +1,4 @@
+#!/bin/sh
+updpkgsums \
+	&& pikaur -P "$@" \
+	&& makepkg --printsrcinfo > .SRCINFO
