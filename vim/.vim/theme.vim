@@ -5,7 +5,7 @@
 "set title titlestring=FUBAR%<%F%=%l/%L-%P titlelen=70
 "set title titlestring=🐸%<%f
 "set title titlestring=😻%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
-set title titlestring=🐸%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
+set title titlestring=🐸%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)\ -\ vim
 
 set cursorline
 "set t_Co=256
