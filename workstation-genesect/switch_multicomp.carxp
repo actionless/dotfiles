@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE CARLA-PROJECT>
+<CARLA-PROJECT VERSION='2.5'>
+ <EngineSettings>
+  <ForceStereo>false</ForceStereo>
+  <PreferPluginBridges>false</PreferPluginBridges>
+  <PreferUiBridges>true</PreferUiBridges>
+  <UIsAlwaysOnTop>false</UIsAlwaysOnTop>
+  <MaxParameters>200</MaxParameters>
+  <UIBridgesTimeout>4000</UIBridgesTimeout>
+ </EngineSettings>
+
+ <Transport>
+  <BeatsPerMinute>120</BeatsPerMinute>
+ </Transport>
+
+ <!-- ZaMultiCompX2 -->
+ <Plugin>
+  <Info>
+   <Type>LV2</Type>
+   <Name>ZaMultiCompX2</Name>
+   <URI>urn:zamaudio:ZaMultiCompX2</URI>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x4</Options>
+
+   <Parameter>
+    <Index>0</Index>
+    <Name>Attack1</Name>
+    <Symbol>att1</Symbol>
+    <Value>10</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>1</Index>
+    <Name>Attack2</Name>
+    <Symbol>att2</Symbol>
+    <Value>10</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>2</Index>
+    <Name>Attack3</Name>
+    <Symbol>att3</Symbol>
+    <Value>0.100000038743019</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>3</Index>
+    <Name>Release1</Name>
+    <Symbol>rel1</Symbol>
+    <Value>80</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>4</Index>
+    <Name>Release2</Name>
+    <Symbol>rel2</Symbol>
+    <Value>80</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>5</Index>
+    <Name>Release3</Name>
+    <Symbol>rel3</Symbol>
+    <Value>80</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>6</Index>
+    <Name>Knee1</Name>
+    <Symbol>kn1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>7</Index>
+    <Name>Knee2</Name>
+    <Symbol>kn2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>8</Index>
+    <Name>Knee3</Name>
+    <Symbol>kn3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>9</Index>
+    <Name>Ratio1</Name>
+    <Symbol>rat1</Symbol>
+    <Value>4</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>10</Index>
+    <Name>Ratio2</Name>
+    <Symbol>rat2</Symbol>
+    <Value>4</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>11</Index>
+    <Name>Ratio3</Name>
+    <Symbol>rat3</Symbol>
+    <Value>4</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>12</Index>
+    <Name>Threshold 1</Name>
+    <Symbol>thr1</Symbol>
+    <Value>-20</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>13</Index>
+    <Name>Threshold 2</Name>
+    <Symbol>thr2</Symbol>
+    <Value>-18</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>14</Index>
+    <Name>Threshold 3</Name>
+    <Symbol>thr3</Symbol>
+    <Value>-26.1999893188477</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>15</Index>
+    <Name>Makeup 1</Name>
+    <Symbol>mak1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>16</Index>
+    <Name>Makeup 2</Name>
+    <Symbol>mak2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>17</Index>
+    <Name>Makeup 3</Name>
+    <Symbol>mak3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>18</Index>
+    <Name>Crossover freq 1</Name>
+    <Symbol>xover1</Symbol>
+    <Value>160</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>19</Index>
+    <Name>Crossover freq 2</Name>
+    <Symbol>xover2</Symbol>
+    <Value>1400</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>20</Index>
+    <Name>ZamComp 1 ON</Name>
+    <Symbol>toggle1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>21</Index>
+    <Name>ZamComp 2 ON</Name>
+    <Symbol>toggle2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>22</Index>
+    <Name>ZamComp 3 ON</Name>
+    <Symbol>toggle3</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>23</Index>
+    <Name>Listen 1</Name>
+    <Symbol>listen1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>24</Index>
+    <Name>Listen 2</Name>
+    <Symbol>listen2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>25</Index>
+    <Name>Listen 3</Name>
+    <Symbol>listen3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>26</Index>
+    <Name>Detection (MAX/avg)</Name>
+    <Symbol>stereodet</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>27</Index>
+    <Name>Master Trim</Name>
+    <Symbol>globalgain</Symbol>
+    <Value>12</Value>
+   </Parameter>
+
+   <CustomData>
+    <Type>http://kxstudio.sf.net/ns/carla/property</Type>
+    <Key>CarlaSkinIsCompacted</Key>
+    <Value>false</Value>
+   </CustomData>
+
+   <CustomData>
+    <Type>http://kxstudio.sf.net/ns/carla/property</Type>
+    <Key>CarlaSkin</Key>
+    <Value>calf_black</Value>
+   </CustomData>
+  </Data>
+ </Plugin>
+
+ <ExternalPatchbay>
+  <Connection>
+   <Source>Onyx Blackjack Analog Stereo:capture_FL</Source>
+   <Target>ZaMultiCompX2:Audio Input 1</Target>
+  </Connection>
+  <Connection>
+   <Source>Onyx Blackjack Analog Stereo:capture_FL</Source>
+   <Target>ocenaudio-223:input_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>Onyx Blackjack Analog Stereo:capture_FR</Source>
+   <Target>ZaMultiCompX2:Audio Input 2</Target>
+  </Connection>
+  <Connection>
+   <Source>Onyx Blackjack Analog Stereo:capture_FR</Source>
+   <Target>ocenaudio-223:input_FR</Target>
+  </Connection>
+  <Connection>
+   <Source>Firefox:output_FL-23276</Source>
+   <Target>Easy Effects Sink:playback_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>Firefox:output_FR-23277</Source>
+   <Target>Easy Effects Sink:playback_FR</Target>
+  </Connection>
+  <Connection>
+   <Source>Output Level Meter:output_FL</Source>
+   <Target>Avantree C81 Analog Stereo:playback_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>Output Level Meter:output_FR</Source>
+   <Target>Avantree C81 Analog Stereo:playback_FR</Target>
+  </Connection>
+  <Connection>
+   <Source>Spectrum:output_FL</Source>
+   <Target>Output Level Meter:input_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>Spectrum:output_FR</Source>
+   <Target>Output Level Meter:input_FR</Target>
+  </Connection>
+  <Connection>
+   <Source>Filter:output_FL-8469</Source>
+   <Target>Limiter:input_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>Filter:output_FR-8470</Source>
+   <Target>Limiter:input_FR</Target>
+  </Connection>
+  <Connection>
+   <Source>Filter:output_FL-8462</Source>
+   <Target>Filter:input_FL-8467</Target>
+  </Connection>
+  <Connection>
+   <Source>Filter:output_FR-8463</Source>
+   <Target>Filter:input_FR-8468</Target>
+  </Connection>
+  <Connection>
+   <Source>mpv:output_FL</Source>
+   <Target>Easy Effects Sink:playback_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>mpv:output_FR</Source>
+   <Target>Easy Effects Sink:playback_FR</Target>
+  </Connection>
+  <Connection>
+   <Source>Limiter:output_FL</Source>
+   <Target>Spectrum:input_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>Limiter:output_FR</Source>
+   <Target>Spectrum:input_FR</Target>
+  </Connection>
+  <Connection>
+   <Source>Firefox:output_FL-22292</Source>
+   <Target>Easy Effects Sink:playback_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>Firefox:output_FR-22293</Source>
+   <Target>Easy Effects Sink:playback_FR</Target>
+  </Connection>
+  <Connection>
+   <Source>Firefox:output_FL</Source>
+   <Target>Easy Effects Sink:playback_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>Firefox:output_FR</Source>
+   <Target>Easy Effects Sink:playback_FR</Target>
+  </Connection>
+  <Connection>
+   <Source>ZaMultiCompX2:Audio Output 1</Source>
+   <Target>Easy Effects Sink:playback_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>ZaMultiCompX2:Audio Output 2</Source>
+   <Target>Easy Effects Sink:playback_FR</Target>
+  </Connection>
+  <Connection>
+   <Source>ocenaudio:output_FL</Source>
+   <Target>Avantree C81 Analog Stereo:playback_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>ocenaudio:output_FR</Source>
+   <Target>Avantree C81 Analog Stereo:playback_FR</Target>
+  </Connection>
+  <Connection>
+   <Source>Filter:output_FL</Source>
+   <Target>Filter:input_FL-8460</Target>
+  </Connection>
+  <Connection>
+   <Source>Filter:output_FR</Source>
+   <Target>Filter:input_FR-8461</Target>
+  </Connection>
+  <Connection>
+   <Source>Stereo Tools:output_FL</Source>
+   <Target>Filter:input_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>Stereo Tools:output_FR</Source>
+   <Target>Filter:input_FR</Target>
+  </Connection>
+  <Connection>
+   <Source>Easy Effects Sink:monitor_FL</Source>
+   <Target>Stereo Tools:input_FL</Target>
+  </Connection>
+  <Connection>
+   <Source>Easy Effects Sink:monitor_FR</Source>
+   <Target>Stereo Tools:input_FR</Target>
+  </Connection>
+ </ExternalPatchbay>
+</CARLA-PROJECT>
