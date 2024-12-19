@@ -1,5 +1,7 @@
 #export GOPATH=/media/ext/.go
 
+export SCREENLAYOUT_SCRIPT=$HOME/.screenlayout/two_screens_bottom_right.sh
+
 #export VDPAU_DRIVER=radeonsi
 #export MAGICK_OCL_DEVICE=OFF  # in case of ImageMagick gpu acceleration broken with the current driver
 #export MAGICK_OCL_DEVICE=OFF
