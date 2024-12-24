@@ -1,19 +1,30 @@
 #!/usr/bin/env fish
 set -l old_python_version (echo $argv[1])
-set -l ignore $argv[2..(count $argv)]
-echo $old_python_version
 test -z $old_python_version ; and begin
-	echo "Usage: "(status filename)" OLD_PYTHON_VERSION"
+	echo "Usage: "(status filename)" OLD_PYTHON_VERSION [IGNORE_PKGS ...]"
 	exit 2
 end
 
+set -l ignore $argv[2..(count $argv)]
+set -l extra_grep_args
+for arg in $ignore
+	set -a extra_grep_args "-e" $arg
+end
+
+echo Looking for packages installed for Python version $old_python_version:
 set -l pkglist ( \
 	for path in /usr/lib/python$old_python_version/site-packages/ ; \
 		pikaur -Qo $path ; \
 	end \
 	| co 5 \
+	| grep -v \
+		-e python(echo $old_python_version | tr -d ".") \
+		$extra_grep_args \
 )
+echo (count $pkglist) packages found
+echo
 
+echo Checking package install status:
 set -l explicit
 for pkg in $pkglist
 	echo -ne "."
@@ -23,11 +34,12 @@ for pkg in $pkglist
 		set -a explicit $pkg
 	end
 end
-
 echo
+
 echo
 echo pikaur -S --rebuild --asdeps $pkglist
 echo
-echo and sudo pacman -D --asexplicit $explicit
-echo
-echo ignore= $ignore
+if test -n "$explicit"
+	echo and sudo pacman -D --asexplicit $explicit
+	echo
+end
