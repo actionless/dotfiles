@@ -1,0 +1,2 @@
+#!/bin/sh
+VST_PATH=/dev/null /usr/bin/kdenlive "$@"
