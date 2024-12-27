@@ -36,10 +36,14 @@ for pkg in $pkglist
 end
 echo
 
-echo
-echo pikaur -S --rebuild --asdeps $pkglist
-echo
-if test -n "$explicit"
-	echo and sudo pacman -D --asexplicit $explicit
+if test -n "$pkglist"
 	echo
+	echo pikaur -S --rebuild --asdeps $pkglist
+	echo
+	if test -n "$explicit"
+		echo and sudo pacman -D --asexplicit $explicit
+		echo
+	end
+else
+	echo 👌😸 nothing to do
 end
