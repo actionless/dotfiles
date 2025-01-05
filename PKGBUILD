@@ -1,15 +1,19 @@
 pkgname=actionless_dotfiles_meta
 pkgver=0.2
-pkgrel=3
+pkgrel=4
 pkgdesc="Actionless dotfiles dependencies"
 arch=('x86_64' 'i686')
 url="https://github.com/actionless/dotfiles"
 license=('GPL3')
 depends=(
+	'base'
+	'base-devel'
+
 	'stow'
 	'awesome'
 	'bash'
 	'coreutils'
+	'inetutils'
 	'fish'
 
 	## vim stuff:
