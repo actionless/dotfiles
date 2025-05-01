@@ -1,0 +1,5 @@
+#!/bin/sh
+zenity --no-wrap --info --text "<b>EXIF Info:</b>
+
+<b>Metadata:</b>
+$(exiftool "$@" |  fold -s -w80)"
