@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -ueo pipefail
+set -x 
 
 echo
 echo ":::::: $0 started"
@@ -7,19 +8,29 @@ echo ":::::: $0 started"
 input_file="$(readlink -e "$1")"
 shift
 
+input_is_dir=0
+if [[ -d "$input_file" ]] ; then
+	input_is_dir=1
+fi
+
 dirname=$(dirname -- "$input_file")
 filename=$(basename -- "$input_file")
 basename="${filename%.*}"
 extension="${filename##*.}"
 
-fps="${1:-30}"
+if [[ $input_is_dir -eq 1 ]] ; then
+	extension=mp4
+fi
+
+fps="${1:-${FPS:-30}}"
 shift || true
 
-output_file_x4="${1:-${dirname}/${basename}.x4.${extension}}"
+output_file_x4="${1:-${dirname}/${basename}.${fps}fps.x4_loopified.${extension}}"
 shift || true
 
-output_file_x2="${1:-${dirname}/${basename}.x2.${extension}}"
+output_file_x2="${1:-${dirname}/${basename}.${fps}fps.x2_loopified.${extension}}"
 shift || true
+
 
 slowdown="${SLOWDOWN:-1}"
 slowdown="${1:-1}"
@@ -33,46 +44,75 @@ if [[ -f "$output_file_x2" && -f "$output_file_x4" ]] ; then
 	exit 2
 fi
 
-tmp_x2="${input_file}.x2_tmp.${extension}"
 cd ~/ai/mmediting
-./video_interpolation.sh "$input_file" "$tmp_x2"
-echo ":: Input FPS:"
-ffmpeg_get_fps "$input_file"
-echo ":: Interpolated x2 FPS:"
-ffmpeg_get_fps "$tmp_x2"
 
-echo ":: Slowdown=${slowdown}"
-if [[ "$slowdown" != "1" ]] ; then
-	tmp_x2_refps="${input_file}.x2_tmp_refps.${extension}"
-	./refps_WITH_reencoding.sh "$tmp_x2" "$tmp_x2_refps" "${slowdown}" "$fps"
-	ffmpeg_loopify "$tmp_x2_refps" "$output_file_x2"
-	rm "$tmp_x2_refps"
+if [[ $input_is_dir -eq 0 ]] ; then
+	tmp_x2="${input_file}_x2_tmp.${extension}"
 else
-	ffmpeg_loopify "$tmp_x2" "$output_file_x2"
+	tmp_x2="${input_file}_x2_tmp"
 fi
+if [[ ! -f "$output_file_x2" ]] ; then
+	if [[ $input_is_dir -eq 0 ]] ; then
+		./video_interpolation.sh "$input_file" "$tmp_x2"
+		echo ":: Input FPS:"
+		ffmpeg_get_fps "$input_file"
+		echo ":: Interpolated x2 FPS:"
+		ffmpeg_get_fps "$tmp_x2"
+	else
+		./video_interpolation.sh "$input_file" "$tmp_x2"
+	fi
+
+	echo ":: Slowdown=${slowdown}"
+	if [[ "$slowdown" != "1" && $input_is_dir -eq 0 ]] ; then
+		tmp_x2_refps="${input_file}_x2_tmp_refps.${extension}"
+		./refps_WITH_reencoding.sh "$tmp_x2" "$tmp_x2_refps" "${slowdown}" "$fps"
+		ffmpeg_loopify "$tmp_x2_refps" "$output_file_x2"
+		rm "$tmp_x2_refps"
+	else
+		x2_fps=$(echo "${fps} /2" | bc)
+		FPS=$x2_fps ffmpeg_imgdir_to_video "$tmp_x2" "$tmp_x2".mp4
+		ffmpeg_loopify "$tmp_x2".mp4 "$output_file_x2"
+		rm "$tmp_x2".mp4
+	fi
+fi
+
+
 echo ":: Final x2 FPS:"
 ffmpeg_get_fps "$output_file_x2"
 
-predicted_x2_fps=$(echo $(ffmpeg_get_fps "$tmp_x2" ; echo "/${slowdown}") | bc)
-echo ":: target_fps=${fps} predicted_x2_fps=${predicted_x2_fps}"
-if [[ "$predicted_x2_fps" -ge "$fps" ]] || [[ -n "${SKIP_X4:-}" ]] ; then
-	rm "$tmp_x2"
-else
-	tmp_x4="${input_file}.x4_tmp.${extension}"
-	./video_interpolation.sh "$tmp_x2" "$tmp_x4"
-	rm "$tmp_x2"
-
-	tmp_refps="${input_file}.refps_tmp.${extension}"
-	if [[ "$slowdown" != "1" ]] ; then
-		#./refps_without_reencoding.sh "$tmp_x4" "$tmp_refps" "$fps"
-		./refps_WITH_reencoding.sh "$tmp_x4" "$tmp_refps" "$slowdown" "$fps"
-		rm "$tmp_x4"
+if [[ ! -f "$output_file_x4" ]] ; then
+	predicted_x2_fps=$(echo $(ffmpeg_get_fps "$tmp_x2" ; echo "/${slowdown}") | bc)
+	echo ":: target_fps=${fps} predicted_x2_fps=${predicted_x2_fps}"
+	if [[ "$predicted_x2_fps" -ge "$fps" ]] || [[ -n "${SKIP_X4:-}" ]] ; then
+		rm -r "$tmp_x2"
 	else
-		mv "$tmp_x4" "$tmp_refps"
-	fi
+		if [[ $input_is_dir -eq 0 ]] ; then
+			tmp_x4="${input_file}_x4_tmp.${extension}"
+		else
+			tmp_x4="${input_file}_x4_tmp"
+		fi
+		./video_interpolation.sh "$tmp_x2" "$tmp_x4"
+		rm -r "$tmp_x2"
 
-	ffmpeg_loopify "$tmp_refps" "$output_file_x4"
-	rm "$tmp_refps"
+		if [[ $input_is_dir -eq 0 ]] ; then
+			tmp_refps="${input_file}_refps_tmp.${extension}"
+			if [[ "$slowdown" != "1" ]] ; then
+				#./refps_without_reencoding.sh "$tmp_x4" "$tmp_refps" "$fps"
+				./refps_WITH_reencoding.sh "$tmp_x4" "$tmp_refps" "$slowdown" "$fps"
+				rm -r "$tmp_x4"
+			else
+				mv "$tmp_x4" "$tmp_refps"
+			fi
+
+			ffmpeg_loopify "$tmp_refps" "$output_file_x4"
+			rm "$tmp_refps"
+		else
+			FPS=$fps ffmpeg_imgdir_to_video "$tmp_x4" "$tmp_x4".mp4
+			#rm -r "$tmp_x4"
+			ffmpeg_loopify "$tmp_x4".mp4 "$output_file_x4"
+			rm "$tmp_x4".mp4
+		fi
+	fi
 fi
 
 echo ">>>>>> $0 done"

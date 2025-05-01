@@ -1,16 +1,27 @@
 #!/usr/bin/env bash
 set -ueo pipefail
 
+set -x
+
 echo
 echo ":::::: $0 started"
 
 input_file="$(readlink -e "$1")"
 shift
 
+input_is_dir=0
+if [[ -d "$input_file" ]] ; then
+	input_is_dir=1
+fi
+
 dirname=$(dirname -- "$input_file")
 filename=$(basename -- "$input_file")
 basename="${filename%.*}"
 extension="${filename##*.}"
+
+if [[ $input_is_dir -eq 1 ]] ; then
+	extension=mp4
+fi
 
 fps="${1:-30}"
 shift || true
@@ -44,7 +55,11 @@ if [[ -f "$output_file_x2" || -f "$output_file_x4" ]] ; then
 	exit 0
 fi
 
-input_fps=$(ffmpeg_get_fps "$input_file")
+if [[ $input_is_dir -eq 1 ]] ; then
+	input_fps="${FPS:-7.5}"
+else
+	input_fps=$(ffmpeg_get_fps "$input_file")
+fi
 if [[ ! -f "$upscaled_tmp_filename" ]] ; then
 	ffmpeg_upscale_esrgan "$input_file" "$upscaled_tmp_filename"
 fi

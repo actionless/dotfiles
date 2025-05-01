@@ -8,10 +8,19 @@ echo ":::::: $0 started"
 input_file="$(readlink -e "$1")"
 shift
 
+input_is_dir=0
+if [[ -d "$input_file" ]] ; then
+	input_is_dir=1
+fi
+
 dirname=$(dirname -- "$input_file")
 filename=$(basename -- "$input_file")
 basename="${filename%.*}"
 extension="${filename##*.}"
+
+if [[ $input_is_dir -eq 1 ]] ; then
+	extension=mp4
+fi
 
 fps="${1:-30}"
 shift || true

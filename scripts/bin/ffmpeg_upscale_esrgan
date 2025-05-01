@@ -17,7 +17,7 @@ basename="${filename%.*}"
 extension="${filename##*.}"
 
 if [[ $input_is_dir -eq 1 ]] ; then
-	extension=.mp4
+	extension=mp4
 fi
 
 MODEL="${MODEL:-./models/4x_NMKD-Superscale-Artisoftject_210000_G.pth}"
