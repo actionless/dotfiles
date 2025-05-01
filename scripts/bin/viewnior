@@ -1,0 +1,2 @@
+#!/bin/sh
+GDK_SCALE=1 GDK_DPI_SCALE=1 exec /usr/bin/viewnior "$@"
