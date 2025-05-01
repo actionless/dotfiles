@@ -1,0 +1,8 @@
+#!/bin/bash
+set -ueo pipefail
+
+output_filename="$1"
+record_from_interface=alsa_output.usb-0a12_Avantree_C81-00.analog-stereo
+
+set -x
+pw-record --target "$record_from_interface" "$output_filename" -P '{ stream.capture.sink=true node.dont-reconnect=true }'
