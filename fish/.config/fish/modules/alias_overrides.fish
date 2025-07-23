@@ -7,6 +7,8 @@ abbr -a g gliv
 abbr -a o ocenaudio
 abbr -a vmi vim
 abbr -a ptp ptpython
+abbr -a ipy ipython
+abbr -a ipi ipython
 abbr -a fdn fd --no-ignore --hidden --follow
 abbr -a fdu fd --no-ignore --hidden --follow
 abbr -a fdh fd --no-ignore --hidden --follow
