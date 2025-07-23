@@ -1,7 +1,10 @@
 #!/bin/bash
 output_file="$1"
+shift
+	#-encoder cpu \
 gpu-screen-recorder \
 	-w "$(xwininfo | grep -i 'Window id' | cut -d' ' -f4)" \
 	-a "$(pactl get-default-sink).monitor" \
 	-f 30 \
-	-o "$output_file"
+	-o "$output_file" \
+	"$@"
