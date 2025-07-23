@@ -1,5 +1,6 @@
 #export GTK_THEME="oomox-monovedek"
 export GTK_THEME=
+export OOMOX_QTSTYLEPLUGIN_THEME="oomox-monovedek"
 
 export TMUX_FG="colour0"
 
