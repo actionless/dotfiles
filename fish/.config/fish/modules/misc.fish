@@ -8,7 +8,7 @@ function lessc --wraps='less'
 end
 
 function no_color
-	sed -r "s/[[:cntrl:]]\[[0-9][;]*{,3}[0-9]*m//g"
+	sed -r -e "s/[[:cntrl:]]\[[0-9][;]*{,3}[0-9]*m//g" -e "s/[[:cntrl:]]\[m//g"
 end
 
 function no_comments --description 'cat and cut comments' --wraps='cat'
