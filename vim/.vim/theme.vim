@@ -52,6 +52,7 @@ autocmd VimEnter,Colorscheme * :hi link TagbarHighlight IncSearch
 if has("gui_running")
 	colorscheme fixed-dark-monokai-0e0021
 	let g:airline_theme='molokai'
+	set guifont=Monospace:h10
 else
 	"set bg=light
 	if &diff
