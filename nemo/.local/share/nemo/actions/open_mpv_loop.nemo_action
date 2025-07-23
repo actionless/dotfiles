@@ -16,11 +16,11 @@
 Active=true
 Name=Open in MPV _Loop
 Comment=Open %F in mpvl
-Exec=mpvl %F
+Exec=mpvlg %F
 Selection=any
 Extensions=any;
-Dependencies=mpvl;
+Dependencies=mpvlg;
 Quote=double
-Terminal=true
+#Terminal=true
 #Icon-Name=mpv
 Icon-Name=media-playlist-repeat
