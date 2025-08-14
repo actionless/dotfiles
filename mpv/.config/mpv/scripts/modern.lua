@@ -7,6 +7,8 @@ local msg = require 'mp.msg'
 local opt = require 'mp.options'
 local utils = require 'mp.utils'
 
+mp.set_property("osc", "no")
+
 --
 -- Parameters
 --
