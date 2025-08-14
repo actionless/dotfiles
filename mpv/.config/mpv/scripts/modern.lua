@@ -147,7 +147,8 @@ local button_themes = {
 }
 
 -- read options from config and command-line
-opt.read_options(user_opts, 'osc', function(list) update_options(list) end)
+--opt.read_options(user_opts, 'osc', function(list) update_options(list) end)
+opt.read_options(user_opts, 'modern', function(list) update_options(list) end)
 local buttons = button_themes[user_opts.buttonstyle]
 --print(user_opts.seekbarfg)
 
