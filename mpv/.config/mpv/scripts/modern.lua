@@ -42,6 +42,14 @@ local user_opts = {
     volumecontrol = true,       -- whether to show mute button and volumne slider
     processvolume = true,		-- volue slider show processd volume
     language = 'eng',            -- eng=English, chs=Chinese
+
+    -- new theme options:
+    seekbarfg = 'E39C42',
+    buttonstyle = 'mixed',
+
+    -- compat with default mpv osc:
+    deadzonesize=0.67,
+    tooltipborder=0.5,
 }
 
 -- Localization
@@ -77,8 +85,72 @@ local language = {
         nochapter = '无章节信息',
     }
 }
+--local buttons = {
+--  play = '\xEF\x8E\xA7',
+--  pause = '\xEF\x8E\xAA',
+    --ne.content = '\xEF\x8E\xB5'
+    --ne.content = '\xEF\x8E\xB4'
+    --ne.content = '\xEF\x8E\xA0'
+    --ne.content = '\xEF\x8E\x9F'
+    --ne.content = '\xEF\x8E\xB7'
+    --ne.content = '\xEF\x8F\x93'
+            --return ('\xEF\x8E\xBB')
+            --return ('\xEF\x8E\xBC')
+        --    return ('\xEF\x85\xAC')
+        --    return ('\xEF\x85\xAD')
+    --ne.content = ''
+--}
+local button_themes = {
+  ascii = {
+    play = '||',
+    pause = '>',
+    prev = '<<',
+    next = '>>',
+    jumpback = '<',
+    fastforward = '>',
+
+    audio = 'A',
+    subtitles = 'S',
+    mute = 'V',
+    unmute = 'V',
+    fullscreen_on = 'F',
+    fullscreen_off = 'F',
+    info = 'i',
+  },
+  emoji = {
+    audio = '🗣️',
+    --subtitles = '📜',
+    subtitles = '🗒️',
+    mute = '🔇',
+    unmute = '🔊',
+    fullscreen_on = '📺️',
+    fullscreen_off = '📺️',
+    info = 'ℹ️',
+  },
+  mixed = {
+    play = '||',
+    pause = '>',
+    prev = '<<',
+    next = '>>',
+    jumpback = '<',
+    fastforward = '>',
+
+    audio = '🗣️',
+    --subtitles = '📜',
+    subtitles = '🗒️',
+    mute = '🔇',
+    unmute = '🔊',
+    fullscreen_on = '📺️',
+    fullscreen_off = '📺️',
+    info = 'ℹ️',
+  },
+}
+
 -- read options from config and command-line
 opt.read_options(user_opts, 'osc', function(list) update_options(list) end)
+local buttons = button_themes[user_opts.buttonstyle]
+--print(user_opts.seekbarfg)
+
 -- apply lang opts
 local texts = language[user_opts.language]
 local osc_param = { -- calculated by osc_init()
@@ -92,15 +164,15 @@ local osc_param = { -- calculated by osc_init()
 local osc_styles = {
     TransBg = '{\\blur100\\bord140\\1c&H000000&\\3c&H000000&}',
     SeekbarBg = '{\\blur0\\bord0\\1c&HFFFFFF&}',
-    SeekbarFg = '{\\blur1\\bord1\\1c&HE39C42&}',
+    SeekbarFg = '{\\blur1\\bord1\\1c&H'..user_opts.seekbarfg..'&}',
     VolumebarBg = '{\\blur0\\bord0\\1c&H999999&}',
     VolumebarFg = '{\\blur1\\bord1\\1c&HFFFFFF&}',
     Ctrl1 = '{\\blur0\\bord0\\1c&HFFFFFF&\\3c&HFFFFFF&\\fs36\\fnmaterial-design-iconic-font}',
     Ctrl2 = '{\\blur0\\bord0\\1c&HFFFFFF&\\3c&HFFFFFF&\\fs24\\fnmaterial-design-iconic-font}',
     Ctrl3 = '{\\blur0\\bord0\\1c&HFFFFFF&\\3c&HFFFFFF&\\fs24\\fnmaterial-design-iconic-font}',
     Time = '{\\blur0\\bord0\\1c&HFFFFFF&\\3c&H000000&\\fs17\\fn' .. user_opts.font .. '}',
-    Tooltip = '{\\blur1\\bord0.5\\1c&HFFFFFF&\\3c&H000000&\\fs18\\fn' .. user_opts.font .. '}',
-    Title = '{\\blur1\\bord0.5\\1c&HFFFFFF&\\3c&H0\\fs48\\q2\\fn' .. user_opts.font .. '}',
+    Tooltip = '{\\blur1\\bord'.. user_opts.tooltipborder ..'\\1c&HFFFFFF&\\3c&H000000&\\fs18\\fn' .. user_opts.font .. '}',
+    Title = '{\\blur1\\bord0.5\\1c&HFFFFFF&\\3c&H0\\fs24\\q2\\fn' .. user_opts.font .. '}',
     WinCtrl = '{\\blur1\\bord0.5\\1c&HFFFFFF&\\3c&H0\\fs20\\fnmpv-osd-symbols}',
     elementDown = '{\\1c&H999999&}',
 }
@@ -939,7 +1011,8 @@ function window_controls()
 
     -- Close: ??
     ne = new_element('close', 'button')
-    ne.content = '\238\132\149'
+    --ne.content = '\238\132\149'
+    ne.content = 'x'
     ne.eventresponder['mbtn_left_up'] =
         function () mp.commandv('quit') end
     lo = add_layout('close')
@@ -949,7 +1022,8 @@ function window_controls()
 
     -- Minimize: ??
     ne = new_element('minimize', 'button')
-    ne.content = '\\n\238\132\146'
+    --ne.content = '\\n\238\132\146'
+    ne.content = '\\n_'
     ne.eventresponder['mbtn_left_up'] =
         function () mp.commandv('cycle', 'window-minimized') end
     lo = add_layout('minimize')
@@ -959,11 +1033,12 @@ function window_controls()
     
     -- Maximize: ?? /??
     ne = new_element('maximize', 'button')
-    if state.maximized or state.fullscreen then
-        ne.content = '\238\132\148'
-    else
-        ne.content = '\238\132\147'
-    end
+    --if state.maximized or state.fullscreen then
+    --    ne.content = '\238\132\148'
+    --else
+    --    ne.content = '\238\132\147'
+    --end
+        ne.content = 'M'
     ne.eventresponder['mbtn_left_up'] =
         function ()
             if state.fullscreen then
@@ -1002,7 +1077,7 @@ layouts = function ()
     add_area('input', get_hitbox_coords(posX, posY, 1, osc_geo.w, 104))
 
     -- area for show/hide
-    add_area('showhide', 0, osc_param.playresy-200, osc_param.playresx, osc_param.playresy)
+    add_area('showhide', 0, osc_param.playresy*user_opts.deadzonesize, osc_param.playresx, osc_param.playresy)
     add_area('showhide_wc', osc_param.playresx*0.67, 0, osc_param.playresx, 48)
     
     -- fetch values
@@ -1127,7 +1202,7 @@ layouts = function ()
     lo.style = string.format('%s{\\clip(%f,%f,%f,%f)}', osc_styles.Title,
                                 geo.x, geo.y - geo.h, geo.x + geo.w , geo.y)
     lo.alpha[3] = 0
-    lo.button.maxchars = geo.w / 23
+    --lo.button.maxchars = geo.w / 23
 end
 
 -- Validate string type user options
@@ -1194,7 +1269,7 @@ function osc_init()
     -- prev
     ne = new_element('pl_prev', 'button')
 
-    ne.content = '\xEF\x8E\xB5'
+    ne.content = buttons.prev
     ne.enabled = (pl_pos > 1) or (loop ~= 'no')
     ne.eventresponder['mbtn_left_up'] =
         function ()
@@ -1206,7 +1281,7 @@ function osc_init()
     --next
     ne = new_element('pl_next', 'button')
 
-    ne.content = '\xEF\x8E\xB4'
+    ne.content = buttons.next
     ne.enabled = (have_pl and (pl_pos < pl_count)) or (loop ~= 'no')
     ne.eventresponder['mbtn_left_up'] =
         function ()
@@ -1222,9 +1297,9 @@ function osc_init()
 
     ne.content = function ()
         if mp.get_property('pause') == 'no' then
-            return ('\xEF\x8E\xA7')
+            return (buttons.play)
         else
-            return ('\xEF\x8E\xAA')
+            return (buttons.pause)
         end
     end
     ne.eventresponder['mbtn_left_up'] =
@@ -1236,7 +1311,7 @@ function osc_init()
     ne = new_element('skipback', 'button')
 
     ne.softrepeat = true
-    ne.content = '\xEF\x8E\xA0'
+    ne.content = buttons.jumpback
     ne.eventresponder['mbtn_left_down'] =
         --function () mp.command('seek -5') end
         function () mp.commandv('seek', -5, 'relative', 'keyframes') end
@@ -1250,7 +1325,7 @@ function osc_init()
     ne = new_element('skipfrwd', 'button')
 
     ne.softrepeat = true
-    ne.content = '\xEF\x8E\x9F'
+    ne.content = buttons.fastforward
     ne.eventresponder['mbtn_left_down'] =
         --function () mp.command('seek +5') end
         function () mp.commandv('seek', 5, 'relative', 'keyframes') end
@@ -1267,7 +1342,7 @@ function osc_init()
     ne = new_element('cy_audio', 'button')
     ne.enabled = (#tracks_osc.audio > 0)
     ne.visible = (osc_param.playresx >= 540)
-    ne.content = '\xEF\x8E\xB7'
+    ne.content = buttons.audio
     ne.tooltip_style = osc_styles.Tooltip
     ne.tooltipF = function ()
         local msg = texts.off
@@ -1297,7 +1372,7 @@ function osc_init()
     ne = new_element('cy_sub', 'button')
     ne.enabled = (#tracks_osc.sub > 0)
     ne.visible = (osc_param.playresx >= 600)
-    ne.content = '\xEF\x8F\x93'
+    ne.content = buttons.subtitles
     ne.tooltip_style = osc_styles.Tooltip
     ne.tooltipF = function ()
         local msg = texts.off
@@ -1329,9 +1404,9 @@ function osc_init()
     ne.visible = (osc_param.playresx >= 650) and user_opts.volumecontrol
     ne.content = function ()
         if (state.mute) then
-            return ('\xEF\x8E\xBB')
+            return (buttons.mute)
         else
-            return ('\xEF\x8E\xBC')
+            return (buttons.unmute)
         end
     end
     ne.eventresponder['mbtn_left_up'] =
@@ -1341,9 +1416,9 @@ function osc_init()
     ne = new_element('tog_fs', 'button')
     ne.content = function ()
         if (state.fullscreen) then
-            return ('\xEF\x85\xAC')
+            return (buttons.fullscreen_on)
         else
-            return ('\xEF\x85\xAD')
+            return (buttons.fullscreen_off)
         end
     end
     ne.visible = (osc_param.playresx >= 540)
@@ -1352,7 +1427,7 @@ function osc_init()
 
     --tog_info
     ne = new_element('tog_info', 'button')
-    ne.content = ''
+    ne.content = buttons.info
     ne.visible = (osc_param.playresx >= 600)
     ne.eventresponder['mbtn_left_up'] =
         function () mp.commandv('script-binding', 'stats/display-stats-toggle') end
