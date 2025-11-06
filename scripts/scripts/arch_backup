@@ -26,7 +26,7 @@ Notes:
 "
 }
 
-if [[ -z "$MODE" || -z "$DEST" ]]; then
+if [[ -z "$MODE" || -z "$DEST" ]] || grep -q -- '--help' <<< "$*" ; then
 	print_usage
 	exit 1
 fi
