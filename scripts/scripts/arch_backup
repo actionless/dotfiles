@@ -88,12 +88,12 @@ EXCLUDES=(
 
 
 emit_restore_script() {
-  local base="$1"                 # e.g. /mnt/backup/root-mirror or /mnt/backup/root-snapshots/2025-08-15_21-00-00
-  local meta="$base/_meta"
-  mkdir -p "$meta"
+	local base="$1"                 # e.g. /mnt/backup/root-mirror or /mnt/backup/root-snapshots/2025-08-15_21-00-00
+	local meta="$base/_meta"
+	mkdir -p "$meta"
 
-  # Write restore script paired to THIS backup
-  cat > "$meta/restore.sh" <<'EOF'
+	# Write restore script paired to THIS backup
+	cat > "$meta/restore.sh" <<'EOF'
 #!/usr/bin/env bash
 set -euo pipefail
 # Paired restore script for this backup.
@@ -118,51 +118,51 @@ rsync "${RSYNC_OPTS[@]}" "$BACKUP"/ "$TARGET"/
 
 # /boot
 if [[ -d "$BACKUP/_boot" ]]; then
-  if mountpoint -q "$TARGET/boot"; then
-    echo ">> Restoring /boot"
-    rsync "${RSYNC_OPTS[@]}" "$BACKUP/_boot"/ "$TARGET/boot"/
-  else
-    echo "NOTE: $TARGET/boot not mounted; skipping _boot"
-  fi
+	if mountpoint -q "$TARGET/boot"; then
+		echo ">> Restoring /boot"
+		rsync "${RSYNC_OPTS[@]}" "$BACKUP/_boot"/ "$TARGET/boot"/
+	else
+		echo "NOTE: $TARGET/boot not mounted; skipping _boot"
+	fi
 fi
 
 # /efi (vfat/exfat need modify-window due to 2s timestamp granularity)
 if [[ -d "$BACKUP/_efi" ]]; then
-  if mountpoint -q "$TARGET/efi"; then
-    echo ">> Restoring /efi"
-    fstype="$(findmnt -no FSTYPE -- "$TARGET/efi" || true)"
-    if [[ "$fstype" == "vfat" || "$fstype" == "exfat" ]]; then
-      rsync "${RSYNC_OPTS[@]}" --modify-window=2 "$BACKUP/_efi"/ "$TARGET/efi"/
-    else
-      rsync "${RSYNC_OPTS[@]}" "$BACKUP/_efi"/ "$TARGET/efi"/
-    fi
-  else
-    echo "NOTE: $TARGET/efi not mounted; skipping _efi"
-  fi
+	if mountpoint -q "$TARGET/efi"; then
+		echo ">> Restoring /efi"
+		fstype="$(findmnt -no FSTYPE -- "$TARGET/efi" || true)"
+		if [[ "$fstype" == "vfat" || "$fstype" == "exfat" ]]; then
+			rsync "${RSYNC_OPTS[@]}" --modify-window=2 "$BACKUP/_efi"/ "$TARGET/efi"/
+		else
+			rsync "${RSYNC_OPTS[@]}" "$BACKUP/_efi"/ "$TARGET/efi"/
+		fi
+	else
+		echo "NOTE: $TARGET/efi not mounted; skipping _efi"
+	fi
 fi
 
 cat <<'EONOTE'
 
 Next steps (on Arch ISO):
-  genfstab -U "$TARGET" > "$TARGET/etc/fstab"
-  mount -t proc /proc "$TARGET/proc"
-  mount --rbind /sys "$TARGET/sys"; mount --make-rslave "$TARGET/sys"
-  mount --rbind /dev "$TARGET/dev"; mount --make-rslave "$TARGET/dev"
-  arch-chroot "$TARGET" /bin/bash -lc 'mkinitcpio -P'
-  # GRUB example:
-  # arch-chroot "$TARGET" /bin/bash -lc 'grub-install /dev/<disk> && grub-mkconfig -o /boot/grub/grub.cfg'
-  # or systemd-boot:
-  # arch-chroot "$TARGET" /bin/bash -lc 'bootctl install'
+	genfstab -U "$TARGET" > "$TARGET/etc/fstab"
+	mount -t proc /proc "$TARGET/proc"
+	mount --rbind /sys "$TARGET/sys"; mount --make-rslave "$TARGET/sys"
+	mount --rbind /dev "$TARGET/dev"; mount --make-rslave "$TARGET/dev"
+	arch-chroot "$TARGET" /bin/bash -lc 'mkinitcpio -P'
+	# GRUB example:
+	# arch-chroot "$TARGET" /bin/bash -lc 'grub-install /dev/<disk> && grub-mkconfig -o /boot/grub/grub.cfg'
+	# or systemd-boot:
+	# arch-chroot "$TARGET" /bin/bash -lc 'bootctl install'
 
 Tip: set DRY_RUN=1 to preview (adds --dry-run --itemize-changes).
 EONOTE
 
 echo "✓ Restore rsynced."
 EOF
-  chmod +x "$meta/restore.sh"
+	chmod +x "$meta/restore.sh"
 
-  # Convenience launcher at backup root
-  ln -sf "_meta/restore.sh" "${base%/}/RESTORE.sh"
+	# Convenience launcher at backup root
+	ln -sf "_meta/restore.sh" "${base%/}/RESTORE.sh"
 }
 
 
