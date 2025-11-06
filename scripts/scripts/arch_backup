@@ -1,0 +1,322 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SRC="/"
+MODE="${1:-}"
+DEST="${2:-}"
+
+print_usage() {
+	echo "Usage: $0 {MIRROR|SNAPSHOT} /path/to/dest
+
+Arch root backup with rsync
+- Preserves perms, ACLs, xattrs, hardlinks, device files
+- Keeps symlinks as symlinks
+- Stays on the root filesystem
+- Two modes:
+	* mirror   : one destination updated incrementally (with --delete)
+	* snapshot : creates dated snapshot dirs with --link-dest to previous
+
+Usage:
+	sudo ./arch-root-backup.sh MIRROR   /mnt/backup/root-mirror
+	sudo ./arch-root-backup.sh SNAPSHOT /mnt/backup/root-snapshots
+
+Notes:
+- Different FS recommended; same FS allowed only with ALLOW_SAME_FS=1
+- Adjust EXCLUDES below for your setup.
+"
+}
+
+if [[ -z "$MODE" || -z "$DEST" ]]; then
+	print_usage
+	exit 1
+fi
+
+# If your root is btrfs with subvolumes, consider using btrfs snapshots + send/receive instead.
+# This script sticks to rsync as requested.
+
+# Common rsync flags:
+# -aAXH : archive + ACLs + xattrs + hardlinks
+# --numeric-ids : preserve UIDs/GIDs numerically
+# --one-file-system : don't cross into other filesystems (keeps it to '/')
+# --delete / --delete-excluded : clean dest of removed files
+# --info=progress2,stats : visibility
+# --human-readable : readable sizes
+RSYNC_BASE=(
+	rsync
+	-aAXH
+	--sparse
+	--numeric-ids
+	--one-file-system
+	--human-readable
+	--info='progress2,stats'
+	--partial
+	--partial-dir=.rsync-partial
+	--delete-delay
+)
+
+# Exclusions: adjust to taste
+# (We skip volatile kernel/IPC trees, runtime dirs, mounts, tmp, caches, etc.)
+EXCLUDES=(
+	--exclude=/dev/*
+	--exclude=/proc/*
+	--exclude=/sys/*
+	--exclude=/run/*
+	--exclude=/tmp/*
+	--exclude=/mnt/*
+	--exclude=/media/*
+	--exclude=/lost+found
+	--exclude=/swapfile
+	# Pacman cache is big; exclude to save space (comment out to keep it)
+	#--exclude=/var/cache/pacman/pkg/*
+	# Logs & temporary package data (optional)
+	--exclude=/var/tmp/*
+	--exclude=/var/log/journal/*-system.journal~  # old tmp journals (optional)
+	# If /home lives on the same FS and you want it, remove this exclude.
+	# If /home is a separate FS, --one-file-system already prevents crossing into it.
+	# --exclude=/home/*/.cache/**    # Optional: drop user caches
+	#container layers:
+	--exclude=/var/lib/docker/*
+	--exclude=/var/lib/containers/*
+	#coredumps:
+	--exclude=/var/lib/systemd/coredump/*
+	#journal spam (stronger):
+	--exclude=/var/log/journal/**
+	#VM/ISO parking lots (if you have them):
+	--exclude=/var/lib/libvirt/images/*
+	--exclude=/var/iso/*
+)
+
+
+emit_restore_script() {
+  local base="$1"                 # e.g. /mnt/backup/root-mirror or /mnt/backup/root-snapshots/2025-08-15_21-00-00
+  local meta="$base/_meta"
+  mkdir -p "$meta"
+
+  # Write restore script paired to THIS backup
+  cat > "$meta/restore.sh" <<'EOF'
+#!/usr/bin/env bash
+set -euo pipefail
+# Paired restore script for this backup.
+# Flags mirror the backup: -aAXH --numeric-ids --sparse --info=progress2,stats --delete-delay
+
+BACKUP="${BACKUP:-$(cd "$(dirname "$0")/.."; pwd)}"   # default: parent of _meta
+TARGET="${TARGET:-/mnt}"                              # mount your target root here
+DRY_RUN="${DRY_RUN:-0}"
+
+need() { command -v "$1" >/dev/null || { echo "Missing $1. On Arch ISO: pacman -Sy --noconfirm $1"; exit 1; }; }
+need rsync
+need findmnt
+
+[[ "$TARGET" != "/" ]] || { echo "Refusing to restore into '/'. Mount root at /mnt and set TARGET=/mnt"; exit 1; }
+mountpoint -q "$TARGET" || { echo "Target root not mounted: $TARGET"; exit 1; }
+
+RSYNC_OPTS=(-aAXH --numeric-ids --sparse --info=progress2,stats --delete-delay)
+[[ "$DRY_RUN" == "1" ]] && RSYNC_OPTS+=(--dry-run --itemize-changes)
+
+echo ">> Restoring root -> $TARGET"
+rsync "${RSYNC_OPTS[@]}" "$BACKUP"/ "$TARGET"/
+
+# /boot
+if [[ -d "$BACKUP/_boot" ]]; then
+  if mountpoint -q "$TARGET/boot"; then
+    echo ">> Restoring /boot"
+    rsync "${RSYNC_OPTS[@]}" "$BACKUP/_boot"/ "$TARGET/boot"/
+  else
+    echo "NOTE: $TARGET/boot not mounted; skipping _boot"
+  fi
+fi
+
+# /efi (vfat/exfat need modify-window due to 2s timestamp granularity)
+if [[ -d "$BACKUP/_efi" ]]; then
+  if mountpoint -q "$TARGET/efi"; then
+    echo ">> Restoring /efi"
+    fstype="$(findmnt -no FSTYPE -- "$TARGET/efi" || true)"
+    if [[ "$fstype" == "vfat" || "$fstype" == "exfat" ]]; then
+      rsync "${RSYNC_OPTS[@]}" --modify-window=2 "$BACKUP/_efi"/ "$TARGET/efi"/
+    else
+      rsync "${RSYNC_OPTS[@]}" "$BACKUP/_efi"/ "$TARGET/efi"/
+    fi
+  else
+    echo "NOTE: $TARGET/efi not mounted; skipping _efi"
+  fi
+fi
+
+cat <<'EONOTE'
+
+Next steps (on Arch ISO):
+  genfstab -U "$TARGET" > "$TARGET/etc/fstab"
+  mount -t proc /proc "$TARGET/proc"
+  mount --rbind /sys "$TARGET/sys"; mount --make-rslave "$TARGET/sys"
+  mount --rbind /dev "$TARGET/dev"; mount --make-rslave "$TARGET/dev"
+  arch-chroot "$TARGET" /bin/bash -lc 'mkinitcpio -P'
+  # GRUB example:
+  # arch-chroot "$TARGET" /bin/bash -lc 'grub-install /dev/<disk> && grub-mkconfig -o /boot/grub/grub.cfg'
+  # or systemd-boot:
+  # arch-chroot "$TARGET" /bin/bash -lc 'bootctl install'
+
+Tip: set DRY_RUN=1 to preview (adds --dry-run --itemize-changes).
+EONOTE
+
+echo "✓ Restore rsynced."
+EOF
+  chmod +x "$meta/restore.sh"
+
+  # Convenience launcher at backup root
+  ln -sf "_meta/restore.sh" "${base%/}/RESTORE.sh"
+}
+
+
+prepare_destination() {
+	if [[ "$DEST" == "/" || "$DEST" == "" ]]; then
+		echo "Refusing to use '/' as destination."
+		exit 1
+	fi
+
+	# ensure destination exists
+	mkdir -p "$DEST"
+
+	# resolve absolute path
+	DEST_ABS="$(readlink -f -- "$DEST")"   # e.g. /mnt/ssd/vi5/root-backup
+	#
+	# even though you block same-FS by default (nice), add an explicit exclude to nuke any weird bind-mount/self-copy edge cases:
+	EXCLUDES+=("--exclude=$DEST_ABS" "--exclude=$DEST_ABS/*")
+
+	DEST_FSTYPE="$(findmnt -no FSTYPE -- "$DEST_ABS" || true)"
+	case "$DEST_FSTYPE" in
+		vfat|exfat|ntfs|ntfs3)
+			echo "ERROR: $DEST_FSTYPE cannot preserve Unix perms/ACLs/xattrs. Use ext4/xfs/btrfs."
+			exit 1
+			;;
+	esac
+
+	# compare filesystem IDs for '/' and DEST
+	SRC_FS_ID="$(stat -f -c %d /)"
+	DEST_FS_ID="$(stat -f -c %d "$DEST_ABS")"
+
+	if [[ "$SRC_FS_ID" == "$DEST_FS_ID" ]]; then
+		echo "WARNING: Destination lives on the SAME filesystem as '/'."
+		echo "Backups on the same FS defeat part of the purpose (disk failure risk)."
+		echo "Set ALLOW_SAME_FS=1 if you really want to proceed."
+		[[ "${ALLOW_SAME_FS:-0}" == "1" ]] || exit 1
+	fi
+
+	echo "Calculating free space..."
+	need_bytes() { du -sb --one-file-system "$SRC" 2>/dev/null | awk '{print $1}'; }   # rough, excludes mounts thanks to --one-file-system effect
+	have_bytes() { df -P "$DEST_ABS" | awk 'NR==2{print $4*1024}'; }
+	if (( $(have_bytes) < $(need_bytes) )); then
+		echo "ERROR: not enough free space."
+		exit 1
+	fi
+}
+
+backup_extra_mount() {
+	local src="$1" dst="$2"
+	if mountpoint -q -- "$src"; then
+		mkdir -p "$dst"
+		"${RSYNC_BASE[@]}" --delete --delete-excluded "$src"/ "$dst"/
+	fi
+}
+
+meta_dump() {
+	local mdir="$1"
+	mkdir -p "$mdir"
+	pacman -Qqe > "$mdir/pacman-explicit.txt" || true
+	pacman -Q   > "$mdir/pacman-all.txt" || true
+	uname -a    > "$mdir/uname.txt"
+	findmnt -Rno TARGET,SOURCE,FSTYPE,OPTIONS / > "$mdir/mounts.txt"
+}
+
+prune_snapshots() {
+	local base="$1"
+	local keep_latest="${KEEP_LATEST:-0}"   # e.g. 12
+	local prune_days="${PRUNE_DAYS:-0}"     # e.g. 30
+
+	if (( keep_latest > 0 )); then
+		mapfile -t snaps < <(ls -1dt "${base%/}"/20[0-9][0-9]-* 2>/dev/null || true)
+		if (( ${#snaps[@]} > keep_latest )); then
+			printf 'Pruning old snapshots (keeping %d):\n' "$keep_latest"
+			printf '%s\n' "${snaps[@]:keep_latest}" | xargs -r -I{} rm -rf -- "{}"
+		fi
+	fi
+	if (( prune_days > 0 )); then
+		find "$base" -maxdepth 1 -type d -name '20[0-9][0-9]-*' -mtime +"$prune_days" -print -exec echo rm -rf {} +
+	fi
+}
+
+backup_mirror() {
+	echo ">> MIRROR mode to: $DEST"
+	"${RSYNC_BASE[@]}" \
+		--delete \
+		--delete-excluded \
+		"${EXCLUDES[@]}" \
+		"$SRC" "$DEST"
+	backup_extra_mount /boot "${DEST%/}/_boot"
+	backup_extra_mount /efi  "${DEST%/}/_efi"
+	meta_dump   "${DEST%/}/_meta"
+	emit_restore_script "${DEST%/}"
+}
+
+backup_snapshot() {
+	TS=$(date +"%Y-%m-%d_%H-%M-%S")
+	# find LAST **before** creating the new dir
+	# shellcheck disable=SC2012
+	LAST=$(ls -1dt "${DEST%/}"/[0-9][0-9][0-9][0-9]-* 2>/dev/null | head -n 1 || true)
+
+	SNAP_DIR="${DEST%/}/$TS"
+	mkdir -p "$SNAP_DIR"
+
+	if [[ -n "${LAST:-}" && -d "$LAST" ]]; then
+		echo ">> SNAPSHOT -> new: $SNAP_DIR (link-dest: $LAST)"
+		"${RSYNC_BASE[@]}" \
+			--delete --delete-excluded \
+			--link-dest="$LAST" \
+			"${EXCLUDES[@]}" \
+			"$SRC" "$SNAP_DIR"
+	else
+		echo ">> SNAPSHOT -> first: $SNAP_DIR (no link-dest)"
+		"${RSYNC_BASE[@]}" \
+			--delete --delete-excluded \
+			"${EXCLUDES[@]}" \
+			"$SRC" "$SNAP_DIR"
+	fi
+	backup_extra_mount /boot "$SNAP_DIR/_boot"
+	backup_extra_mount /efi  "$SNAP_DIR/_efi"
+	meta_dump   "$SNAP_DIR/_meta"
+	emit_restore_script "$SNAP_DIR"
+	# call at end of backup_snapshot():
+	prune_snapshots "$DEST"
+}
+
+main() {
+
+	MODE=$(echo "$MODE" | tr '[:lower:]' '[:upper:]')
+
+	# Sanity checks
+	if [[ "$EUID" -ne 0 ]]; then
+		echo "Run as root."
+		exit 1
+	fi
+
+	df -h "$SRC"
+
+	prepare_destination
+
+	case "$MODE" in
+		MIRROR)
+			backup_mirror
+		;;
+
+		SNAPSHOT)
+			backup_snapshot
+		;;
+
+		*)
+			echo "Unknown mode: $MODE (use MIRROR or SNAPSHOT)"
+			exit 1
+		;;
+	esac
+
+	echo "✓ Backup complete."
+}
+
+main
