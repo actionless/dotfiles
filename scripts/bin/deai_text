@@ -1,0 +1,46 @@
+#!/bin/bash
+set -ueo pipefail
+
+INPUT_FILE="$1"
+
+filename=$(basename -- "$INPUT_FILE")
+extension="${filename##*.}"
+filename="${filename%.*}"
+
+OUTPUT_FILE="${2:-${filename}_da.${extension}}"
+
+PIPE_MODE=0
+if [[ "$OUTPUT_FILE" = '-' ]] ; then
+	PIPE_MODE=1
+fi
+
+if [[ "$PIPE_MODE" -lt 1 ]] && [[ -f "${OUTPUT_FILE}" ]] ; then
+	echo "$OUTPUT_FILE already exists"
+	exit 1;
+fi
+
+replace_rare_characters() {
+	sed \
+		-e "s/‘/'/g" \
+		-e "s/’/'/g" \
+		-e 's/“/"/g' \
+		-e 's/”/"/g' \
+		-e 's/-/-/g' \
+		-e 's/–/-/g' \
+		-e 's/—/ - /g' \
+		-e 's/  -  / - /g' \
+	<<< "$@"
+}
+
+while read -r LINE; do
+	if [[ "$PIPE_MODE" -gt 0 ]] ; then
+		replace_rare_characters "$LINE"
+	else
+		replace_rare_characters "$LINE" >> "$OUTPUT_FILE"
+	fi
+done < "$INPUT_FILE"
+
+if [[ "$PIPE_MODE" -lt 1 ]] ; then
+	echo " [::] deai done:"
+	echo " [::] $OUTPUT_FILE"
+fi
