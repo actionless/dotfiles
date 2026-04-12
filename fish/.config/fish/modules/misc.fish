@@ -19,6 +19,29 @@ function psauxf --wraps='grep'
 	ps auxf | grep -v grep | grep -C 5 -i $argv
 end
 
+function psauxf_wait --wraps='psauxf'
+	#psauxf -C 0 $argv
+	psauxf $argv
+	read
+	#and while psauxf -C 0 $argv
+	and while psauxf $argv
+		echo -e '\n---------------------------------------------------------------\n'
+		sleep 2
+	end
+	and echo done
+end
+
+function psauxf_wait_endless --wraps='psauxf_wait'
+	psauxf $argv
+	read
+	and while true
+		psauxf $argv
+		echo -e '\n---------------------------------------------------------------\n'
+		sleep 2
+	end
+	and echo done
+end
+
 function hibernate -d 'put machine into hibernation state'
 	pgrep xscreensaver ;
 		or echo "xscreensaver is not running" ;
