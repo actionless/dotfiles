@@ -4,12 +4,13 @@ set -ueo pipefail
 INPUT_FILE="$1"
 BASENAME="$(basename "$INPUT_FILE" .md)"
 OUTPUT_FILE="${2:-$BASENAME.html}"
+TITLE="${3:-${BASENAME//_/ }}"
 
-test which md2html || echo "/usr/bin/md2html is owned by md4c"
+which md2html > /dev/null || (echo "/usr/bin/md2html is owned by md4c" && exit 1)
 md2html \
-	README.md \
+	"$INPUT_FILE" \
 	--output="$OUTPUT_FILE" \
-	--html-title="${BASENAME//_/ }" \
+	--html-title="$TITLE" \
 	--full-html \
 	--fstrikethrough \
 	--ftables \
