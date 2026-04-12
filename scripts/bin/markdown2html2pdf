@@ -1,0 +1,40 @@
+#!/bin/bash
+set -ueo pipefail
+
+MARKDOWN_FILE="$1"
+BASENAME="$(basename -s .md "$MARKDOWN_FILE")"
+OUTPUT_PDF_FILE="${2:-${BASENAME}.pdf}"
+if [[ -f "${OUTPUT_PDF_FILE}" ]] ; then
+	echo "$OUTPUT_PDF_FILE already exists"
+	exit 1;
+fi
+TITLE="${3:-${BASENAME//_/ }}"
+
+TEMPORARY_FILE=$(mktemp --suffix .md)
+HTML_FILE=$(mktemp --suffix .html)
+
+
+rm "$TEMPORARY_FILE"
+deai_text "$MARKDOWN_FILE" "$TEMPORARY_FILE"
+
+				#font-weight: 200;\
+markdown2html_my "$TEMPORARY_FILE" "$HTML_FILE" "$TITLE"
+sed -i -e 's|<head>|<head>\
+		<style type = "text/css">\
+			body {\
+				background: white;\
+				color: black;\
+				font-family: "PT Astra Serif", "Noto Color Emoji";\
+				font-size: 16pt;\
+			}\
+		</style>|g' "$HTML_FILE"
+
+rm "$TEMPORARY_FILE"
+#readlink -e "$TEMPORARY_FILE"
+
+wkhtmltopdf "$HTML_FILE" "$OUTPUT_PDF_FILE"
+
+rm "$HTML_FILE"
+#readlink -e "$HTML_FILE"
+
+readlink -e "$OUTPUT_PDF_FILE"
