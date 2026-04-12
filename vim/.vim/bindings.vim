@@ -163,7 +163,8 @@ endfunction
 
 function! MyNumbersMenu()
 	call SimpleMenu([
-		\	['n', ':set invnumber'],
+		\	['i', ':set invnumber'],
+		\	['n', ':set nonumber | set norelativenumber'],
 	\ ])
 endfunction
 
