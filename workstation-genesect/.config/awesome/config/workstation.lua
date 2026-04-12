@@ -38,14 +38,17 @@ function local_config.init(awesome_context)
       device = 'coretemp-isa-0000',
       sensor = 'Package id 0',
       sensor_input = 'temp1',
-      warning = 82,
+      --warning = 82,
+      warning = 90,
       ----------critical = 96,
     },
     cpu1 = {
       device = 'coretemp-isa-0001',
       sensor = 'Package id 1',
       sensor_input = 'temp1',
-      warning = 82,
+      --warning = 82,
+      --warning = 85,
+      warning = 90,
       ----------critical = 96,
     },
     gpu = {
@@ -67,13 +70,14 @@ function local_config.init(awesome_context)
     'spotify',
     --'mopidy'
     'firefox',
+    'chromium',
+    'tuner',
   }
 
   local au = awesome_context.autorun
     --"~/.scripts/tp_unmute",
     --"killall compton ; compton",
     --'xinput disable "ELAN Touchscreen"',
-    --"touchegg",
     --"~/.scripts/tp_unmute",
     --"killall compton ; compton",
 
@@ -143,9 +147,15 @@ function local_config.init(awesome_context)
     --  "-c", os.getenv('HOME').."/.config/barrier.conf",
     --  "--address", ":24800"
     --}
+    --
     --run_once{"bash", "-c", "sleep 5 && sudo systemctl start nut-monitor && nut-monitor --start-hidden"}
+      --$ sudo systemctl disable nut-server
+      --$ sudo systemctl disable nut-monitor
+      --$ sudo systemctl disable nut-driver@vultech.service
+    --
     run_once{"pipewire_server"}
     run_once{"easyeffects"}
+    --run_once{"touchegg"}
   end
 
   local modkey = awesome_context.modkey
