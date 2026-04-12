@@ -12,7 +12,9 @@ function no_color
 end
 
 function no_comments --description 'cat and cut comments' --wraps='cat'
-	command cat $argv | grep -E -v -e "^;" -e "^#" -e "^\$" -e "^\s+#"
+	#command cat $argv | grep -E -v -e "^;" -e "^#" -e "^\$" -e "^\s+#"
+	#command cat $argv | grep -E -v -e "^;" -e "^#" -e "^\s+#" | sed -z -e ':loop' -e 's/\n\n\n/\n\n/g' -e 's/\r\n\r\n\r\n/\r\n\r\n/g' -e 's/ \n/\n/g' -e 's/ \r/\r/g' -e 's/\t\n/\n/g' -e 't loop'
+	command cat $argv | grep -E -v -e "^;" -e "^#" -e "^\s+#" | sed -z -e ':loop' -e 's/\n\n\n/\n\n/' -e 's/\r\n\r\n\r\n/\r\n\r\n/' -e 's/ \n/\n/' -e 's/ \r/\r/' -e 's/\t\n/\n/' -e 't loop'
 end
 
 function psauxf --wraps='grep'
