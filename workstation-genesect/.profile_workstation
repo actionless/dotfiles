@@ -13,6 +13,7 @@ export MOZ_DISABLE_RDD_SANDBOX=1
 export MOZ_X11_EGL=1
 export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
 export NVD_BACKEND=direct
+export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda
 
 
 ## uncomment one when not in GNOME:
