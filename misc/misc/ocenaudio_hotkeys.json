@@ -1,0 +1,39 @@
+{
+    "br.com.ocenaudio.shortcuts": [
+        {
+            "action_id": "Effects_11BandGraphEq",
+            "description": "Effects Menu / 11-Band Graphic Equalizer...",
+            "key_sequence": "Ctrl+Alt+D"
+        },
+        {
+            "action_id": "Effects_31BandGraphEq",
+            "description": "Effects Menu / 31-Band Graphic Equalizer...",
+            "key_sequence": "Ctrl+Alt+E"
+        },
+        {
+            "action_id": "Effects_FadeIn",
+            "description": "Effects Menu / Fade In",
+            "key_sequence": "Ctrl+Alt+I"
+        },
+        {
+            "action_id": "Effects_FadeOut",
+            "description": "Effects Menu / Fade Out",
+            "key_sequence": "Ctrl+Alt+O"
+        },
+        {
+            "action_id": "Effects_HPfilter",
+            "description": "Effects Menu / Highpass Filter...",
+            "key_sequence": "Ctrl+Alt+H"
+        },
+        {
+            "action_id": "Effects_LPfilter",
+            "description": "Effects Menu / Lowpass Filter...",
+            "key_sequence": "Ctrl+Alt+L"
+        },
+        {
+            "action_id": "vstid-1515015474",
+            "description": "VST Effects by Damien Zammit / ZaMultiCompX2",
+            "key_sequence": "Ctrl+Alt+M"
+        }
+    ]
+}
