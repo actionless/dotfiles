@@ -1,0 +1,14 @@
+#!/bin/bash
+find "${1}" \
+	-type f \
+	-name "*.wav" \
+	-exec bash -c \
+	'for file; do \
+		dest_file="${file%.wav}.flac" ; \
+		while test -f "$dest_file" ; do \
+			dest_file="${dest_file%.flac}_2.flac" ; \
+		done ; \
+		ffmpeg -i "$file" -compression_level 5 "$dest_file" \
+		&& touch -r "$file" "$dest_file" \
+		&& rm "$file";\
+   	done' bash {} +
