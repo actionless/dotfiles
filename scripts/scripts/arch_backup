@@ -204,7 +204,7 @@ prepare_destination() {
 	need_bytes() { du -sb --one-file-system "$SRC" 2>/dev/null | awk '{print $1}'; }   # rough, excludes mounts thanks to --one-file-system effect
 	have_bytes() { df -P "$DEST_ABS" | awk 'NR==2{print $4*1024}'; }
 	if (( $(have_bytes) < $(need_bytes) )); then
-		echo "ERROR: not enough free space."
+		echo "ERROR: not enough free space on ${DEST_ABS}: $(( ($(need_bytes) - $(have_bytes)) / 1024 / 1024)) MiB."
 		exit 1
 	fi
 }
