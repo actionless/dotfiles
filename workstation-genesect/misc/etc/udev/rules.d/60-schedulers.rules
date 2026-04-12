@@ -1,0 +1,28 @@
+# SSD
+#ACTION=="add|change", KERNEL=="sda", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="bfq"
+ACTION=="add|change", KERNEL=="sda", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="mq-deadline"
+#
+# HDD
+ACTION=="add|change", KERNEL=="sdb", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+ACTION=="add|change", KERNEL=="sdc", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+#
+# USB HDD
+ACTION=="add|change", KERNEL=="sdd", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+#
+# USB SSD
+ACTION=="add|change", KERNEL=="sde", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="mq-deadline"
+#
+# USB Flash
+ACTION=="add|change", KERNEL=="sdf", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="mq-deadline"
+#
+# NVMe SSD
+ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="none"
+#
+# To test the rules:
+# $ grep udev_log /etc/udev/udev.conf
+# #udev_log=info
+# udev_log=debug
+# $ for d in (ls /sys/block) ; echo $d ; sudo udevadm test /dev/$d 2>&1 | grep schedulers ; echo ; end
+#
+# To test the result after reboot:
+# $ grep "" /sys/block/*/queue/scheduler
