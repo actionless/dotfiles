@@ -15,6 +15,7 @@ depends=(
 	'coreutils'
 	'inetutils'
 	'fish'
+	'fzf'
 
 	## vim stuff:
 	'vim'
@@ -42,7 +43,7 @@ depends=(
 	'ttf-input'
 	'ttf-go-mono-git'
 	'ttf-go-sans-git'
-	'ttf-paratype'
+	#'ttf-paratype'
 
 	# apps:
 	'mpv'
@@ -65,7 +66,6 @@ depends=(
 )
 optdepends=(
 	#'gnome-settings-daemon: rc: alternative to xsettingsd'
-	'fzf: menu'
 
 	'noto-fonts-emoji: or'
 	'ttf-twemoji-color: or'
