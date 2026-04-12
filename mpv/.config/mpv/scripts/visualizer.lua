@@ -1,3 +1,5 @@
+-- forked from: https://raw.githubusercontent.com/mfcc64/mpv-scripts/refs/heads/master/visualizer.lua
+-- #
 -- various audio visualization
 
 local opts = {
@@ -8,6 +10,7 @@ local opts = {
     -- force            always enable visualization
 
     name = "showcqt",
+    --name = "showspectrum",
     -- off
     -- showcqt
     -- avectorscope
@@ -16,14 +19,17 @@ local opts = {
     -- showwaves
     -- showvolume
 
-    quality = "medium",
+    --quality = "medium",
+    quality = "veryhigh",
     -- verylow
     -- low
     -- medium
     -- high
     -- veryhigh
 
-    height = 6,
+    --height = 6,
+    height = 9,
+    --height = 12,
     -- [4 .. 12]
 
     forcewindow = true,
@@ -183,9 +189,16 @@ local function get_visualizer(name, quality, vtrack)
                 "sono_g         = 4:" ..
                 "bar_v          = 9:" ..
                 "sono_v         = 17:" ..
-                "axisfile       = data\\\\:'" .. axis_0 .. "':" ..
-                "font           = 'Nimbus Mono L,Courier New,mono|bold':" ..
-                "fontcolor      = 'st(0, (midi(f)-53.5)/12); st(1, 0.5 - 0.5 * cos(PI*ld(0))); r(1-ld(1)) + b(ld(1))':" ..
+                --"axisfile       = data\\\\:'" .. axis_0 .. "':" ..
+                --"font           = 'Nimbus Mono L,Courier New,mono|bold':" ..
+                --"font           = 'Fantasque Sans Mono':" ..
+                "font           = 'Fantasque Sans Mono,Nimbus Mono L,Courier New,mono|bold':" ..
+                --"font           = 'VCR OSD Mono,Fantasque Sans Mono,Nimbus Mono L,Courier New,mono|bold':" ..
+                --"fontcolor      = 'st(0, (midi(f)-53.5)/12); st(1, 0.5 - 0.5 * cos(PI*ld(0))); r(1-ld(1)) + b(ld(1))':" ..
+--"fontcolor      = 'r(0.8)+g(0.3)+b(0.4)':" ..
+"fontcolor      = 'r(0.74)+g(0.141)+b(0.39)':" ..
+                --"cscheme        = 0.1|0.0|0.0|1.0|0.5|0.0 :" ..
+                "cscheme        = 0.0|0.0|0.1|0.8|0.2|1.0 :" ..
                 "tc             = 0.33:" ..
                 "attack         = 0.033:" ..
                 "tlength        = 'st(0,0.17); 384*tc / (384 / ld(0) + tc*f /(1-ld(0))) + 384*tc / (tc*f / ld(0) + 384 /(1-ld(0)))'," ..
@@ -206,6 +219,11 @@ local function get_visualizer(name, quality, vtrack)
         return "[aid1] asplit [ao]," ..
             "showspectrum       =" ..
                 "size           =" .. w .. "x" .. h .. ":" ..
+                "fscale         = log :" ..
+                --"color          = magma :" ..
+                --"color          = plasma :" ..
+                "color          = viridis :" ..
+                --"color          = fiery :" ..
                 "win_func       = blackman [vo]"
 
 
