@@ -8,7 +8,15 @@ snippet pd "pylint: disable=SMTH"
  # pylint: disable=${1}$0
 endsnippet
 
-snippet ti "type: ignore[SMTH]"
+#snippet ti "type: ignore[SMTH]"
+# # type: ignore[${1}]$0
+#endsnippet
+
+snippet ti "type: ignore"
+ # type: ignore${1}$0
+endsnippet
+
+snippet ti[ "type: ignore[SMTH]"
  # type: ignore[${1}]$0
 endsnippet
 
