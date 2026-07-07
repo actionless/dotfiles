@@ -1,12 +1,21 @@
 #!/bin/bash
 set -ueo pipefail
 
+#set -x
+#echo "$0" "$@"
+
 listen_on_interface=easyeffects_sink:playback
-app_name="carla ~/switch_multicomp.carxp"
-zam_in="ZaMultiCompX2:Audio Input"
-zam_out="ZaMultiCompX2:Audio Output"
-record_from_interface=alsa_input.usb-Loud_Technologies_Inc._Onyx_Blackjack-00.analog-stereo:capture
+
+record_from_interface=alsa_input.usb-Loud_Technologies_Inc._Onyx_Blackjack-00.analog-stereo
+record_from_interface_channel_prefix="${record_from_interface}:capture"
+
 force_quantum=1024
+
+app_name="carla ~/switch_multicomp.carxp"
+
+fx_in_channel_prefix="ZaMultiCompX2:Audio Input"
+fx_out_channel_prefix="ZaMultiCompX2:Audio Output"
+
 arg="${1:-}"
 
 if [[ "$arg" = "-h" ]] ; then
@@ -23,9 +32,9 @@ fi
 for channel in FL/1 FR/2 ; do
 	channel_card=$(cut -d/ -f1 <<< "$channel")
 	channel_zam=$(cut -d/ -f2 <<< "$channel")
-	record_from_channel="${record_from_interface}_${channel_card}"
-	fx_in_channel="${zam_in} ${channel_zam}"
-	fx_out_channel="${zam_out} ${channel_zam}"
+	record_from_channel="${record_from_interface_channel_prefix}_${channel_card}"
+	fx_in_channel="${fx_in_channel_prefix} ${channel_zam}"
+	fx_out_channel="${fx_out_channel_prefix} ${channel_zam}"
 	listen_on_channel="${listen_on_interface}_${channel_card}"
 	if [[ "$arg" = "-d" ]] ; then
 		pw-link --disconnect "$record_from_channel" "$fx_in_channel" || true
