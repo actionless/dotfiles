@@ -7,8 +7,8 @@ shift
 dirname=$(dirname -- "$input_file")
 filename=$(basename -- "$input_file")
 basename="${filename%.*}"
-output_filedir="${1:-${dirname}/${basename}.x2/}"
+output_filedir="${1:-${dirname}/${basename}.x4/}"
 
-OUTPUT_IS_DIR=1 SKIP_X4=1 ffmpeg_smoothen "$input_file" "$@"
+OUTPUT_IS_DIR=1 SKIP_X4=0 ffmpeg_smoothen "$input_file" "$@"
 BITRATE=161670000 ffmpeg_imgdir_to_video "$output_filedir"
 rm -fr "$output_filedir"
