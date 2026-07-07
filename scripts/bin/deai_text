@@ -29,6 +29,8 @@ replace_rare_characters() {
 		-e 's/–/-/g' \
 		-e 's/—/ - /g' \
 		-e 's/  -  / - /g' \
+		-e 's/«/"/g' \
+		-e 's/»/"/g' \
 	<<< "$@"
 }
 
