@@ -23,8 +23,9 @@ if [[ "$arg" = "-h" ]] ; then
 	exit 0
 fi
 
-
 if [[ "$arg" != "-d" ]] ; then
+	pactl set-source-mute "$record_from_interface" 0
+
 	pw-metadata -n settings 0 clock.force-quantum "$force_quantum"
 	pgrep -f "$app_name" || ( ($app_name & echo $! > /tmp/monitoring_pipewire_easyeffects_blackjack_carla.pid) && sleep 5)
 fi
@@ -46,6 +47,8 @@ for channel in FL/1 FR/2 ; do
 done
 
 if [[ "$arg" = "-d" ]] ; then
+	pactl set-source-mute "$record_from_interface" 1
+
 	kill "$(cat /tmp/monitoring_pipewire_easyeffects_blackjack_carla.pid)"
 	rm /tmp/monitoring_pipewire_easyeffects_blackjack_carla.pid
 	pw-metadata -n settings 0 clock.force-quantum 0
