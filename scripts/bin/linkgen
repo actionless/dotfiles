@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+usage() {
+    echo "Usage: $(basename "$0") TARGET [LINK_NAME]"
+    exit 1
+}
+
+[[ $# -lt 1 || $# -gt 2 ]] && usage
+
+#TARGET="$(realpath "$1")"
+TARGET="$1"
+
+if [[ ! -d "$TARGET" ]]; then
+    echo "Error: '$TARGET' is not a directory."
+    exit 1
+fi
+
+if [[ $# -eq 2 ]]; then
+    NAME="$2"
+else
+    NAME="$(basename "$TARGET")"
+fi
+
+OUTPUT="${NAME}_shortcut.sh"
+
+if [[ -f "$OUTPUT" ]] ; then
+	echo "$OUTPUT - already exists"
+	exit 1
+fi
+
+cat > "$OUTPUT" <<EOF
+#!/usr/bin/env bash
+
+TARGET="$TARGET"
+
+if [[ -t 0 && -t 1 ]]; then
+    cd "\$TARGET" || exit 1
+    exec "\${SHELL:-/bin/sh}"
+else
+    if command -v nemo >/dev/null 2>&1; then
+        exec nemo "\$TARGET"
+    else
+        exec xdg-open "\$TARGET"
+    fi
+fi
+EOF
+
+chmod +x "$OUTPUT"
+
+echo "Created: $OUTPUT"

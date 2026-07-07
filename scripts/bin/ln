@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+#output="$(command ln "$@" 2>&1)"
+output="$(/usr/bin/ln "$@" 2>&1)"
+status=$?
+
+printf '%s\n' "$output" >&2
+
+if [ $status -eq 0 ]; then
+    exit 0
+fi
+
+case "$output" in
+    *"Function not implemented"*|*"Operation not supported"*)
+        linkgen "$2" "$3"
+        ;;
+    *)
+        exit $status
+        ;;
+esac
