@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
 
-DEVICE="${1:-SINO WEALTH}"
+DEVICE="${1:--l}"
 
-sudo sh -c '
- for e in /dev/input/event*; do
-   n=$(cat /sys/class/input/${e##*/}/device/name 2>/dev/null || echo "")
-   case "$n" in
-     *"'"$DEVICE"'"*)
-       evtest "$e" | sed -u "s/^/[${n} ${e##*/}] /" &
-     ;;
-   esac
- done
- wait'
+if [[ "$DEVICE" = "-l" ]] ; then
+	echo "Usage: $(basename "$0") [DEVICE]"
+	echo
+	echo "DEVICEs:"
+	cat /sys/class/input/*/device/name | sort -u
+else
+	sudo sh -c '
+	 for e in /dev/input/event*; do
+	   n=$(cat /sys/class/input/${e##*/}/device/name 2>/dev/null || echo "")
+	   case "$n" in
+		 *"'"$DEVICE"'"*)
+		   evtest "$e" | sed -u "s/^/[${n} ${e##*/}] /" &
+		 ;;
+	   esac
+	 done
+	 wait'
+fi
