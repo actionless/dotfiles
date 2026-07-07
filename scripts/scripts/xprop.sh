@@ -19,6 +19,7 @@ if hash awesome-client >/dev/null; then
         for _,p in pairs({
 			"border_width", "type", "border_color", "urgent",
 			"window", "floating", "class", "instance", "role", "name", "width", "height",
+			"maximized", "size_hints_honor",
 		}) do
           r = r .. p .. ": " .. inspect(c[p]) .. "\n"
         end
