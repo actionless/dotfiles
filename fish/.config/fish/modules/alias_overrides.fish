@@ -96,6 +96,14 @@ function lrt --wraps='eza'
 	ll --reverse --sort modified $argv
 end
 
+function lst --wraps='eza'
+	l --sort modified $argv
+end
+
+function lsrt --wraps='eza'
+	l --reverse --sort modified $argv
+end
+
 abbr -a lrth "lrt | head"
 
 # LS END
