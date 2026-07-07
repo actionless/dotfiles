@@ -1,0 +1,2 @@
+#!/usr/bin/env fish
+gpu-screen-recorder -w (xwininfo | grep -i 'Window id' | cut -d' ' -f4) -f 30 -a (pactl get-default-sink).monitor -o $argv
