@@ -8,7 +8,8 @@ if [[ -z "${1:-}" || "$1" = "-h" ]] ; then
 	exit 0
 fi
 
-FILEPATH="$1"
+
+FILEPATH="$(readlink -e "$1")"
 shift
 
 LIMIT="${1:-}"  # hours
