@@ -3,8 +3,11 @@ set -ueo pipefail
 
 
 if [[ -z "${1:-}" || "$1" = "-h" ]] ; then
-	echo "$0 FILEPATH [LIMIT]	- upload to 0x0.st for LIMIT hours"
+	echo "$0 FILEPATH [LIMIT]	- upload to 0x0.st"
+	echo "$0 FILEPATH     	- upload to 0x0.st for 30 dys"
+	echo "$0 FILEPATH LIMIT	- upload to 0x0.st for LIMIT hours"
 	echo "$0 FILEPATH -k	- upload to keep.sh for 24 hours"
+	echo "$0 FILEPATH -t	- upload to temp.sh for 3 days"
 	exit 0
 fi
 
@@ -20,6 +23,10 @@ if [[ "$LIMIT" = "-k" ]] ; then
 	curl \
 		--upload-file "$FILEPATH" \
 		https://free.keep.sh
+elif [[ "$LIMIT" = "-t" ]] ; then
+	echo ":: Limit is 512 MB and 3 days"
+	set -x
+	curl -F "file=@$FILEPATH" https://temp.sh/upload
 elif [[ -n "$LIMIT" ]] ; then
 	echo ":: Limit is 512 MB and ${LIMIT} hours"
 	curl \
