@@ -1,2 +1,4 @@
 #!/bin/sh
-VST_PATH=/dev/null /usr/bin/kdenlive "$@"
+#VST_PATH=/dev/null /usr/bin/kdenlive "$@"
+XDG_CURRENT_DESKTOP='' VST_PATH=/dev/null /usr/bin/kdenlive "$@"
+#VST_PATH=/dev/null /home/lie/kdenlive-local/squashfs-root/AppRun "$@"
