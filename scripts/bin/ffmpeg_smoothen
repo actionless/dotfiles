@@ -25,11 +25,20 @@ fi
 fps="${1:-30}"
 shift || true
 
-output_file_x4="${1:-${dirname}/${basename}.x4.${extension}}"
-shift || true
+if [[ "${OUTPUT_IS_DIR:-0}" = 0 ]] ; then
+	output_file_x4="${1:-${dirname}/${basename}.x4.${extension}}"
+	shift || true
 
-output_file_x2="${1:-${dirname}/${basename}.x2.${extension}}"
-shift || true
+	output_file_x2="${1:-${dirname}/${basename}.x2.${extension}}"
+	shift || true
+else
+	output_file_x4="${1:-${dirname}/${basename}.x4/}"
+	shift || true
+
+	output_file_x2="${1:-${dirname}/${basename}.x2/}"
+	shift || true
+fi
+
 
 slowdown="${SLOWDOWN:-1}"
 slowdown="${1:-$slowdown}"
@@ -42,8 +51,12 @@ if [[ -f "$output_file_x2" && -f "$output_file_x4" ]] ; then
 fi
 
 filename=$(basename -- "$output_file_x2")
-output_x2_extension="${filename##*.}"
-tmp_x2="${input_file}.x2_tmp.${output_x2_extension}"
+if [[ "${OUTPUT_IS_DIR:-0}" = 0 ]] ; then
+	output_x2_extension="${filename##*.}"
+	tmp_x2="${input_file}.x2_tmp.${output_x2_extension}"
+else
+	tmp_x2="${input_file}.x2_tmp/"
+fi
 cd ~/ai/mmediting
 ./video_interpolation.sh "$input_file" "$tmp_x2"
 
@@ -67,8 +80,12 @@ else
 		fi
 	else
 		filename=$(basename -- "$output_file_x4")
-		output_x4_extension="${filename##*.}"
-		tmp_x4="${input_file}.x4_tmp.${output_x4_extension}"
+		if [[ "${OUTPUT_IS_DIR:-0}" = 0 ]] ; then
+			output_x4_extension="${filename##*.}"
+			tmp_x4="${input_file}.x4_tmp.${output_x4_extension}"
+		else
+			tmp_x4="${input_file}.x4_tmp/"
+		fi
 		./video_interpolation.sh "$tmp_x2" "$tmp_x4"
 		if [[ ! -f "$output_file_x2" ]] ; then
 			mv "$tmp_x2" "$output_file_x2"
