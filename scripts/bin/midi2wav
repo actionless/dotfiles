@@ -18,4 +18,5 @@ fi
 #fluidsynth "$font" "$input" -F "$output"
 final_output_name="$(basename -s .wav "$output")_$(basename -s .sf2 "$font").$(basename "$(echo "$output" | tr . /)")"
 echo "$final_output_name"
-fluidsynth "$font" "$input" -F "$final_output_name"
+set -x
+fluidsynth -F"$final_output_name" "$font" "$input"
