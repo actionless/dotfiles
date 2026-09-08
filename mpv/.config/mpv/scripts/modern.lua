@@ -51,6 +51,10 @@ local user_opts = {
     -- compat with default mpv osc:
     deadzonesize=0.67,
     tooltipborder=0.5,
+
+    -- seek size:
+    seek_default=5,
+    seek_alt=60,
 }
 
 -- Localization
@@ -1324,12 +1328,12 @@ function osc_init()
     ne.content = buttons.jumpback
     ne.eventresponder['mbtn_left_down'] =
         --function () mp.command('seek -5') end
-        function () mp.commandv('seek', -5, 'relative', 'keyframes') end
+        function () mp.commandv('seek', -user_opts.seek_default, 'relative', 'keyframes') end
     ne.eventresponder['shift+mbtn_left_down'] =
         function () mp.commandv('frame-back-step') end
     ne.eventresponder['mbtn_right_down'] =
         --function () mp.command('seek -60') end
-        function () mp.commandv('seek', -60, 'relative', 'keyframes') end
+        function () mp.commandv('seek', -user_opts.seek_alt, 'relative', 'keyframes') end
 
     --skipfrwd
     ne = new_element('skipfrwd', 'button')
@@ -1338,12 +1342,12 @@ function osc_init()
     ne.content = buttons.fastforward
     ne.eventresponder['mbtn_left_down'] =
         --function () mp.command('seek +5') end
-        function () mp.commandv('seek', 5, 'relative', 'keyframes') end
+        function () mp.commandv('seek', user_opts.seek_default, 'relative', 'keyframes') end
     ne.eventresponder['shift+mbtn_left_down'] =
         function () mp.commandv('frame-step') end
     ne.eventresponder['mbtn_right_down'] =
         --function () mp.command('seek +60') end
-        function () mp.commandv('seek', 60, 'relative', 'keyframes') end
+        function () mp.commandv('seek', user_opts.seek_alt, 'relative', 'keyframes') end
 
     --
     update_tracklist()
