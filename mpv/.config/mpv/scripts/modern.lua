@@ -58,6 +58,7 @@ local user_opts = {
 
     -- extra buttons:
     button_screenshot = true,
+    button_frameseek = true,
 }
 
 -- Localization
@@ -116,6 +117,8 @@ local button_themes = {
     next = '>>',
     jumpback = '<',
     fastforward = '>',
+    frameback = '<.',
+    frameforward = '.>',
 
     audio = 'A',
     subtitles = 'S',
@@ -144,6 +147,8 @@ local button_themes = {
     next = '>>',
     jumpback = '<',
     fastforward = '>',
+    frameback = '<.',
+    frameforward = '.>',
 
     audio = '🗣️',
     --subtitles = '📜',
@@ -1173,6 +1178,17 @@ layouts = function ()
     lo.style = osc_styles.Ctrl2
 
 
+    if user_opts.button_frameseek then
+      lo = add_layout('frameback')
+      lo.geometry = {x = refX - 180, y = refY - 40 , an = 5, w = 30, h = 24}
+      lo.style = osc_styles.Ctrl2
+
+      lo = add_layout('framefrwd')
+      lo.geometry = {x = refX + 180, y = refY - 40 , an = 5, w = 30, h = 24}
+      lo.style = osc_styles.Ctrl2
+    end
+
+
     -- Time
     lo = add_layout('tc_left')
     lo.geometry = {x = 25, y = refY - 84, an = 7, w = 64, h = 20}
@@ -1353,6 +1369,23 @@ function osc_init()
     ne.eventresponder['mbtn_right_down'] =
         --function () mp.command('seek +60') end
         function () mp.commandv('seek', user_opts.seek_alt, 'relative', 'keyframes') end
+
+    if user_opts.button_frameseek then
+      --frameback
+      ne = new_element('frameback', 'button')
+      ne.softrepeat = true
+      ne.content = buttons.frameback
+      ne.eventresponder['mbtn_left_down'] =
+          function () mp.commandv('frame-back-step') end
+
+      --framefrwd
+      ne = new_element('framefrwd', 'button')
+      ne.softrepeat = true
+      ne.content = buttons.frameforward
+      ne.eventresponder['mbtn_left_down'] =
+          function () mp.commandv('frame-step') end
+    end
+
 
     --
     update_tracklist()
