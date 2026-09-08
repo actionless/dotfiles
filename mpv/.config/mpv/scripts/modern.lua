@@ -117,6 +117,7 @@ local button_themes = {
     fullscreen_on = 'F',
     fullscreen_off = 'F',
     info = 'i',
+    screenshot = 'ss',
   },
   emoji = {
     audio = '🗣️',
@@ -127,6 +128,7 @@ local button_themes = {
     fullscreen_on = '📺️',
     fullscreen_off = '📺️',
     info = 'ℹ️',
+    screenshot = '📷️',
   },
   mixed = {
     play = '||',
@@ -144,6 +146,7 @@ local button_themes = {
     fullscreen_on = '📺️',
     fullscreen_off = '📺️',
     info = 'ℹ️',
+    screenshot = '📷️',
   },
 }
 
@@ -1198,6 +1201,11 @@ layouts = function ()
     lo.style = osc_styles.Ctrl3
     lo.visible = (osc_param.playresx >= 600)
 
+    lo = add_layout('screenshot')
+    lo.geometry = {x = osc_geo.w - 137, y = refY - 40, an = 5, w = 24, h = 24}
+    lo.style = osc_styles.Ctrl3
+    lo.visible = (osc_param.playresx >= 660)
+
     geo = { x = 25, y = refY - 132, an = 1, w = osc_geo.w - 50, h = 48 }
     lo = add_layout('title')
     lo.geometry = geo
@@ -1433,6 +1441,15 @@ function osc_init()
     ne.visible = (osc_param.playresx >= 600)
     ne.eventresponder['mbtn_left_up'] =
         function () mp.commandv('script-binding', 'stats/display-stats-toggle') end
+
+    --screenshot
+    ne = new_element('screenshot', 'button')
+    ne.content = buttons.screenshot
+    ne.visible = (osc_param.playresx >= 660)
+    ne.eventresponder['mbtn_left_up'] =
+        function ()
+          mp.commandv("osd-auto", "screenshot")
+        end
 
     -- title
     ne = new_element('title', 'button')
