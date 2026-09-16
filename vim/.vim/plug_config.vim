@@ -9,15 +9,7 @@ Plug 'actionless/simple-menu.vim'
 Plug 'sgur/vim-editorconfig'
 "Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
-let g:NERDDefaultAlign = 'left'
-
-Plug 'aklt/plantuml-syntax', {'for': ['plantuml']}
-Plug 'junegunn/vader.vim', {'for': 'vader'}
-
-Plug 'tpope/vim-speeddating', {'for': 'org'}
-"Plug 'tpope/vim-speeddating'
-Plug 'jceb/vim-orgmode', {'for': 'org'}
-
+	let g:NERDDefaultAlign = 'left'
 Plug 'vim/killersheep', {'on': 'KillKillKill'}
 
 
@@ -97,6 +89,20 @@ Plug 'groenewege/vim-less', {'for': 'less'}
 Plug 'godlygeek/tabular', {'for': 'markdown'}
 Plug 'preservim/vim-markdown', {'for': 'markdown'}
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OrgMode:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'tpope/vim-speeddating', {'for': 'org'}
+"Plug 'tpope/vim-speeddating'
+Plug 'jceb/vim-orgmode', {'for': 'org'}
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Misc Filetypes:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'aklt/plantuml-syntax', {'for': ['plantuml']}
+Plug 'junegunn/vader.vim', {'for': 'vader'}
+
 
 
 
@@ -175,7 +181,6 @@ inoremap <silent><expr> <TAB>
   \ <SID>check_back_space() ? "\<TAB>" :
   \ asyncomplete#force_refresh()
 
-
 "inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <TAB>
   \ pumvisible() ? "\<C-n>" :
@@ -191,7 +196,6 @@ let g:asyncomplete_auto_completeopt = 0
 
 set completeopt=menuone,noinsert,noselect,preview
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
-
 
 "\	 'python': ['flake8', 'mypy', 'pylint', 'pylsp', 'vulture'],
 "\	 'python': ['ruff', 'pylsp'],
@@ -210,6 +214,7 @@ let g:ale_python_pylint_change_directory = 0
 "let g:ale_python_mypy_options = ' --ignore-missing-imports '
 "let g:ale_python_vulture_options = ' ./maintenance_scripts/vulture_whitelist.py '
 "let g:ale_python_ruff_options = ' --config pyproject.toml '
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
