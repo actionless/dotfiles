@@ -8,7 +8,7 @@ Plug 'actionless/simple-menu.vim'
 "Plug 'editorconfig/editorconfig-vim'
 Plug 'sgur/vim-editorconfig'
 "Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 	let g:NERDDefaultAlign = 'left'
 Plug 'vim/killersheep', {'on': 'KillKillKill'}
 
