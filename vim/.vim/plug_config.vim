@@ -10,6 +10,8 @@ Plug 'sgur/vim-editorconfig'
 "Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdcommenter'
 	let g:NERDDefaultAlign = 'left'
+	"let g:NERDCustomDelimiters = { 'lovelist': { 'left': '# ','right': '' } }
+	let g:NERDCustomDelimiters = { 'lovelist': { 'left': 'X','right': '' } }
 Plug 'vim/killersheep', {'on': 'KillKillKill'}
 
 
