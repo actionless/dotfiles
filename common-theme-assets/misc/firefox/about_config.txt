@@ -37,3 +37,6 @@ pref('gfx.x11-egl.force-disabled', false);
 media.rdd-ffmpeg.enabled = true
 media.av1.enabled = false
 widget.dmabuf.force-enabled = true
+
+# enable reject-service-worker addon:
+extensions.serviceWorkerRegister.allowed = true
